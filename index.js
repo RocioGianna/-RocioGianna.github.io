@@ -1,5 +1,6 @@
 //document.getElementById("btnC").addEventListener("click", cargarImagen);
 document.getElementById("limpiar").addEventListener("click", limpiarCanvas);
+document.getElementById("lapiz").addEventListener("click", dibujar);
 
 let c = document.getElementById("canvas");
 let ctx = c.getContext("2d");
@@ -10,42 +11,38 @@ let posX = 0;
 let posY = 0;
 let flag = false;
 
-document.addEventListener("mousedown", function(e){
-    flag = true;
-    posX = e.clientX - dist.left;
-    posY = e.clientY - dist.top;
-});
-document.addEventListener("mousemove", function(e){
-    if(flag == true){
-        draw(posX, posY, e.clientX - dist.left, e.clientY - dist.top);
-        
-    }
-})
-document.addEventListener("mouseup", setFinalPosition);
+function dibujar(){
+    c.addEventListener("mousedown", function(e){
+        flag = true;
+        posX = e.clientX - dist.left;
+        posY = e.clientY - dist.top;
+    });
+    document.addEventListener("mousemove", function(e){
+        if(flag == true){
+            draw(posX, posY, e.clientX - dist.left, e.clientY - dist.top);
+            posX = e.clientX - dist.left;
+            posY =  e.clientY - dist.top;
+        }
+    })
+    document.addEventListener("mouseup", function(e){
+        if(flag == true){
+            draw(posX, posY, e.clientX - dist.left, e.clientY - dist.top);
+            posX = 0;
+            posY = 0;
+            flag = false;
+        }
+    });
 
-
-function draw(e){
-    flag = true;
-    if(flag){
-        console.log(e);
+    function draw(posX, posY, x, y){
         ctx.beginPath();
         ctx.moveTo(posX, posY);
-        setPosition(e);
-        ctx.lineTo(posX, posY);
+        ctx.lineTo(x, y);
         ctx.stroke();
+        ctx.closePath();   
     }
-    
-    
 }
-function setFinalPosition(e){
-    flag = false;
-    posX = e.clientX ;
-    posY = e.clientY ;
-}
-function setPosition(e){
-    posX = e.clientX - c.offsetLeft;
-    posY = e.clientY - c.offsetTop;
-}
+
+
 
 
 //function cargarImagen(){
