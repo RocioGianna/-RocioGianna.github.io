@@ -14,7 +14,7 @@
     let imageData;
 
    let imagen = new Image();
-    imagen.src = "asdas.jpg";
+    imagen.src = "img/asdas.jpg";
     
 
     imagen.onload = function(){
