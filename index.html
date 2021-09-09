@@ -4,19 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    <button id="lapiz">dibujar</button>
-    <button>borrar</button>
-    <button id="limpiar">limpiar</button>
+    <ul class="nav">
+        <li class="nav-item">
+            <button id="lapiz">dibujar</button>
+        </li>
+        <li class="nav-item">
+            <input id="color" type="color">
+        </li>
+        <li class="nav-item">
+            <button id="goma">borrar</button>
+        </li>
+        <li class="nav-item">
+            <button id="limpiar">limpiar canvas</button>
+        </li>
+      </ul>
+        <select  id="filtros">
+            <option value="negativo">Negativo</option>
+            <option value="sepia">Sepia</option>
+            <option value="bi">Binarizacion</option>
+            <option value=""></option>
+            <option value=""></option>
+        </select>
+    <div>
+        <input id="file" type="file">
+        <button id="btnC">cargar</button>
+    </div>
+    <input id="tamanio" class="form-range" type="range">
 
-
-    <canvas id="canvas" width="300" height="300" style="border:1px solid #d3d3d3;"></canvas>
-    <input id="file" type="file">
-    <button id="btnC">cargar</button>
-
-    
+    <canvas id="canvas" width="1000" height="1000" style="border:1px solid #d3d3d3;"></canvas>
+       
     <script src="index.js"></script>
 </body>
 </html>

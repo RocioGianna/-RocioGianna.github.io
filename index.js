@@ -1,46 +1,69 @@
+
 //document.getElementById("btnC").addEventListener("click", cargarImagen);
 document.getElementById("limpiar").addEventListener("click", limpiarCanvas);
-document.getElementById("lapiz").addEventListener("click", dibujar);
+let lapiz = document.getElementById("lapiz");
+lapiz.addEventListener("click", coordenadas);
+let goma = document.getElementById("goma");
+goma.addEventListener("click", coordenadas);
 
 let c = document.getElementById("canvas");
 let ctx = c.getContext("2d");
 let dist = c.getBoundingClientRect();
 
-
 let posX = 0;
 let posY = 0;
+let color;
 let flag = false;
 
-function dibujar(){
+function coordenadas(){
+    let obj = this.id;
+
+    console.log("linea 18 " + obj)
     c.addEventListener("mousedown", function(e){
+        elegirColor(obj);
         flag = true;
         posX = e.clientX - dist.left;
         posY = e.clientY - dist.top;
     });
-    document.addEventListener("mousemove", function(e){
+    c.addEventListener("mousemove", function(e){
         if(flag == true){
+            elegirColor(obj);
             draw(posX, posY, e.clientX - dist.left, e.clientY - dist.top);
             posX = e.clientX - dist.left;
             posY =  e.clientY - dist.top;
         }
     })
-    document.addEventListener("mouseup", function(e){
-        if(flag == true){
-            draw(posX, posY, e.clientX - dist.left, e.clientY - dist.top);
-            posX = 0;
-            posY = 0;
-            flag = false;
-        }
+    c.addEventListener("mouseup", function(e){
+        flag = false;
     });
-
-    function draw(posX, posY, x, y){
-        ctx.beginPath();
-        ctx.moveTo(posX, posY);
-        ctx.lineTo(x, y);
-        ctx.stroke();
-        ctx.closePath();   
-    }
 }
+function elegirColor(obj){
+    console.log("linea 39 " + obj)
+    if(obj == "lapiz"){
+        let c = document.getElementById('color').value;
+        setColor(c);
+    }else{
+        setColor('#FFFFFF');
+    }    
+}
+
+function setColor(col){
+    color = col;
+}
+function getColor(){
+    return color;
+}
+function draw(posX, posY, x, y){
+    ctx.beginPath();
+    ctx.strokeStyle = getColor();
+    ctx.lineWidth = document.getElementById("tamanio").value;
+    ctx.lineCap = "round";
+    ctx.moveTo(posX, posY);
+    ctx.lineTo(x, y);
+    ctx.stroke();
+    ctx.closePath();   
+}
+
 
 
 
@@ -58,6 +81,12 @@ function dibujar(){
     imagen.src = "insta.jpg";
 
     imagen.onload = function(){
+        
+        document.getElementById("filtros").addEventListener("change", fil);
+        function fil(){
+            return document.getElementById("filtros").value;
+        }
+       
 
         myDrawImageMethod(this);
         imageData = ctx.getImageData(0,0,this.width, this.height);
@@ -65,7 +94,7 @@ function dibujar(){
         //filtroBinarizacion(data);
         //filtroInvertido(data);
         //filtroGris(data);
-        ctx.putImageData(imageData, 0, 0);
+        ctx.putImageData(imageData, 0,0);
     }
 //}
 
