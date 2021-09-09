@@ -2,60 +2,69 @@
 //document.getElementById("btnC").addEventListener("click", cargarImagen);
 document.getElementById("limpiar").addEventListener("click", limpiarCanvas);
 let lapiz = document.getElementById("lapiz");
-lapiz.addEventListener("click", coordenadas);
 let goma = document.getElementById("goma");
+let posX = 0;
+let posY = 0;
+let color;
+let estaDibujando = false;
+let estaBorrando = false;
+
 goma.addEventListener("click", coordenadas);
+lapiz.addEventListener("click", coordenadas);
 
 let c = document.getElementById("canvas");
 let ctx = c.getContext("2d");
 let dist = c.getBoundingClientRect();
 
-let posX = 0;
-let posY = 0;
-let color;
-let flag = false;
-
 function coordenadas(){
     let obj = this.id;
 
-    console.log("linea 18 " + obj)
-    c.addEventListener("mousedown", function(e){
-        elegirColor(obj);
-        flag = true;
-        posX = e.clientX - dist.left;
-        posY = e.clientY - dist.top;
-    });
-    c.addEventListener("mousemove", function(e){
-        if(flag == true){
-            elegirColor(obj);
-            draw(posX, posY, e.clientX - dist.left, e.clientY - dist.top);
-            posX = e.clientX - dist.left;
-            posY =  e.clientY - dist.top;
-        }
-    })
-    c.addEventListener("mouseup", function(e){
-        flag = false;
-    });
-}
-function elegirColor(obj){
-    console.log("linea 39 " + obj)
     if(obj == "lapiz"){
-        let c = document.getElementById('color').value;
-        setColor(c);
+        ctx.strokeStyle = document.getElementById('color').value;//seteo color
+        c.addEventListener("mousedown", function(e){
+            estaDibujando = true;
+            estaBorrando = false;
+            posX = e.clientX - dist.left;
+            posY = e.clientY - dist.top;
+        });
+        c.addEventListener("mousemove", function(e){
+            if(estaDibujando == true){
+                ctx.strokeStyle = document.getElementById('color').value;//seteo color
+                draw(posX, posY, e.clientX - dist.left, e.clientY - dist.top);
+                posX = e.clientX - dist.left;
+                posY =  e.clientY - dist.top;
+           
+            }
+        });
+        c.addEventListener("mouseup", function(e){
+            estaDibujando = false;
+        });
     }else{
-        setColor('#FFFFFF');
-    }    
-}
-
-function setColor(col){
-    color = col;
-}
-function getColor(){
-    return color;
+        console.log(obj);
+        ctx.strokeStyle = '#FFFFFF';//seteo color
+        c.addEventListener("mousedown", function(e){
+            estaDibujando = false;
+            estaBorrando = true;
+            posX = e.clientX - dist.left;
+            posY = e.clientY - dist.top;
+        });
+        c.addEventListener("mousemove", function(e){
+            if(estaBorrando == true){
+                console.log(obj);
+                ctx.strokeStyle = '#FFFFFF';//seteo color
+                draw(posX, posY, e.clientX - dist.left, e.clientY - dist.top);
+                posX = e.clientX - dist.left;
+                posY =  e.clientY - dist.top;
+           
+            }
+        });
+        c.addEventListener("mouseup", function(e){
+            estaBorrando = false;
+        });
+    }
 }
 function draw(posX, posY, x, y){
     ctx.beginPath();
-    ctx.strokeStyle = getColor();
     ctx.lineWidth = document.getElementById("tamanio").value;
     ctx.lineCap = "round";
     ctx.moveTo(posX, posY);
@@ -70,21 +79,21 @@ function draw(posX, posY, x, y){
 
 //function cargarImagen(){
 
-   // let imagen = new Image();
-   // imagen.src = file.value;
+    //let imagen = new Image();
+    //imagen.src = file.value;
     //console.log(file.value);
 
 
     let imageData;
 
-    let imagen = new Image();
+   let imagen = new Image();
     imagen.src = "insta.jpg";
 
     imagen.onload = function(){
         
         document.getElementById("filtros").addEventListener("change", fil);
         function fil(){
-            return document.getElementById("filtros").value;
+            console.log( document.getElementById("filtros").value);
         }
        
 
