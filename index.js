@@ -74,6 +74,7 @@ function draw(posX, posY, x, y){
 }
 
 
+///// FILTROS
 
 
 
@@ -88,23 +89,50 @@ function draw(posX, posY, x, y){
 
    let imagen = new Image();
     imagen.src = "insta.jpg";
+    
 
     imagen.onload = function(){
-        
-        document.getElementById("filtros").addEventListener("change", fil);
-        function fil(){
-            console.log( document.getElementById("filtros").value);
-        }
-       
-
         myDrawImageMethod(this);
-        imageData = ctx.getImageData(0,0,this.width, this.height);
-        let data = imageData.data; //imageData.data devuelve un arreglo con los pixeles de la imagen, valores enteros entre 0 y 255
-        //filtroBinarizacion(data);
-        //filtroInvertido(data);
-        //filtroGris(data);
-        ctx.putImageData(imageData, 0,0);
+    imageData = ctx.getImageData(0,0,this.width, this.height);
+    let data = imageData.data; //imageData.data devuelve un arreglo con los pixeles de la imagen, valores enteros entre 0 y 255
+        
+        //document.getElementById("filtros").addEventListener("change", fil);
+               
+        
+        
+            
+        document.getElementById("apply-filter").addEventListener("click", function(e)
+        {
+            let tipoFiltro = document.getElementById("filtros").value;
+            console.log('imprimo', tipoFiltro);
+            switch (tipoFiltro) {
+                case "negativo":              
+                    filtroInvertido(data);
+                break;
+                case "sepia":
+                //Declaraciones ejecutadas cuando el resultado de expresión coincide con el valor2
+                break;
+                case "binarizacion":
+                filtroBinarizacion(data);
+                break;
+                case "blur":
+                //Declaraciones ejecutadas cuando ninguno de los valores coincide con el valor de la expresión
+                break;
+                case "brillo":
+                //Declaraciones ejecutadas cuando el resultado de expresión coincide con valorN
+                    break;
+                case "saturacion":
+                //Declaraciones ejecutadas cuando el resultado de expresión coincide con valorN
+                break;
+                case "ninguno":
+                break;
+            }
+            ctx.putImageData(imageData, 0,0);
+        })
+        
     }
+
+    
 //}
 
 /**
