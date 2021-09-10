@@ -13,8 +13,8 @@
 
     let imageData;
 
-   let imagen = new Image();
-    imagen.src = "img/insta.jpg";
+    let imagen = new Image();
+    imagen.src = "img/prueba.jpg";
     
 
     imagen.onload = function(){
@@ -45,16 +45,18 @@
                     brillo(data);
                     break;
                 case "blur":
-                    //blur(data);
+                    filtroBlur(data, imageData); //pone todos los pixeles en 255
+
+                    //blur(imageData);    //me dice que no encuentra la propiedad 0 de indefinido :|
                     break;                
-               
                 case "saturacion":
-                //Declaraciones ejecutadas cuando el resultado de expresión coincide con valorN
+                    //saturacion();
                 break;
                 case "ninguno":
                 break;
             }
             ctx.putImageData(imageData, 0,0);
+            console.log('dbuja');
         })
         
     }
@@ -123,53 +125,9 @@ function sepia(data) {
 
 };
 
-//document.getElementById("transformar").addEventListener("click", rgb2hsv);
+// RGB A HSV
 
-function brillo(data){
-    console.log('entra a a aplicar brillo');
-    //let porcentaje = Number(document.getElementById("porcentaje").value);
-    let porcentaje = 50;
-    let porc = porcentaje/100;
-    let dataHSV = []; // almacena los valores de data en HSV
-    for ( let i = 0; i < data.length; i+=4 ) {
-        let r = data[ i  ];
-        let g = data[ i + 1 ];
-        let b = data[ i + 2 ];
-        rgb2hsv (r, g, b, dataHSV);
-        //console.log(rgb2hsv(r,g,b));
-        //dataHSV.push(rgb2hsv(r,g,b));
-    }
-    console.log("hav",dataHSV.length + "data", data.length);
-    console.log('sale de pasar de rgb a hsv');
-    // Transformo los valores de RGB a HSV
-    // Aplico porcentaje a los valores de V
-    for ( let i = 0; i < dataHSV.length; i+=4 ) {
-        //console.log("entra?");
-       let b = dataHSV[ i + 2 ];
-       b = b *porc;
-    }
-    // Ahora nuestro dataHSV ya tiene el filtro aplicado
-    // Pasamos de HSV a RGB
-    console.log(data);
-    data = []; // Vaciar arreglo
-    console.log(data);
-    for ( let i = 0; i < dataHSV.length; i+=4 ) {
-        let h = dataHSV[ i  ];
-        let s = dataHSV[ i + 1 ];
-        let b = dataHSV[ i + 2 ];
-
-        hsvToRgb(h, s, b, data);
-    }
-    console.log(data);
-    
-    console.log('sale de pasar de hsv a rbg');
-    
-    // dibujar   
-
-}
-
-function rgb2hsv (r, g, b, dataHSV) {
-    console.log('entra a pasar de rgb a hsv');
+function rgbAHsv (r, g, b, dataHSV) {
     let rabs, gabs, babs, rr, gg, bb, h, s, v, diff, diffc, percentRoundFn;
     rabs = r / 255;
     gabs = g / 255;
@@ -200,59 +158,126 @@ function rgb2hsv (r, g, b, dataHSV) {
         }
     }
 
-    //let j = Math.round(h * 360);
-    //let k = percentRoundFn(s * 100);
-    //let asd = percentRoundFn(v * 100);
-    //console.log('h' + j, 's'+ k, 'v'+ asd);
     h = Math.round(h * 360);
     s = percentRoundFn(s * 100);
     v = percentRoundFn(v * 100);
-    console.log(h,s,v);
-    //return h,s,v;
-    dataHSV.push(h, s, v, 255);     
-   // console.log(dataHSV)  
-    
+    console.log('h :' + h, 's :' + s, 'v :'+ v + 'sin porcentaje');
+    dataHSV.push(h, s, v, 255);    
+   
+}
+// HSV A RGB
+function hsvARgb(h, s, v, data) {
+    var r, g, b;
+    var i;
+    var f, p, q, t;
+     
+    h = Math.max(0, Math.min(360, h));
+    s = Math.max(0, Math.min(100, s));
+    v = Math.max(0, Math.min(100, v));
+
+    s /= 100;
+    v /= 100;
+     
+    if(s == 0) {
+        r = g = b = v;
+        r = Math.round(r * 255); 
+        g = Math.round(g * 255); 
+        b = Math.round(b * 255);
+    }
+     
+    h /= 60; 
+    i = Math.floor(h);
+    f = h - i; 
+    p = v * (1 - s);
+    q = v * (1 - s * f);
+    t = v * (1 - s * (1 - f));
+    switch(i) {
+        case 0:
+            r = v;
+            g = t;
+            b = p;
+            break;
+     
+        case 1:
+            r = q;
+            g = v;
+            b = p;
+            break;
+     
+        case 2:
+            r = p;
+            g = v;
+            b = t;
+            break;
+     
+        case 3:
+            r = p;
+            g = q;
+            b = v;
+            break;
+     
+        case 4:
+            r = t;
+            g = p;
+            b = v;
+            break;
+     
+        default: 
+            r = v;
+            g = p;
+            b = q;
+    }
+     
+    r = Math.round(r * 255); 
+    g = Math.round(g * 255); 
+    b = Math.round(b * 255);
+    //console.log('valores finales de RGB:');
+    console.log('r :' + r, 'g :' + g, 'b :'+ b);
+    data.push(r,g,b, 255);
+
 }
 
-// Elige opción
-// rgb a hsv
-// a ese valor V -> le setteamos un brillo nosotros
-// CONSULTAR: HAY QUE HACERLO ASÍ O QUE EL USUARIO ELIJA EL BRILLO? SERÍA MUY PRO?
-// pasar hsV a RGB
-// dibujar
-function hsvToRgb(h, s, v, data) {
-    console.log('entre a pasar de hsv a rgb');
-    let r, g, b, i, f, p, q, t;
-    if (arguments.length === 1) {
-        s = h.s, v = h.v, h = h.h;
+// BRILLO 
+function brillo(data){
+    let porcentaje = 100/100;
+    let dataHSV = []; // almacena los valores de data en HSV
+    for ( let i = 0; i < data.length; i+=4 ) {
+        let r = data[ i  ];
+        let g = data[ i + 1 ];
+        let b = data[ i + 2 ];
+        rgbAHsv (r, g, b, dataHSV);
     }
-    i = Math.floor(h * 6);
-    f = h * 6 - i;
-    p = v * (1 - s);
-    q = v * (1 - f * s);
-    t = v * (1 - (1 - f) * s);
-  
-    switch (i % 6) {
-      case 0: r = v, g = t, b = p; break;
-      case 1: r = q, g = v, b = p; break;
-      case 2: r = p, g = v, b = t; break;
-      case 3: r = p, g = q, b = v; break;
-      case 4: r = t, g = p, b = v; break;
-      case 5: r = v, g = p, b = q; break;
+    // Transformo los valores de RGB a HSV
+    // Aplico porcentaje a los valores de V
+    for ( let i = 0; i < dataHSV.length; i+=4 ) {
+       dataHSV[ i + 2 ]+= (dataHSV[ i + 2 ] *porcentaje);
+       
     }
-    r = Math.round(r * 255);
-    g = Math.round(g * 255);
-    b = Math.round(b * 255);
-    console.log(r,g,b)
-    data.push(r,g,b, 255);
-  }
+    // Ahora nuestro dataHSV "ya tiene el filtro aplicado"
+    // Pasamos de HSV a RGB
+    data = []; // Vaciar arreglo para ponerle los valores con e filtro aplicado
+    for ( let i = 0; i < dataHSV.length; i+=4 ) {
+        let h = dataHSV[ i  ];
+        let s = dataHSV[ i + 1 ];
+        let v = dataHSV[ i + 2 ];
+        console.log('h :' + h, 's :' + s, 'v :'+ v);
+        hsvARgb(h, s, v, data);
+    }
+    console.log(data);
+    console.log('sale de pasar de hsv a rbg');
+
+}
+
+
+/////////////// BLUR
+
 
 /**
  * 
  * filtros blur "filtroBlur" es como el video de gauss
  * "blur" es siguiendo la forma que dice Javi en el video
  */
- function filtroBlur(data, imageData){
+function filtroBlur(data, imageData){
     let auxPixel = [];
     for(let i = 0; i < data.length; i++){
         auxPixel[i] = data[i];
