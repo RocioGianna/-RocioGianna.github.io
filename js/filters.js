@@ -45,9 +45,9 @@
                     brillo(data);
                     break;
                 case "blur":
-                    //filtroBlur(data, imageData); //pone todos los pixeles en 255
+                    filtroBlur(data, imageData); //pone todos los pixeles en 255
 
-                    blur(imageData);    //me dice que no encuentra la propiedad 0 de indefinido :|
+                    //blur(imageData);    //me dice que no encuentra la propiedad 0 de indefinido :|
                     break;                
                 case "saturacion":
                     //saturacion();
@@ -271,12 +271,14 @@ function filtroBlur(data, imageData){
             + (auxPixel[i - 4] * imageData.width - 4 || auxPixel[i])
             + (auxPixel[i + 4] * imageData.width + 4 || auxPixel[i])
             + (auxPixel[i - 4] * imageData.width + 4 || auxPixel[i])
-            + (auxPixel[i + 4] * imageData.width - 4 || auxPixel[i])) / 9;
+            + (auxPixel[i + 4] * imageData.width - 4 || auxPixel[i])) /9 ;
     }
     console.log(data + " *********************** " + auxPixel)
 }
 function blur(imageData){
     let copia = [];
+    let valor;
+    console.log(imageData.height)
 
    /* for(let x= 0; x < imageData.width; x++){
         copia[x] = [];
@@ -288,16 +290,17 @@ function blur(imageData){
 
     for(let x= 0; x < imageData.width; x++){
         for(let y = 0; y < imageData.height; y++){
-            valor = imageData[(x+1)][y]
-            + imageData[(x-1)][y]
+            valor = imageData[(x+1),y]
+            + imageData[(x-1), y]
             + imageData[x,(y+1)]
             + imageData[x,(y-1)] 
             + imageData[(x+1), (y-1)] 
             + imageData[(x-1), (y-1)]
             + imageData[(x+1), (y+1)]
-            + imageData[(x-1), (y+1)] / 9;  
+            + imageData[(x-1), (y+1)];   
 
-            console.log("valor ",valor) 
+            valor = valor/9;
+            console.log("valor ", valor) 
             setPixel(imageData, x,y, valor);
         }
     }
