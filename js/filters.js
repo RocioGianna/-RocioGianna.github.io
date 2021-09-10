@@ -13,7 +13,7 @@
 
     let imageData;
 
-    let imagen = new Image();
+   let imagen = new Image();
     imagen.src = "img/insta.jpg";
     
 
@@ -45,12 +45,11 @@
                     brillo(data);
                     break;
                 case "blur":
-                    filtroBlur(data, imageData); //pone todos los pixeles en 255
-
-                    //blur(imageData);    //me dice que no encuentra la propiedad 0 de indefinido :|
+                    //blur(data);
                     break;                
+               
                 case "saturacion":
-                    //saturacion();
+                //Declaraciones ejecutadas cuando el resultado de expresión coincide con valorN
                 break;
                 case "ninguno":
                 break;
@@ -224,7 +223,7 @@ function rgb2hsv (r, g, b, dataHSV) {
 function hsvToRgb(h, s, v, data) {
     console.log('entre a pasar de hsv a rgb');
     let r, g, b, i, f, p, q, t;
-    if (h.length === 1 && s.length === 1 && v.length === 1) {
+    if (arguments.length === 1) {
         s = h.s, v = h.v, h = h.h;
     }
     i = Math.floor(h * 6);
@@ -246,16 +245,14 @@ function hsvToRgb(h, s, v, data) {
     b = Math.round(b * 255);
     console.log(r,g,b)
     data.push(r,g,b, 255);
-}
-
-
+  }
 
 /**
  * 
  * filtros blur "filtroBlur" es como el video de gauss
  * "blur" es siguiendo la forma que dice Javi en el video
  */
-function filtroBlur(data, imageData){
+ function filtroBlur(data, imageData){
     let auxPixel = [];
     for(let i = 0; i < data.length; i++){
         auxPixel[i] = data[i];
@@ -313,4 +310,3 @@ function blur(imageData){
     }
 
 }
-
