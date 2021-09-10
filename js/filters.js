@@ -13,7 +13,7 @@
 
     let imageData;
 
-   let imagen = new Image();
+    let imagen = new Image();
     imagen.src = "img/insta.jpg";
     
 
@@ -45,11 +45,12 @@
                     brillo(data);
                     break;
                 case "blur":
-                    //blur(data);
+                    //filtroBlur(data, imageData); //pone todos los pixeles en 255
+
+                    blur(imageData);    //me dice que no encuentra la propiedad 0 de indefinido :|
                     break;                
-               
                 case "saturacion":
-                //Declaraciones ejecutadas cuando el resultado de expresión coincide con valorN
+                    //saturacion();
                 break;
                 case "ninguno":
                 break;
@@ -223,7 +224,7 @@ function rgb2hsv (r, g, b, dataHSV) {
 function hsvToRgb(h, s, v, data) {
     console.log('entre a pasar de hsv a rgb');
     let r, g, b, i, f, p, q, t;
-    if (arguments.length === 1) {
+    if (h.length === 1 && s.length === 1 && v.length === 1) {
         s = h.s, v = h.v, h = h.h;
     }
     i = Math.floor(h * 6);
@@ -245,5 +246,68 @@ function hsvToRgb(h, s, v, data) {
     b = Math.round(b * 255);
     console.log(r,g,b)
     data.push(r,g,b, 255);
-  }
+}
+
+
+
+/**
+ * 
+ * filtros blur "filtroBlur" es como el video de gauss
+ * "blur" es siguiendo la forma que dice Javi en el video
+ */
+function filtroBlur(data, imageData){
+    let auxPixel = [];
+    for(let i = 0; i < data.length; i++){
+        auxPixel[i] = data[i];
+    }
+    console.log(data == auxPixel)
+    for(let i = 0; i < data.length; i++){
+        if(i % 4 === 3){continue;}
+        data[i] = (auxPixel[i] 
+            + (auxPixel[i - 4] || auxPixel[i]) 
+            + (auxPixel[i + 4] || auxPixel[i]) 
+            + (auxPixel[i - 4] * imageData.width || auxPixel[i])
+            + (auxPixel[i + 4] * imageData.width || auxPixel[i])
+            + (auxPixel[i - 4] * imageData.width - 4 || auxPixel[i])
+            + (auxPixel[i + 4] * imageData.width + 4 || auxPixel[i])
+            + (auxPixel[i - 4] * imageData.width + 4 || auxPixel[i])
+            + (auxPixel[i + 4] * imageData.width - 4 || auxPixel[i])) / 9;
+    }
+    console.log(data + " *********************** " + auxPixel)
+}
+function blur(imageData){
+    let copia = [];
+
+   /* for(let x= 0; x < imageData.width; x++){
+        copia[x] = [];
+        for(let y = 0; y < imageData.height; y++){
+            copia[x][y] = imageData[x][y];
+        }
+    }*/
+    
+
+    for(let x= 0; x < imageData.width; x++){
+        for(let y = 0; y < imageData.height; y++){
+            valor = imageData[(x+1)][y]
+            + imageData[(x-1)][y]
+            + imageData[x,(y+1)]
+            + imageData[x,(y-1)] 
+            + imageData[(x+1), (y-1)] 
+            + imageData[(x-1), (y-1)]
+            + imageData[(x+1), (y+1)]
+            + imageData[(x-1), (y+1)] / 9;  
+
+            console.log("valor ",valor) 
+            setPixel(imageData, x,y, valor);
+        }
+    }
+    function setPixel(imageData, x,y, valor){
+        let index = (x + y * imageData.width)* 4;
+        imageData.data[index + 0] = valor;
+        imageData.data[index + 1] = valor;
+        imageData.data[index + 2] = valor;
+        imageData.data[index + 3] = valor;
+    }
+
+}
 
