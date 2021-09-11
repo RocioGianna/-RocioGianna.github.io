@@ -338,74 +338,27 @@ function filtroBlur(data, imageData){
     //////////////////////////////////////////////////////////////////////////////////////////
 
     function blur(imageData){
-        let copia = [];
-        let valor = 0;
-    
-       /* for(let x= 0; x < imageData.width; x++){
-            copia[x] = [];
-            for(let y = 0; y < imageData.height; y++){
-                copia[x][y] = imageData[x][y];
-            }
-        }*/
-    
+
         for(let x = 0; x < imageData.width; x++){
             for(let y = 0; y < imageData.height; y++){
                 setPixel(imageData, x,y);
             }
         }
+        
         function setPixel(imageData, x,y){
             let index;
-            let r,g,b = 0;
-            
-            index = (x + y * imageData.width)* 4; 
-            r= imageData.data[index + 0];
-            g= imageData.data[index + 1];
-            b= imageData.data[index + 2];
-
-            index = ((x - 1) + (y - 1) * imageData.width)* 4;  // si sumo los arregedores del pixel cambiando la x e y en + o - 1, se puede aplicar gauss
-            r= r + imageData.data[index + 0];
-            g= g + imageData.data[index + 1];
-            b= b + imageData.data[index + 2];
-
-            index = ((x - 1) + y * imageData.width)* 4; 
-            r= r + imageData.data[index + 0];
-            g= g + imageData.data[index + 1];
-            b= b + imageData.data[index + 2];
-
-            index = ((x - 1) + (y + 1) * imageData.width)* 4; 
-            r= r + imageData.data[index + 0];
-            g= g + imageData.data[index + 1];
-            b= b + imageData.data[index + 2];
-
-            index = (x + (y - 1) * imageData.width)* 4; 
-            r= r + imageData.data[index + 0];
-            g= g + imageData.data[index + 1];
-            b= b + imageData.data[index + 2];
-
-            index = (x + (y + 1) * imageData.width)* 4; 
-            r= r + imageData.data[index + 0];
-            g= g + imageData.data[index + 1];
-            b= b + imageData.data[index + 2];
-
-            index = ((x + 1) + (y - 1) * imageData.width)* 4; 
-            r= r + imageData.data[index + 0];
-            g= g + imageData.data[index + 1];
-            b= b + imageData.data[index + 2];
-
-            index = ((x + 1) + y * imageData.width)* 4; 
-            r= r + imageData.data[index + 0];
-            g= g + imageData.data[index + 1];
-            b= b + imageData.data[index + 2];
-
-            index = ((x + 1) + (y + 1) * imageData.width)* 4; 
-            r= r + imageData.data[index + 0];
-            g= g + imageData.data[index + 1];
-            b= b + imageData.data[index + 2];
-
+            let r = 0, g = 0, b = 0;
+            for(let i = x - 1; i <= (x + 1); i++){   // si sumo los arregedores del pixel cambiando la x e y en + o - 1, se puede aplicar gauss
+                for(let j = y - 1; j <= (y + 1); j++){
+                    index = (i + j * imageData.width)* 4;
+                    r= r + imageData.data[index + 0];
+                    g= g + imageData.data[index + 1];
+                    b= b + imageData.data[index + 2];
+                }
+            }
             index = (x + y * imageData.width)* 4; 
             imageData.data[index + 0] = r/9;
             imageData.data[index + 1] = g/9;
             imageData.data[index + 2] = b/9;
         }
-    
 }
