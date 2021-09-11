@@ -14,7 +14,7 @@
     let imageData;
 
     let imagen = new Image();
-    imagen.src = "img/prueba.jpg";
+    imagen.src = "img/messi.jpg";
     
 
     imagen.onload = function(){
@@ -45,9 +45,9 @@
                     brillo(data);
                     break;
                 case "blur":
-                    filtroBlur(data, imageData); //pone todos los pixeles en 255
+                    //filtroBlur(data, imageData); //pone todos los pixeles en 255
 
-                    //blur(imageData);    //me dice que no encuentra la propiedad 0 de indefinido :|
+                    blur(imageData);    //me dice que no encuentra la propiedad 0 de indefinido :|
                     break;                
                 case "saturacion":
                     //saturacion();
@@ -283,7 +283,7 @@ function filtroBlur(data, imageData){
         auxPixel[i] = data[i];
     }
     console.log(data == auxPixel)
-    for(let i = 0; i < data.length; i++){
+    for(let i = 0; i < data.length; i+=4){
         if(i % 4 === 3){continue;}
         data[i] = (auxPixel[i] 
             + (auxPixel[i - 4] || auxPixel[i]) 
@@ -297,7 +297,7 @@ function filtroBlur(data, imageData){
     }
     console.log(data + " *********************** " + auxPixel)
 }
-function blur(imageData){
+/*function blur(imageData){
     let copia = [];
     let valor;
     console.log(imageData.height)
@@ -308,10 +308,10 @@ function blur(imageData){
             copia[x][y] = imageData[x][y];
         }
     }*/
-    
+    /*
 
-    for(let x= 0; x < imageData.width; x++){
-        for(let y = 0; y < imageData.height; y++){
+    for(let x = 1; x < imageData.width - 1; x++){
+        for(let y = 1; y < imageData.height - 1; y++){
             valor = imageData[(x+1),y]
             + imageData[(x-1), y]
             + imageData[x,(y+1)]
@@ -324,6 +324,7 @@ function blur(imageData){
             valor = valor/9;
             console.log("valor ", valor) 
             setPixel(imageData, x,y, valor);
+            valor= 0;
         }
     }
     function setPixel(imageData, x,y, valor){
@@ -332,6 +333,73 @@ function blur(imageData){
         imageData.data[index + 1] = valor;
         imageData.data[index + 2] = valor;
         imageData.data[index + 3] = valor;
-    }
+    }*/
 
+    //////////////////////////////////////////////////////////////////////////////////////////
+
+    function blur(imageData){
+        let copia = [];
+        let valor = 0;
+    
+       /* for(let x= 0; x < imageData.width; x++){
+            copia[x] = [];
+            for(let y = 0; y < imageData.height; y++){
+                copia[x][y] = imageData[x][y];
+            }
+        }*/
+    
+        for(let x = 0; x < imageData.width; x++){
+            for(let y = 0; y < imageData.height; y++){
+                setPixel(imageData, x,y);
+            }
+        }
+        function setPixel(imageData, x,y){
+            let index;
+            let r,g,b = 0;
+                    
+            index = ((x - 1) + (y - 1) * imageData.width)* 4;  // si sumo los arregedores del pixel cambiando la x e y en + o - 1, se puede aplicar gauss
+            r= imageData.data[index + 0];
+            g= imageData.data[index + 1];
+            b= imageData.data[index + 2];
+
+            index = ((x - 1) + y * imageData.width)* 4; 
+            r= r + imageData.data[index + 0];
+            g= g + imageData.data[index + 1];
+            b= b + imageData.data[index + 2];
+
+            index = ((x - 1) + (y + 1) * imageData.width)* 4; 
+            r= r + imageData.data[index + 0];
+            g= g + imageData.data[index + 1];
+            b= b + imageData.data[index + 2];
+
+            index = (x + (y - 1) * imageData.width)* 4; 
+            r= r + imageData.data[index + 0];
+            g= g + imageData.data[index + 1];
+            b= b + imageData.data[index + 2];
+
+            index = (x + (y + 1) * imageData.width)* 4; 
+            r= r + imageData.data[index + 0];
+            g= g + imageData.data[index + 1];
+            b= b + imageData.data[index + 2];
+
+            index = ((x + 1) + (y - 1) * imageData.width)* 4; 
+            r= r + imageData.data[index + 0];
+            g= g + imageData.data[index + 1];
+            b= b + imageData.data[index + 2];
+
+            index = ((x + 1) + y * imageData.width)* 4; 
+            r= r + imageData.data[index + 0];
+            g= g + imageData.data[index + 1];
+            b= b + imageData.data[index + 2];
+
+            index = ((x + 1) + (y + 1) * imageData.width)* 4; 
+            r= r + imageData.data[index + 0];
+            g= g + imageData.data[index + 1];
+            b= b + imageData.data[index + 2];
+
+            imageData.data[index + 0] = r/9;
+            imageData.data[index + 1] = g/9;
+            imageData.data[index + 2] = b/9;
+        }
+    
 }
