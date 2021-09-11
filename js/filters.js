@@ -356,11 +356,16 @@ function filtroBlur(data, imageData){
         function setPixel(imageData, x,y){
             let index;
             let r,g,b = 0;
-                    
-            index = ((x - 1) + (y - 1) * imageData.width)* 4;  // si sumo los arregedores del pixel cambiando la x e y en + o - 1, se puede aplicar gauss
+            
+            index = (x + y * imageData.width)* 4; 
             r= imageData.data[index + 0];
             g= imageData.data[index + 1];
             b= imageData.data[index + 2];
+
+            index = ((x - 1) + (y - 1) * imageData.width)* 4;  // si sumo los arregedores del pixel cambiando la x e y en + o - 1, se puede aplicar gauss
+            r= r + imageData.data[index + 0];
+            g= g + imageData.data[index + 1];
+            b= b + imageData.data[index + 2];
 
             index = ((x - 1) + y * imageData.width)* 4; 
             r= r + imageData.data[index + 0];
@@ -397,6 +402,7 @@ function filtroBlur(data, imageData){
             g= g + imageData.data[index + 1];
             b= b + imageData.data[index + 2];
 
+            index = (x + y * imageData.width)* 4; 
             imageData.data[index + 0] = r/9;
             imageData.data[index + 1] = g/9;
             imageData.data[index + 2] = b/9;
