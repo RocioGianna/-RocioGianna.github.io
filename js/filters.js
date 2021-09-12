@@ -340,8 +340,8 @@ function brillo(imageData, imagenOriginal){
 
 function blur(imageData, imagenOriginal){
 
-    for(let x = 0; x < imageData.width; x++){
-        for(let y = 0; y < imageData.height; y++){
+    for(let x = 1; x < imageData.width -1; x++){
+        for(let y = 1; y < imageData.height -1; y++){
             setPixel(imageData, imagenOriginal, x,y);
         }
     }
