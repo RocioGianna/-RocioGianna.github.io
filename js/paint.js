@@ -67,7 +67,7 @@ function coordenadas(){
 }
 function draw(posX, posY, x, y){
     ctx.beginPath();
-    ctx.lineWidth = document.getElementById("tamanio").value;
+    ctx.lineWidth = document.getElementById("tamanio").value * 0.5;
     ctx.lineCap = "round";
     ctx.moveTo(posX, posY);
     ctx.lineTo(x, y);
