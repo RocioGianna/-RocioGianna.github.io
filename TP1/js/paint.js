@@ -1,26 +1,29 @@
 "use strict";
 
-//document.addEventListener('DOMContentLoaded', iniciarPagina);
 
+// Canvas
 document.getElementById("limpiar").addEventListener("click", limpiarCanvas);
-let lapiz = document.getElementById("lapiz");
-let goma = document.getElementById("goma");
-let posX = 0;
-let posY = 0;
-let color;
-let estaDibujando = false;
-let estaBorrando = false;
-
-goma.addEventListener("click", coordenadas);
-lapiz.addEventListener("click", coordenadas);
-
 let c = document.getElementById("canvas");
 let ctx = c.getContext("2d");
 let dist = c.getBoundingClientRect();
 
-function coordenadas(){
-    let obj = this.id;
+// Lápiz + gomas
+let lapiz = document.getElementById("lapiz");
+let goma = document.getElementById("goma");
+goma.addEventListener("click", dibujarEnCoordenas);
+lapiz.addEventListener("click", dibujarEnCoordenas);
 
+let posX = 0;
+let posY = 0;
+
+// Flag para dibujar/borrar 
+let estaDibujando = false;
+let estaBorrando = false; 
+
+
+function dibujarEnCoordenas(){
+    let obj = this.id;
+    // Eventos del mouse para dibujar o borrar
     if(obj == "lapiz"){
         ctx.strokeStyle = document.getElementById('color').value;//seteo color
         c.addEventListener("mousedown", function(e){
@@ -31,19 +34,17 @@ function coordenadas(){
         });
         c.addEventListener("mousemove", function(e){
             if(estaDibujando == true){
-                ctx.strokeStyle = document.getElementById('color').value;//seteo color
+                ctx.strokeStyle = document.getElementById('color').value; //seteo color
                 draw(posX, posY, e.clientX - dist.left, e.clientY - dist.top);
                 posX = e.clientX - dist.left;
                 posY =  e.clientY - dist.top;
-                console.log(posX, posY)
             }
         });
         c.addEventListener("mouseup", function(e){
             estaDibujando = false;
         });
     }else{
-        console.log(obj);
-        ctx.strokeStyle = '#FFFFFF';//seteo color
+        ctx.strokeStyle = '#FFFFFF'; //seteo color
         c.addEventListener("mousedown", function(e){
             estaDibujando = false;
             estaBorrando = true;
@@ -52,12 +53,11 @@ function coordenadas(){
         });
         c.addEventListener("mousemove", function(e){
             if(estaBorrando == true){
-                console.log(obj);
-                ctx.strokeStyle = '#FFFFFF';//seteo color
+                ctx.strokeStyle = '#FFFFFF'; //seteo color
                 draw(posX, posY, e.clientX - dist.left, e.clientY - dist.top);
                 posX = e.clientX - dist.left;
                 posY =  e.clientY - dist.top;
-           
+        
             }
         });
         c.addEventListener("mouseup", function(e){
@@ -65,6 +65,8 @@ function coordenadas(){
         });
     }
 }
+
+// Dibujar con las posiciones indicadas
 function draw(posX, posY, x, y){
     ctx.beginPath();
     ctx.lineWidth = document.getElementById("tamanio").value * 0.5;
@@ -74,7 +76,8 @@ function draw(posX, posY, x, y){
     ctx.stroke();
     ctx.closePath();   
 }
-
+// Limpia canvas -> elimina imagen cargada o dibujos hechos
 function limpiarCanvas(){
     ctx.clearRect(0, 0, c.width, c.height);
 }
+
