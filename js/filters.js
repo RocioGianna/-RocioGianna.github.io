@@ -2,23 +2,27 @@
 
 //document.addEventListener('DOMContentLoaded', iniciarPagina);
 
-//document.getElementById("btnC").addEventListener("click", cargarImagen);
-///// FILTROS
+
+
+// document.getElementById("btnC").addEventListener("click", cargarImagen);
+
 //function cargarImagen(){
 
-    // let imagen = new Image();
-    // imagen.src = file.value;
-    // console.log(file.value);
+    //let imageData;
+    //let imagen = new Image();
+    //imagen.src = file.value;
+    //console.log(file.value);
 
     let imageData;
-    let imagenOriginal
+    let imagenOriginal;
     let imagen = new Image();
     imagen.src = "img/messi.jpg";
     
-    /**
-     * La funcion onload la usamos para indicar que una vez que la imagen este cargada se pueda empezar a aplicar distintos filtros.
-     */
+
+    // La funcion onload la usamos para indicar que una vez que la imagen este cargada se pueda empezar a aplicar distintos filtros.
+
     imagen.onload = function(){
+        console.log('entra a cargarla');
         myDrawImageMethod(this);
         imagen.width = c.width;
         
@@ -30,11 +34,9 @@
         c.height =  this.height;
         
         
-        /**
-         * Funcion reset. Su función es quitarle el/los filtro/s que se le haya puesto y quede en su estado original.
-         * Para esto recorremos la data de la imagen modificada y le asiganmos los valores de la data inicial(no modificada).
-         * 
-         */
+        // Funcion reset. Su función es quitarle el/los filtro/s que se le haya puesto y quede en su estado original.
+        // Para esto recorremos la data de la imagen modificada y le asiganmos los valores de la data inicial (no modificada).
+
         document.getElementById("reset").addEventListener("click", function(){
             let dataInicial = imagenOriginal.data;
             for(let i=0; i < data.length; i+=4){
@@ -45,7 +47,7 @@
             ctx.putImageData(imageData, 0,0);
         });
   
-  
+        // Switch para elección del filtro a aplicar
         document.getElementById("apply-filter").addEventListener("click", function(e)
         {
             let tipoFiltro = document.getElementById("filtros").value;
@@ -67,8 +69,8 @@
                     blur(imageData, imagenOriginal);    
                     break;                
                 case "saturacion":
-                    //saturacion();
-                break;
+                    saturacion(imageData, imagenOriginal);
+                    break;
                 case "ninguno":
                 break;
             }
@@ -77,27 +79,28 @@
         })
         ctx.putImageData(imageData, 0,0);
     }
-
     
 //}
 
-document.getElementById("save").addEventListener("click", ()=>{
+
+ // Funcion que nos permite dibujar la imagen ingresada en el canvas. * Para esto le pasamos por parametro la imagen ingresada,
+ //  y luego las coordenadas x e y para indicarle des de que punto deba comenzar a dibujar.
+
+ function myDrawImageMethod(imagen){
+    ctx.drawImage(imagen,0,0);
+}
+
+
+// GUARDAR IMAGEN
+
+document.getElementById("save-image").addEventListener("click", ()=>{
+    console.log('la descarga..');
     let image = c.toDataURL("image/png").replace("image/png", "image/octet-stream");  
     window.location.href=image; //it's a property that will tell you the current URL location of the browser. Changing the value of the property will redirect the page.
 })
 
-/**
- * Funcion que nos permite dibujar la imagen ingresada en el canvas.
- * Para esto le pasamos por parametro la imagen ingresada, y luego las coordenadas x e y para indicarle des de que punto deba comenzar
- * a dibujar.
- */
-function myDrawImageMethod(imagen){
-    ctx.drawImage(imagen,0,0);
-}
 
-/**
- * Para el filtro invertido o negativo le restamos a 255 (tope de tono) el valor actual de r, g y b. Así obtenemos el opuesto.
- */
+//Para el filtro invertido o negativo le restamos a 255 (tope de tono) el valor actual de r, g y b. Así obtenemos el opuesto.
 function filtroInvertido(data){
     for(let i =0; i < data.length; i+=4){
         data[i] = 255 - data[i];
@@ -105,13 +108,10 @@ function filtroInvertido(data){
         data[i + 2] = 255 - data[i + 2];
     }
 }
-/**
- * buscamos el valor promedio del pixel sumando r,g y b para luego dividerlo por 3. 
- * Luego comparamos si es mayor o menor a la mitad de 255,
- * en caso que sea mayor  se le da valor 255 caso 
- * contrario al pixel se le da valor 0
- * 
- */
+
+ // Buscamos el valor promedio del pixel sumando r,g y b para luego dividerlo por 3. 
+ // Luego comparamos si es mayor o menor a la mitad de 255, en caso que sea mayor  se le da valor 255 y en caso contrario al pixel se le da valor 0.
+
 function filtroBinarizacion(data){
     let color;
     for(let i = 0; i < data.length; i+=4){
@@ -187,11 +187,6 @@ function rgbAHsv (r, g, b) {
         }
     }
 
-    // h = Math.round(h * 360);
-    // s = percentRoundFn(s * 100);
-    // v = percentRoundFn(v * 100);
-    // console.log('h :' + h, 's :' + s, 'v :'+ v + 'sin porcentaje');
-    // dataHSV.push(h, s, v, 255);    
    return {
         h : Math.round(h * 360),
         s : percentRoundFn(s * 100),
@@ -261,12 +256,6 @@ function hsvARgb(h, s, v) {
             b = q;
     }
      
-    // r = Math.round(r * 255); 
-    // g = Math.round(g * 255); 
-    // b = Math.round(b * 255);
-    // //console.log('valores finales de RGB:');
-    // console.log('r :' + r, 'g :' + g, 'b :'+ b);
-    // data.push(r,g,b, 255);
     return{
         r : Math.round(r * 255), 
         g : Math.round(g * 255), 
@@ -277,16 +266,10 @@ function hsvARgb(h, s, v) {
 
 // BRILLO 
 function brillo(imageData, imagenOriginal){
-    let porcentaje = document.getElementById("rangoBrillo").value / 25;
+    let porcentaje = document.getElementById("intensidad").value / 25;
     console.log(imageData.data);
     let r,g,b, h,s,v;
-    let dataHSV = []; // almacena los valores de data en HSV
-   /*for ( let i = 0; i < data.length; i+=4 ) {
-        let r = data[ i  ];
-        let g = data[ i + 1 ];
-        let b = data[ i + 2 ];
-        rgbAHsv (r, g, b, dataHSV);
-    }*/
+
     for(let x = 0; x < imageData.width; x++){
         for(let y = 0; y < imageData.height; y++){
             setPixel(imageData, imagenOriginal, x,y);
@@ -305,10 +288,6 @@ function brillo(imageData, imagenOriginal){
         s = valorHSV.s;
         v = valorHSV.v  * porcentaje;
 
-        // for ( let i = 0; i < dataHSV.length; i+=4 ) {
-        //     dataHSV[ i + 2 ]+= (dataHSV[ i + 2 ] *porcentaje);
-            
-        //  }
         let valorRGB = hsvARgb(h, s, v);
   
         imageData.data[index + 0] = valorRGB.r;
@@ -319,22 +298,45 @@ function brillo(imageData, imagenOriginal){
     console.log(imageData.data);
     ctx.putImageData(imageData, 0,0);
 
-    /*for ( let i = 0; i < dataHSV.length; i+=4 ) {
-       dataHSV[ i + 2 ]+= (dataHSV[ i + 2 ] *porcentaje);
-       
-    }*/
-    // Ahora nuestro dataHSV "ya tiene el filtro aplicado"
-    // Pasamos de HSV a RGB
-    // data = []; // Vaciar arreglo para ponerle los valores con e filtro aplicado
-    // for ( let i = 0; i < dataHSV.length; i+=4 ) {
-    //     let h = dataHSV[ i  ];
-    //     let s = dataHSV[ i + 1 ];
-    //     let v = dataHSV[ i + 2 ];
-    //     console.log('h :' + h, 's :' + s, 'v :'+ v);
-    //     hsvARgb(h, s, v, data);
-    // }
-    // console.log(data);
-    // console.log('sale de pasar de hsv a rbg');
+}
+
+
+/// SATURACIÓN
+
+
+function saturacion(imageData, imagenOriginal){
+    let porcentaje = document.getElementById("intensidad").value / 25;
+    console.log("entra saturacion");
+    console.log(imageData.data);
+    let r,g,b, h,s,v;
+    
+    for(let x = 0; x < imageData.width; x++){
+        for(let y = 0; y < imageData.height; y++){
+            setPixel(imageData, imagenOriginal, x,y);
+        }
+    }
+    // Transformo los valores de RGB a HSV
+    // Aplico porcentaje a los valores de V
+    function setPixel(imageData, imagenOriginal, x,y){
+        let index = (x + y * imageData.width)* 4;
+        r = imagenOriginal.data[index + 0];
+        g = imagenOriginal.data[index + 1];
+        b = imagenOriginal.data[index + 2];
+
+        let valorHSV = rgbAHsv (r, g, b,);
+        h = valorHSV.h;
+        s = valorHSV.s * porcentaje;
+        v = valorHSV.v ;
+
+        let valorRGB = hsvARgb(h, s, v);
+  
+        imageData.data[index + 0] = valorRGB.r;
+        imageData.data[index + 1] = valorRGB.g;
+        imageData.data[index + 2] = valorRGB.b;
+
+    }
+    console.log(imageData.data);
+    ctx.putImageData(imageData, 0,0);
 
 }
 
