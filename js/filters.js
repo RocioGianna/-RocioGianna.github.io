@@ -3,7 +3,9 @@
 //document.addEventListener('DOMContentLoaded', iniciarPagina);
     let imageData;
     let imagenOriginal; 
-    let data;  
+    let data; 
+    let width;
+    let height;     
     
      // Funcion que nos permite dibujar la imagen ingresada en el canvas. * Para esto le pasamos por parametro la imagen ingresada,
     //  y luego las coordenadas x e y para indicarle des de que punto deba comenzar a dibujar.
@@ -18,7 +20,9 @@
         myDrawImageMethod(this);
         imageData = ctx.getImageData(0,0,this.width, this.height); //se modifica con los filtros
         imagenOriginal = ctx.getImageData(0,0,this.width, this.height); // queda original
-        data = imageData.data; //imageData.data devuelve un arreglo con los pixeles de la imagen, valores enteros entre 0 y 255        
+        data = imageData.data; //imageData.data devuelve un arreglo con los pixeles de la imagen, valores enteros entre 0 y 255 
+        width = imageData.width;
+        height = imageData.height;       
     }
     
     // CARGA DE IMÁGENES
@@ -48,29 +52,29 @@
         console.log('imprimo', tipoFiltro);
         switch (tipoFiltro) {
             case "negativo":              
-                filtroInvertido(data);
+                filtroInvertido(width, height);
                 break;
             case "sepia":
-                sepia(data);
+                sepia(width, height);
                 break;
             case "binarizacion":
-                filtroBinarizacion(data);
+                filtroBinarizacion(width, height);
                 break;
             case "brillo":
-                brillo(imageData, imagenOriginal);
+                brillo(width, height);
                 break;
             case "blur":
-                blur(imageData, imagenOriginal);    
+                blur(width, height);    
                 break;                
             case "saturacion":
-                saturacion(imageData, imagenOriginal);
+                saturacion(width, height);
                 break;
             case "gris":
-                filtroGris(data);
+                filtroGris(width, height);
             case "ninguno":
-            break;
+                break;
         }
-        ctx.putImageData(imageData, 0,0);
+        //ctx.putImageData(imageData, 0,0);
     })
     //ctx.putImageData(imageData, 0,0);
 
@@ -90,56 +94,66 @@ function downloadImage(){
 
 
 //Para el filtro invertido o negativo le restamos a 255 (tope de tono) el valor actual de r, g y b. Así obtenemos el opuesto.
-function filtroInvertido(data){
-    for(let i =0; i < data.length; i+=4){
-        data[i] = 255 - data[i];
-        data[i + 1] = 255 - data[i + 1];
-        data[i + 2] = 255 - data[i + 2];
+function filtroInvertido(width, height){
+    let imageDataR = ctx.getImageData(0,0,width, height);
+    let data2 = imageDataR.data;
+    for(let i =0; i < data2.length; i+=4){
+        data2[i] = 255 - data2[i];
+        data2[i + 1] = 255 - data2[i + 1];
+        data2[i + 2] = 255 - data2[i + 2];
     }
+    ctx.putImageData(imageDataR, 0,0);
 }
 
  // Buscamos el valor promedio del pixel sumando r,g y b para luego dividerlo por 3. 
  // Luego comparamos si es mayor o menor a la mitad de 255, en caso que sea mayor  se le da valor 255 y en caso contrario al pixel se le da valor 0.
-function filtroBinarizacion(data){
+function filtroBinarizacion(width, height){
+    let imageDataR = ctx.getImageData(0,0,width, height);
+    let data2 = imageDataR.data;
     let color;
-    for(let i = 0; i < data.length; i+=4){
-        if((data[i] + data[i + 1] + data[i + 2])/3 > 255/2){ 
+    for(let i = 0; i < data2.length; i+=4){
+        if((data2[i] + data2[i + 1] + data2[i + 2])/3 > 255/2){ 
             color = 255;
         }else{
             color = 0;
         }
-        data[i] = color;
-        data[i + 1] =color;
-        data[i + 2] =color;
+        data2[i] = color;
+        data2[i + 1] =color;
+        data2[i + 2] =color;
 
     }
+    ctx.putImageData(imageDataR, 0,0);
 }
 
-function filtroGris(data){
-    for(let i =0; i < data.length; i+=4){
-        let gris = (data[i] + data[i + 1] + data[i + 2]) /3;
-        data[i] = gris;    
-        data[i + 1] = gris;
-        data[i + 2] = gris;
+function filtroGris(width, height){
+    let imageDataR = ctx.getImageData(0,0,width, height);
+    let data2 = imageDataR.data;
+    for(let i =0; i < data2.length; i+=4){
+        let gris = (data2[i] + data2[i + 1] + data2[i + 2]) /3;
+        data2[i] = gris;    
+        data2[i + 1] = gris;
+        data2[i + 2] = gris;
     }
+    ctx.putImageData(imageDataR, 0,0);
 }
 
-function sepia(data) {
+function sepia(width, height) {
+    let imageDataR = ctx.getImageData(0,0,width, height);
+    let data2 = imageDataR.data;
+    for ( let i = 0; i < data2.length; i++ ) {
+        let r = data2[ i * 4 ];
+        let g = data2[ i * 4 + 1 ];
+        let b = data2[ i * 4 + 2 ];
  
-    for ( let i = 0; i < data.length; i++ ) {
-        let r = data[ i * 4 ];
-        let g = data[ i * 4 + 1 ];
-        let b = data[ i * 4 + 2 ];
+        data2[ i * 4 ] = 255 - r;
+        data2[ i * 4 + 1 ] = 255 - g;
+        data2[ i * 4 + 2 ] = 255 - b;
  
-        data[ i * 4 ] = 255 - r;
-        data[ i * 4 + 1 ] = 255 - g;
-        data[ i * 4 + 2 ] = 255 - b;
- 
-        data[i*4] = ( r * .393 ) + ( g *.769 ) + ( b * .189 );
-        data[i*4 + 1 ] = ( r * .349 ) + ( g *.686 ) + ( b * .168 );
-        data[ i * 4 + 2 ] = ( r * .272 ) + ( g *.534 ) + ( b * .131 );
+        data2[i*4] = ( r * .393 ) + ( g *.769 ) + ( b * .189 );
+        data2[i*4 + 1 ] = ( r * .349 ) + ( g *.686 ) + ( b * .168 );
+        data2[ i * 4 + 2 ] = ( r * .272 ) + ( g *.534 ) + ( b * .131 );
     }
-
+    ctx.putImageData(imageDataR, 0,0);
 };
 
 // RGB A HSV
@@ -253,23 +267,24 @@ function hsvARgb(h, s, v) {
 }
 
 // BRILLO 
-function brillo(imageData, imagenOriginal){
-    let porcentaje = document.getElementById("intensidad").value / 25;
+function brillo(width, height){
+    let imageDataR = ctx.getImageData(0,0,width, height);
+    let porcentaje = 2;
     console.log(imageData.data);
     let r,g,b, h,s,v;
 
-    for(let x = 0; x < imageData.width; x++){
-        for(let y = 0; y < imageData.height; y++){
-            setPixel(imageData, imagenOriginal, x,y);
+    for(let x = 0; x < imageDataR.width; x++){
+        for(let y = 0; y < imageDataR.height; y++){
+            setPixel(imageDataR, x,y);
         }
     }
     // Transformo los valores de RGB a HSV
     // Aplico porcentaje a los valores de V
-    function setPixel(imageData, imagenOriginal, x,y){
-        let index = (x + y * imageData.width)* 4;
-        r = imagenOriginal.data[index + 0];
-        g = imagenOriginal.data[index + 1];
-        b = imagenOriginal.data[index + 2];
+    function setPixel(imageDataR, x,y){
+        let index = (x + y * imageDataR.width)* 4;
+        r = imageDataR.data[index + 0];
+        g = imageDataR.data[index + 1];
+        b = imageDataR.data[index + 2];
 
         let valorHSV = rgbAHsv (r, g, b,);
         h = valorHSV.h;
@@ -278,37 +293,36 @@ function brillo(imageData, imagenOriginal){
 
         let valorRGB = hsvARgb(h, s, v);
   
-        imageData.data[index + 0] = valorRGB.r;
-        imageData.data[index + 1] = valorRGB.g;
-        imageData.data[index + 2] = valorRGB.b;
+        imageDataR.data[index + 0] = valorRGB.r;
+        imageDataR.data[index + 1] = valorRGB.g;
+        imageDataR.data[index + 2] = valorRGB.b;
 
     }
-    console.log(imageData.data);
-    ctx.putImageData(imageData, 0,0);
-
+    ctx.putImageData(imageDataR, 0,0);
 }
 
 
 /// SATURACIÓN
 
-function saturacion(imageData, imagenOriginal){
-    let porcentaje = document.getElementById("intensidad").value / 25;
+function saturacion(width, height){
+    let imageDataR = ctx.getImageData(0,0,width, height);
+    let porcentaje = 2;
     console.log("entra saturacion");
     console.log(imageData.data);
     let r,g,b, h,s,v;
     
-    for(let x = 0; x < imageData.width; x++){
-        for(let y = 0; y < imageData.height; y++){
-            setPixel(imageData, imagenOriginal, x,y);
+    for(let x = 0; x < imageDataR.width; x++){
+        for(let y = 0; y < imageDataR.height; y++){
+            setPixel(imageDataR, x,y);
         }
     }
     // Transformo los valores de RGB a HSV
     // Aplico porcentaje a los valores de V
-    function setPixel(imageData, imagenOriginal, x,y){
-        let index = (x + y * imageData.width)* 4;
-        r = imagenOriginal.data[index + 0];
-        g = imagenOriginal.data[index + 1];
-        b = imagenOriginal.data[index + 2];
+    function setPixel(imageDataR, x,y){
+        let index = (x + y * imageDataR.width)* 4;
+        r = imageDataR.data[index + 0];
+        g = imageDataR.data[index + 1];
+        b = imageDataR.data[index + 2];
 
         let valorHSV = rgbAHsv (r, g, b,);
         h = valorHSV.h;
@@ -317,38 +331,39 @@ function saturacion(imageData, imagenOriginal){
 
         let valorRGB = hsvARgb(h, s, v);
   
-        imageData.data[index + 0] = valorRGB.r;
-        imageData.data[index + 1] = valorRGB.g;
-        imageData.data[index + 2] = valorRGB.b;
+        imageDataR.data[index + 0] = valorRGB.r;
+        imageDataR.data[index + 1] = valorRGB.g;
+        imageDataR.data[index + 2] = valorRGB.b;
 
     }
-    console.log(imageData.data);
-    ctx.putImageData(imageData, 0,0);
+    console.log(imageDataR.data);
+    ctx.putImageData(imageDataR, 0,0);
 
 }
 
-function blur(imageData, imagenOriginal){
-
-    for(let x = 1; x < imageData.width -1; x++){
-        for(let y = 1; y < imageData.height -1; y++){
-            setPixel(imageData, imagenOriginal, x,y);
+function blur(width, height){
+    let imageDataR = ctx.getImageData(0,0,width, height);
+    for(let x = 1; x < imageDataR.width -1; x++){
+        for(let y = 1; y < imageDataR.height -1; y++){
+            setPixel(imageDataR, x,y);
         }
     }
     
-    function setPixel(imageData,imagenOriginal, x,y){
+    function setPixel(imageDataR, x,y){
         let index;
         let r = 0, g = 0, b = 0;
         for(let i = x - 1; i <= (x + 1); i++){   // si sumo los arregedores del pixel cambiando la x e y en + o - 1, se puede aplicar gauss
             for(let j = y - 1; j <= (y + 1); j++){
-                index = (i + j * imagenOriginal.width)* 4;
-                r= r + imagenOriginal.data[index + 0];
-                g= g + imagenOriginal.data[index + 1];
-                b= b + imagenOriginal.data[index + 2];
+                index = (i + j * imageDataR.width)* 4;
+                r= r + imageDataR.data[index + 0];
+                g= g + imageDataR.data[index + 1];
+                b= b + imageDataR.data[index + 2];
             }
         }
-        index = (x + y * imageData.width)* 4; 
-        imageData.data[index + 0] = r/9;
-        imageData.data[index + 1] = g/9;
-        imageData.data[index + 2] = b/9;
+        index = (x + y * imageDataR.width)* 4; 
+        imageDataR.data[index + 0] = r/9;
+        imageDataR.data[index + 1] = g/9;
+        imageDataR.data[index + 2] = b/9;
     }
+    ctx.putImageData(imageDataR, 0,0);
 }

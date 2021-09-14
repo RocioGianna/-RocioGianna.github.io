@@ -35,7 +35,7 @@ function coordenadas(){
                 draw(posX, posY, e.clientX - dist.left, e.clientY - dist.top);
                 posX = e.clientX - dist.left;
                 posY =  e.clientY - dist.top;
-           
+                console.log(posX, posY)
             }
         });
         c.addEventListener("mouseup", function(e){
@@ -76,5 +76,5 @@ function draw(posX, posY, x, y){
 }
 
 function limpiarCanvas(){
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, c.width, c.height);
 }
