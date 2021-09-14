@@ -1,103 +1,92 @@
 "use strict";
 
 //document.addEventListener('DOMContentLoaded', iniciarPagina);
-
-
-
-// document.getElementById("btnC").addEventListener("click", cargarImagen);
-
-//function cargarImagen(){
-
-    //let imageData;
-    //let imagen = new Image();
-    //imagen.src = file.value;
-    //console.log(file.value);
-
     let imageData;
-    let imagenOriginal;
-    let imagen = new Image();
-    imagen.src = "img/messi.jpg";
+    let imagenOriginal; 
+    let data;  
     
+     // Funcion que nos permite dibujar la imagen ingresada en el canvas. * Para esto le pasamos por parametro la imagen ingresada,
+    //  y luego las coordenadas x e y para indicarle des de que punto deba comenzar a dibujar.
+    function myDrawImageMethod(imagen){
+        ctx.drawImage(imagen,0,0);
+    }
 
-    // La funcion onload la usamos para indicar que una vez que la imagen este cargada se pueda empezar a aplicar distintos filtros.
-
-    imagen.onload = function(){
-        console.log('entra a cargarla');
+    function drawImage() {
+        //var canvas = document.getElementById('canvas');
+        c.width = this.width;
+        c.height = this.height;
         myDrawImageMethod(this);
-        imagen.width = c.width;
-        
         imageData = ctx.getImageData(0,0,this.width, this.height); //se modifica con los filtros
         imagenOriginal = ctx.getImageData(0,0,this.width, this.height); // queda original
-
-        let data = imageData.data; //imageData.data devuelve un arreglo con los pixeles de la imagen, valores enteros entre 0 y 255
-       
-        c.height =  this.height;
-        
-        
-        // Funcion reset. Su función es quitarle el/los filtro/s que se le haya puesto y quede en su estado original.
-        // Para esto recorremos la data de la imagen modificada y le asiganmos los valores de la data inicial (no modificada).
-
-        document.getElementById("reset").addEventListener("click", function(){
-            let dataInicial = imagenOriginal.data;
-            for(let i=0; i < data.length; i+=4){
-                data[i] = dataInicial[i];
-                data[i + 1]= dataInicial[i + 1];
-                data[i + 2]= dataInicial[i + 2];
-            }
-            ctx.putImageData(imageData, 0,0);
-        });
-  
-        // Switch para elección del filtro a aplicar
-        document.getElementById("apply-filter").addEventListener("click", function(e)
-        {
-            let tipoFiltro = document.getElementById("filtros").value;
-            console.log('imprimo', tipoFiltro);
-            switch (tipoFiltro) {
-                case "negativo":              
-                    filtroInvertido(data);
-                    break;
-                case "sepia":
-                    sepia(data);
-                    break;
-                case "binarizacion":
-                    filtroBinarizacion(data);
-                    break;
-                case "brillo":
-                    brillo(imageData, imagenOriginal);
-                    break;
-                case "blur":
-                    blur(imageData, imagenOriginal);    
-                    break;                
-                case "saturacion":
-                    saturacion(imageData, imagenOriginal);
-                    break;
-                case "ninguno":
-                break;
-            }
-            ctx.putImageData(imageData, 0,0);
-            console.log('dibuja');
-        })
-        ctx.putImageData(imageData, 0,0);
+        data = imageData.data; //imageData.data devuelve un arreglo con los pixeles de la imagen, valores enteros entre 0 y 255        
     }
     
-//}
+    // CARGA DE IMÁGENES
+    document.getElementById('file').addEventListener("change", function(e){
+        let img = new Image(); // crea instancia de Image
+        // La funcion onload la usamos para indicar que una vez que la imagen este cargada se pueda empezar a aplicar distintos filtros.
+        img.onload = drawImage; // dibuja la imagen
+        img.src = URL.createObjectURL(this.files[0]); // Representa a la imagen que seleccionamos desde la pc
+    }); 
+    
 
+    // Funcion reset. Su función es quitarle el/los filtro/s que se le haya puesto y quede en su estado original.
+    // Para esto recorremos la data de la imagen modificada y le asiganmos los valores de la data inicial (no modificada).
+    document.getElementById("reset").addEventListener("click", function(){
+        let dataInicial = imagenOriginal.data;
+        for(let i=0; i < data.length; i+=4){
+            data[i] = dataInicial[i];
+            data[i + 1]= dataInicial[i + 1];
+            data[i + 2]= dataInicial[i + 2];
+        }
+        ctx.putImageData(imageData, 0,0);
+    });
 
- // Funcion que nos permite dibujar la imagen ingresada en el canvas. * Para esto le pasamos por parametro la imagen ingresada,
- //  y luego las coordenadas x e y para indicarle des de que punto deba comenzar a dibujar.
-
- function myDrawImageMethod(imagen){
-    ctx.drawImage(imagen,0,0);
-}
+    // Switch para elección del filtro a aplicar
+    document.getElementById("apply-filter").addEventListener("click", function(e){
+        let tipoFiltro = document.getElementById("filtros").value;
+        console.log('imprimo', tipoFiltro);
+        switch (tipoFiltro) {
+            case "negativo":              
+                filtroInvertido(data);
+                break;
+            case "sepia":
+                sepia(data);
+                break;
+            case "binarizacion":
+                filtroBinarizacion(data);
+                break;
+            case "brillo":
+                brillo(imageData, imagenOriginal);
+                break;
+            case "blur":
+                blur(imageData, imagenOriginal);    
+                break;                
+            case "saturacion":
+                saturacion(imageData, imagenOriginal);
+                break;
+            case "gris":
+                filtroGris(data);
+            case "ninguno":
+            break;
+        }
+        ctx.putImageData(imageData, 0,0);
+    })
+    //ctx.putImageData(imageData, 0,0);
 
 
 // GUARDAR IMAGEN
+// Crea un enlace para descargar la imagen
+document.getElementById("save-image").addEventListener("click", downloadImage);
 
-document.getElementById("save-image").addEventListener("click", ()=>{
-    console.log('la descarga..');
-    let image = c.toDataURL("image/png").replace("image/png", "image/octet-stream");  
-    window.location.href=image; //it's a property that will tell you the current URL location of the browser. Changing the value of the property will redirect the page.
-})
+function downloadImage(){
+    const link = document.createElement('a');
+    link.download = 'download.jpg';
+    link.href = canvas.toDataURL();
+    link.click();
+    link.delete; // boramos el enlace
+}
+
 
 
 //Para el filtro invertido o negativo le restamos a 255 (tope de tono) el valor actual de r, g y b. Así obtenemos el opuesto.
@@ -111,7 +100,6 @@ function filtroInvertido(data){
 
  // Buscamos el valor promedio del pixel sumando r,g y b para luego dividerlo por 3. 
  // Luego comparamos si es mayor o menor a la mitad de 255, en caso que sea mayor  se le da valor 255 y en caso contrario al pixel se le da valor 0.
-
 function filtroBinarizacion(data){
     let color;
     for(let i = 0; i < data.length; i+=4){
@@ -138,10 +126,10 @@ function filtroGris(data){
 
 function sepia(data) {
  
-    for ( var i = 0; i < data.length; i++ ) {
-        var r = data[ i * 4 ];
-        var g = data[ i * 4 + 1 ];
-        var b = data[ i * 4 + 2 ];
+    for ( let i = 0; i < data.length; i++ ) {
+        let r = data[ i * 4 ];
+        let g = data[ i * 4 + 1 ];
+        let b = data[ i * 4 + 2 ];
  
         data[ i * 4 ] = 255 - r;
         data[ i * 4 + 1 ] = 255 - g;
@@ -195,9 +183,9 @@ function rgbAHsv (r, g, b) {
 }
 // HSV A RGB
 function hsvARgb(h, s, v) {
-    var r, g, b;
-    var i;
-    var f, p, q, t;
+    let r, g, b;
+    let i;
+    let f, p, q, t;
      
     h = Math.max(0, Math.min(360, h));
     s = Math.max(0, Math.min(100, s));
@@ -302,7 +290,6 @@ function brillo(imageData, imagenOriginal){
 
 
 /// SATURACIÓN
-
 
 function saturacion(imageData, imagenOriginal){
     let porcentaje = document.getElementById("intensidad").value / 25;
