@@ -2,6 +2,42 @@
     width: 10%;
 }
 
+#file, h4 {
+    font-family: 'Bangers', cursive;
+}
+
+.custom-file-input {
+    color: transparent;
+  }
+  .custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  .custom-file-input::before {
+    content: 'Select some files';
+    color: black;
+    display: inline-block;
+    background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
+  }
+  .custom-file-input:hover::before {
+    border-color: black;
+  }
+  .custom-file-input:active {
+    outline: 0;
+  }
+  .custom-file-input:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9); 
+  }
+
 #canvas{
     background-color: white;
 }
@@ -38,23 +74,38 @@ body{
 }
 
 .carga{
+    padding-top: 60px;
     grid-area: carga;
     text-align: center;
+    align-items: center;
 }
 
 .filtros{
+    padding-top: 60px;
     text-align: center;
 }
 
 footer{
     grid-area: footer;
     background-color: black;
+    align-items: center;
+    height: 200px;
+    padding: 75px 75px 75px 75px;
 }
 
 footer > p{
     color: white;
     text-align: center;
+    
 }
+
+.about{
+    grid-area: about;
+    text-align: center;
+    align-items: center;
+}
+
+
 
 
 .container{
@@ -64,7 +115,78 @@ footer > p{
     "titulo titulo titulo"
     "canvas canvas carga"    
     "canvas canvas filtros"
-    "canvas canvas filtros"
-    "canvas canvas filtros"
+    "canvas canvas about"
+    "canvas canvas about"
     "footer footer footer"
 }
+
+/* ESTILOS MAIN */
+
+@import "compass/css3";
+
+@import "compass/css3/transform";
+@import url(https://fonts.googleapis.com/css?family=Bangers);
+body {
+  
+ background-color: grey; 
+}
+
+.titulo {
+
+  margin: 0 auto;
+  background-color: grey;
+}
+
+h1 {
+  text-align: center;
+  font-weight: normal;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 8em;
+  white-space: nowrap;
+  font-size: 70px;
+  z-index: 1000;
+  font-family: 'Bangers', cursive;
+  text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.7);
+  @include skew(0, -6.7deg, false);
+  @include transition-property(font-size);
+  @include transition-duration(0.5s);
+ 
+}
+
+@media screen and (max-width: 50em) {
+  h1 {
+    font-size: 20vw;
+   }
+}
+
+/* ABOUT */
+
+.nine h1 {
+    text-align:center; font-size:50px; text-transform:uppercase; color:#222; letter-spacing:1px;
+    font-family:"Playfair Display", serif; font-weight:400;
+  }
+  .nine h1 span {
+    margin-top: 5px;
+      font-size:35px; color:#444; word-spacing:1px; font-weight:normal; letter-spacing:20px;
+      text-transform: uppercase; font-family:"Raleway", sans-serif; font-weight:500;
+  
+      display: grid;
+      grid-template-columns: 1fr max-content 1fr;
+      grid-template-rows: 27px 0;
+      grid-gap: 20px;
+      align-items: center;
+  }
+  
+  .nine h1 span:after,.nine h1 span:before {
+      content: "                                                       ";
+      display: block;
+      border-bottom: 1px solid #ccc;
+      border-top: 1px solid #ccc;
+      height: 5px;
+      width: 100px;
+      text-align: center;
+    background-color:#f8f8f8;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
