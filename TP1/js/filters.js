@@ -21,6 +21,7 @@ function iniciarPagina(){
         // Adaptamos el canvas a la imagen
         c.width = this.width;
         c.height = this.height;
+        dist = c.getBoundingClientRect();
         myDrawImageMethod(this); // dibujamos la imagen
         imageData = ctx.getImageData(0,0,this.width, this.height); // se modifica con los filtros
         imagenOriginal = ctx.getImageData(0,0,this.width, this.height); // queda original

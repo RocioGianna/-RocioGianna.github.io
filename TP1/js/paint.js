@@ -78,5 +78,7 @@ function draw(posX, posY, x, y){
 // Limpia canvas -> elimina imagen cargada o dibujos hechos
 function limpiarCanvas(){
     ctx.clearRect(0, 0, c.width, c.height);
+    c.width = 700;
+    c.height = 700;
 }
 
