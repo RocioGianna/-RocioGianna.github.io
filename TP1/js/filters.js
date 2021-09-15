@@ -79,7 +79,9 @@ function iniciarPagina(){
                 break;
             case "gris":
                 filtroGris(width, height);
+                break;
             case "ninguno":
+                reset();
                 break;
         }
     })

@@ -1,6 +1,5 @@
 "use strict";
 
-
 // Canvas
 document.getElementById("limpiar").addEventListener("click", limpiarCanvas);
 let c = document.getElementById("canvas");
