@@ -53,6 +53,7 @@ tablero.src = "tablero.png";
 
 
 //230, 40 medidas donde comienza el primer bloque del tablero 
+//poner constantes para la posicion del tablero 230, 40
 let t1 = new Tablero(230,40,80,80, 4, ctx,tablero);
 
 
@@ -61,11 +62,11 @@ tablero.onload = function(){
  
     t1.draw();
 
-    c.addEventListener("mouseenter", function(e){
+    c.addEventListener("mouseup", function(e){
     
         console.log(e.clientX - c.offsetLeft + " soy sin resta " + e.clientX);
-       // if (e.clientX - c.offsetLeft )
-        //ctx.drawImage(ficha,e.clientX - c.offsetLeft - (40 / 2), e.clientY - c.offsetTop - (40 / 2));
+    //     if (e.clientX - c.offsetLeft )
+    //    ctx.drawImage(ficha,e.clientX - c.offsetLeft - (40 / 2), e.clientY - c.offsetTop - (40 / 2));
     })
 }
 
