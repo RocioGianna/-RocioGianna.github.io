@@ -14,18 +14,31 @@ class Tablero {
         let y = this.getYInicio();
         let ancho = this.getAncho(); 
         let alto = this.getAlto();
-        
+        let matriz = [];
 
-        for(let i = 0; i < this.cantFichas + 3; i++ ){
+        for(let i = 0; i <this.cantFichas + 3; i++){
+            matriz[i] = [];
             for(let j = 0; j < this.cantFichas + 2; j++){
-                ctx.beginPath();
+                matriz[i][j] = tablero;
                 ctx.drawImage(tablero, x, y);
-                ctx.stroke();
                 y = y + alto;
             }
             y = this.getYInicio();
             x = x + ancho;
         }
+        console.log(matriz)
+        console.log(matriz[2][2]);
+
+        // for(let i = 0; i < this.cantFichas + 3; i++ ){
+        //     for(let j = 0; j < this.cantFichas + 2; j++){
+        //         ctx.beginPath();
+        //         ctx.drawImage(tablero, x, y);
+        //         ctx.stroke();
+        //         y = y + alto;
+        //     }
+        //     y = this.getYInicio();
+        //     x = x + ancho;
+        // }
     }
 
     //getters y setters 
