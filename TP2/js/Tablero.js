@@ -1,52 +1,40 @@
 class Tablero {
-    constructor(desdeX, desdeY, ancho, alto, cantFichas, context, tablero){
-        this.desdeX = desdeX;
-        this.desdeY = desdeY;
-        this.ancho = ancho;
-        this.alto = alto;
+    constructor(inicioX, inicioY, cantFichas, context){ 
+        this.inicioX = inicioX; //posicion inicial de x para dibujar
+        this.inicioY = inicioY; //posicion inicial de y para dibujar
         this.ctx = context;
-        this.cantFichas = cantFichas;
-        this.tablero = tablero;
+        this.cantFichas = cantFichas; //objetivo que desea el usuario (4, 5..etc)
+        this.ficha = new Ficha(80,80,"img/tablero.png"); //instancia de una ficha que va a representar el fondo del tablero
     }
 
-    draw(){
-        let x = this.getXInicio();
-        let y = this.getYInicio();
-        let ancho = this.getAncho(); 
-        let alto = this.getAlto();
+    drawTablero(){
+        let x = this.getX();
+        let y = this.getY();
+        let ancho = this.ficha.getAncho(); 
+        let alto = this.ficha.getAlto();
         let matriz = [];
 
-        for(let i = 0; i <this.cantFichas + 3; i++){
+        for(let i = 0; i <this.cantFichas + 3; i++){ //+3 y +2 en los for son para que el tablero se ajuste dependiendo de la cantidad de fichas 
             matriz[i] = [];
             for(let j = 0; j < this.cantFichas + 2; j++){
-                matriz[i][j] = tablero;
-                ctx.drawImage(tablero, x, y);
-                y = y + alto;
+                matriz[i][j] = this.ficha.src;
+                this.ficha.drawFicha(x, y, ctx); //dibujo la ficha
+                y = y + alto; //posicion final de la y se convierte en posicion inicial de la proxima ficha en y
+                //ctx.drawImage(tablero, x, y);
             }
-            y = this.getYInicio();
-            x = x + ancho;
+            y = this.getY(); //reseteo el valor de y a su valor inicial
+            x = x + ancho; // posicion final de la x se convierte en posicion inicial de la proxima ficha en x
         }
         console.log(matriz)
         console.log(matriz[2][2]);
-
-        // for(let i = 0; i < this.cantFichas + 3; i++ ){
-        //     for(let j = 0; j < this.cantFichas + 2; j++){
-        //         ctx.beginPath();
-        //         ctx.drawImage(tablero, x, y);
-        //         ctx.stroke();
-        //         y = y + alto;
-        //     }
-        //     y = this.getYInicio();
-        //     x = x + ancho;
-        // }
     }
 
     //getters y setters 
-    getXInicio(){
-        return this.desdeX;
+    getX(){
+        return this.inicioX;
     }
-    getYInicio(){
-        return this.desdeY;
+    getY(){
+        return this.inicioY;
     }
     getAncho(){
         return this.ancho;
@@ -57,29 +45,29 @@ class Tablero {
 }
 
 
-let c = document.getElementById("canvas");
-let ctx = c.getContext("2d");
-let  tablero = new Image();
-let  ficha = new Image();
-ficha.src = "ficha.png";
-tablero.src = "tablero.png";
+// let c = document.getElementById("canvas");
+// let ctx = c.getContext("2d");
+// let  tablero = new Image();
+// let  ficha = new Image();
+// ficha.src = "ficha.png";
+// tablero.src = "tablero.png";
 
 
-//230, 40 medidas donde comienza el primer bloque del tablero 
-//poner constantes para la posicion del tablero 230, 40
-let t1 = new Tablero(230,40,80,80, 4, ctx,tablero);
+// //230, 40 medidas donde comienza el primer bloque del tablero 
+// //poner constantes para la posicion del tablero 230, 40
+// let t1 = new Tablero(230,40,80,80, 4, ctx,tablero);
 
 
 
-tablero.onload = function(){
+// tablero.onload = function(){
  
-    t1.draw();
+//     t1.draw();
 
-    c.addEventListener("mouseup", function(e){
+//     c.addEventListener("mouseup", function(e){
     
-        console.log(e.clientX - c.offsetLeft + " soy sin resta " + e.clientX);
-    //     if (e.clientX - c.offsetLeft )
-    //    ctx.drawImage(ficha,e.clientX - c.offsetLeft - (40 / 2), e.clientY - c.offsetTop - (40 / 2));
-    })
-}
+//         console.log(e.clientX - c.offsetLeft + " soy sin resta " + e.clientX);
+//     //     if (e.clientX - c.offsetLeft )
+//     //    ctx.drawImage(ficha,e.clientX - c.offsetLeft - (40 / 2), e.clientY - c.offsetTop - (40 / 2));
+//     })
+// }
 
