@@ -15,6 +15,9 @@ class Ficha {
             ctx.drawImage(this, posX, posY);
         }
     }
+    isPonintInside(xUser, yUser){
+        return !(xUser < this.x || xUser > this.x + this.ancho || yUser < this.y || yUser > this.y + this.alto); // formula que usa Javi en el video
+    }; 
 
     //getters y setters
     getAncho(){
@@ -39,5 +42,4 @@ class Ficha {
         this.x = posX;
         this.y = posY;
     }
-    isPonintInside(x, y){}; //podemos usar la formula que usa Javi en el video
 }
