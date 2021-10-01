@@ -58,7 +58,7 @@ document.addEventListener("click", verDondeHagoClick);
 /**
     let inicioTablero = 100; 
     let cuentaAux = la posicion en X de la ficha seleccionada - inicioTablero; //posicion dentro del rango del tablero
-    let topePosTablero = OBJETIVO + inicioTablero * 80;   
+    let topePosTablero = OBJETIVO + 3 + inicioTablero * 80;   
     if(la posicion en Y de la ficha seleccionada es menor a inicioTablero){ 
         if(cuentaAux >= 0 && cuentaAux <= topePosTablero){
             return cuentaAux / 80;  ---> obtenemos numero entero(si es 1,23435 nos devuelve 1 que va a ser la posicion de la columna del tablero)
