@@ -21,14 +21,11 @@ class Jugador{
              //   this.addFichaJugador();
             //}else{
                 this.fichas.push(new Ficha(40,40,"img/ficha.png")); //prueba para guardar las fichas
-                console.log('aaaaa', posRandomX, posRandomY);
-                
                 this.fichas[i].drawFicha(posRandomX, posRandomY, ctx); // hacer la x y la y dinamicas
                 //xx += 50;
                 //yy += 50;
                 //posFichaY += 50;
                 //let posFichaY = 150;
-                console.log(i);
                 console.log(this.fichas[i].getPosition()); //obtenemos posicion inicial donde va a estar cada ficha 
             }
             

@@ -17,13 +17,14 @@ class Tablero {
         for(let i = 0; i <this.cantFichas + 3; i++){ //+3 y +2 en los for son para que el tablero se ajuste dependiendo de la cantidad de fichas 
             matriz[i] = [];
             for(let j = 0; j < this.cantFichas + 2; j++){
-                matriz[i][j] = this.celda.src;
-                this.celda.drawCelda(x, y, ctx); //dibujo la ficha
-                y = y + alto; //posicion final de la y se convierte en posicion inicial de la proxima ficha en y
+                matriz[i][j] = 0;
+                this.celda.drawCelda(x, y, ctx); //dibujo la celda
+                y = y + alto; //posicion final de la y se convierte en posicion inicial de la proxima celda en y
             }
             y = this.getY(); //reseteo el valor de y a su valor inicial
-            x = x + ancho; // posicion final de la x se convierte en posicion inicial de la proxima ficha en x
+            x = x + ancho; // posicion final de la x se convierte en posicion inicial de la proxima celda en x
         }
+        console.log(matriz);
     }
 
     //getters y setters 
