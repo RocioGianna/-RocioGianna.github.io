@@ -4,12 +4,9 @@ class Elemento {
         this.ancho = ancho;
         this.alto = alto;
         this.src = src;
-        this.x = 0;
-        this.y = 0;
     }
 
     drawElemento(posX, posY, ctx){
-        this.setPosition(posX, posY);
         let img = new Image();
         img.src = this.src;
         img.onload = function(){
@@ -17,7 +14,7 @@ class Elemento {
         }
     }
     
-
+    //getters y setters
     getAncho(){
         return this.ancho;
     }
@@ -29,6 +26,12 @@ class Elemento {
     }
     getY(){
         return this.y;
+    }
+    getSrc(){
+        return this.src;
+    }
+    setSrc(src){
+        this.src = src;
     }
     getPosition(){
         return {

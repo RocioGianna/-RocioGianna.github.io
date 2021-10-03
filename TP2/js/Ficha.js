@@ -1,6 +1,7 @@
 class Ficha extends Elemento{
     constructor(ancho, alto, src){
         super(ancho, alto, src);
+        this.movible = true;
     }
 
     drawFicha(posX, posY, ctx){
@@ -8,13 +9,13 @@ class Ficha extends Elemento{
     }
     
     isPonintInside(xUser, yUser){
-        return !(xUser < this.getX() || xUser > this.getX() + this.ancho || yUser < this.getY() || yUser > this.getY() + this.alto); // formula que usa Javi en el video
+        return !(xUser < this.getX() || xUser > this.getX() + this.ancho || yUser < this.getY() || yUser > this.getY() + this.alto); 
     }; 
 
-   
-
-    // Seleccionamos una ficha con el click
-    // La empezamos a mover -> va a borrar nuestra región de las fichas (clearFichasRegion algo así)
-
-    
+    isMovible(){
+        return this.movible;
+    }
+    setMovible(bool){
+        this.movible = bool;
+    }
 }
