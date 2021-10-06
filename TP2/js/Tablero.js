@@ -49,12 +49,14 @@ class Tablero {
     getY(){
         return this.inicioY;
     }
-    getAncho(){
-        return this.ancho;
-    }
-    getAlto(){
-        return this.alto;
-    }
+    // getAncho(){
+    //     // @ts-ignore
+    //     return this.ancho;
+    // }
+    // getAlto(){
+    //     // @ts-ignore
+    //     return this.alto;
+    // }
 
     // Nosotros tenemos el tablero con 7x6
     // Para saber dónde va cada ficha, tendríamos que hacer una matriz copia con el tablero y sus ocupaciones e ir actualizando

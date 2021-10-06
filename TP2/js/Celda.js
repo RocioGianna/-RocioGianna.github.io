@@ -1,3 +1,4 @@
+// @ts-ignore
 class Celda extends Elemento{
     constructor(ancho, alto, src){
         super(ancho, alto, src);
