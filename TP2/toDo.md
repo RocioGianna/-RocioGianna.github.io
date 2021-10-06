@@ -1,6 +1,7 @@
 # ToDo
 
-## Cambiar turno
+## Para aprobar y promocionar
+- Cambiar turno
 - Que la ficha sea redonda
 - Que no se meta por otro lugar la ficha (en la matriz)
 - Mostrar quién está jugando
