@@ -1,6 +1,6 @@
 class Jugador{
 
-    constructor(cantFichas, topeXSup, topeXInf, topeYSup, topeYInf, imagenFicha){ //
+    constructor(cantFichas, topeXSup, topeXInf, topeYSup, topeYInf, imagenFicha, nombre){ //
         this.fichas = [];
         this.cantFichasJugador = cantFichas;
          this.topeXSup = topeXSup;
@@ -9,6 +9,7 @@ class Jugador{
          this.topeYInf = topeYInf;
          this.imagenFicha = imagenFicha;
          this.turno = false;
+         this.nombre = nombre;
     }
     
     addFichaJugador(){ //se encarga de agregar las fichas en el arreglo con su posicion incial random

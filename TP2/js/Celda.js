@@ -5,7 +5,10 @@ class Celda extends Elemento{
     }
 
     drawCelda(posX, posY, ctx){
-        super.drawElemento(posX, posY, ctx);
+        super.drawElemento(posX, posY, ctx);    
+    }
+    cargarCelda(posX, posY, ctx){
+        super.cargarElemento(posX, posY, ctx);
     }
   
 }

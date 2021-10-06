@@ -23,11 +23,15 @@ let j1topeYInf = 300;
 // @ts-ignore
 let tablero = new Tablero(100,100, OBJETIVO ,ctx);
     tablero.crearMatriz();
+    tablero.setCarga(false);
+
+let primeraRonda = true;
 
 let imgJ1 = "img/ficha.png";
-let j1 = new Jugador(CANT_FICHAS, j1topeXSup, j1topeXInf, j1topeYSup, j1topeYInf, imgJ1); 
-    j1.addFichaJugador();
-    dibujarFichasJugador(j1);
+let j1 = new Jugador(CANT_FICHAS, j1topeXSup, j1topeXInf, j1topeYSup, j1topeYInf, imgJ1, "Jugador 1"); 
+j1.addFichaJugador();
+dibujarFichasJugador(j1);
+
 
 let j2topeXSup = 770;
 let j2topeXInf = 870;
@@ -35,7 +39,7 @@ let j2topeYSup = 500;
 let j2topeYInf = 700;
 
 let imgJ2 = "img/ficha2.png";
-let j2 = new Jugador(CANT_FICHAS, j2topeXSup,j2topeXInf, j2topeYSup,  j2topeYInf, imgJ2);
+let j2 = new Jugador(CANT_FICHAS, j2topeXSup,j2topeXInf, j2topeYSup,  j2topeYInf, imgJ2, "Jugador 2");
 j2.addFichaJugador();
 dibujarFichasJugador(j2);
 
@@ -47,7 +51,6 @@ dibujarFichasJugador(j2);
 iniciarPartida();
 
 function iniciarPartida(){
-    let terminoJuego = false;
     // ver qué jugador arranca
     let primerTurno = Math.round(Math.random() * (2 - 1) + 1); // elegir quién empieza, si j1 o j2
     console.log('primer turno' , primerTurno);
@@ -61,23 +64,19 @@ function iniciarPartida(){
         console.log('juega el 2: ', j2.getTurno());
         console.log('juega el 1: ', j1.getTurno());
     }
+    primeraRonda = false;
     // ya sabemos quién tiene el primer turno
-    // let sigueJugando = true;
-    if (!terminoJuego ){
+    
+    if (!primeraRonda){
         console.log('turno del jugador 1: ' + j1.getTurno());
-        if (j1.getTurno()){
-            
+        if (j1.getTurno()){            
             // juega el 1
             jugar(j1);
-            j1.setTurno(false);
-            j2.setTurno(true);
             console.log('ya jugó el 1, ahora le toca al 2') ;           
         }else{
             console.log('turno del jugador 2: ' + j2.getTurno());
             // juega el 2
             jugar(j2);
-            j2.setTurno(false);
-            j1.setTurno(true);
             console.log('ya jugó el 2, ahora le toca al 1') ;     
         }
         // FALTA HACER:
@@ -117,7 +116,11 @@ function dibujarFichasJugador(jugador){//Dibuja las fichas del jugador... hay qu
     for(let i = 0; i < jugador.getSize(); i++){
         let x = jugador.fichas[i].getPosition().x;
         let y = jugador.fichas[i].getPosition().y;
-        jugador.fichas[i].drawFicha(x,y,ctx);
+        if(primeraRonda){
+            jugador.fichas[i].drawFicha(x,y,ctx);//carga y dibuja la ficha
+        } else{
+            jugador.fichas[i].cargarFicha(x, y, ctx); //solo dibuja la ficha
+        }
     }
 }
 function fichaClickeada(x, y, jugador){ //funcion que nos devuelve la ficha que selecciono el usuario
@@ -158,7 +161,7 @@ function mouseUp(e, jugador){
         //tablero.drawTablero();
         verificarColumna(columnaX, ultimaClickeada, jugador);
     }
-        console.log(tablero.matriz);
+        console.table(tablero.matriz);
 }
 
 function zonaTirarFicha(posX, posY){ //la posicion que recibe es de la ficha que entro en la zona 
@@ -183,12 +186,24 @@ function verificarColumna(x, ficha, jugador){ //recibe posicion en x que me reto
         }
         y--;
         if(y >= 0){
-            tablero.matriz[x][y] = 1;
+            if (jugador.nombre == "Jugador 1"){
+                console.log(jugador.nombre);
+                tablero.matriz[x][y] = 1;
+                j2.setTurno(true);
+                j1.setTurno(false);
+            }else{
+                console.log(jugador.nombre);
+                tablero.matriz[x][y] = 2;
+                j1.setTurno(true);
+                j2.setTurno(false);
+            }            
             x = x * 80 + 100;
-            y = y * 80 + 100
+            y = y * 80 + 100;
             ficha.setPosition(x, y);
+            actualizarDisplay();
             dibujarFichasJugador(jugador);
             ficha.setMovible(false);
+            
         }
     }
 }

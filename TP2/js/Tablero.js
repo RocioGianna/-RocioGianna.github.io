@@ -6,6 +6,7 @@ class Tablero {
         this.ctx = context;
         this.celda = new Celda(80,80,"img/tablero.png"); //instancia de una celda que va a representar el fondo del tablero
         this.matriz = [];
+        this.carga = true;
     }
 
     crearMatriz(){
@@ -33,12 +34,20 @@ class Tablero {
 
         for(let i = 0; i <this.cantFichas + 3; i++){ 
             for(let j = 0; j < this.cantFichas + 2; j++){
-                this.celda.drawCelda(x, y, ctx); 
+                if(this.carga){
+                    this.celda.drawCelda(x, y, ctx); 
+                }else{
+                    this.celda.cargarCelda(x, y, ctx); 
+                }
                 y = y + alto; 
             }
             y = this.getY(); 
             x = x + ancho; 
         }
+    }
+
+    setCarga(valor){
+        this.carga = valor;
     }
    
 

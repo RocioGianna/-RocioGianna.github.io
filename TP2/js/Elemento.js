@@ -4,6 +4,7 @@ class Elemento {
         this.ancho = ancho;
         this.alto = alto;
         this.src = src;
+        this.imagen = null;
     }
 
     drawElemento(posX, posY, ctx){
@@ -12,7 +13,13 @@ class Elemento {
         img.onload = function(){
             ctx.drawImage(this, posX, posY);
         }
+        this.imagen = img;        
     }
+    
+    cargarElemento(posX, posY, ctx){
+        ctx.drawImage(this.imagen, posX, posY);
+    }
+    
     
     //getters y setters
     getAncho(){

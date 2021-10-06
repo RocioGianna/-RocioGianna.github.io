@@ -7,6 +7,9 @@ class Ficha extends Elemento{
     drawFicha(posX, posY, ctx){
         super.drawElemento(posX, posY, ctx);    
     }
+    cargarFicha(posX, posY, ctx){
+        super.cargarElemento(posX, posY, ctx);
+    }
     
     isPonintInside(xUser, yUser){
         return !(xUser < this.getX() || xUser > this.getX() + this.ancho || yUser < this.getY() || yUser > this.getY() + this.alto); 
