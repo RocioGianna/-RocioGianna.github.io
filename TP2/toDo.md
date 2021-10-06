@@ -8,7 +8,7 @@
 - Verificar 4 en línea
 - timer
 
-# Opcionales promoción:
+## Opcionales promoción:
 
 - timer para cada turno
 - mostrar GIF cuando alguno de los dos esté a punto de ganar
