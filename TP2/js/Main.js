@@ -8,9 +8,10 @@ let estaEnZona = false;
 let jugador = null;
 let primeraRonda = true;
 
+const mitadFicha = 40;
 
 const CANT_FICHAS = 21; //fichas que va a tener cada jugador para jugar
-const OBJETIVO = 4; // objetivo de fichas a alinear para ganar el juego
+let objetivo = 4; // objetivo de fichas a alinear para ganar el juego
 
 /**
  * Rangos para dibujar fichas de jugadores aleatoriamente
@@ -31,7 +32,7 @@ let imgJ2 = "img/flash.png";
 
 //Variables de instancia
 // @ts-ignore
-let tablero = new Tablero(100,100, OBJETIVO ,ctx);
+let tablero = new Tablero(100,100, objetivo ,ctx);
     tablero.crearMatriz();
     tablero.setCarga(false);
 
@@ -57,6 +58,7 @@ function iniciarPartida(){
     }else{
         j2.setTurno(true);
     }
+
     primeraRonda = false;    
 }
 //EVENTOS MOUSE
@@ -84,9 +86,12 @@ function mouseDown(e, jugador){
     }
 
     let clickFig = fichaClickeada(e.layerX, e.layerY, jugador);
+    
     if(clickFig != null && clickFig.isMovible()){
         ultimaClickeada = clickFig;
+
     }
+    //ultimaClickeada.cargarFicha(e.layerX-40, e.layerY-40, ctx);
 }
 function mouseMove(e){
     if(seMueve && ultimaClickeada != null){
@@ -101,10 +106,24 @@ function mouseMove(e){
 function mouseUp(e, jugador){
     seMueve = false;
     if(ultimaClickeada != null){
-        let columnaX = zonaTirarFicha(e.layerX, e.layerY); // es donde la suelta
-        verificarColumna(columnaX, ultimaClickeada, jugador);
+        let columnaX = zonaTirarFicha(e.layerX, e.layerY); // es la coord X donde la suelta
+        console.log('xxx');
+        
+        //if (columnaY < 0){
+        //    columnaY = columnaY*(-1);
+        //}
+            
+        //console.log(columnaY);
+        //let columnaY = Math.trunc((ultimaClickeada.getY() - 100) / 80);
+        let columnaY = verificarColumna(columnaX, ultimaClickeada); // es la coord Y donde la suelta
+        //console.log('sale');
+        //console.log(columnaX, columnaY);
+        //console.log('yyy');
+        
+        verificaVictoria(columnaX, columnaY, tablero, jugador);
+        console.log('asasass');
     }
-       // console.table(tablero.matriz);
+    console.table(tablero.matriz);
 }
 
 // FUNCIONES 
@@ -128,6 +147,7 @@ function fichaClickeada(x, y, jugador){ //funcion que nos devuelve la ficha que 
     }
     return null;
 }
+
 function actualizarDisplay(){
     ctx.fillStyle = "#FFFFFF";
     // @ts-ignore
@@ -140,22 +160,28 @@ function actualizarDisplay(){
 
 //FUNCIONES PARA CORROBORAR Y DIBUJAR DENTRO DE LA MATRIZ Y TABLERO
 function zonaTirarFicha(posX, posY){ //la posicion que recibe es de la ficha que entro en la zona 
-    let inicioTablero = 100;
+    let inicioTablero = 100; 
     let posXenTablero = posX - inicioTablero;
-    let topePosTablero = (OBJETIVO + 3) * 80;
+    let topePosTableroX = (objetivo + 3) * 80;
+    let topePosTableroY = (objetivo + 2) * 80;
+    if (( topePosTableroY > posY > inicioTablero) && (inicioTablero < posX < topePosTableroX)){
+         return false; // no puede tirar desde ahí
+    }
     if(posY < inicioTablero){//corrobora que la ficha en la posicion Y este dentro del rango de tirada ----> entre 0 y 100
-        if(posXenTablero >= 0 && posXenTablero <= topePosTablero){//corroboro que la ficha en posicion X este en el rango del tablero ---> 100 y 660
+        if(posXenTablero >= 0 && posXenTablero <= topePosTableroX){//corroboro que la ficha en posicion X este en el rango del tablero ---> 100 y 660
             estaEnZona = true;
-            console.log("esta e la zona")
+            console.log("esta en la zona")
             console.log(Math.trunc(posXenTablero / 80));
             return Math.trunc(posXenTablero / 80);
         }
     }
-}             
+    
+}  
+
 function verificarColumna(x, ficha){ //recibe posicion en x que me retorna zonaTirarFicha y ademas recibe la ficha clickeada 
     let y = 0;
-    if(estaEnZona){
-        while(y < OBJETIVO + 2 && tablero.matriz[x][y] == 0 ){ // OBJETIVO + 2  -> largo del tablero
+    if(estaEnZona){        
+        while(y < objetivo + 2 && tablero.matriz[x][y] == 0 ){ // OBJETIVO + 2  -> largo del tablero
             y++
         }
         y--;
@@ -169,16 +195,120 @@ function verificarColumna(x, ficha){ //recibe posicion en x que me retorna zonaT
                 j2.setTurno(false);
                 j1.setTurno(true);
             }            
-            x = x * 80 + 100;
-            y = y * 80 + 100;
+            x = x * 80 + 100 + mitadFicha;
+            y = y * 80 + 100 + mitadFicha;
             ficha.setPosition(x, y);
+            // verificar si ganó
+            //console.log('colocó la ficha');
             actualizarDisplay();
+            //console.log('actualizó el display');
             ficha.setMovible(false);
+            //console.log('ficha no movible');
         }
-        if(tablero.matriz[x][y] != 0){
-            ficha.setPosition(160, 672);
-           actualizarDisplay();
-        }
-    }
+        // acá la ubica abajo del tablero
+        // if(tablero.matriz[x][y] != 0){
+        //     ficha.setPosition(160, 672);
+        //     actualizarDisplay();
+        // }  
+        //console.log('casi que sale');
+    }   
+    //console.log('casi que sale 2'); 
+    return ((y-100)/80);
 }
+
+function verificaVictoria(x, y, tablero, jugador){
+    console.log('entra a vv');
+        let gano = false;
+        let valorJugadorMatriz;
+        if (jugador.nombre == "Jugador 1"){
+            valorJugadorMatriz = 1;
+        }else{
+            valorJugadorMatriz = 2;
+        }
+        let cantFichasSeguidas = 0; //contador
+        let posInicialX = x;
+        let posInicialY = y;
+        console.log('posInicialX', posInicialX);
+        console.log('posInicialY', posInicialY);
+        while(x > -1 && tablero.matriz[x][y] == valorJugadorMatriz && cantFichasSeguidas < objetivo){ //Izquierda
+            cantFichasSeguidas++;
+            x--;
+        }
+        if(cantFichasSeguidas < 4){
+            cantFichasSeguidas = 0;
+            x = posInicialX;
+            while(x > -1 && y > -1 && tablero.matriz[x][y] == valorJugadorMatriz && cantFichasSeguidas < objetivo){ //Arriba Izquierda
+                cantFichasSeguidas++;
+                x--;
+                y--;
+            }
+            if(cantFichasSeguidas < 4){
+                cantFichasSeguidas = 0;
+                x = posInicialX;
+                y = posInicialY;
+                while(x > -1 && y < 6 && tablero.matriz[x][y] == valorJugadorMatriz && cantFichasSeguidas < objetivo){ //Abajo Izquierda
+                    cantFichasSeguidas++;
+                    x--;
+                    y++;
+                }
+                if(cantFichasSeguidas < objetivo){
+                    cantFichasSeguidas = 0;
+                    x = posInicialX;
+                    y = posInicialY;
+                    while(y < 6 && tablero.matriz[x][y] == valorJugadorMatriz && cantFichasSeguidas < objetivo){ //Abajo
+                        cantFichasSeguidas++;
+                        y++;
+                    }
+                    if(cantFichasSeguidas < objetivo){
+                        cantFichasSeguidas = 0;
+                        x = posInicialX;
+                        y = posInicialY;
+                        while(x < 7 && y < 6 && tablero.matriz[x][y] == valorJugadorMatriz && cantFichasSeguidas < objetivo){ //Abajo Derecha
+                            cantFichasSeguidas++;
+                            y++;
+                            x++;
+                        }
+                        if(cantFichasSeguidas < objetivo){
+                            cantFichasSeguidas = 0;
+                            x = posInicialX;
+                            y = posInicialY;
+                            while(x < 7 && tablero.matriz[x][y] == valorJugadorMatriz && cantFichasSeguidas < objetivo){ //Derecha
+                                cantFichasSeguidas++;
+                                x++;
+                            }
+                            if(cantFichasSeguidas < objetivo){
+                                cantFichasSeguidas = 0;
+                                x = posInicialX;
+                                y = posInicialY;
+                                while(x < 7 && y > -1 && tablero.matriz[x][y] == valorJugadorMatriz && cantFichasSeguidas < objetivo){ //Arriba Derecha
+                                    cantFichasSeguidas++;
+                                    x++;
+                                }
+                                if(cantFichasSeguidas < objetivo){
+                                    console.log("Nadie ganó");
+                                }
+                            }else{
+                                gano = true;
+                            }
+                        }else{
+                            gano = true;
+                        }
+                    }else{
+                        gano = true;
+                    }
+                }else{
+                    gano = true;
+                }
+            }else{
+                gano = true;
+            }
+        }else{
+            gano = true;
+        }
+        console.log('gano? ', gano);
+    return gano;
+    
+}
+
+
 
