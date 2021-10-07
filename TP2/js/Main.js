@@ -5,6 +5,7 @@ let ctx = c.getContext("2d");
 let seMueve = false;
 let ultimaClickeada = null;
 let estaEnZona = false;
+let jugador = null;
 
 
 const CANT_FICHAS = 21; //fichas que va a tener cada jugador para jugar
@@ -50,6 +51,7 @@ dibujarFichasJugador(j2);
 
 iniciarPartida();
 
+
 function iniciarPartida(){
     // ver qué jugador arranca
     let primerTurno = Math.round(Math.random() * (2 - 1) + 1); // elegir quién empieza, si j1 o j2
@@ -57,46 +59,31 @@ function iniciarPartida(){
     // asignamos el primer turno
     if (primerTurno == 1){
         j1.setTurno(true);
-        console.log('juega el 1: ', j1.getTurno());
-        console.log('juega el 2: ', j2.getTurno());
+        jugador = j1;
     }else{
         j2.setTurno(true);
-        console.log('juega el 2: ', j2.getTurno());
-        console.log('juega el 1: ', j1.getTurno());
+        jugador = j2;
     }
-    primeraRonda = false;
-    // ya sabemos quién tiene el primer turno
-    
-    if (!primeraRonda){
-        console.log('turno del jugador 1: ' + j1.getTurno());
-        if (j1.getTurno()){            
-            // juega el 1
-            jugar(j1);
-            console.log('ya jugó el 1, ahora le toca al 2') ;           
-        }else{
-            console.log('turno del jugador 2: ' + j2.getTurno());
-            // juega el 2
-            jugar(j2);
-            console.log('ya jugó el 2, ahora le toca al 1') ;     
-        }
-        // FALTA HACER:
-        // se corrobora la lógica de si termina o no para actualizar terminoJuego (variable)
-    }
+    primeraRonda = false;    
 }
 
-// jugar "general" de cada jugador
-function jugar(jugador){
-    c.addEventListener("mousedown", function(e){
-        mouseDown(e, jugador)
-    });
-    c.addEventListener("mousemove", function(e){
-        mouseMove(e)
-    });
-    c.addEventListener("mouseup", function(e){
-        mouseUp(e, jugador)
-    });
-}
+c.addEventListener("mousedown", function(e){
+    if(j1.getTurno()){
+        jugador = j1;
+        mouseDown(e, jugador);
+    }else{
+        jugador = j2;
+        mouseDown(e, jugador);
+    }
+});
+c.addEventListener("mousemove", function(e){
+    mouseMove(e)
+});
+c.addEventListener("mouseup", function(e){
+    mouseUp(e, jugador)
+});
 
+// FUNCIONES EVENTOS
 function mouseDown(e, jugador){
     seMueve = true;
     if(ultimaClickeada != null){
@@ -107,11 +94,28 @@ function mouseDown(e, jugador){
     if(clickFig != null && clickFig.isMovible()){
         ultimaClickeada = clickFig;
     }
-
+}
+function mouseMove(e){
+    if(seMueve && ultimaClickeada != null){
+        ultimaClickeada.setPosition(e.layerX,e.layerY);
+        // drawFigure ->
+        //      clear canvas
+        //      for para dibujar todas las figuras (fichas) y cada ficha tiene .draw()
+        actualizarDisplay();
+        
+    }
+}
+function mouseUp(e, jugador){
+    seMueve = false;
+    if(ultimaClickeada != null){
+        let columnaX = zonaTirarFicha(e.layerX, e.layerY); // es donde la suelta
+        //tablero.drawTablero();
+        verificarColumna(columnaX, ultimaClickeada, jugador);
+    }
+        console.table(tablero.matriz);
 }
 
-// FUNCIONES
-
+// FUNCIONES 
 function dibujarFichasJugador(jugador){//Dibuja las fichas del jugador... hay que pasarle el jugador por parametro
     for(let i = 0; i < jugador.getSize(); i++){
         let x = jugador.fichas[i].getPosition().x;
@@ -132,8 +136,6 @@ function fichaClickeada(x, y, jugador){ //funcion que nos devuelve la ficha que 
     }
     return null;
 }
-
-
 function actualizarDisplay(){
     ctx.fillStyle = "#FFFFFF";
     // @ts-ignore
@@ -143,27 +145,8 @@ function actualizarDisplay(){
     dibujarFichasJugador(j2);
 }
 
-function mouseMove(e){
-    if(seMueve && ultimaClickeada != null){
-        ultimaClickeada.setPosition(e.layerX,e.layerY);
-        // drawFigure ->
-        //      clear canvas
-        //      for para dibujar todas las figuras (fichas) y cada ficha tiene .draw()
-        actualizarDisplay();
-        
-    }
-}
 
-function mouseUp(e, jugador){
-    seMueve = false;
-    if(ultimaClickeada != null){
-        let columnaX = zonaTirarFicha(e.layerX, e.layerY); // es donde la suelta
-        //tablero.drawTablero();
-        verificarColumna(columnaX, ultimaClickeada, jugador);
-    }
-        console.table(tablero.matriz);
-}
-
+//FUNCIONES PARA CORROBORAR Y DIBUJAR DENTRO DE LA MATRIZ Y TABLERO
 function zonaTirarFicha(posX, posY){ //la posicion que recibe es de la ficha que entro en la zona 
     let inicioTablero = 100;
     let posXenTablero = posX - inicioTablero;
@@ -176,8 +159,7 @@ function zonaTirarFicha(posX, posY){ //la posicion que recibe es de la ficha que
             return Math.trunc(posXenTablero / 80);
         }
     }
-}                  //RECORDAR
-
+}             
 function verificarColumna(x, ficha, jugador){ //recibe posicion en x que me retorna zonaTirarFicha y ademas recibe la ficha clickeada 
     let y = 0;
     if(estaEnZona){
@@ -187,15 +169,13 @@ function verificarColumna(x, ficha, jugador){ //recibe posicion en x que me reto
         y--;
         if(y >= 0){
             if (jugador.nombre == "Jugador 1"){
-                console.log(jugador.nombre);
                 tablero.matriz[x][y] = 1;
-                j2.setTurno(true);
                 j1.setTurno(false);
+                j2.setTurno(true);
             }else{
-                console.log(jugador.nombre);
                 tablero.matriz[x][y] = 2;
-                j1.setTurno(true);
                 j2.setTurno(false);
+                j1.setTurno(true);
             }            
             x = x * 80 + 100;
             y = y * 80 + 100;
@@ -203,32 +183,7 @@ function verificarColumna(x, ficha, jugador){ //recibe posicion en x que me reto
             actualizarDisplay();
             dibujarFichasJugador(jugador);
             ficha.setMovible(false);
-            
         }
     }
 }
 
-//Zona para tirar la ficha 
-//habria que chequear la posicion actual de la ficha seleccionada por el jugador y consultar
-/**
-    let inicioTablero = 100; 
-    let cuentaAux = la posicion en X de la ficha seleccionada - inicioTablero; //posicion dentro del rango del tablero
-    let topePosTablero = OBJETIVO + 3 + inicioTablero * 80;   
-    if(la posicion en Y de la ficha seleccionada es menor a inicioTablero){ 
-        if(cuentaAux >= 0 && cuentaAux <= topePosTablero){
-            return cuentaAux / 80;  ---> obtenemos numero entero(si es 1,23435 nos devuelve 1 que va a ser la posicion de la columna del tablero)
-        }
-    }
-
-    Una vez que tenemos el numero de columna, en otra funcion deberiamos de recorrer la columna      X         Y
-                                                                                                [posRetornada][1]
-                                                                                                [posRetornada][2]
-                                                                                                [posRetornada][3]
-                                                                                                [posRetornada][4]
-                                                                                                [posRetornada][5]
-                                                                                                [posRetornada][6]
-
-    Preguntando si dentro tiene un 0, 1 o 2 . Siendo 0 vacio, 1 cargado con ficha jugador 1, 2 cargado con ficha jugador 2.
-    Caso que la columna este vacia cuando la ficha se coloque en [1][6] (valor inicial 0) -----> tendra el valor de la ficha del jugador que sea el turno.
-     y hay que hacer un putImageData() para que se dibuje la imagen dentro de la imagen de ese lugar.
- */
