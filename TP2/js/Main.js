@@ -11,18 +11,18 @@ let primeraRonda = true;
 const mitadFicha = 40;
 
 const CANT_FICHAS = 21; //fichas que va a tener cada jugador para jugar
-let objetivo = 4; // objetivo de fichas a alinear para ganar el juego
+let objetivo = 8; // objetivo de fichas a alinear para ganar el juego
 
 /**
  * Rangos para dibujar fichas de jugadores aleatoriamente
  */
-let j1topeXSup = 770;
-let j1topeXInf = 870;
+let j1topeXSup = 1170;
+let j1topeXInf = 1270;
 let j1topeYSup = 100;
 let j1topeYInf = 300;
 
-let j2topeXSup = 770;
-let j2topeXInf = 870;
+let j2topeXSup = 1170;
+let j2topeXInf = 1270;
 let j2topeYSup = 500;
 let j2topeYInf = 700;
 
@@ -36,13 +36,17 @@ let tablero = new Tablero(100,100, objetivo ,ctx);
     tablero.crearMatriz();
     tablero.setCarga(false);
 
+// @ts-ignore
 let j1 = new Jugador(CANT_FICHAS, j1topeXSup, j1topeXInf, j1topeYSup, j1topeYInf, imgJ1, "Jugador 1"); 
 j1.addFichaJugador();
 dibujarFichasJugador(j1);
 
+// @ts-ignore
 let j2 = new Jugador(CANT_FICHAS, j2topeXSup,j2topeXInf, j2topeYSup,  j2topeYInf, imgJ2, "Jugador 2");
 j2.addFichaJugador();
 dibujarFichasJugador(j2);
+
+console.table(tablero.matriz);
 
 /// HASTA ACÁ
 /// DIBUJAR JUEGO EN LA PÁGINA Y REPRESENTAR ESTRUCTURAS -----------------
@@ -119,7 +123,7 @@ function mouseUp(e, jugador){
         //console.log('sale');
         //console.log(columnaX, columnaY);
         //console.log('yyy');
-        
+        console.log('pos ultima clickeada de verificar columna: ',columnaX, columnaY);
         verificaVictoria(columnaX, columnaY, tablero, jugador);
         console.log('asasass');
     }
@@ -163,10 +167,11 @@ function zonaTirarFicha(posX, posY){ //la posicion que recibe es de la ficha que
     let inicioTablero = 100; 
     let posXenTablero = posX - inicioTablero;
     let topePosTableroX = (objetivo + 3) * 80;
+    // @ts-ignore
     let topePosTableroY = (objetivo + 2) * 80;
-    if (( topePosTableroY > posY > inicioTablero) && (inicioTablero < posX < topePosTableroX)){
-         return false; // no puede tirar desde ahí
-    }
+    // if (( topePosTableroY > posY > inicioTablero) && (inicioTablero < posX < topePosTableroX)){
+    //      return false; // no puede tirar desde ahí
+    // }
     if(posY < inicioTablero){//corrobora que la ficha en la posicion Y este dentro del rango de tirada ----> entre 0 y 100
         if(posXenTablero >= 0 && posXenTablero <= topePosTableroX){//corroboro que la ficha en posicion X este en el rango del tablero ---> 100 y 660
             estaEnZona = true;
@@ -213,7 +218,7 @@ function verificarColumna(x, ficha){ //recibe posicion en x que me retorna zonaT
         //console.log('casi que sale');
     }   
     //console.log('casi que sale 2'); 
-    return ((y-100)/80);
+    return Math.floor((y-100)/80);
 }
 
 function verificaVictoria(x, y, tablero, jugador){
@@ -225,89 +230,118 @@ function verificaVictoria(x, y, tablero, jugador){
         }else{
             valorJugadorMatriz = 2;
         }
-        let cantFichasSeguidas = 0; //contador
-        let posInicialX = x;
-        let posInicialY = y;
-        console.log('posInicialX', posInicialX);
-        console.log('posInicialY', posInicialY);
-        while(x > -1 && tablero.matriz[x][y] == valorJugadorMatriz && cantFichasSeguidas < objetivo){ //Izquierda
-            cantFichasSeguidas++;
-            x--;
-        }
-        if(cantFichasSeguidas < 4){
-            cantFichasSeguidas = 0;
-            x = posInicialX;
-            while(x > -1 && y > -1 && tablero.matriz[x][y] == valorJugadorMatriz && cantFichasSeguidas < objetivo){ //Arriba Izquierda
-                cantFichasSeguidas++;
-                x--;
-                y--;
-            }
-            if(cantFichasSeguidas < 4){
-                cantFichasSeguidas = 0;
-                x = posInicialX;
-                y = posInicialY;
-                while(x > -1 && y < 6 && tablero.matriz[x][y] == valorJugadorMatriz && cantFichasSeguidas < objetivo){ //Abajo Izquierda
-                    cantFichasSeguidas++;
-                    x--;
-                    y++;
-                }
-                if(cantFichasSeguidas < objetivo){
-                    cantFichasSeguidas = 0;
-                    x = posInicialX;
-                    y = posInicialY;
-                    while(y < 6 && tablero.matriz[x][y] == valorJugadorMatriz && cantFichasSeguidas < objetivo){ //Abajo
-                        cantFichasSeguidas++;
-                        y++;
-                    }
-                    if(cantFichasSeguidas < objetivo){
-                        cantFichasSeguidas = 0;
-                        x = posInicialX;
-                        y = posInicialY;
-                        while(x < 7 && y < 6 && tablero.matriz[x][y] == valorJugadorMatriz && cantFichasSeguidas < objetivo){ //Abajo Derecha
-                            cantFichasSeguidas++;
-                            y++;
-                            x++;
-                        }
-                        if(cantFichasSeguidas < objetivo){
-                            cantFichasSeguidas = 0;
-                            x = posInicialX;
-                            y = posInicialY;
-                            while(x < 7 && tablero.matriz[x][y] == valorJugadorMatriz && cantFichasSeguidas < objetivo){ //Derecha
-                                cantFichasSeguidas++;
-                                x++;
-                            }
-                            if(cantFichasSeguidas < objetivo){
-                                cantFichasSeguidas = 0;
-                                x = posInicialX;
-                                y = posInicialY;
-                                while(x < 7 && y > -1 && tablero.matriz[x][y] == valorJugadorMatriz && cantFichasSeguidas < objetivo){ //Arriba Derecha
-                                    cantFichasSeguidas++;
-                                    x++;
-                                }
-                                if(cantFichasSeguidas < objetivo){
-                                    console.log("Nadie ganó");
-                                }
-                            }else{
-                                gano = true;
-                            }
-                        }else{
-                            gano = true;
-                        }
-                    }else{
-                        gano = true;
-                    }
-                }else{
-                    gano = true;
-                }
-            }else{
-                gano = true;
-            }
-        }else{
+        console.log('pos ultima clickeada: ', 'x:', x,  'y:', y);
+        // Chequeamos si por alguna de las posibilidades gana
+        console.log('valor jugador matriz', valorJugadorMatriz);
+        console.log('fila fija: ', y);
+        if (  (checkHorizontales(parseInt(y), tablero, valorJugadorMatriz))){//{
+            gano = true;
+        }else if (checkVerticales(parseInt(x), tablero, valorJugadorMatriz)) {
+            gano = true;
+        }else if (checkDiagonales(x, y, tablero, valorJugadorMatriz)) {
             gano = true;
         }
-        console.log('gano? ', gano);
-    return gano;
+           // if (! {
+
+           // }
+        //}
+        
+        //||   ) {// || checkVerticales(parseInt(x), tablero, valorJugadorMatriz)){
+             //|| checkVerticales(x, y, tablero, valorJugadorMatriz) ||  checkDiagonales(x, y, tablero, valorJugadorMatriz)){
+           // gano = true;
+            console.log('gano el jugador ', jugador.nombre, '? ', gano)
+            // mostrar mensaje en html
+        //} 
+        console.table(tablero.matriz);
+            
+        
     
+}
+
+function checkHorizontales(y, tablero, valorJugadorMatriz){
+    let cantFichasSeguidas = 0;
+	let columna = 0;
+    console.log('objetivo:', objetivo);
+    console.log('check horizontales:');
+    console.log('x inicial: ', columna);
+    console.log('cantFichasSeguidas antes del for', cantFichasSeguidas);
+    //console.log(tablero.matrix[columna][y]);
+    //console.log(tablero.matriz[y][columna]);
+    while (columna <= (objetivo + 2) && cantFichasSeguidas < objetivo){
+        console.log('cantFichasSeguidas dentro del for', cantFichasSeguidas);
+        //console.table(tablero.matriz);
+        if (tablero.matriz[columna][y]==valorJugadorMatriz){
+            cantFichasSeguidas++;
+        }else{
+            cantFichasSeguidas=0;
+        }             	
+        columna++;
+
+        if (cantFichasSeguidas == objetivo) {
+            console.log('cantFichasSeguidas ', cantFichasSeguidas);
+            return true;        
+        }
+    }
+    return false;
+    //console.log('cantFichasSeguidas ', cantFichasSeguidas); 
+
+    
+}
+
+function checkVerticales(x,tablero, valorJugadorMatriz){
+    let cantFichasSeguidas = 0;
+ 	let fila = 0;
+ 	while (fila <= (objetivo + 3) && cantFichasSeguidas < objetivo) {
+ 		if (tablero.matriz[x][fila]==valorJugadorMatriz){
+            cantFichasSeguidas++;
+        }else{
+            cantFichasSeguidas=0;
+        }              	
+ 		fila++;
+        if (cantFichasSeguidas == objetivo) {
+            return true;
+        }
+ 	}
+     return false;	
+    
+ }
+
+ function checkDiagonales(x, y, tablero, valorJugadorMatriz){
+    //  Verificamos la diagonal hacia la abajo y haca la izquierda 
+ 	let cantFichasSeguidas = 0;
+ 	let fila = y - 3;
+ 	let columna = x - 3;
+ 	while (fila < y + objetivo && columna<  x + objetivo && cantFichasSeguidas < objetivo) {
+ 		if (0 <= fila && fila< (objetivo+2) && 0 <= columna && (columna < objetivo+3)) {
+ 			if (tablero.matriz[columna][fila]===valorJugadorMatriz) 
+                 cantFichasSeguidas++;
+ 			else 
+                 cantFichasSeguidas=0;
+ 		}
+ 		fila++;
+        columna++; 
+ 	}
+ 	 // Verificamos la diagonal hacia la arriba y haca la derecha 
+ 	if (cantFichasSeguidas < objetivo) {
+ 		cantFichasSeguidas = 0;
+ 		fila = y + 3;
+ 		columna = x - 3;
+ 		while (fila>y-4 && columna<x+4 && cantFichasSeguidas< objetivo) {
+ 			if (0<=fila && fila< (objetivo +2) && 0 <= columna && columna< (objetivo + 3)) {
+ 				if (tablero.matriz[columna][fila]==valorJugadorMatriz) 
+                     cantFichasSeguidas++;
+ 				else 
+                     cantFichasSeguidas=0;	
+ 			}
+         fila--; 
+         columna++; 
+ 		}
+ 	}
+ 	 
+ 	if (cantFichasSeguidas == objetivo) {
+         return true;        
+    }
+    return false;
 }
 
 
