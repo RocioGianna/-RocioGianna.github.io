@@ -16,6 +16,7 @@ class Jugador{
         for(let i =0; i < this.cantFichasJugador; i++){
             let posRandomX = Math.floor((Math.random() * (this.topeXInf-this.topeXSup)) + this.topeXSup);
             let posRandomY = Math.floor((Math.random() * (this.topeYInf-this.topeYSup)) + this.topeYSup);
+            // @ts-ignore
             this.fichas.push(new Ficha(40,40, this.imagenFicha)); //prueba para guardar las fichas
             this.fichas[i].setPosition(posRandomX, posRandomY);
         }  

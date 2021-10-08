@@ -3,6 +3,8 @@ class Elemento {
     constructor(ancho, alto, src){
         this.ancho = ancho;
         this.alto = alto;
+        console.log(src);
+        console.log('this.scr', this.src);
         this.src = src;
         this.imagen = null;
     }

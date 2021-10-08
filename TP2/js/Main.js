@@ -26,8 +26,87 @@ let j2topeXInf = 1270;
 let j2topeYSup = 500;
 let j2topeYInf = 700;
 
-let imgJ1 = "img/ironman.png";
-let imgJ2 = "img/flash.png";
+let imgJ1 = "img/capitan.png";
+let imgJ2 = "img/spiderman.png";
+
+
+// Selección de imagen para cada jugador
+  //function seleccionarFichaJugador(){
+      document.getElementById("ficha-jugador-1").addEventListener("click", function(e){
+          console.log('eligió el 1');
+        
+          // @ts-ignore
+          let imagenSeleccionada = document.getElementById("select-image-player-1").value;
+        //   console.log(imagenSeleccionada);
+        //   switch (imagenSeleccionada) {
+        //       case "ironman":              
+        //           imgJ1 = "img/ironman.png";
+        //           console.log(imgJ1);
+        //           //break;
+        //       case "capitan":
+        //           imgJ1 = "img/capitan.png";
+        //           //break;
+        //       case "flash":
+        //           imgJ1 = "img/flash.png";
+        //       //break;
+        //       case "hulk":
+        //           imgJ1 = "img/hulk.png";
+        //       //break;
+        //       case "spiderman":
+        //           imgJ1 = "img/spiderman.png";
+        //       //break;
+        //       case "superman":
+        //           imgJ1 = "img/superman.png";
+        //       //break;
+          
+
+        //   }
+
+
+          if (imagenSeleccionada == "ironman"){
+            imgJ1 = "img/ironman.png";
+          }
+          //return imgJ1;
+      })
+    
+      document.getElementById("ficha-jugador-2").addEventListener("click", function(e){
+            
+            console.log('eligió el 2');
+            //@ts-ignore
+          let imagenSeleccionada = document.getElementById("select-image-player-2").value;
+          console.log(imagenSeleccionada);
+          if (imagenSeleccionada === "ironman"){
+            imgJ2 = "img/ironman.png";
+          }
+        //   switch (imagenSeleccionada) {
+        //       case "ironman":              
+        //           imgJ2 = "img/ironman.png";
+        //           //break;
+        //       case "capitan":
+        //           imgJ2 = "img/capitan.png";
+        //           //break;
+        //       case "flash":
+        //           imgJ2 = "img/flash.png";
+        //       //break;
+        //       case "hulk":
+        //           imgJ2 = "img/hulk.png";
+        //       //break;
+        //       case "spiderman":
+        //           imgJ2 = "img/spiderman.png";
+        //       //break;
+        //       case "superman":
+        //           imgJ2 = "img/superman.png";
+        //       //break;  
+              
+              
+        //   }
+          //return imgJ2;
+      })
+ // }
+
+  //seleccionarFichaJugador();
+
+
 
 
 //Variables de instancia
@@ -50,7 +129,7 @@ console.table(tablero.matriz);
 
 /// HASTA ACÁ
 /// DIBUJAR JUEGO EN LA PÁGINA Y REPRESENTAR ESTRUCTURAS -----------------
-
+let indicadorTurno = document.querySelector(".turno");
 iniciarPartida(); //Funcion que se encarga de elegir aleatoriamente el jugador que inicia en la primer ronda
 
 function iniciarPartida(){
@@ -59,12 +138,17 @@ function iniciarPartida(){
 
     if (primerTurno == 1){
         j1.setTurno(true);
+        indicadorTurno.innerHTML = "Tiene el turno " + j1.nombre;
     }else{
         j2.setTurno(true);
+        indicadorTurno.innerHTML = "Tiene el turno " + j2.nombre;
     }
 
     primeraRonda = false;    
 }
+
+
+
 //EVENTOS MOUSE
 c.addEventListener("mousedown", function(e){
     if(j1.getTurno()){
@@ -343,6 +427,9 @@ function checkVerticales(x,tablero, valorJugadorMatriz){
     }
     return false;
 }
+
+
+
 
 
 

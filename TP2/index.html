@@ -4,10 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Entregable 2</title>
 </head>
 <body>
-    <canvas id="canvas" width="1350" height="1020"></canvas>
+    <div class="juego">
+
+        <canvas id="canvas" width="1350" height="895"></canvas>
+        <div class="menues">
+
+            <div class="menu-jugador1">
+                <h1>Jugador 1</h1>
+                <h2>Elegí tu ficha</h2>
+                <select id="select-image-player-1" name="select">
+                    <option value="capitan">Capitán América</option>
+                    <option value="flash">Flash</option>
+                    <option value="ironman">Iron Man</option>
+                    <option value="superman">Superman</option>
+                    <option value="spiderman" selected>Spiderman</option>
+                    <option value="hulk">Hulk</option>
+                  </select>
+                  <button id="ficha-jugador-1" class="btn btn-success">Seleccionar</button>
+            </div>
+            <div class="menu-jugador2">
+                <h1>Jugador 2</h1>
+                <h2>Elegí tu ficha</h2>
+                <select name="select" id="select-image-player-2">
+                    <option value="capitan" selected>Capitán América</option>
+                    <option value="flash">Flash</option>
+                    <option value="ironman">Iron Man</option>
+                    <option value="superman">Superman</option>
+                    <option value="spiderman">Spiderman</option>
+                    <option value="hulk">Hulk</option>
+                  </select>
+                  <button id="ficha-jugador-2" class="btn btn-success">Seleccionar</button>
+            </div>
+            <div class="seccion-turno">
+                <h1 class="turno">sdfsd</h1>
+                <img src="img\spiderman.png" alt="imagenjugador">
+                <!-- ver cómo hacer para que la imagen se vuelva la del jugador-->
+            </div>
+
+
+        </div>
+        
+
+
+    </div>
+    
     
     <script src="js/Elemento.js"></script>
     <script src="js/Celda.js"></script>

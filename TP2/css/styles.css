@@ -1,0 +1,19 @@
+.turno{
+    background-color: aquamarine;
+    text-align: center;
+}
+
+
+.seccion-turno{
+    display: flex;
+    align-content: space-around;
+}    
+
+.juego{
+    display: flex;
+
+}
+
+/* select#select-image-player option[value="capitan"]   { background-image:url(img\capitan.png);   }
+select#select-image-player option[value="female"] { background-image:url(female.png); }
+select#select-image-player option[value="others"] { background-image:url(others.png); } */
