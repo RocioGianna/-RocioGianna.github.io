@@ -14,6 +14,8 @@ class Timer{
         }
         //this.contador--;
         console.log(this.contador--)
+        showTimer.innerHTML = this.contador;
+        finalizoElJuego();
         this.timer = setTimeout(this.contarSegundos.bind(this),1000);
     }
 

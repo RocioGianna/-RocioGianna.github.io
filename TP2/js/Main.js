@@ -13,6 +13,8 @@ let menuJ1 = document.getElementById("menu-jugador-1");
 let menuJ2 = document.getElementById("menu-jugador-2");
 let menuJuego = document.getElementById("menu-cant-objetivo");
 
+let showTimer = document.getElementById('timer');
+
 const mitadFicha = 40;
 
 const CANT_FICHAS = 21; //fichas que va a tener cada jugador para jugar
@@ -91,7 +93,7 @@ function seleccionarObjetivo(){
             tablero.crearMatriz();
             tablero.setCarga(false);
             // @ts-ignore
-            timer = new Timer(20, 0);
+            timer = new Timer(5, 0);
             timer.contarSegundos();
             finalizoElJuego();
     })
@@ -258,7 +260,9 @@ function mouseMove(e){
         //      for para dibujar todas las figuras (fichas) y cada ficha tiene .draw()
         actualizarDisplay();
         
+        
     }
+    //finalizoElJuego();
 }
 function mouseUp(e, jugador){
     seMueve = false;
@@ -536,20 +540,20 @@ let botonReset = document.getElementById('button-reset-game').addEventListener("
 
 function finalizoElJuego(){
     console.log('contador timer inicio finalizoJuego', timer.getContador());
-    if(timer.getContador() == 0){
+    if(timer.contador == 0){
         console.log('contador timer terminó', timer.getContador());
         pararJuego(j1);
         pararJuego(j2);
+        resetJuego();
     }
     else{
-        if(timer.getContador() >= 1 && gano){ // alguien ganó
+        if(timer.contador >= 1 && gano){ // alguien ganó
             console.log('contador timer', timer.getContador());
             console.log('gano? ', gano);
             timer.stop();
             pararJuego(j1);
             pararJuego(j2);
-            let botonReset = document.getElementById('reset');
-            botonReset.style.display="inline-block";
+            resetJuego();
         }
     }    
 }
@@ -560,14 +564,16 @@ function pararJuego(jugador){
     }
     console.log('paró fichas del jugador', jugador);
 }
-//document.getElementById('id del boton reset').addEventListener('click', reiniciarJuego);
+
 function resetJuego(){
-    loadPage();
+    let botonReset = document.getElementById('reset');
+    botonReset.style.display="inline-block";    
 }
 
 function loadPage(){
     location.reload();
 }
+
 
 //loadPage();
 

@@ -47,3 +47,10 @@ select#select-image-player option[value="female"] { background-image:url(female.
 select#select-image-player option[value="others"] { background-image:url(others.png); } */
 
 /* MENUS */
+
+/* TIMER*/
+
+#timer{
+    display: inline-block;
+    font-style: italic;
+}
