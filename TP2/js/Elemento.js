@@ -3,8 +3,6 @@ class Elemento {
     constructor(ancho, alto, src){
         this.ancho = ancho;
         this.alto = alto;
-        console.log(src);
-        console.log('this.scr', this.src);
         this.src = src;
         this.imagen = null;
     }
@@ -49,8 +47,8 @@ class Elemento {
         }
     }
     setPosition(posX, posY){
-        this.x = posX-mitadFicha;
-        this.y = posY-mitadFicha;
+        this.x = posX - 40;
+        this.y = posY - 40;
     }
 
     
