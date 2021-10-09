@@ -13,23 +13,10 @@
         <canvas id="canvas" width="1350" height="895"></canvas>
         <div class="menues">
 
-            <div class="menu-jugador1">
+            <div id="menu-jugador-1">
                 <h1>Jugador 1</h1>
                 <h2>Elegí tu ficha</h2>
                 <select id="select-image-player-1" name="select">
-                    <option value="capitan">Capitán América</option>
-                    <option value="flash">Flash</option>
-                    <option value="ironman">Iron Man</option>
-                    <option value="superman">Superman</option>
-                    <option value="spiderman" selected>Spiderman</option>
-                    <option value="hulk">Hulk</option>
-                  </select>
-                  <button id="ficha-jugador-1" class="btn btn-success">Seleccionar</button>
-            </div>
-            <div class="menu-jugador2">
-                <h1>Jugador 2</h1>
-                <h2>Elegí tu ficha</h2>
-                <select name="select" id="select-image-player-2">
                     <option value="capitan" selected>Capitán América</option>
                     <option value="flash">Flash</option>
                     <option value="ironman">Iron Man</option>
@@ -37,15 +24,52 @@
                     <option value="spiderman">Spiderman</option>
                     <option value="hulk">Hulk</option>
                   </select>
+                  <button id="ficha-jugador-1" class="btn btn-success">Seleccionar</button>
+                  
+                    
+                 
+            </div>
+            <div id="menu-jugador-2">
+                <h1>Jugador 2</h1>
+                <h2>Elegí tu ficha</h2>
+                <select name="select" id="select-image-player-2">
+                    <option value="capitan">Capitán América</option>
+                    <option value="flash" selected>Flash</option>
+                    <option value="ironman">Iron Man</option>
+                    <option value="superman">Superman</option>
+                    <option value="spiderman">Spiderman</option>
+                    <option value="hulk">Hulk</option>
+                  </select>
                   <button id="ficha-jugador-2" class="btn btn-success">Seleccionar</button>
             </div>
+            
+            <div id="menu-cant-objetivo">
+                <h1>Elegí la cantidad de fichas a unir</h1>
+                
+                <select name="select" id="objetivo-juego">
+                    <option value="4" selected>4</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                  </select>
+                  <button id="click-objetivo-juego" class="btn btn-success">Seleccionar</button>
+            </div>
+            <div id="misma-ficha">
+
+            </div>
+
             <div class="seccion-turno">
-                <h1 class="turno">sdfsd</h1>
-                <img src="img\spiderman.png" alt="imagenjugador">
+                <h1 class="turno"></h1>
+                <img id="img-player-actual">
                 <!-- ver cómo hacer para que la imagen se vuelva la del jugador-->
             </div>
 
-
+            <div class="emotion">
+                <img id="gif-emotion" alt="">
+            </div>
+            <div id="reset">
+                <button id="button-reset-game" class="btn btn-success">Reiniciar juego</button>
+            </div>
         </div>
         
 

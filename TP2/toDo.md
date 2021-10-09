@@ -1,19 +1,18 @@
-# ToDo
+# toDoList
 
 ## Para aprobar y promocionar
-~~- Cambiar turno. ---~~
-~~- Que la ficha sea redonda. --~~
-- Que no se meta por otro lugar la ficha (en la matriz).
-~~- Mostrar quién está jugando.~~
-- Ajustar imagen al jugador que tiene el turno (mostrar SU imagen).
-- Indicar que no puede jugar si no es su turno.
-~~- Verificar 4 en línea. ---~~
-- timer general del juego.
+- ~~Cambiar turno.~~
+- ~~Que la ficha sea redonda.~~
+- ~~Que no se meta por otro lugar la ficha (en la matriz).~~
+- ~~Mostrar quién está jugando.~~
+- ~~Ajustar imagen al jugador que tiene el turno (mostrar SU imagen).~~
+- ~~Verificar 4 en línea.~~
+- **Timer general del juego.**
 
 ## Opcionales promoción:
 
-- timer para cada turno.
-- mostrar GIF cuando alguno de los dos esté a punto de ganar.
-- indicar con qué fichas se ganó.
-- Mostrar imagen dentro de las opciones del select.
-- Cambiar imagen no funciona
+- **Timer para cada turno.**
+- **Mostrar GIF cuando alguno de los dos esté a punto de ganar.**
+- Indicar con qué fichas se ganó.
+- **Mostrar imagen dentro de las opciones del select.**
+- ~~Cambiar imagen no funciona.~~

@@ -9,6 +9,10 @@ let jugador = null;
 let primeraRonda = true;
 let gano = false;
 
+let menuJ1 = document.getElementById("menu-jugador-1");
+let menuJ2 = document.getElementById("menu-jugador-2");
+let menuJuego = document.getElementById("menu-cant-objetivo");
+
 const mitadFicha = 40;
 
 const CANT_FICHAS = 21; //fichas que va a tener cada jugador para jugar
@@ -27,127 +31,192 @@ let j2topeXInf = 1270;
 let j2topeYSup = 500;
 let j2topeYInf = 700;
 
-let imgJ1 = "img/capitan.png";
-let imgJ2 = "img/spiderman.png";
+let imgJ1;// = "img/capitan.png";
+let imgJ2;// = "img/spiderman.png";
+
+let j1;
+let j2;
+let tablero;
+let timer;
+
+let imgJugadorConTurno = document.getElementById('img-player-actual');
+let gifCasiGana = document.getElementById('gif-emotion');
+
+let indicadorTurno = document.querySelector(".turno");
 
 
-// Selección de imagen para cada jugador
-  //function seleccionarFichaJugador(){
-      document.getElementById("ficha-jugador-1").addEventListener("click", function(e){
-          console.log('eligió el 1');
+
+mostrarMenuJugador1();
+mostrarMenuJugador2();
+seleccionarObjetivo();
+
+
+function seleccionarObjetivo(){
+    // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
+    document.getElementById("click-objetivo-juego").addEventListener("click", function(e){
         
-          // @ts-ignore
-          let imagenSeleccionada = document.getElementById("select-image-player-1").value;
-        //   console.log(imagenSeleccionada);
-        //   switch (imagenSeleccionada) {
-        //       case "ironman":              
-        //           imgJ1 = "img/ironman.png";
-        //           console.log(imgJ1);
-        //           //break;
-        //       case "capitan":
-        //           imgJ1 = "img/capitan.png";
-        //           //break;
-        //       case "flash":
-        //           imgJ1 = "img/flash.png";
-        //       //break;
-        //       case "hulk":
-        //           imgJ1 = "img/hulk.png";
-        //       //break;
-        //       case "spiderman":
-        //           imgJ1 = "img/spiderman.png";
-        //       //break;
-        //       case "superman":
-        //           imgJ1 = "img/superman.png";
-        //       //break;
-          
+        // @ts-ignore
+        objetivo= parseInt(document.getElementById("objetivo-juego").value); // objetivo de fichas a alinear para ganar el juego
+        // @ts-ignore
+        console.log("objetivo", objetivo);
+        menuJuego.style.display="none";
+        c.style.display="inline-block";
+        //objetivo = 4;
+        // iniciarPartida(); //Funcion que se encarga de elegir aleatoriamente el jugador que inicia en la primer ronda
 
-        //   }
+        // function iniciarPartida(){
 
+            let primerTurno = Math.round(Math.random() * (2 - 1) + 1); // elegir quién empieza, si j1 o j2
 
-          if (imagenSeleccionada == "ironman"){
-            imgJ1 = "img/ironman.png";
-          }
-          //return imgJ1;
-      })
+            if (primerTurno == 1){
+                j1.setTurno(true);
+                indicadorTurno.innerHTML = "Tiene el turno el " + j1.nombre;
+                console.log(j1.imagenFicha);
+                // @ts-ignore
+                imgJugadorConTurno.src = j1.imagenFicha;
+            }else{
+                j2.setTurno(true);
+                indicadorTurno.innerHTML = "Tiene el turno el " + j2.nombre;
+                // @ts-ignore
+                imgJugadorConTurno.src = j2.imagenFicha;
+                
+            }
+
+            primeraRonda = false;  
+
+            // @ts-ignore
+            tablero = new Tablero(100,100, objetivo ,ctx);
+            tablero.crearMatriz();
+            tablero.setCarga(false);
+            // @ts-ignore
+            timer = new Timer(20, 0);
+            timer.contarSegundos();
+            finalizoElJuego();
+    })
     
-      document.getElementById("ficha-jugador-2").addEventListener("click", function(e){
-            
-            console.log('eligió el 2');
-            //@ts-ignore
-          let imagenSeleccionada = document.getElementById("select-image-player-2").value;
+}
+
+function mostrarMenuJugador1(){
+    // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
+    document.getElementById("ficha-jugador-1").addEventListener("click", function(e){
+        console.log('eligió el 1');
+      
+         //@ts-ignore
+        let imagenSeleccionada = document.getElementById("select-image-player-1").value;
           console.log(imagenSeleccionada);
-          if (imagenSeleccionada === "ironman"){
-            imgJ2 = "img/ironman.png";
+          switch (imagenSeleccionada) {
+              case "ironman":              
+                  imgJ1 = "img/ironman.png";
+                  //console.log(imgJ1);
+                   break;
+              case "capitan":
+                  imgJ1 = "img/capitan.png";
+                  console.log(imgJ1);
+                   break;
+              case "flash":
+                  imgJ1 = "img/flash.png";
+               break;
+              case "hulk":
+                  imgJ1 = "img/hulk.png";
+               break;
+              case "spiderman":
+                  imgJ1 = "img/spiderman.png";
+               break;
+              case "superman":
+                  imgJ1 = "img/superman.png";
+               break;
           }
-        //   switch (imagenSeleccionada) {
-        //       case "ironman":              
-        //           imgJ2 = "img/ironman.png";
-        //           //break;
-        //       case "capitan":
-        //           imgJ2 = "img/capitan.png";
-        //           //break;
-        //       case "flash":
-        //           imgJ2 = "img/flash.png";
-        //       //break;
-        //       case "hulk":
-        //           imgJ2 = "img/hulk.png";
-        //       //break;
-        //       case "spiderman":
-        //           imgJ2 = "img/spiderman.png";
-        //       //break;
-        //       case "superman":
-        //           imgJ2 = "img/superman.png";
-        //       //break;  
-              
-              
-        //   }
-          //return imgJ2;
-      })
- // }
+          
+    // c.style.display="inline-block"; 
+    // @ts-ignore
+    j1 = new Jugador(CANT_FICHAS, j1topeXSup, j1topeXInf, j1topeYSup, j1topeYInf, imgJ1, "Jugador 1"); 
+    j1.addFichaJugador();
+    dibujarFichasJugador(j1);
+    menuJ1.style.display="none";
+    menuJ2.style.display="inline-block"; 
+    })
+    
+}
 
-  //seleccionarFichaJugador();
-
-
+function mostrarMenuJugador2(){
+    // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
+    document.getElementById("ficha-jugador-2").addEventListener("click", function(e){
+        console.log('eligió el 2');
+      
+         //@ts-ignore
+        let imagenSeleccionada = document.getElementById("select-image-player-2").value;
+        let mismaFicha = document.getElementById('misma-ficha');
+          console.log(imagenSeleccionada);
+          
+          switch (imagenSeleccionada) {
+              case "ironman":              
+                  imgJ2 = "img/ironman.png";
+                  //console.log(imgJ2);
+                   break;
+              case "capitan":
+                  imgJ2 = "img/capitan.png";
+                  
+                   break;
+              case "flash":
+                  imgJ2 = "img/flash.png";
+                  console.log(imgJ2);
+               break;
+              case "hulk":
+                  imgJ2 = "img/hulk.png";
+               break;
+              case "spiderman":
+                  imgJ2 = "img/spiderman.png";
+               break;
+              case "superman":
+                  imgJ2 = "img/superman.png";
+               break;
+          }
+          if (imgJ1 === imgJ2){
+            console.log('son iguales');
+            alert('son iguales volvé a elegir');
+            mismaFicha.innerHTML = 'misma-ficha';
+            mostrarMenuJugador2();
+            console.log('sale del segundo');
+          }else{
+             // @ts-ignore
+                j2 = new Jugador(CANT_FICHAS, j2topeXSup,j2topeXInf, j2topeYSup,  j2topeYInf, imgJ2, "Jugador 2");
+                j2.addFichaJugador();
+                dibujarFichasJugador(j2);
+                menuJ2.style.display="none"; 
+                menuJuego.style.display="inline-block"; 
+                mismaFicha.style.display="none";
+          }
+         
+    })
+    
+}
 
 
 //Variables de instancia
 // @ts-ignore
-let tablero = new Tablero(100,100, objetivo ,ctx);
-    tablero.crearMatriz();
-    tablero.setCarga(false);
+
 
 // @ts-ignore
-let j1 = new Jugador(CANT_FICHAS, j1topeXSup, j1topeXInf, j1topeYSup, j1topeYInf, imgJ1, "Jugador 1"); 
-j1.addFichaJugador();
-dibujarFichasJugador(j1);
+
 
 // @ts-ignore
-let j2 = new Jugador(CANT_FICHAS, j2topeXSup,j2topeXInf, j2topeYSup,  j2topeYInf, imgJ2, "Jugador 2");
-j2.addFichaJugador();
-dibujarFichasJugador(j2);
+
+
+//console.table(tablero.matriz);
 
 /// HASTA ACÁ
 /// DIBUJAR JUEGO EN LA PÁGINA Y REPRESENTAR ESTRUCTURAS -----------------
-let indicadorTurno = document.querySelector(".turno");
-iniciarPartida(); //Funcion que se encarga de elegir aleatoriamente el jugador que inicia en la primer ronda
+  
+//}
 
-function iniciarPartida(){
 
-    let primerTurno = Math.round(Math.random() * (2 - 1) + 1); // elegir quién empieza, si j1 o j2
 
-    if (primerTurno == 1){
-        j1.setTurno(true);
-        indicadorTurno.innerHTML = "Tiene el turno " + j1.nombre;
-    }else{
-        j2.setTurno(true);
-        indicadorTurno.innerHTML = "Tiene el turno " + j2.nombre;
-    }
-
-    primeraRonda = false;    
-}
-
-let timer = new Timer(100, 0);
-timer.contarSegundos();
 
 //EVENTOS MOUSE
 c.addEventListener("mousedown", function(e){
@@ -166,6 +235,7 @@ c.addEventListener("mouseup", function(e){
     mouseUp(e, jugador)
 });
 
+// FUNCIONES EVENTOS
 function mouseDown(e, jugador){
     seMueve = true;
     if(ultimaClickeada != null){
@@ -178,10 +248,14 @@ function mouseDown(e, jugador){
         ultimaClickeada = clickFig;
 
     }
+    //ultimaClickeada.cargarFicha(e.layerX-40, e.layerY-40, ctx);
 }
 function mouseMove(e){
     if(seMueve && ultimaClickeada != null){
         ultimaClickeada.setPosition(e.layerX,e.layerY);
+        // drawFigure ->
+        //      clear canvas
+        //      for para dibujar todas las figuras (fichas) y cada ficha tiene .draw()
         actualizarDisplay();
         
     }
@@ -230,18 +304,18 @@ function actualizarDisplay(){
     dibujarFichasJugador(j2);
 }
 
-
-//FUNCIONES PARA CORROBORAR Y DIBUJAR DENTRO DE LA MATRIZ Y TABLERO
 function estaSobreElTablero(posX, posY){
     let inicioTablero = 100; 
     let topePosTableroY = (objetivo + 2) * 80 + 100;
     let topePosTableroX = (objetivo + 3) * 80 + 100;
-
     if (( posY <= topePosTableroY && posY >= inicioTablero) && (posX >= inicioTablero && posX <= topePosTableroX)){
         return true;
     }
     return false;
 }
+
+
+//FUNCIONES PARA CORROBORAR Y DIBUJAR DENTRO DE LA MATRIZ Y TABLERO
 function zonaTirarFicha(posX, posY){ //la posicion que recibe es de la ficha que entro en la zona 
     let inicioTablero = 100; 
     let posXenTablero = posX - inicioTablero;
@@ -255,7 +329,7 @@ function zonaTirarFicha(posX, posY){ //la posicion que recibe es de la ficha que
         }
     }
     
-}  
+}
 
 function verificarColumna(x, ficha){ //recibe posicion en x que me retorna zonaTirarFicha y ademas recibe la ficha clickeada 
     let y = 0;
@@ -269,31 +343,53 @@ function verificarColumna(x, ficha){ //recibe posicion en x que me retorna zonaT
                 tablero.matriz[x][y] = 1;
                 j1.setTurno(false);
                 j2.setTurno(true);
+                // @ts-ignore
+                imgJugadorConTurno.src = j2.imagenFicha;
+                // @ts-ignore
                 indicadorTurno.innerHTML = "Tiene el turno el " + j2.nombre;
             }else{
                 tablero.matriz[x][y] = 2;
                 j2.setTurno(false);
                 j1.setTurno(true);
+                // @ts-ignore
+                imgJugadorConTurno.src = j1.imagenFicha;
+                // @ts-ignore
                 indicadorTurno.innerHTML = "Tiene el turno el " + j1.nombre;
-            }           
+            }            
             x = x * 80 + 100 + mitadFicha;
             y = y * 80 + 100 + mitadFicha;
             ficha.setPosition(x, y);
+            // verificar si ganó
+            //console.log('colocó la ficha');
             actualizarDisplay();
+            //console.log('actualizó el display');
             ficha.setMovible(false);
+            //console.log('ficha no movible');
         }
+        // acá la ubica abajo del tablero
+        // if(tablero.matriz[x][y] != 0){
+        //     ficha.setPosition(160, 672);
+        //     actualizarDisplay();
+        // }  
+        //console.log('casi que sale');
     }   
+    //console.log('casi que sale 2'); 
     return Math.floor((y-100)/80);
 }
 
 function verificaVictoria(x, y, tablero, jugador){
+    console.log('entra a vv');
+        
         let valorJugadorMatriz;
         if (jugador.nombre == "Jugador 1"){
             valorJugadorMatriz = 1;
         }else{
             valorJugadorMatriz = 2;
         }
+        console.log('pos ultima clickeada: ', 'x:', x,  'y:', y);
         // Chequeamos si por alguna de las posibilidades gana
+        console.log('valor jugador matriz', valorJugadorMatriz);
+        console.log('fila fija: ', y);
         if (  (checkHorizontales(parseInt(y), tablero, valorJugadorMatriz))){//{
             gano = true;
         }else if (checkVerticales(parseInt(x), tablero, valorJugadorMatriz)) {
@@ -312,12 +408,22 @@ function verificaVictoria(x, y, tablero, jugador){
            // gano = true;
             console.log('gano el jugador ', jugador.nombre, '? ', gano)
             // mostrar mensaje en html
-        //}     
+        //} 
+        console.table(tablero.matriz);
+            
+        
+    
 }
 
 function checkHorizontales(y, tablero, valorJugadorMatriz){
     let cantFichasSeguidas = 0;
 	let columna = 0;
+    console.log('objetivo:', objetivo);
+    console.log('check horizontales:');
+    console.log('x inicial: ', columna);
+    console.log('cantFichasSeguidas antes del for', cantFichasSeguidas);
+    //console.log(tablero.matrix[columna][y]);
+    //console.log(tablero.matriz[y][columna]);
     while (columna <= (objetivo + 2) && cantFichasSeguidas < objetivo){
         console.log('cantFichasSeguidas dentro del for', cantFichasSeguidas);
         //console.table(tablero.matriz);
@@ -329,10 +435,23 @@ function checkHorizontales(y, tablero, valorJugadorMatriz){
         columna++;
 
         if (cantFichasSeguidas == objetivo) {
+            console.log('cantFichasSeguidas ', cantFichasSeguidas);            
             return true;        
         }
     }
-    return false;    
+    if (cantFichasSeguidas == objetivo-1){
+        if (j1.geTurno()){
+            // @ts-ignore
+            gifCasiGana.src = "img/hamburgesas.gif";
+        }else{
+            // @ts-ignore
+            gifCasiGana.src = "img/willsmith.gif";
+        }        
+    }
+    return false;
+    //console.log('cantFichasSeguidas ', cantFichasSeguidas); 
+
+    
 }
 
 function checkVerticales(x,tablero, valorJugadorMatriz){
@@ -347,8 +466,21 @@ function checkVerticales(x,tablero, valorJugadorMatriz){
  		fila++;
         if (cantFichasSeguidas == objetivo) {
             return true;
+        }else{
+            if (cantFichasSeguidas == (objetivo-1)){
+                console.log('son 3', cantFichasSeguidas);
+               if (j1.getTurno()){
+                   // @ts-ignore
+                   gifCasiGana.src = "img/hamburgesas.gif";
+               }else{
+                   // @ts-ignore
+                   gifCasiGana.src = "img/willsmith.gif";
+               }        
+           }
         }
  	}
+     
+    //console.log('son 3', cantFichasSeguidas);
      return false;	
     
  }
@@ -388,29 +520,56 @@ function checkVerticales(x,tablero, valorJugadorMatriz){
  	if (cantFichasSeguidas == objetivo) {
          return true;        
     }
+    if (cantFichasSeguidas == objetivo-1){
+        if (j1.geTurno()){
+            // @ts-ignore
+            gifCasiGana.src = "img/hamburgesas.gif";
+        }else{
+            // @ts-ignore
+            gifCasiGana.src = "img/willsmith.gif";
+        }        
+    }
     return false;
 }
 
+let botonReset = document.getElementById('button-reset-game').addEventListener("click", loadPage);
+
 function finalizoElJuego(){
-    if(timer.getContador() >= 1 && gano){
-        timer.stop();
-        pararJuego(j1);
-        pararJuego(j2);
-    }else if(timer.getContador() == 1){
+    console.log('contador timer inicio finalizoJuego', timer.getContador());
+    if(timer.getContador() == 0){
+        console.log('contador timer terminó', timer.getContador());
         pararJuego(j1);
         pararJuego(j2);
     }
+    else{
+        if(timer.getContador() >= 1 && gano){ // alguien ganó
+            console.log('contador timer', timer.getContador());
+            console.log('gano? ', gano);
+            timer.stop();
+            pararJuego(j1);
+            pararJuego(j2);
+            let botonReset = document.getElementById('reset');
+            botonReset.style.display="inline-block";
+        }
+    }    
 }
 function pararJuego(jugador){
     for(let i = 0; i < jugador.getSize(); i++){
         jugador.fichas[i].setMovible(false); //saco evento a las fichas
+        console.log('se puede mover esta ficha?', jugador.fichas[i].isMovible());
     }
+    console.log('paró fichas del jugador', jugador);
 }
 //document.getElementById('id del boton reset').addEventListener('click', reiniciarJuego);
-function reiniciarJuego(){
-
+function resetJuego(){
+    loadPage();
 }
 
+function loadPage(){
+    location.reload();
+}
+
+//loadPage();
 
 
 

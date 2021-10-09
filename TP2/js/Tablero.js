@@ -15,7 +15,6 @@ class Tablero {
         let y = this.getY();
         let ancho = this.celda.getAncho(); 
         let alto = this.celda.getAlto();
-
         for(let i = 0; i <this.cantFichas + 3; i++){ //+3 y +2 en los for son para que el tablero se ajuste dependiendo de la cantidad de fichas 
             this.matriz[i] = [];
             for(let j = 0; j < this.cantFichas + 2; j++){
@@ -32,7 +31,6 @@ class Tablero {
         let y = this.getY();
         let ancho = this.celda.getAncho(); 
         let alto = this.celda.getAlto();
-
         for(let i = 0; i <this.cantFichas + 3; i++){ 
             for(let j = 0; j < this.cantFichas + 2; j++){
                 if(this.carga){
@@ -49,8 +47,7 @@ class Tablero {
 
     setCarga(valor){
         this.carga = valor;
-    }
-   
+    }   
 
     //getters y setters 
     getX(){
@@ -59,16 +56,5 @@ class Tablero {
     getY(){
         return this.inicioY;
     }
-    // getAncho(){
-    //     // @ts-ignore
-    //     return this.ancho;
-    // }
-    // getAlto(){
-    //     // @ts-ignore
-    //     return this.alto;
-    // }
-
-    // Nosotros tenemos el tablero con 7x6
-    // Para saber dónde va cada ficha, tendríamos que hacer una matriz copia con el tablero y sus ocupaciones e ir actualizando
 }
 

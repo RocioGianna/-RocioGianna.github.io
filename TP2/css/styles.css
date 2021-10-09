@@ -4,6 +4,13 @@
 }
 
 
+#menu-jugador-1, #menu-jugador-2, #menu-cant-objetivo{
+    background-color: coral;
+    text-transform: uppercase;
+    text-shadow: cadetblue;
+    margin: 500px 500px 500px 500px;
+}
+
 .seccion-turno{
     display: flex;
     align-content: space-around;
@@ -14,6 +21,29 @@
 
 }
 
+#menu-jugador-1{
+    display: inline-block;
+}
+
+#menu-jugador-2{
+    display: none;
+}
+
+#menu-cant-objetivo{
+    display: none;
+}
+
+#canvas{
+    display:none;
+}
+
+#reset{
+    display:none;
+}
+
+
 /* select#select-image-player option[value="capitan"]   { background-image:url(img\capitan.png);   }
 select#select-image-player option[value="female"] { background-image:url(female.png); }
 select#select-image-player option[value="others"] { background-image:url(others.png); } */
+
+/* MENUS */
