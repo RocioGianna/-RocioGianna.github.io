@@ -5,7 +5,7 @@ class Tablero {
         this.cantFichas = cantFichas; //objetivo que desea el usuario (4, 5..etc)
         this.ctx = context;
         // @ts-ignore
-        this.celda = new Celda(80,80,"img/fondo.png"); //instancia de una celda que va a representar el fondo del tablero
+        this.celda = new Celda(80,80,"img/fichas/fondo.png"); //instancia de una celda que va a representar el fondo del tablero
         this.matriz = [];
         this.carga = true;
     }

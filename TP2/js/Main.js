@@ -44,8 +44,7 @@ let timer;
 let imgJugadorConTurno = document.getElementById('img-player-actual');
 let gifCasiGana = document.getElementById('gif-emotion');
 
-let indicadorTurno = document.querySelector(".turno");
-
+let indicadorTurno = document.getElementById("turno");
 
 
 mostrarMenuJugador1();
@@ -54,6 +53,7 @@ seleccionarObjetivo();
 
 
 function seleccionarObjetivo(){
+    // @ts-ignore
     // @ts-ignore
     // @ts-ignore
     // @ts-ignore
@@ -89,18 +89,24 @@ function seleccionarObjetivo(){
             primeraRonda = false;  
 
             // @ts-ignore
+            let inicio = document.getElementById('inicio');
+            inicio.style.display = "none";
             tablero = new Tablero(100,100, objetivo ,ctx);
             tablero.crearMatriz();
             tablero.setCarga(false);
             // @ts-ignore
-            timer = new Timer(5, 0);
+            timer = new Timer(20, 0);
             timer.contarSegundos();
-            finalizoElJuego();
+            // @ts-ignore
+            let jugadorVacio = new Jugador(0, 0,0, 0,  0, 0, "nada")
+            
+            finalizoElJuego(jugadorVacio);
     })
     
 }
 
 function mostrarMenuJugador1(){
+    // @ts-ignore
     // @ts-ignore
     // @ts-ignore
     // @ts-ignore
@@ -112,24 +118,24 @@ function mostrarMenuJugador1(){
           console.log(imagenSeleccionada);
           switch (imagenSeleccionada) {
               case "ironman":              
-                  imgJ1 = "img/ironman.png";
+                  imgJ1 = "img/fichas/ironman.png";
                   //console.log(imgJ1);
                    break;
               case "capitan":
-                  imgJ1 = "img/capitan.png";
+                  imgJ1 = "img/fichas/capitan.png";
                   console.log(imgJ1);
                    break;
               case "flash":
-                  imgJ1 = "img/flash.png";
+                  imgJ1 = "img/fichas/flash.png";
                break;
               case "hulk":
-                  imgJ1 = "img/hulk.png";
+                  imgJ1 = "img/fichas/hulk.png";
                break;
               case "spiderman":
-                  imgJ1 = "img/spiderman.png";
+                  imgJ1 = "img/fichas/spiderman.png";
                break;
               case "superman":
-                  imgJ1 = "img/superman.png";
+                  imgJ1 = "img/fichas/superman.png";
                break;
           }
           
@@ -148,6 +154,7 @@ function mostrarMenuJugador2(){
     // @ts-ignore
     // @ts-ignore
     // @ts-ignore
+    // @ts-ignore
     document.getElementById("ficha-jugador-2").addEventListener("click", function(e){
         console.log('eligió el 2');
       
@@ -158,25 +165,25 @@ function mostrarMenuJugador2(){
           
           switch (imagenSeleccionada) {
               case "ironman":              
-                  imgJ2 = "img/ironman.png";
+                  imgJ2 = "img/fichas/ironman.png";
                   //console.log(imgJ2);
                    break;
               case "capitan":
-                  imgJ2 = "img/capitan.png";
+                  imgJ2 = "img/fichas/capitan.png";
                   
                    break;
               case "flash":
-                  imgJ2 = "img/flash.png";
+                  imgJ2 = "img/fichas/flash.png";
                   console.log(imgJ2);
                break;
               case "hulk":
-                  imgJ2 = "img/hulk.png";
+                  imgJ2 = "img/fichas/hulk.png";
                break;
               case "spiderman":
-                  imgJ2 = "img/spiderman.png";
+                  imgJ2 = "img/fichas/spiderman.png";
                break;
               case "superman":
-                  imgJ2 = "img/superman.png";
+                  imgJ2 = "img/fichas/superman.png";
                break;
           }
           if (imgJ1 === imgJ2){
@@ -199,25 +206,9 @@ function mostrarMenuJugador2(){
     
 }
 
-
-//Variables de instancia
-// @ts-ignore
-
-
-// @ts-ignore
-
-
-// @ts-ignore
-
-
-//console.table(tablero.matriz);
-
-/// HASTA ACÁ
 /// DIBUJAR JUEGO EN LA PÁGINA Y REPRESENTAR ESTRUCTURAS -----------------
   
 //}
-
-
 
 
 //EVENTOS MOUSE
@@ -262,7 +253,7 @@ function mouseMove(e){
         
         
     }
-    //finalizoElJuego();
+    
 }
 function mouseUp(e, jugador){
     seMueve = false;
@@ -394,14 +385,15 @@ function verificaVictoria(x, y, tablero, jugador){
         // Chequeamos si por alguna de las posibilidades gana
         console.log('valor jugador matriz', valorJugadorMatriz);
         console.log('fila fija: ', y);
-        if (  (checkHorizontales(parseInt(y), tablero, valorJugadorMatriz))){//{
+        let emotion = document.getElementById('emotion');
+        if (  (checkHorizontales(parseInt(y), tablero, valorJugadorMatriz, emotion))){//{
             gano = true;
-        }else if (checkVerticales(parseInt(x), tablero, valorJugadorMatriz)) {
+        }else if (checkVerticales(parseInt(x), tablero, valorJugadorMatriz, emotion)) {
             gano = true;
-        }else if (checkDiagonales(x, y, tablero, valorJugadorMatriz)) {
+        }else if (checkDiagonales(x, y, tablero, valorJugadorMatriz, emotion)) {
             gano = true;
         }
-        finalizoElJuego();
+        finalizoElJuego(jugador);
            // if (! {
 
            // }
@@ -419,7 +411,7 @@ function verificaVictoria(x, y, tablero, jugador){
     
 }
 
-function checkHorizontales(y, tablero, valorJugadorMatriz){
+function checkHorizontales(y, tablero, valorJugadorMatriz, emotion){
     let cantFichasSeguidas = 0;
 	let columna = 0;
     console.log('objetivo:', objetivo);
@@ -444,12 +436,13 @@ function checkHorizontales(y, tablero, valorJugadorMatriz){
         }
     }
     if (cantFichasSeguidas == objetivo-1){
+        emotion.style.display = "inline-block";
         if (j1.geTurno()){
             // @ts-ignore
-            gifCasiGana.src = "img/hamburgesas.gif";
+            gifCasiGana.src = "img/gifs/hamburgeusas.gif";
         }else{
             // @ts-ignore
-            gifCasiGana.src = "img/willsmith.gif";
+            gifCasiGana.src = "img/gifs/willsmith.gif";
         }        
     }
     return false;
@@ -458,7 +451,7 @@ function checkHorizontales(y, tablero, valorJugadorMatriz){
     
 }
 
-function checkVerticales(x,tablero, valorJugadorMatriz){
+function checkVerticales(x,tablero, valorJugadorMatriz, emotion){
     let cantFichasSeguidas = 0;
  	let fila = 0;
  	while (fila <= (objetivo + 3) && cantFichasSeguidas < objetivo) {
@@ -473,12 +466,13 @@ function checkVerticales(x,tablero, valorJugadorMatriz){
         }else{
             if (cantFichasSeguidas == (objetivo-1)){
                 console.log('son 3', cantFichasSeguidas);
+                emotion.style.display = "inline-block";
                if (j1.getTurno()){
-                   // @ts-ignore
-                   gifCasiGana.src = "img/hamburgesas.gif";
+                   // @ts-ignore                   
+                   gifCasiGana.src = "img/gifs/hamburguesas.gif";
                }else{
                    // @ts-ignore
-                   gifCasiGana.src = "img/willsmith.gif";
+                   gifCasiGana.src = "img/gifs/willsmith.gif";
                }        
            }
         }
@@ -489,7 +483,7 @@ function checkVerticales(x,tablero, valorJugadorMatriz){
     
  }
 
- function checkDiagonales(x, y, tablero, valorJugadorMatriz){
+ function checkDiagonales(x, y, tablero, valorJugadorMatriz, emotion){
     //  Verificamos la diagonal hacia la abajo y haca la izquierda 
  	let cantFichasSeguidas = 0;
  	let fila = y - 3;
@@ -525,38 +519,148 @@ function checkVerticales(x,tablero, valorJugadorMatriz){
          return true;        
     }
     if (cantFichasSeguidas == objetivo-1){
+        emotion.style.display = "inline-block";
         if (j1.geTurno()){
             // @ts-ignore
-            gifCasiGana.src = "img/hamburgesas.gif";
+            gifCasiGana.src = "img/gifs/hamburguesas.gif";
         }else{
             // @ts-ignore
-            gifCasiGana.src = "img/willsmith.gif";
+            gifCasiGana.src = "img/gifs/willsmith.gif";
         }        
     }
     return false;
 }
 
+// @ts-ignore
 let botonReset = document.getElementById('button-reset-game').addEventListener("click", loadPage);
 
-function finalizoElJuego(){
+function finalizoElJuego(jugador){
     console.log('contador timer inicio finalizoJuego', timer.getContador());
     if(timer.contador == 0){
         console.log('contador timer terminó', timer.getContador());
+        // @ts-ignore
         pararJuego(j1);
+        // @ts-ignore
         pararJuego(j2);
+        // @ts-ignore
         resetJuego();
     }
     else{
         if(timer.contador >= 1 && gano){ // alguien ganó
             console.log('contador timer', timer.getContador());
             console.log('gano? ', gano);
+            let seccionTurnos = document.getElementById("seccion-turno");
+            seccionTurnos.style.display = "none";
+            c.style.display = "none";
+            let resultados = document.getElementById("resultados");
+            resultados.style.display = "flex";
+            let emotion = document.getElementById('emotion');
+            emotion.style.display = "none";
+            let resultado = document.getElementById('show-resultado');
+            resultado.innerHTML = "Ganó el " + jugador.nombre + "!!!!!";
+            let fondoJuego = document.getElementById('fondo-juego');
+            fondoJuego.style.display = "none";
             timer.stop();
+            // @ts-ignore
             pararJuego(j1);
+            // @ts-ignore
             pararJuego(j2);
+            // @ts-ignore
+            mostrarResultados(jugador);
+            // @ts-ignore
             resetJuego();
         }
     }    
 }
+
+function obtenerDatoFicha(jugador, gifJugador1, gifJugador2){   
+    // Obtengo dato de la imagen del j1
+        switch(j1.imagenFicha){
+            case "img/fichas/ironman.png":              
+                gifJugador1.src = "img/gifs/ironman";
+            //console.log(imgJ1);
+            break;
+            case "img/fichas/capitan.png":
+                gifJugador1.src = "img/gifs/capitan";
+                break;
+            case "img/fichas/flash.png":
+                gifJugador1.src = "img/gifs/flash";
+            break;
+            case "img/fichas/hulk.png":
+                gifJugador1.src = "img/gifs/hulk";
+            break;
+            case "img/fichas/spiderman.png":
+                gifJugador1.src = "img/gifs/spiderman";
+            break;
+            case "img/fichas/superman.png":
+                gifJugador1.src = "img/gifs/superman";
+            break;
+        }
+    // Obtengo dato de la imagen del j2
+        switch(j2.imagenFicha){
+            case "img/fichas/ironman.png":              
+                gifJugador2.src = "img/gifs/ironman";
+            //console.log(imgJ1);
+            break;
+            case "img/fichas/capitan.png":
+                gifJugador2.src = "img/gifs/capitan";
+                break;
+            case "img/fichas/flash.png":
+                gifJugador2.src = "img/gifs/flash";
+            break;
+            case "img/fichas/hulk.png":
+                gifJugador2.src = "img/gifs/hulk";
+            break;
+            case "img/fichas/spiderman.png":
+                gifJugador2.src = "img/gifs/spiderman";
+            break;
+            case "img/fichas/superman.png":
+                gifJugador2.src = "img/gifs/superman";
+            break;
+        }  
+
+        if (jugador.nombre == "Jugador 1"){
+            gifJugador1.src += "Wins.gif";
+            gifJugador2.src += "Loses.gif";
+        }else{
+            if (jugador.nombre == "Jugador 2"){
+                gifJugador2.src += "Wins.gif";
+                gifJugador1.src += "Loses.gif";            
+            }else{
+                if (jugador.nombre == "nada"){
+                    return null;
+                }
+            }        
+        }
+        console.log(gifJugador1.src);
+        console.log(gifJugador2.src);
+        return {
+            gifJ1: gifJugador1.src,
+            gifJ2: gifJugador2.src
+        }
+}
+  
+
+
+// @ts-ignore
+function mostrarResultados(jugador){
+    let resultados = document.getElementById('resultados');
+    let gifJugador1 = document.getElementById('gif-result-player1');
+    let gifJugador2 = document.getElementById('gif-result-player2');;
+    let jugador1 = obtenerDatoFicha(jugador, gifJugador1, gifJugador2).gifJ1;
+    let jugador2 = obtenerDatoFicha(jugador, gifJugador1, gifJugador2).gifJ2;  
+    if (jugador1 !== null && jugador2 !== null){        
+        resultados.style.display = "inline-block";
+        // @ts-ignore
+        gifJugador1.src = obtenerDatoFicha(jugador, gifJugador1, gifJugador2).gifJ1;
+        // @ts-ignore
+        gifJugador2.src = obtenerDatoFicha(jugador, gifJugador1, gifJugador2).gifJ2;  
+    }  
+}
+    
+
+
+// @ts-ignore
 function pararJuego(jugador){
     for(let i = 0; i < jugador.getSize(); i++){
         jugador.fichas[i].setMovible(false); //saco evento a las fichas
@@ -565,11 +669,13 @@ function pararJuego(jugador){
     console.log('paró fichas del jugador', jugador);
 }
 
+// @ts-ignore
 function resetJuego(){
     let botonReset = document.getElementById('reset');
     botonReset.style.display="inline-block";    
 }
 
+// @ts-ignore
 function loadPage(){
     location.reload();
 }
@@ -579,4 +685,4 @@ function loadPage(){
 
 
 
-
+// @ts-ignore

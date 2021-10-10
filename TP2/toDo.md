@@ -13,7 +13,8 @@
 
 - **Mejorar diseño.**
 - **Timer para cada turno.**
-- **Mostrar GIF cuando alguno de los dos esté a punto de ganar.**
+- ~~Mostrar GIF cuando alguno de los dos esté a punto de ganar.~~
+- ~~Mostrar GIF y mensaje cuando alguien gane. GIF correspondiente a la fecha elegida.~~
 - Indicar con qué fichas se ganó.
 - **Mostrar imagen dentro de las opciones del select.**
 - ~~Cambiar imagen no funciona.~~

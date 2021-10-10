@@ -8,10 +8,19 @@
     <title>Entregable 2</title>
 </head>
 <body>
-    <div class="juego">
+    <div id="juego">
 
-        <canvas id="canvas" width="1350" height="895"></canvas>
-        <div class="menues">
+        <div id="inicio">
+            <div id="fondo-inicio">
+                <img src="img/fondoMenu.jpg" alt="">
+            </div>
+        </div> 
+
+        <canvas id="canvas" width="1350" height="1000"></canvas>
+
+       
+
+        <div class="menus">
 
             <div id="menu-jugador-1">
                 <h1>Jugador 1</h1>
@@ -57,32 +66,43 @@
             <div id="misma-ficha">
 
             </div>
-
-            <div class="seccion-turno">
-                <h1 class="turno"></h1>
-                <img id="img-player-actual">
-
-                <div class="show-timer">
-                    <h2 id="timer"></h2>
-                </div>
-                
-            </div>
-
             
+            <div id="seccion-turno">
+                <h1 id="turno"></h1>
+                <img id="img-player-actual">                               
+            </div> 
+            <div class="show-timer">
+                <h2 id="timer"></h2>
+            </div>            
 
-            <div class="emotion">
+            <div id="emotion">
                 <img id="gif-emotion" alt="">
             </div>
 
+            <div id="resultados">
+                <img id="gif-result-player1">
+                <img id="gif-result-player2">
+                <h1 id="show-resultado"></h1>
+            </div>
             
             <div id="reset">
                 <button id="button-reset-game" class="btn btn-success">Reiniciar juego</button>
+            </div>       
+            
+            <div id="fondo-juego">
+
+                <img src="img/fondoJuego.png" alt="">
             </div>
         </div>
+       
         
-
-
     </div>
+    <footer>
+        <div class="about">
+            <p>Developed by Rocio Giannaccini & Juan Mauro - Interfaces de Usuario e Interacción - Cursada 2021 - TUDAI - UNCBPBA</p>
+        </div> 
+   </footer>
+   
     
     <script src="js/Timer.js"></script>
     <script src="js/Elemento.js"></script>

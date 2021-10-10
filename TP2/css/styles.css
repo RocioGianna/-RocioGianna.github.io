@@ -4,37 +4,70 @@
 }
 
 
-#menu-jugador-1, #menu-jugador-2, #menu-cant-objetivo{
+#menu-jugador-1, #menu-jugador-2, #menu-cant-objetivo{       
+    justify-content: center;
+    align-items: center;
     background-color: coral;
     text-transform: uppercase;
     text-shadow: cadetblue;
-    margin: 500px 500px 500px 500px;
+    margin: 15px 0px 0px 250px;
 }
 
-.seccion-turno{
+#juego{
+    display:flex;
+    background-color: white;
+    height: 1000px;
+}
+
+
+#seccion-turno{
     display: flex;
     align-content: space-around;
 }    
 
-.juego{
-    display: flex;
+#fondo-inicio{
+    width: 750px;
+    margin: 50px 0px 0px 100px;
+}
 
+#inicio{
+    margin-right: 250px;
+}
+
+#fondo-juego{
+    margin-top: 100px;
+}
+
+.about{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;    
+    height: 310px;
+    width: 1250px;
+    color: grey;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0px 0px 0px 350px;
 }
 
 #menu-jugador-1{
     display: inline-block;
 }
 
-#menu-jugador-2{
-    display: none;
+body{
+    background-color: black;
 }
 
-#menu-cant-objetivo{
-    display: none;
+footer{
+    margin: 0px;
+    font-size: smaller;
 }
 
-#canvas{
+#canvas, #reset, #resultados, #emotion, #menu-jugador-2, #menu-cant-objetivo {
     display:none;
+}
+
+#resultados{
+    margin: 100px 100px 200px 600px;
 }
 
 #reset{
@@ -54,3 +87,4 @@ select#select-image-player option[value="others"] { background-image:url(others.
     display: inline-block;
     font-style: italic;
 }
+
