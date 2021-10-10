@@ -1,7 +1,7 @@
 class Timer{
 
     constructor(inicio, final){
-        this.inicio = inicio;
+        this.inicio = inicio+1;
         this.final = final;
         this.contador = this.inicio;
         this.timer = null;
@@ -12,7 +12,7 @@ class Timer{
             this.contarSegundos = null;
             return;
         }
-        //this.contador--;
+        //his.contador--;
         console.log(this.contador--)
         showTimer.innerHTML = this.contador;
         finalizoElJuego();
