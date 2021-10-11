@@ -12,7 +12,7 @@ class Timer{
             this.contarSegundos = null;
             return;
         }
-        showTimer.innerHTML = this.contador--;
+        showTimer.innerHTML = "Tiempo restante: " + this.contador--;
         finalizoElJuego();//cada vez que se ejecuta corrobora que no haya un ganador o el tiempo se hay terminado
         this.timer = setTimeout(this.contarSegundos.bind(this),1000); // esta funcion se repite cada 1seg, .bind se encarga de pasarle a la funcion el estado actual en el que termino es decir contador--.
     }
