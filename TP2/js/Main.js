@@ -80,7 +80,7 @@ function seleccionarObjetivo(){
         tablero.crearMatriz();
         tablero.setCarga(false);
         // creamos el timer
-        timer = new Timer(20, 0);
+        timer = new Timer(90, 0);
         timer.contarSegundos();
         // jugador vacío por si nadie gana y tiene que mostrar resultados si nadie ganó
         // @ts-ignore
