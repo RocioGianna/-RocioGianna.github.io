@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <title>Entregable 2</title>
+</head>
+<body>
+    <!-- CONTAINER GENERAL -->
+    <div id="juego">
+        <!-- IMAGEN DE INICIO -->
+        <div id="inicio">
+            <div id="fondo-inicio">
+                <img src="img/fondoMenu.jpg" alt="">
+            </div>
+        </div> 
+        <!-- CANVAS -->
+        <canvas id="canvas" width="1350" height="1000"></canvas>
+            <!-- MENÚES -->
+            <div class="menus">
+                <!-- menú jugador 1 -->
+                <div id="menu-jugador-1">
+                    <h1>Jugador 1</h1>
+                    <h2>Elegí tu ficha</h2>                    
+                    <select id="select-image-player-1" name="select" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <option value="capitan" selected>Capitán América</option class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <option value="flash">Flash</option>
+                        <option value="ironman">Iron Man</option>
+                        <option value="superman">Superman</option>
+                        <option value="spiderman">Spiderman</option>
+                        <option value="hulk">Hulk</option>
+                    </select>
+                    <div>
+                        <button id="ficha-jugador-1" class="btn btn-primary btn-lg">Seleccionar</button>
+                    </div>                    
+                </div>
+                <!-- menú jugador 2 -->
+                <div id="menu-jugador-2">
+                    <h1>Jugador 2</h1>
+                    <h2>Elegí tu ficha</h2>
+                    <select name="select" id="select-image-player-2" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <option value="capitan">Capitán América</option>
+                        <option value="flash" selected>Flash</option>
+                        <option value="ironman">Iron Man</option>
+                        <option value="superman">Superman</option>
+                        <option value="spiderman">Spiderman</option>
+                        <option value="hulk">Hulk</option>
+                    </select>
+                    <button id="ficha-jugador-2" class="btn btn-warning btn-lg">Seleccionar</button>
+                </div>
+                <!-- menú  objetivo-->
+                <div id="menu-cant-objetivo">
+                    <h1>Elegí la cantidad de fichas a unir</h1>                    
+                    <select name="select" id="objetivo-juego" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <option value="4" selected>4</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                    <button id="click-objetivo-juego" class="btn btn-success btn-lg">Seleccionar</button>
+                </div>
+                <div id="misma-ficha">
+
+                </div>
+                <!-- TURNO -->
+                <div id="seccion-turno">
+                    <h1 id="turno"></h1>
+                    <img id="img-player-actual">                               
+                </div> 
+                <!-- TIMER -->
+                <div class="show-timer">
+                    <h2 id="timer"></h2>
+                </div>            
+                <!-- gif almost win -->
+                <div id="emotion">
+                    <img id="gif-emotion" alt="" width="500" height="300">
+                </div>
+                <!-- resultados -->
+                <div id="resultados">
+                    <img id="gif-result-player1" width="550" height="550">
+                    <img id="gif-result-player2" width="550" height="550">
+                    <h1 class="alert alert-primary" role="alert" id="show-resultado"></h1>                
+                </div>
+                <!-- reset -->
+                <div id="reset">
+                    <button id="button-reset-game" class="btn btn-danger btn-lg">Reiniciar juego</button>
+                </div>               
+                    
+                <!-- Wallpapper abajo a la derecha-->
+                <div id="fondo-juego">
+
+                    <img src="img/fondoJuego.png" alt="">
+                </div>
+            </div>        
+            
+    </div>
+    <!-- about-->
+    <footer>
+        <div class="about">
+            <p>Developed by Rocio Giannaccini & Juan Mauro - Interfaces de Usuario e Interacción - Cursada 2021 - TUDAI - UNCBPBA</p>
+        </div> 
+   </footer>
+    <!-- scripts -->
+    
+    <script src="js/Timer.js"></script>
+    <script src="js/Elemento.js"></script>
+    <script src="js/Celda.js"></script>
+    <script src="js/Jugador.js"></script>
+    <script src="js/Ficha.js"></script>
+    <script src="js/Tablero.js"></script>
+    <script src="js/Main.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+#turno{
+    margin-top: 15px;
+    text-align: center;
+    font-family:'Luckiest Guy', cursive;
+}
+
+#menu-jugador-1, #menu-jugador-2, #menu-cant-objetivo{     
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    font-family: 'Luckiest Guy', cursive;
+    text-transform: uppercase;
+    text-shadow: cadetblue;
+    margin: 15px 0px 0px 250px;
+    text-align: center;
+    width: 400px;
+}
+
+#juego{
+    display:flex;
+    background-color: white;
+    height: 1000px;
+}
+
+#reset{
+    font-family: 'Luckiest Guy', cursive;
+}
+
+#seccion-turno{
+    display: flex;
+    align-content: space-around;
+}    
+
+#fondo-inicio{
+    width: 750px;
+    margin: 50px 0px 0px 100px;
+}
+
+#inicio{
+    margin-right: 250px;
+}
+
+#fondo-juego{
+    margin-top: 100px;
+}
+
+.about{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;    
+    height: 310px;
+    width: 1250px;
+    color: grey;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0px 0px 0px 350px;
+}
+
+#menu-jugador-1{
+    display: inline-block;
+}
+
+body{
+    background-color: black;
+}
+
+footer{
+    margin: 0px;
+    font-size: smaller;
+}
+
+#canvas, #reset, #resultados, #emotion, #menu-jugador-2, #menu-cant-objetivo {
+    display:none;
+}
+
+#resultados{
+    margin: 100px 100px 200px 400px;
+    font-family: 'Luckiest Guy', cursive;
+}
+
+#reset{
+    display:none;
+}
+
+#timer{
+    display: inline-block;
+    font-family: 'Bangers', cursive;
+    font-size: 40px;
+    text-align: center;
+    align-items: center;
+}
+
