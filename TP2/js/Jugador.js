@@ -1,6 +1,6 @@
 class Jugador{
 
-    constructor(cantFichas, topeXSup, topeXInf, topeYSup, topeYInf, imagenFicha, nombre){ //
+    constructor(cantFichas, topeXSup, topeXInf, topeYSup, topeYInf, imagenFicha, nombre){ //clase que da estructura a los jugadores
         this.fichas = [];
         this.cantFichasJugador = cantFichas;
         this.topeXSup = topeXSup;

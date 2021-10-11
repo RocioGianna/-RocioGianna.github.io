@@ -1,4 +1,4 @@
-class Elemento {
+class Elemento { // clase padre de Celda y Ficha. Tiene la estructura que van a utilizar ambas clases hijas para dibujarse
 
     constructor(ancho, alto, src){
         this.ancho = ancho;

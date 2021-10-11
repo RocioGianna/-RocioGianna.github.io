@@ -1,5 +1,5 @@
 // @ts-ignore
-class Ficha extends Elemento{
+class Ficha extends Elemento{ //Clase que da estructura a las fichas
     constructor(ancho, alto, src){
         super(ancho, alto, src);
         this.movible = true;
@@ -12,7 +12,7 @@ class Ficha extends Elemento{
         super.cargarElemento(posX, posY, ctx);
     }
     
-    isPonintInside(xUser, yUser){
+    isPonintInside(xUser, yUser){ // metodo para saber si una ficha es clickeada o no 
         return !(xUser < this.getX() || xUser > this.getX() + this.ancho || yUser < this.getY() || yUser > this.getY() + this.alto); 
     }; 
 

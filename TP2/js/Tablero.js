@@ -7,7 +7,7 @@ class Tablero {
         // @ts-ignore
         this.celda = new Celda(80,80,"img/fichas/fondo.png"); //instancia de una celda que va a representar el fondo del tablero
         this.matriz = [];
-        this.carga = true;
+        this.carga = true; //variable que nos permite saber si la imagen ya fue cargada, en ese caso comenzamos a utilizar la funcion que solo dibuja las celdas
     }
 
     crearMatriz(){
