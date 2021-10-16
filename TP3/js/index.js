@@ -15,9 +15,12 @@ document.addEventListener('keydown', (e)=>{
 document.addEventListener('keyup', (e)=>{
     if(e.keyCode == 38){
         stand.style.display = 'block';
+        salto.style.display = 'none';
+        caminar.style.display = 'none';
     }
     if(e.keyCode == 39){
         caminar.style.display = 'none';
+        salto.style.display = 'none';
         stand.style.display = 'block';
     }
 
@@ -26,13 +29,11 @@ document.addEventListener('keyup', (e)=>{
 function saltar(){
     caminar.style.display = 'none';
     salto.style.display = 'block';
-    setTimeout(()=>{ //esto no funciona del todo bien, tampoco se si es correcto hacerlo asi ... podemos consultar
-        salto.style.display = 'none';
-        caminar.style.display = 'block';
-    }, 1000);
+    stand.style.display = 'none';
 }
 
 function walk(){
     caminar.style.display = 'block';
     stand.style.display = 'none';
+    salto.style.display = 'none';
 }
