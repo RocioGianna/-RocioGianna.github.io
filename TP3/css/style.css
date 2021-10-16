@@ -1,0 +1,60 @@
+#personaje { 
+    width: 117px; 
+    height: 212px; 
+    background: url('../img/walk.png') left center;
+    animation: walk 0.9s steps(7) infinite;
+    position:relative;
+    top: 500px;
+    left: 400px;
+}
+
+@keyframes walk { 
+	0% { background-position: 0px; }
+        100% { background-position: -810px; }
+} 
+
+#personajeSB { 
+  width: 160px; 
+  height: 200px; 
+  background: url('../img/standby.png') left center;
+  animation: stand 1s steps(3) infinite;
+  position:relative;
+  top: 500px;
+  left: 200px;
+}
+
+@keyframes stand { 
+  0% { background-position: 0px; }
+  100% { background-position: -430px; }
+} 
+
+
+#personajeSalt { 
+  width: 100px; 
+  height: 400px; 
+  background: url('../img/salto.png') left center;
+  animation: saltar 1s steps(7) infinite;
+  position:relative;
+  top:150px;
+  left: 700px;
+}
+
+@keyframes saltar { 
+  0% { background-position: 0px; }
+  100% { background-position: -800px; }
+} 
+
+
+
+#fondo { 
+ /* width: 2790px; tamanio real de la imagen queda con scroll*/
+  width:1000px ;
+  height: 700px; 
+  background:url('../img/fondo.jpg') repeat-X;
+  /*animation: movebg 17s linear infinite;    con esto se mueve el fondo*/
+}
+                                                    
+@keyframes movebg {
+  0% { background-position:2790px; } 
+  100% { background-position:0 }
+}
