@@ -59,3 +59,19 @@
   0% { background-position:2790px; } 
   100% { background-position:0 }
 }
+
+#character-attack{
+  width: 150px; 
+  height: 200px; 
+  background: url('../img/ataque.png') left center;
+  animation: attack 1s steps(10) ;
+  position: absolute;
+  top: 490px;
+  left: 220px;
+  display: none;
+}
+
+@keyframes attack{
+  0%{ background-position: 0;}
+  100%{background-position: 1500px;}
+}
