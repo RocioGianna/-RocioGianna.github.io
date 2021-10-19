@@ -1,39 +1,40 @@
-let salto = document.getElementById("personajeSalt");
-let caminar = document.getElementById("personaje");
-let stand = document.getElementById("personajeSB");
+let walks = document.getElementById("character-walks");
+let jumps = document.getElementById("character-jump");
+//let standBy = document.getElementById("character-quiet");
 
 document.addEventListener('keydown', (e)=>{
     console.log(e.keyCode)
-    if(e.keyCode == 38){
-        saltar();        
+    if(e.keyCode == 38){ /** https://keycode.info/ */
+        jump();        
     }
-    if(e.keyCode == 39){
+    if(e.keyCode == 39){ /** https://keycode.info/ */
         walk();
     }
 })
 
-document.addEventListener('keyup', (e)=>{
-    if(e.keyCode == 38){
-        stand.style.display = 'block';
-        salto.style.display = 'none';
-        caminar.style.display = 'none';
-    }
-    if(e.keyCode == 39){
-        caminar.style.display = 'none';
-        salto.style.display = 'none';
-        stand.style.display = 'block';
-    }
 
+document.addEventListener('keyup', (e)=>{
+    if(e.keyCode == 38){ /* arrow up */ 
+        jumps.style.display = 'none';      
+        walks.style.display = 'block';
+       
+    }
+    // if(e.keyCode == 39){ /* arrow right */
+    //     //walks.style.display = 'none';
+    //     jumps.style.display = 'none';
+    //     //standBy.style.display = 'block';
+    // }
 })
 
-function saltar(){
-    caminar.style.display = 'none';
-    salto.style.display = 'block';
-    stand.style.display = 'none';
+function jump(){
+    walks.style.display = 'none';
+    jumps.style.display = 'block';
+    //standBy.style.display = 'none';
 }
 
 function walk(){
-    caminar.style.display = 'block';
-    stand.style.display = 'none';
-    salto.style.display = 'none';
+    jumps.style.display = 'none';
+    walks.style.display = 'block';
+    //standBy.style.display = 'none';
+    
 }
