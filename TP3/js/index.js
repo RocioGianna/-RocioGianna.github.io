@@ -1,20 +1,11 @@
-let walks = document.getElementById("character-walks");
-let jumps = document.getElementById("character-jump");
-//let standBy = document.getElementById("character-quiet");
-let attacks = document.getElementById("character-attack");
+let character = document.getElementById("character");
 
-let algo; 
 
 document.addEventListener('keydown', (e)=>{
     console.log(e.keyCode);
-    if(e.keyCode == 38){ /** https://keycode.info/ */
-        //algo = setInterval(jump, 200 );  
-        //setTimeout(jump, 200);
+    if(e.keyCode == 38){ 
         jump();      
     }
-    // if(e.keyCode == 39){ /** https://keycode.info/ */
-    //     walk();
-    // }
     if (e.keyCode == 32){
         attack();
     }
@@ -23,32 +14,24 @@ document.addEventListener('keydown', (e)=>{
 
 document.addEventListener('keyup', (e)=>{
     if(e.keyCode == 38){ /* arrow up */ 
-        console.log('levanté la flecha de arriba');
-        walks.style.display = 'block';
-        jumps.style.display = 'none';      
+        character.classList.remove("character-jump");
+        character.classList.add("character");    
         
         //clearInterval(algo);
         //console.log('algo', algo);
     }
     if (e.keyCode == 32){
-        attacks.style.display = 'none';      
-        walks.style.display = 'block';
+        character.classList.add("character");
+        character.classList.remove("character-attack");
     }
 })
 
 function jump(){
-    walks.style.display = 'none';
-    jumps.style.display = 'block';
-    //standBy.style.display = 'none';
+    character.classList.remove("character");
+    character.classList.add("character-jump");
 }
 
-// // function walk(){
-// //     jumps.style.display = 'none';
-// //     walks.style.display = 'block';
-// //     //standBy.style.display = 'none';    
-// // }
-
 function attack(){
-    walks.style.display = 'none';
-    attacks.style.display = 'block';
+    character.classList.remove("character");
+    character.classList.add("character-attack");
 }

@@ -1,4 +1,4 @@
-#character-walks { 
+.character { 
     width: 117px; 
     height: 212px; 
     background: url('../img/walk.png') left center;
@@ -6,7 +6,6 @@
     position:absolute;
     top: 490px;
     left: 220px;
-    display:block;
 }
 
 @keyframes walk { 
@@ -14,38 +13,53 @@
   100% { background-position: -810px; }
 } 
 
-/* #character-quiet { 
-  width: 160px; 
-  height: 200px; 
-  background: url('../img/standby.png') left center;
-  animation: stand 1s steps(3) infinite;
-  position:absolute;
-  top: 500px;
-  left: 200px;
-} */
-/* 
-@keyframes stand { 
-  0% { background-position: 0px; }
-  100% { background-position: -430px; }
-}  */
-
-
-#character-jump { 
+.character-jump { 
   width: 100px; 
   height: 400px; 
   background: url('../img/salto.png') left center;
-  animation: saltar 1s steps(7) infinite;  
+  animation: saltar 1s steps(7);  
   position:absolute;
   top:350px;
   left: 220px;
-  display: none;
 }
 
 @keyframes saltar { 
   0% { background-position: 0px; }
   100% { background-position: -800px; }
 } 
+.character-attack{
+  width: 80px; 
+  height: 200px; 
+  background: url('../img/ataque.png') left center;
+  animation: attack 1s steps(10) ;
+  position: absolute;
+  top: 490px;
+  left: 220px;
+}
 
+@keyframes attack{
+  0%{ background-position: 0;}
+  100%{background-position: -1500px;}
+}
+
+
+.gemaAmarilla{
+  width: 45px; 
+  height: 100px; 
+  background: url('../img/gemaAmarilla.png') left center;
+  animation: girar 1.5s steps(6) infinite;
+  position: absolute;
+  top: 400px;
+  left: 1320px;
+}
+
+@keyframes girar{
+  0%{ background-position: 0;}
+  100%{background-position: -330px;}
+}
+
+
+/*FONDO_____________*/
 
 #background {       /*esto despues lo veremos con parallax*/
  /* width: 2790px; tamanio real de la imagen queda con scroll*/
@@ -60,18 +74,3 @@
   100% { background-position:0 }
 }
 
-#character-attack{
-  width: 150px; 
-  height: 200px; 
-  background: url('../img/ataque.png') left center;
-  animation: attack 1s steps(10) ;
-  position: absolute;
-  top: 490px;
-  left: 220px;
-  display: none;
-}
-
-@keyframes attack{
-  0%{ background-position: 0;}
-  100%{background-position: 1500px;}
-}
