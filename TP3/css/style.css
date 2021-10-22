@@ -27,6 +27,7 @@
   0% { background-position: 0px; }
   100% { background-position: -800px; }
 } 
+
 .character-attack{
   width: 80px; 
   height: 200px; 
@@ -43,10 +44,9 @@
 }
 
 
-.gemaAmarilla{
+#gemaAMostrar{
   width: 45px; 
   height: 100px; 
-  background: url('../img/gemaAmarilla.png') left center;
   animation: girar 1.5s steps(6) infinite;
   position: absolute;
   top: 400px;
