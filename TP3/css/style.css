@@ -5,7 +5,7 @@
   background: url('../img/walk.png') left center;
   animation: walk 0.9s steps(7) infinite;
   position:absolute;
-  top: 490px;
+  top: 550px;
   left: 220px;
 }
 
@@ -21,7 +21,7 @@
   background: url('../img/salto.png') left center;
   animation: saltar 1s steps(7);  
   position:absolute;
-  top:350px;
+  top:430px;
   left: 220px;
 }
 
@@ -93,16 +93,45 @@
 
 /*FONDO_____________*/
 
-#background {       /*esto despues lo veremos con parallax*/
- /* width: 2790px; tamanio real de la imagen queda con scroll*/
+/*#background {       
   width:1800px ;
   height: 700px; 
   background:url('../img/fondo.jpg') repeat-X;
-  /*animation: movebg 17s linear infinite;    con esto se mueve el fondo*/
-}
+  animation: movebg 17s linear infinite;    con esto se mueve el fondo
+} */
                                                     
 @keyframes movebg {
   0% { background-position:2790px; } 
   100% { background-position:0 }
+}   
+
+.layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: repeat-x;
+  background-size: cover;
+}
+.layer-4{
+  background-image: url("../img/layer4.png");
+  animation: scroll 20s linear infinite;
+}
+.layer-3{
+  background-image: url("../img/layer3.png");
+  animation: scroll 20s linear infinite;
+}
+.layer-2{
+  background-image: url("../img/layer2.png");
+  animation: scroll 15s linear infinite;
+}
+.layer-1{
+  background-image: url("../img/layer1.png");
+  animation: scroll 10s linear infinite;
 }
 
+@keyframes scroll {
+  0% { background-position: 0px; } 
+  100% { background-position: -1400px; }
+}  

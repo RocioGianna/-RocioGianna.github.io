@@ -35,7 +35,7 @@ class Juego{
     }
 
     assignAndShowGems(){
-        let top = 400;//fijo
+        let top = 470;//fijo
         let left = 1300;//dinamico con el fondo
         
         this.gemas = ["spaceGem", "mindGem", "realityGem", "powerGem", "timeGem", "soulGem"];    
