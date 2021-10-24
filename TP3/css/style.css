@@ -1,11 +1,12 @@
+/*PERSONAJE_____________*/
 .character { 
-    width: 117px; 
-    height: 212px; 
-    background: url('../img/walk.png') left center;
-    animation: walk 0.9s steps(7) infinite;
-    position:absolute;
-    top: 490px;
-    left: 220px;
+  width: 117px; 
+  height: 212px; 
+  background: url('../img/walk.png') left center;
+  animation: walk 0.9s steps(7) infinite;
+  position:absolute;
+  top: 490px;
+  left: 220px;
 }
 
 @keyframes walk { 
@@ -13,6 +14,7 @@
   100% { background-position: -810px; }
 } 
 
+/********/
 .character-jump { 
   width: 100px; 
   height: 400px; 
@@ -28,34 +30,64 @@
   100% { background-position: -800px; }
 } 
 
-.character-attack{
-  width: 80px; 
+/********/
+.character-die{
+  width: 150px; 
   height: 200px; 
-  background: url('../img/ataque.png') left center;
-  animation: attack 1s steps(10) ;
+  background: url('../img/muerte.png') left center;
+  animation: died 0.9s steps(3) ;
   position: absolute;
   top: 490px;
   left: 220px;
 }
 
-@keyframes attack{
+@keyframes died{
   0%{ background-position: 0;}
-  100%{background-position: -1500px;}
+  100%{background-position: -450px;}
 }
 
+/********/
+.character-falls-off{
+  width: 150px; 
+  height: 200px; 
+  background: url('../img/caida.png') left center;
+  animation: fall 0.9s steps(3) ;
+  position: absolute;
+  top: 490px;
+  left: 220px;
+}
 
-#gemaAMostrar{
+@keyframes fall{
+  0%{ background-position: 0;}
+  100%{background-position: -450px;}
+}
+
+/*GEMA_____________*/
+
+#gema{
   width: 45px; 
   height: 100px; 
   animation: girar 1.5s steps(6) infinite;
   position: absolute;
-  top: 400px;
-  left: 1320px;
 }
 
 @keyframes girar{
   0%{ background-position: 0;}
   100%{background-position: -330px;}
+}
+
+/*OBSTACULO_____________*/
+
+#obstaculo{
+  width: 95px; 
+  height: 146px; 
+  animation: rodar 0.8s steps(3) infinite;
+  position: absolute;
+}
+
+@keyframes rodar{
+  0%{ background-position: 0;}
+  100%{background-position: -287px;}
 }
 
 

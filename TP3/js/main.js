@@ -1,10 +1,8 @@
-// Crear Juego
-let Captain = new Personaje ("Capitán América", 117, 212, 0, 0, 0);
+// Crear elementos del juego
+let Captain = new Personaje("Capitán America");
+let obstaculo = new Obstaculo(400, 550);  //hay que ver el tema de la posicion top left cuando gire junto con el fondo 
 
 
-// cuando se generen las gemas, el método va a realizar que: de de forma aleatoria con un número de 0 a 5 y trae el objeto de esa posición
-
-let juego = new Juego(Captain, "a");
+let juego = new Juego(Captain, obstaculo);
 juego.initGame();
-// Crear personaje
-// Crear obstáculos
+

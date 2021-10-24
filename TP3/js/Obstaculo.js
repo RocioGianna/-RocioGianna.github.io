@@ -1,26 +1,22 @@
-class Obstaculo extends Item {
-    constructor(tamanio, posicion, img){
-        super(tamanio, posicion, img);
+class Obstaculo {
+    constructor(posicionX, posicionY){ //constructor default de la clase obstaculo
+        this.div = document.getElementById("obstaculo");
+        this.ancho = this.div.offsetWidth;
+        this.alto = this.div.offsetHeight;
+        this.posicionX = this.div.style.left = posicionX + "px";
+        this.posicionY = this.div.style.top = posicionY + "px";
+        this.divImage = this.div.style.background = "url('img/piedra.png') left center";
     }
 
     
-    getTamanio(){
-        return this.tamanio;
-    }   
-    setTamanio(tamanio){    
-        this.tamanio = tamanio;
-    }
-    getPosicion(){
-        return this.posicion;
-    }
-    setPosicion(posicion){
-        this.posicion = posicion;
-    }
-    getImg(){
-        return this.img;
-    }
-    setImg(img){
-        this.img = img;
+    //funcion para detectar colision despues lo vemos
+    colision(x,y){
+        if(x>=this.posicionX && x<=this.posicionX+this.ancho && y>=this.posicionY && y<=this.posicionY+this.alto){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
 }
