@@ -2,6 +2,7 @@
 let imageGallery = document.getElementById("imageGallery");
 let idImage = 1;
 
+
 // Cambio de imágenes en la galería de la pantalla inicial
 function playGallery(){
     if (idImage > 3){

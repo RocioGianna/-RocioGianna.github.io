@@ -13,13 +13,17 @@ Entregable 3
 ### Juego
 0. **Inicio**
     - Mostrar indicaciones del juego.
+        - Mostrar objetivo:
+            - Objetivo mínimo: Juntar 6 gemas de cualquier tipo.
+        - Muerte: te chocás 3 veces un obstáculo.    
 1. **Fin**
     - Mostrar pantalla de fin del juego:
         - Caso de quedarse sin vidas (perdió).
         - Caso en el que gana.
 2. **Lógica del juego:**
     - Vidas del personaje.
-    - Puntuación.
+    - **Puntuación:**
+        - Darle valor (puntae) distinto a cada gema.
     - **Colisiones:**
         - Con las gemas.
         - Con los obstáculos.
@@ -29,8 +33,8 @@ Entregable 3
 3. **Parte visual:**
     - Mostrar vidas del personaje.
     - Mostrar puntuación.
-    - **Ataque (no recuerdo si sigue estando):**
-        - Recortar y acomodar imágenes.
+    - ~~**Ataque (no recuerdo si sigue estando):**~~
+        - ~~Recortar y acomodar imágenes.~~
     - **Mostrar gema en una posición rándom**
         - Verificar que sea dentro del alcance del salto.
     - **Obstáculo:**
