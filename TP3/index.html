@@ -4,26 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <title>Trabajo Entregable 3</title>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <title>Welcome to Captain game!</title>
 </head>
 <body>
-    <div  id="main">
-        <div id="background">
-            <div class="layer layer-4"></div>
-            <div class="layer layer-3"></div>
-            <div class="layer layer-2"></div>
-            <div class="layer layer-1"></div>
+    <iframe src="audio/background_index.mp3" width="0" height="0" frameborder="0" allow="autoplay" ></iframe>
+    <header>
+        Welcome to Captain America game!
+    </header>
+    <div class="container-inicio">
+        <div class="gallery">
+            <img id="imageGallery" width="1600" height="800 "src="img/image-gallery-3.jpg" alt="" >
+        </div> 
+        <div id="boton-play">       
+            <button class="btn btn-success btn-lg btn-block"><a href="game.html" target="_self">Jugar!</a></button>
         </div>
-        <div class="character" id="character"></div>
-        <div id="gema"></div>
-        <div id="obstaculo"></div>
     </div>
-
-    <script src="js/Obstaculo.js"></script>
-    <script src="js/Gema.js"></script>
-    <script src="js/Personaje.js"></script>
-    <script src="js/Juego.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

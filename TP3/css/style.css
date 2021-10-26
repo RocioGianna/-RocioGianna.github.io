@@ -141,3 +141,28 @@
     left: 220px;
   }
 }
+
+/* INDEX HTML*/
+a:link, a:active, a:visited{
+  text-decoration: none;
+  color:white;
+}
+
+.container-inicio{
+padding-left: 200px;
+padding-top: 10px;
+font-family:'Luckiest Guy', cursive;
+font-size: 40px;
+}
+
+header, #boton-play{
+align-items: center;
+text-align: center;
+font-family:'Luckiest Guy', cursive;
+font-size: 40px;
+}
+
+#boton-play{
+padding-right: 180px;
+
+}
