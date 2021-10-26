@@ -1,13 +1,14 @@
 class Juego{
-    constructor(personaje, obstaculo){
+    constructor(personaje){
         this.personaje = personaje;
-        this.obstaculo = obstaculo;
+        this.obstaculo = [];
         this.gemas = [];
     }
 
     initGame(){
-        this.assignAndShowGems();
+        this.addGems();
         this.acciones();
+        this.addObstaculos();
     }
 
     acciones(){
@@ -16,7 +17,8 @@ class Juego{
             if(e.keyCode == 38){ 
                 this.personaje.jump();      
             }
-            if (this.obstaculo.colision(this.personaje.getAncho(), this.personaje.getAlto())){ //esto hay que verlo bien
+            console.log(this.obstaculo.colision(this.personaje.getPosicionX(), this.personaje.getPosicionY()));
+            if (this.obstaculo.colision(this.personaje.getPosicionX(), this.personaje.getPosicionY())){ 
                 this.personaje.die();
             }
         })
@@ -34,17 +36,34 @@ class Juego{
         
     }
 
-    assignAndShowGems(){
-        let top = 470;//fijo
-        let left = 1300;//dinamico con el fondo
-        
-        this.gemas = ["spaceGem", "mindGem", "realityGem", "powerGem", "timeGem", "soulGem"];    
-        //math random para que no se repitan las gemas
-        let random = Math.floor(Math.random() * this.gemas.length);
-        let gema = this.gemas[random];
-        this.gemas.splice(random, 1);
+    addObstaculos(){
+        for(let i = 0; i < 10; i++){
+            let top = 600;
+            let left = Math.floor(Math.random() * (1000 - 500) + 500);
+            this.obstaculo.push(new Obstaculo(left, top));
+        }
+        //this.obstaculo.push(new Obstaculo(900, 570));
+    }
 
-        new Gema(gema, left, top);
+    addGems(){
+        let top = 570;//fijo
+        let topGema = 470;
+        let names = ["spaceGem", "mindGem", "realityGem", "powerGem", "timeGem", "soulGem"]; //gemas
+
+        for(let i = 0; i < 10; i++){
+            let left = Math.floor(Math.random() * (1000 - 500) + 500);
+            let random = Math.floor(Math.random() * names.length);
+            let gema = names[random];
+            this.gemas.push(new Gema(gema, left, topGema));
+        }
+        
+        // this.gemas = ["spaceGem", "mindGem", "realityGem", "powerGem", "timeGem", "soulGem"];    
+        // //math random para que no se repitan las gemas
+        // let random = Math.floor(Math.random() * this.gemas.length);
+        // let gema = this.gemas[random];
+        // this.gemas.splice(random, 1);
+
+        // new Gema(gema, left, top);
     }         
     
 

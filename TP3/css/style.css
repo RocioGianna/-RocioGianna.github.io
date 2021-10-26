@@ -5,8 +5,8 @@
   background: url('../img/walk.png') left center;
   animation: walk 0.9s steps(7) infinite;
   position:absolute;
-  top: 550px;
   left: 220px;
+  top: 498px;
 }
 
 @keyframes walk { 
@@ -21,8 +21,8 @@
   background: url('../img/salto.png') left center;
   animation: saltar 1s steps(7);  
   position:absolute;
-  top:430px;
   left: 220px;
+  top: 367px;
 }
 
 @keyframes saltar { 
@@ -79,38 +79,28 @@
 /*OBSTACULO_____________*/
 
 #obstaculo{
-  width: 95px; 
-  height: 146px; 
-  animation: rodar 0.8s steps(3) infinite;
+  width: 94px; 
+  height: 77px; 
+  /*animation: rodar 0.8s steps(3) infinite;*/
+  background-repeat: repeat-x;
+  animation: rodar 4s   infinite linear;
   position: absolute;
 }
 
 @keyframes rodar{
-  0%{ background-position: 0;}
-  100%{background-position: -287px;}
+  0%{ left: 1300px;}
+  100%{left: -100px;}
 }
 
 
 /*FONDO_____________*/
-
-/*#background {       
-  width:1800px ;
-  height: 700px; 
-  background:url('../img/fondo.jpg') repeat-X;
-  animation: movebg 17s linear infinite;    con esto se mueve el fondo
-} */
-                                                    
-@keyframes movebg {
-  0% { background-position:2790px; } 
-  100% { background-position:0 }
-}   
-
+                                           
 .layer {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 98%;
+  height: 91%;
   background-repeat: repeat-x;
   background-size: cover;
 }
@@ -135,3 +125,19 @@
   0% { background-position: 0px; } 
   100% { background-position: -1400px; }
 }  
+
+/* media queries */
+@media screen and (min-width: 1800px) {
+  .layer {
+    width: 98%;
+    height: 73%;
+  }
+  .character{
+    top: 521px;
+    left: 220px;
+  }
+  .character-jump { 
+    top: 380px;
+    left: 220px;
+  }
+}
