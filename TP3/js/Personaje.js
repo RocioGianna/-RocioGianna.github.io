@@ -11,20 +11,24 @@ class Personaje{
         this.vida = 100;
         this.puntaje = 1; 
     }  
-    
+    // Manejadores de clases de CSS (acciones del personaje)
+    // Acción de salto
     jump(){
         character.classList.remove("character");
         character.classList.add("character-jump");
     }
+    // Acción de caminar
     walk(){
         character.classList.remove("character-jump");   
         character.classList.add("character");
     }
+    // Acción de muerte
     die(){ //esto va  a pasar cuando colisione con un enemigo y muera
         character.classList.remove("character");
         character.classList.add("character-die");
     }
 
+    // GETTERS
     getVida(){
         return this.vida;
     }
@@ -46,6 +50,7 @@ class Personaje{
     getPosicionY(){
         return this.posicionY;
     }
+    // SETTERS
     setPosicionX(posicionX){
         this.posicionX = posicionX;
     }

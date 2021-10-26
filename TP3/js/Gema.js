@@ -1,3 +1,5 @@
+// Clase que maneja el comportamiento del objeto a coleccionar
+// En ese caso es una gema del infinito
 class Gema{
     constructor(nombre, posicionX, posicionY){ //constructor default de la clase gema
         this.nombre = nombre;

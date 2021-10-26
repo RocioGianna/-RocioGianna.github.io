@@ -1,16 +1,20 @@
-class Juego{
+// Clase principal del juego
+class Juego{ 
+    // Constructor
     constructor(personaje){
         this.personaje = personaje;
         this.obstaculo = [];
         this.gemas = [];
     }
 
+    // Inicio del juego
     initGame(){
-        this.addGems();
-        this.acciones();
-        this.addObstaculos();
+        this.addGems(); // se agregan las gemas 
+        this.acciones(); // se chequean las acciones del personaje
+        this.addObstaculos(); // se agregan los obstáculos
     }
 
+    // Acciones del teclado -> movimientos del personaje
     acciones(){
         document.addEventListener('keydown', (e)=>{
             console.log(e.keyCode);
@@ -36,6 +40,7 @@ class Juego{
         
     }
 
+    // Agregar obstáculos
     addObstaculos(){
         for(let i = 0; i < 10; i++){
             let top = 600;
@@ -45,16 +50,17 @@ class Juego{
         //this.obstaculo.push(new Obstaculo(900, 570));
     }
 
+    // Agregar gemas
     addGems(){
         let top = 570;//fijo
         let topGema = 470;
-        let names = ["spaceGem", "mindGem", "realityGem", "powerGem", "timeGem", "soulGem"]; //gemas
+        let names = ["spaceGem", "mindGem", "realityGem", "powerGem", "timeGem", "soulGem"]; // Gemas del infinito para agregar agregar 
 
         for(let i = 0; i < 10; i++){
             let left = Math.floor(Math.random() * (1000 - 500) + 500);
-            let random = Math.floor(Math.random() * names.length);
-            let gema = names[random];
-            this.gemas.push(new Gema(gema, left, topGema));
+            let random = Math.floor(Math.random() * names.length); // Selecciona una aleatoriamente (entre 0 y 5)
+            let gema = names[random]; // El nombre de la gema va a corresponderse con la gema a mostrar
+            this.gemas.push(new Gema(gema, left, topGema)); // Agregamos la gema al arreglo de gemas y la instanciamos
         }
         
         // this.gemas = ["spaceGem", "mindGem", "realityGem", "powerGem", "timeGem", "soulGem"];    

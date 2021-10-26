@@ -1,10 +1,6 @@
 // Obtener id de la galería para trabajar con el cambio de imágenes
 let imageGallery = document.getElementById("imageGallery");
 let idImage = 1;
-// window.addEventListener('load', (event) =>{
-//  console.log('carga audio');
-//  playBackgroundSong();   
-// })
 
 // Cambio de imágenes en la galería de la pantalla inicial
 function playGallery(){
@@ -17,9 +13,6 @@ function playGallery(){
     setTimeout(playGallery, 1000);
 }
 
-// function playBackgroundSong(){
-//     let audioBackground = new Audio("audio/background_index.mp3");
-//     audioBackground.play();
-// }
+// Mostrar galería automáticamente cuando inicia la página de inicio
 playGallery();
 
