@@ -21,9 +21,11 @@ Entregable 3
         - Caso de quedarse sin vidas (perdió).
         - Caso en el que gana.
 2. **Lógica del juego:**
-    - Vidas del personaje.
+    - Mantener actualizadas las vidas del personaje.
+    - Mantener actualizada la puntuación.
     - **Puntuación:**
-        - Darle valor (puntae) distinto a cada gema.
+        - ~~Darle valor (puntaje) distinto a cada gema.~~
+            - Intentar escribirlo como arreglo asociativo.
     - **Colisiones:**
         - Con las gemas.
         - Con los obstáculos.
@@ -31,8 +33,8 @@ Entregable 3
     - Salto:
         - Acomodar dentro del gameloop para que sólo salte presionando la tecla y no con la tecla apretada.
 3. **Parte visual:**
-    - Mostrar vidas del personaje.
-    - Mostrar puntuación.
+    - ~~Mostrar vidas del personaje.~~
+    - ~~Mostrar puntuación.~~
     - ~~**Ataque (no recuerdo si sigue estando):**~~
         - ~~Recortar y acomodar imágenes.~~
     - **Mostrar gema en una posición rándom**

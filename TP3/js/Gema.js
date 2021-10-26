@@ -1,7 +1,7 @@
 // Clase que maneja el comportamiento del objeto a coleccionar
 // En ese caso es una gema del infinito
 class Gema{
-    constructor(nombre, posicionX, posicionY){ //constructor default de la clase gema
+    constructor(nombre, posicionX, posicionY, valor){ //constructor default de la clase gema
         this.nombre = nombre;
         this.div = document.getElementById("gema");
         this.ancho = this.div.offsetWidth;
@@ -9,6 +9,7 @@ class Gema{
         this.posicionX = this.div.style.left = posicionX + "px";
         this.posicionY = this.div.style.top = posicionY + "px";
         this.divImage = this.div.style.background = "url('img/" + this.nombre + ".png') left center";
+        this.valor = valor;
     }  
 
  //funcion para detectar colision despues lo vemos

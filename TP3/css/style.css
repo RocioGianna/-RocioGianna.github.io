@@ -239,3 +239,19 @@ padding-right: 180px;
     left: 220px;
   }
 }
+
+.game-info{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#puntuacion, #vidas{
+  display: flex;
+  align-items:center;
+  justify-content: space-around;
+  font-family:'Luckiest Guy', cursive;
+  color: white;
+  font-size: 40px;
+  position: relative;
+}

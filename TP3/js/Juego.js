@@ -55,12 +55,15 @@ class Juego{
         let top = 570;//fijo
         let topGema = 470;
         let names = ["spaceGem", "mindGem", "realityGem", "powerGem", "timeGem", "soulGem"]; // Gemas del infinito para agregar agregar 
+        let puntajes = [100, 150, 200, 250, 300, 350];
 
-        for(let i = 0; i < 10; i++){
+        for(let i = 0; i < 10; i++){ // Creamos 10 gemas
             let left = Math.floor(Math.random() * (1000 - 500) + 500);
             let random = Math.floor(Math.random() * names.length); // Selecciona una aleatoriamente (entre 0 y 5)
             let gema = names[random]; // El nombre de la gema va a corresponderse con la gema a mostrar
-            this.gemas.push(new Gema(gema, left, topGema)); // Agregamos la gema al arreglo de gemas y la instanciamos
+            let valor = puntajes[random];
+            this.gemas.push(new Gema(gema, left, topGema, valor)); // Agregamos la gema al arreglo de gemas y la instanciamos
+            //console.log(gema, left, topGema, valor)
         }
         
         // this.gemas = ["spaceGem", "mindGem", "realityGem", "powerGem", "timeGem", "soulGem"];    
