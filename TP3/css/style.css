@@ -37,7 +37,7 @@ li{
   animation: walk 0.9s steps(7) infinite;
   position:absolute;
   left: 220px;
-  top: 498px;
+  top: 520px;
 }
 
 @keyframes walk { 
@@ -48,9 +48,9 @@ li{
 /********/
 .character-jump { 
   width: 100px; 
-  height: 400px; 
+  height: 350px; 
   background: url('../img/salto.png') left center;
-  animation: saltar 1s steps(7);  
+  animation: saltar 0.8s steps(7);  
   position:absolute;
   left: 220px;
   top: 367px;
@@ -58,7 +58,7 @@ li{
 
 @keyframes saltar { 
   0% { background-position: 0px; }
-  100% { background-position: -800px; }
+  100% { background-position: -800px;}
 } 
 
 /********/
@@ -77,22 +77,6 @@ li{
   100%{background-position: -450px;}
 }
 
-/********/
-.character-falls-off{
-  width: 150px; 
-  height: 200px; 
-  background: url('../img/caida.png') left center;
-  animation: fall 0.9s steps(3) ;
-  position: absolute;
-  top: 490px;
-  left: 220px;
-}
-
-@keyframes fall{
-  0%{ background-position: 0;}
-  100%{background-position: -450px;}
-}
-
 /* 
 #main-page{
   width: 2000px;
@@ -105,63 +89,15 @@ li{
 
 #gema{
   width: 45px; 
-  height: 100px; 
-  animation: girar 10s steps(6) infinite;
+  height: 70px; 
+  animation: girar 15s steps(6) infinite;
   position: absolute;
 }
 
 @keyframes girar{
   0%{ 
     background-position: 0;
-    left: 1500px;}
-  10%{
-    left: 1350px;
-  }  
-  20%{
-    left: 1200px;
-  } 
-  30%{
-    left: 1050px;
-  } 
-  40%{
-    left: 900px;
-  } 
-  50%{
-    left: 750px;
-  } 
-  60%{
-    left: 600px;
-  } 
-  70%{
-    left: 450px;
-  }
-  80%{
-    left: 300px;
-  }
-  90%{
-    left: 150px;
-  }
-  
-  100%{
-    background-position: -330px;
-    left: -100px}
-}
-
-/*OBSTACULO_____________*/
-
-#obstaculo{
-  width: 94px; 
-  height: 77px; 
-  /*animation: rodar 0.8s steps(3) infinite;*/
-  
-  animation: rodar 5.5s  steps(3) infinite ;
-  position: absolute;
-}
-
-@keyframes rodar{
-  0%{
-    left: 1600px;
-    background-color: 0;}
+    left: 1300px;}
     10%{
       left: 1300px;
     }  
@@ -178,21 +114,54 @@ li{
       left: 500px;
     } 
     60%{
-      left: 400px;
+      left: 200px;
     } 
     70%{
-      left: 200px;
-    }
-    80%{
-      left: 100px;
-    }
-    90%{
       left: -100px;
-    }
-    
+    } 
+  
+  100%{
+    background-position: -330px;
+    left: -100px}
+}
+
+/*OBSTACULO_____________*/
+
+#obstaculo{
+  width: 94px; 
+  height: 70px; 
+  animation: rodar 10s linear infinite ;
+  position: absolute;
+}
+
+@keyframes rodar{
+  0%{
+    left: 1500px;
+  }
+    10%{
+      left: 1300px;
+    }  
+    20%{
+      left: 1100px;
+    } 
+    30%{
+      left: 900px;
+    } 
+    40%{
+      left: 700px;
+    } 
+    50%{
+      left: 500px;
+    } 
+    60%{
+      left: 200px;
+    } 
+    70%{
+      left: -100px;
+    }    
   100%{
     left: -800px;
-    background-color: 287px;}
+  }
 }
 
 
@@ -202,31 +171,27 @@ li{
   position: absolute;
   top: 0;
   left: 0;
-  width: 98%;
-  height: 91%;
+  width: 100%;
+  height: 95%;
   background-repeat: repeat-x;
   background-size: cover;
 }
-.layer-4{
-  background-image: url("../img/layer4.png");
-  animation: scroll 20s linear infinite;
-}
 .layer-3{
   background-image: url("../img/layer3.png");
-  animation: scroll 20s linear infinite;
+  animation: scroll 35s linear infinite;
 }
 .layer-2{
   background-image: url("../img/layer2.png");
-  animation: scroll 15s linear infinite;
+  animation: scroll 30s linear infinite;
 }
 .layer-1{
   background-image: url("../img/layer1.png");
-  animation: scroll 10s linear infinite;
+  animation: scroll 20s linear infinite;
 }
 
 @keyframes scroll {
   0% { background-position: 0px; } 
-  100% { background-position: -1400px; }
+  100% { background-position: -2300px; }
 }  
 
 /* media queries */
@@ -236,7 +201,7 @@ li{
     height: 73%;
   }
   .character{
-    top: 521px;
+    top: 510px;
     left: 220px;
   }
   .character-jump { 

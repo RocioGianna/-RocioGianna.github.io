@@ -31,17 +31,20 @@ Entregable 3
         - Con los obstáculos.
     - Muerte.
     - Salto:
-        - Acomodar dentro del gameloop para que sólo salte presionando la tecla y no con la tecla apretada.
+        - ~~Acomodar dentro del gameloop para que sólo salte presionando la tecla y no con la tecla apretada.~~
 3. **Parte visual:**
     - ~~Mostrar vidas del personaje.~~
     - ~~Mostrar puntuación.~~
-    - ~~**Ataque (no recuerdo si sigue estando):**~~
-        - ~~Recortar y acomodar imágenes.~~
+    - ~~**Muerte/caida:**~~
+        - Hacer keyframe de muerte.
+        - Ver si vamos a usar el keyframe de la caida o no.
     - **Mostrar gema en una posición rándom**
         - Verificar que sea dentro del alcance del salto.
     - **Obstáculo:**
         - ~~Se mueva junto con el fondo.~~
         - Animación/transformación.
+    - **Gema:**
+        - Animación/transformación cuando se logra juntar la gema.
     - **Parallax:**
         -  Acomodar imágenes: hay un par de imágenes de un tamaño, y otro par de otro.
     - **Inicio:**

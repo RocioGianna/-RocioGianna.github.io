@@ -8,8 +8,8 @@ class Personaje{
         this.alto = this.div.offsetHeight; //habria que restale hasta donde llega el personaje porque la caja es mas grande que el personaje
         this.posicionX = this.div.offsetLeft; 
         this.posicionY = this.div.offsetTop; 
-        this.vida = 100;
-        this.puntaje = 1; 
+        this.vida = 100; //es decir que tiene dos vidas (dos opotunidades para chocar)
+        this.puntaje = 0; 
     }  
     // Manejadores de clases de CSS (acciones del personaje)
     // Acción de salto
@@ -26,6 +26,12 @@ class Personaje{
     die(){ //esto va  a pasar cuando colisione con un enemigo y muera
         character.classList.remove("character");
         character.classList.add("character-die");
+    }
+    quitarVida(vida){
+        this.vida -= vida;
+    }
+    sumarPuntaje(puntaje){
+        this.puntaje += puntaje;
     }
 
     // GETTERS
@@ -50,6 +56,9 @@ class Personaje{
     getPosicionY(){
         return this.posicionY;
     }
+    getPuntaje(){
+        return this.puntaje;
+    }
     // SETTERS
     setPosicionX(posicionX){
         this.posicionX = posicionX;
@@ -57,4 +66,6 @@ class Personaje{
     setPosicionY(posicionY){
         this.posicionY = posicionY;
     }
+   
+
 }

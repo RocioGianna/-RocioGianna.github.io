@@ -7,7 +7,8 @@ class Obstaculo {
         this.alto = this.div.offsetHeight;
         this.posicionX = this.div.style.left = posicionX + "px";
         this.posicionY = this.div.style.top = posicionY + "px";
-        this.divImage = this.div.style.background = "url('img/copia.png') left center";
+        this.divImage = this.div.style.background = "url('img/piedra.png') left center";
+        this.danio = 50;
         //this.trasnformation = this.
         // Definirle una transformación por defecto para que además se mueva
     }
