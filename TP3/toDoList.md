@@ -12,10 +12,10 @@ Entregable 3
 -----------------------------------------------------------------------------
 ### Juego
 0. **Inicio**
-    - Mostrar indicaciones del juego.
-        - Mostrar objetivo:
-            - Objetivo mínimo: Juntar 6 gemas de cualquier tipo.
-        - Muerte: te chocás 3 veces un obstáculo.    
+    - ~~Mostrar indicaciones del juego.~~
+        - ~~Mostrar objetivo:~~
+            - ~~Objetivo mínimo: Juntar 6 gemas de cualquier tipo.~~
+        - ~~Muerte: te chocás 3 veces un obstáculo.~~   
 1. **Fin**
     - Mostrar pantalla de fin del juego:
         - Caso de quedarse sin vidas (perdió).
@@ -44,6 +44,10 @@ Entregable 3
         - Animación/transformación.
     - **Parallax:**
         -  Acomodar imágenes: hay un par de imágenes de un tamaño, y otro par de otro.
+    - **Inicio:**
+        - Aplicarle un fondo a cada recuadro.
+        - Colores a las letras.
+        - Background indicatios page.
 4. **Documentación.**
     - Verificar las siguientes clases:
         - Juego.js.

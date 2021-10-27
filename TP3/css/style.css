@@ -11,17 +11,22 @@ font-family:'Luckiest Guy', cursive;
 font-size: 40px;
 }
 
-header, #boton-play{
+header, .botones{
 align-items: center;
 text-align: center;
 font-family:'Luckiest Guy', cursive;
 font-size: 40px;
 }
 
-#boton-play{
-padding-right: 180px;
-  width: 100%;
-  height: 100%;
+li{
+  list-style: none;
+}
+
+/* GAME INDICATIONS */
+.indications{
+  font-family: 'Luckiest Guy', cursive;
+  align-items: center;
+  text-align: center;
 }
 
 /*PERSONAJE_____________*/
