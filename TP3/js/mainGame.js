@@ -5,6 +5,7 @@ let Captain = new Personaje("Capitán America");
 // Creación del juego
 let juego = new Juego(Captain);
 juego.initGame();
+juego.verificaColisiones(juego.obstaculo[0]);
 
 // GAME LOOP
 let jugar = setInterval(function(){

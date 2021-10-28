@@ -16,18 +16,19 @@ class Juego{
         this.addObstaculos(); // se agregan los obstáculos
     }
 
-    //verificaColisiones(elemento){
-    //    console.log(elemento.getColision(this.personaje.getPosicionX(), this.personaje.getPosicionY()));
-    //    return elemento.getColision(this.personaje.getPosicionX(), this.personaje.getPosicionY());
-    //}
+    verificaColisiones(elemento){
+        console.log(elemento.getColision(this.personaje, elemento));
+        return elemento.getColision(this.personaje, elemento);
+    }
 
     // Acciones del teclado -> movimientos del personaje
     acciones(){
         // Siempre verificamos la colisión con la roca porque se la puede chocar sin saltar (simplemente caminando) 
-        // for (let i=0; i < this.obstaculo.length; i++){
-        //     this.verificaColisiones(this.obstaculo[i]);                
-        // }       
-        // this.verificaColisiones();
+        for (let i=0; i < this.obstaculo.length; i++){
+            this.verificaColisiones(this.obstaculo[i]);                
+        }       
+        //this.verificaColisiones();
+
         // SALTO -> KEYDOWN
         document.addEventListener('keydown', (e)=>{
             if(e.keyCode == 38){ 
@@ -37,7 +38,7 @@ class Juego{
             // COLISIÓN CON LA GEMA (RECOLECTA LA GEMA)
             // acá sería con LA GEMA QUE SE ESTÁ MOSTRANDO -> PREGUTNARLE A ROCÍO CÓMO VER ESTO  
 
-
+            
 
             // COLISIÓN CON LA ROCA -> PIERDE UNA VIDA (O.. PIERDE EL JUEGO)
             // acá sería con EL OBSTÁCULO QUE SE ESTÁ MOSTRANDO -> PREGUTNARLE A ROCÍO CÓMO VER ESTO            
@@ -54,6 +55,9 @@ class Juego{
          // SALTO -> KEYUP
         document.addEventListener('keyup', (e)=>{
             if(e.keyCode == 38){ /* arrow up */ 
+
+                // VERIFICAR COLISIONES DESPUÉS DE QUE CAE (CUANDO BAJA DEL SALTO)
+
                 setTimeout(()=>{
                     this.personaje.walk(); 
                 }, 720);
