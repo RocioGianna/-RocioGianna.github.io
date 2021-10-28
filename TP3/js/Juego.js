@@ -5,30 +5,53 @@ class Juego{
         this.personaje = personaje;
         this.obstaculo = [];
         this.gemas = [];
-        this.limite;
+        //this.limite;
     }
 
     // Inicio del juego
     initGame(){
+        //console.log("estaJugando? ", estaJugando);
         this.addGems(); // se agregan las gemas 
         this.acciones(); // se chequean las acciones del personaje
         this.addObstaculos(); // se agregan los obstáculos
     }
 
+    //verificaColisiones(elemento){
+    //    console.log(elemento.getColision(this.personaje.getPosicionX(), this.personaje.getPosicionY()));
+    //    return elemento.getColision(this.personaje.getPosicionX(), this.personaje.getPosicionY());
+    //}
+
     // Acciones del teclado -> movimientos del personaje
     acciones(){
+        // Siempre verificamos la colisión con la roca porque se la puede chocar sin saltar (simplemente caminando) 
+        // for (let i=0; i < this.obstaculo.length; i++){
+        //     this.verificaColisiones(this.obstaculo[i]);                
+        // }       
+        // this.verificaColisiones();
+        // SALTO -> KEYDOWN
         document.addEventListener('keydown', (e)=>{
             if(e.keyCode == 38){ 
-                this.personaje.jump();  
-                  
+                this.personaje.jump(); 
             }
-            console.log(this.obstaculo.colision(this.personaje.getPosicionX(), this.personaje.getPosicionY()));
-            if (this.obstaculo.colision(this.personaje.getPosicionX(), this.personaje.getPosicionY())){ 
-                this.personaje.die();
-            }
+            
+            // COLISIÓN CON LA GEMA (RECOLECTA LA GEMA)
+            // acá sería con LA GEMA QUE SE ESTÁ MOSTRANDO -> PREGUTNARLE A ROCÍO CÓMO VER ESTO  
+
+
+
+            // COLISIÓN CON LA ROCA -> PIERDE UNA VIDA (O.. PIERDE EL JUEGO)
+            // acá sería con EL OBSTÁCULO QUE SE ESTÁ MOSTRANDO -> PREGUTNARLE A ROCÍO CÓMO VER ESTO            
+            // if (this.obstaculo.getColision(this.personaje.getPosicionX(), this.personaje.getPosicionY())){ 
+            //     this.personaje.die();
+            //     if (this.personaje.vidas > 1){ // si todavía tiene vidas, le descontamos
+            //         this.personaje.quitarVida();
+            //     }else{
+            //         this.endGame(); // finaliza el juego
+            //     }                
+            // }
         })
         
-        
+         // SALTO -> KEYUP
         document.addEventListener('keyup', (e)=>{
             if(e.keyCode == 38){ /* arrow up */ 
                 setTimeout(()=>{
@@ -37,7 +60,29 @@ class Juego{
                 
             }
         })
+
         
+        // Prueba para morirse
+        // Asigno una tecla rándom
+        document.addEventListener('keydown', (e)=>{
+            if(e.keyCode == 17){ /* arrow up */ 
+                console.log(e.keyCode);
+                // setTimeout(()=>{
+                     this.personaje.die(); 
+                // }, 720);
+                
+            }
+        })
+        document.addEventListener('keyup', (e)=>{
+            if(e.keyCode == 17){ /* arrow up */ 
+                console.log('levanta ctrl');
+                setTimeout(()=>{
+                    console.log('vuelve a caminar');
+                    this.personaje.walk(); 
+                }, 720);
+                
+            }
+        })        
     }
 
     // Agregar obstáculos
@@ -62,10 +107,11 @@ class Juego{
             let valor = puntajes[random];
             this.gemas.push(new Gema(gema, left, top, valor)); // Agregamos la gema al arreglo de gemas y la instanciamos
         }
-    }         
+    }  
     
-
-
-    
-  
+    // Fin del juego
+    endGame(){
+        // Iría a mostrar endgame.html de alguna forma
+        console.log('Fin del juego');
+    }
 }

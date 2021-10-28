@@ -15,7 +15,7 @@ class Obstaculo {
 
     
     // Detecta las colisiones entre el personaje y el obstáculo o el objeto a coleccionar
-    colision(x,y){
+    getColision(x,y){
         // Verificamos si colisonan -> posiciones del personaje y de la colección o del obstáculo
         if(x>=this.posicionX && x<=this.posicionX+this.ancho && y>=this.posicionY && y<=this.posicionY+this.alto){
             return true;

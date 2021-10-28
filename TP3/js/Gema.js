@@ -13,7 +13,7 @@ class Gema{
     }  
 
  //funcion para detectar colision despues lo vemos
-    colision(x,y){
+ getColision(x,y){
         if(x>=this.posicionX && x<=this.posicionX+this.ancho && y>=this.posicionY && y<=this.posicionY+this.alto){
             return true;
         }

@@ -66,14 +66,19 @@ li{
   width: 150px; 
   height: 200px; 
   background: url('../img/muerte.png') left center;
-  animation: died 0.9s steps(3) ;
+  animation: die 0.9s steps(3) ;
   position: absolute;
   top: 490px;
   left: 220px;
 }
 
-@keyframes died{
+@keyframes die{
   0%{ background-position: 0;}
+  
+  40%{
+    background-position: -200px;
+  } 
+ 
   100%{background-position: -450px;}
 }
 
