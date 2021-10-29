@@ -10,31 +10,45 @@ class Personaje{
         this.posicionY = this.div.getBoundingClientRect().top;
         this.vidas = 3; //cantidad de vidas
         this.puntaje = 0; 
+        // @ts-ignore
         this.vidasDisplay = document.getElementById("vida-personaje").innerHTML = this.vidas;
     }  
     // Manejadores de clases de CSS (acciones del personaje)
     // Acción de salto
     jump(){
+        // @ts-ignore
         character.classList.remove("character");
+        // @ts-ignore
         character.classList.add("character-jump");
     }
     // Acción de caminar
     walk(){
+         // @ts-ignore
          if (character.className == "character-jump"){
+             // @ts-ignore
              character.classList.remove("character-jump");
          }else{
+            // @ts-ignore
             character.classList.remove("character-caida");
         } 
+        // @ts-ignore
         character.classList.add("character");
     }
     // Acción de muerte
     die(){ //esto va  a pasar cuando colisione con un enemigo y muera
+        // @ts-ignore
         character.classList.remove("character");
+        // @ts-ignore
         character.classList.add("character-die");
     }
     caer(){ //esto va a pasar cuando colisione con un enemigo y caiga
+        
+        console.log('entra caer');
+        // @ts-ignore
         character.classList.remove("character");
+        // @ts-ignore
         character.classList.add("character-caida");
+        // HACER DESAPECER LA PIEDRA
     }
     //quitarVida(vida){
       //  this.vidas -= vida;

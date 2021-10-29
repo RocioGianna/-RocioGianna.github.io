@@ -63,14 +63,14 @@ class Obstaculo {
 
             personaje.getPosicionX() + personaje.getAncho() > elemento.getPosicionX() // left + ancho < left R
             // | <-- ----> |
-            //&&
-            //personaje.getPosicionY() < elemento.getPosicionY() + elemento.getAlto() // top P < top + alto R
+            &&
+            personaje.getPosicionY() < elemento.getPosicionY() + elemento.getAlto() // top P < top + alto R
             // acá sería si está agachado, no sé si tiene sentido -> el personaje siempre va a ser más alto
             && personaje.getPosicionY() + personaje.getAlto() > elemento.getPosicionY()){ // top + alto personaje > top roca
                 // console.log("primer if ", personaje.getPosicionX() < elemento.getPosicionX() + elemento.getAncho());
                 // console.log("segundo if", personaje.getPosicionX() + personaje.getAncho() > elemento.getPosicionX());
                 // console.log("tercer if", personaje.getPosicionY() + personaje.getAlto() > elemento.getPosicionY());
-                //console.log("true");
+                console.log("murio");
                 return true;
             }else{
                 // console.log("primer if ", personaje.getPosicionX() < elemento.getPosicionX() + elemento.getAncho());
@@ -92,7 +92,7 @@ class Obstaculo {
         return this.div.getBoundingClientRect().left;
     }
     getPosicionY(){
-        return this.div.getBoundingClientRect().top;
+        return this.div.getBoundingClientRect().y;
     }
 
 }

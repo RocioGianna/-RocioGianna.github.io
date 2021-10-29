@@ -28,16 +28,15 @@ class Juego{
         return elemento.getColision(this.personaje, elemento);
     }
 
-    verificarContinuidad(){
+     continuaJuego(){
         if (this.personaje.getVida() > 1){ // si todavía tiene vidas, le descontamos
-            this.personaje.caer();
-            this.personaje.vidas = this.personaje.vidas--;
+             this.personaje.vidas = this.personaje.vidas--;
             return true;
-        }else{
+         }else{
             this.personaje.die();
-            //this.endGame(); // finaliza el juego
-        } 
-    }
+            this.endGame(); // finaliza el juego
+         } 
+     }
 
     
 
@@ -61,6 +60,10 @@ class Juego{
         document.addEventListener('keydown', (e)=>{
             if(e.keyCode == 38)// && (!this.verificaColisiones(this.obstaculo))){ 
                 this.personaje.jump(); 
+                if (this.verificaColisiones(this.obstaculo)){
+                    this.personaje.caer();
+                    
+                }   
             //}else if(this.verificaColisiones(this.obstaculo)){
               //  this.verificarContinuidad();
             // }
@@ -86,7 +89,10 @@ class Juego{
         document.addEventListener('keyup', (e)=>{
             if(e.keyCode == 38)// && !this.verificaColisiones(this.obstaculo)){ /* arrow up */ 
                 setTimeout(()=>{
-                    this.personaje.walk();     
+                    this.personaje.walk(); 
+                    if (this.verificaColisiones(this.obstaculo)){
+                        this.personaje.caer();
+                    }    
                 }, 700); 
             //}else if(this.verificaColisiones(this.obstaculo)){
               // this.verificarContinuidad();
