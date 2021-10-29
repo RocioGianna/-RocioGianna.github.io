@@ -3,8 +3,9 @@ class Juego{
     // Constructor
     constructor(personaje){
         this.personaje = personaje;
-        this.obstaculo = [];
+        this.obstaculo = new Obstaculo(); // 600 es el top
         this.gemas = [];
+        this.jugando = true;
         //this.limite;
     }
 
@@ -13,26 +14,48 @@ class Juego{
         //console.log("estaJugando? ", estaJugando);
         this.addGems(); // se agregan las gemas 
         this.acciones(); // se chequean las acciones del personaje
-        this.addObstaculos(); // se agregan los obstáculos
+       // this.addObstaculos(); // se agregan los obstáculos
     }
 
+    // Cuando el left de la piedra está entre el left del personaje + ancho del div (o del personaje)
+    // como va a estar en el mismo eje x, hay que ver si se chocan -> con el eje y
+    // sería algo así como:
+    // (top del personaje + alto) 
+
     verificaColisiones(elemento){
-        console.log(elemento.getColision(this.personaje, elemento));
+        console.log('EMPIEZA A VERIFICARRRRRRRRRRRRRRRRRRRRRRRRRRRR');
+        //console.log(elemento.getColision(this.personaje, elemento));
+    
+        
         return elemento.getColision(this.personaje, elemento);
     }
 
+    
+
     // Acciones del teclado -> movimientos del personaje
     acciones(){
-        // Siempre verificamos la colisión con la roca porque se la puede chocar sin saltar (simplemente caminando) 
-        for (let i=0; i < this.obstaculo.length; i++){
-            this.verificaColisiones(this.obstaculo[i]);                
-        }       
-        //this.verificaColisiones();
 
+        //if ( (this.personaje.div.getBoundingClientRect().left >= this.obstaculo.left) && (this.personaje.div.getBoundingClientRect().left <= this.obstaculo.left))
+        
+        // Siempre verificamos la colisión con la roca porque se la puede chocar sin saltar (simplemente caminando) 
+        //for (let i=0; i < this.obstaculo.length; i++){
+          //  console.log('piedra número: ', i);
+            //this.verificaColisiones(this.obstaculo[i]);                
+        //}       
+        //this.verificaColisiones();
+        //this.verificaColisiones(this.obstaculo);
         // SALTO -> KEYDOWN
+
+
+        window.addEventListener('load', (e)=>{
+            console.log("hola");
+            this.verificaColisiones(this.obstaculo);
+        });
+
         document.addEventListener('keydown', (e)=>{
             if(e.keyCode == 38){ 
                 this.personaje.jump(); 
+                this.verificaColisiones(this.obstaculo);
             }
             
             // COLISIÓN CON LA GEMA (RECOLECTA LA GEMA)
@@ -57,9 +80,10 @@ class Juego{
             if(e.keyCode == 38){ /* arrow up */ 
 
                 // VERIFICAR COLISIONES DESPUÉS DE QUE CAE (CUANDO BAJA DEL SALTO)
-
+                this.verificaColisiones(this.obstaculo);
                 setTimeout(()=>{
                     this.personaje.walk(); 
+                    
                 }, 720);
                 
             }
@@ -83,6 +107,7 @@ class Juego{
                 setTimeout(()=>{
                     console.log('vuelve a caminar');
                     this.personaje.walk(); 
+                    this.verificaColisiones(this.obstaculo);
                 }, 720);
                 
             }
@@ -90,13 +115,13 @@ class Juego{
     }
 
     // Agregar obstáculos
-    addObstaculos(){
-        for(let i = 0; i < 10; i++){
-            let top =  600;
-            let left = 1200;
-            this.obstaculo.push(new Obstaculo(left, top));
-        }
-    }
+    // addObstaculos(){
+    //     for(let i = 0; i < 10; i++){
+    //         let top =  600;
+    //         //let left = 1200;
+    //         this.obstaculo.push(new Obstaculo(top));
+    //     }
+    // }
 
     // Agregar gemas
     addGems(){

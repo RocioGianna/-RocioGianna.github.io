@@ -6,8 +6,8 @@ class Personaje{
         this.class = this.div.classList.add("character");
         this.ancho = this.div.offsetWidth ; //habria que restale hasta donde llega el personaje porque la caja es mas grande que el personaje
         this.alto = this.div.offsetHeight; //habria que restale hasta donde llega el personaje porque la caja es mas grande que el personaje
-        this.posicionX = this.div.offsetLeft; 
-        this.posicionY = this.div.offsetTop; 
+        this.posicionX = this.div.getBoundingClientRect().left;
+        this.posicionY = this.div.getBoundingClientRect().top;
         this.vidas = 3; //es decir que tiene dos vidas (dos opotunidades para chocar) -> le puse 3 vidas
         this.puntaje = 0; 
     }  
