@@ -10,6 +10,7 @@ class Personaje{
         this.posicionY = this.div.getBoundingClientRect().top;
         this.vidas = 3; //cantidad de vidas
         this.puntaje = 0; 
+        this.vidasDisplay = document.getElementById("vida-personaje").innerHTML = this.vidas;
     }  
     // Manejadores de clases de CSS (acciones del personaje)
     // Acción de salto
@@ -22,7 +23,7 @@ class Personaje{
          if (character.className == "character-jump"){
              character.classList.remove("character-jump");
          }else{
-            character.classList.remove("character-caer");
+            character.classList.remove("character-caida");
         } 
         character.classList.add("character");
     }
@@ -33,11 +34,11 @@ class Personaje{
     }
     caer(){ //esto va a pasar cuando colisione con un enemigo y caiga
         character.classList.remove("character");
-        character.classList.add("character-caer");
+        character.classList.add("character-caida");
     }
-    quitarVida(vida){
-        this.vidas -= vida;
-    }
+    //quitarVida(vida){
+      //  this.vidas -= vida;
+    //}
     sumarPuntaje(puntaje){
         this.puntaje += puntaje;
     }

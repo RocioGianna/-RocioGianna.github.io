@@ -14,7 +14,7 @@ class Juego{
         //console.log("estaJugando? ", estaJugando);
         this.addGems(); // se agregan las gemas 
         this.acciones(); // se chequean las acciones del personaje
-        this.verificarContinuidad(); // se verifica la continuidad del juego
+        //this.verificarContinuidad(); // se verifica la continuidad del juego
        // this.addObstaculos(); // se agregan los obstáculos
     }
 
@@ -24,16 +24,18 @@ class Juego{
     // (top del personaje + alto) 
 
     verificaColisiones(elemento){
+        console.log(elemento.getColision(this.personaje, elemento))
         return elemento.getColision(this.personaje, elemento);
     }
 
     verificarContinuidad(){
         if (this.personaje.getVida() > 1){ // si todavía tiene vidas, le descontamos
             this.personaje.caer();
-            this.personaje.quitarVida(1);
+            this.personaje.vidas = this.personaje.vidas--;
+            return true;
         }else{
             this.personaje.die();
-            this.endGame(); // finaliza el juego
+            //this.endGame(); // finaliza el juego
         } 
     }
 
@@ -57,11 +59,11 @@ class Juego{
      
 
         document.addEventListener('keydown', (e)=>{
-            if(e.keyCode == 38 && !this.verificaColisiones(this.obstaculo)){ 
+            if(e.keyCode == 38)// && (!this.verificaColisiones(this.obstaculo))){ 
                 this.personaje.jump(); 
-            }else if(this.verificaColisiones(this.obstaculo)){
-                this.verificarContinuidad();
-             }
+            //}else if(this.verificaColisiones(this.obstaculo)){
+              //  this.verificarContinuidad();
+            // }
             
             // COLISIÓN CON LA GEMA (RECOLECTA LA GEMA)
             // acá sería con LA GEMA QUE SE ESTÁ MOSTRANDO -> PREGUTNARLE A ROCÍO CÓMO VER ESTO  
@@ -78,17 +80,17 @@ class Juego{
             //         this.endGame(); // finaliza el juego
             //     }                
             // }
-        })
+        });
         
          // SALTO -> KEYUP
         document.addEventListener('keyup', (e)=>{
-            if(e.keyCode == 38 && !this.verificaColisiones(this.obstaculo)){ /* arrow up */ 
+            if(e.keyCode == 38)// && !this.verificaColisiones(this.obstaculo)){ /* arrow up */ 
                 setTimeout(()=>{
                     this.personaje.walk();     
                 }, 700); 
-            }else if(this.verificaColisiones(this.obstaculo)){
-               this.verificarContinuidad();
-            }
+            //}else if(this.verificaColisiones(this.obstaculo)){
+              // this.verificarContinuidad();
+           // }
         })
 
         
