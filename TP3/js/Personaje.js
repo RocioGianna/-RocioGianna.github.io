@@ -10,8 +10,6 @@ class Personaje{
         this.posicionY = this.div.getBoundingClientRect().top;
         this.vidas = 3; //cantidad de vidas
         this.puntaje = 0; 
-        // @ts-ignore
-        this.vidasDisplay = document.getElementById("vida-personaje").innerHTML = this.vidas;
     }  
     // Manejadores de clases de CSS (acciones del personaje)
     // Acción de salto

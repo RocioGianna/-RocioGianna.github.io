@@ -29,8 +29,13 @@ class Juego{
     }
 
      continuaJuego(){
-        if (this.personaje.getVida() > 1){ // si todavía tiene vidas, le descontamos
-             this.personaje.vidas = this.personaje.vidas--;
+        console.log("entra continua juego");
+        if (this.personaje.getVida() >= 1){ 
+            console.log("vidass");// si todavía tiene vidas, le descontamos
+             this.personaje.vidas--;
+             let vidas = document.getElementById("vida-personaje");
+             vidas.innerHTML = this.personaje.vidas;
+            console.log("vidas: ", this.personaje.vidas);
             return true;
          }else{
             this.personaje.die();
