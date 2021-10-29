@@ -14,6 +14,7 @@ class Juego{
         //console.log("estaJugando? ", estaJugando);
         this.addGems(); // se agregan las gemas 
         this.acciones(); // se chequean las acciones del personaje
+        this.verificarContinuidad(); // se verifica la continuidad del juego
        // this.addObstaculos(); // se agregan los obstáculos
     }
 
@@ -23,11 +24,17 @@ class Juego{
     // (top del personaje + alto) 
 
     verificaColisiones(elemento){
-        console.log('EMPIEZA A VERIFICARRRRRRRRRRRRRRRRRRRRRRRRRRRR');
-        //console.log(elemento.getColision(this.personaje, elemento));
-    
-        
         return elemento.getColision(this.personaje, elemento);
+    }
+
+    verificarContinuidad(){
+        if (this.personaje.getVida() > 1){ // si todavía tiene vidas, le descontamos
+            this.personaje.caer();
+            this.personaje.quitarVida(1);
+        }else{
+            this.personaje.die();
+            this.endGame(); // finaliza el juego
+        } 
     }
 
     
@@ -47,16 +54,14 @@ class Juego{
         // SALTO -> KEYDOWN
 
 
-        window.addEventListener('load', (e)=>{
-            console.log("hola");
-            this.verificaColisiones(this.obstaculo);
-        });
+     
 
         document.addEventListener('keydown', (e)=>{
-            if(e.keyCode == 38){ 
+            if(e.keyCode == 38 && !this.verificaColisiones(this.obstaculo)){ 
                 this.personaje.jump(); 
-                this.verificaColisiones(this.obstaculo);
-            }
+            }else if(this.verificaColisiones(this.obstaculo)){
+                this.verificarContinuidad();
+             }
             
             // COLISIÓN CON LA GEMA (RECOLECTA LA GEMA)
             // acá sería con LA GEMA QUE SE ESTÁ MOSTRANDO -> PREGUTNARLE A ROCÍO CÓMO VER ESTO  
@@ -77,41 +82,38 @@ class Juego{
         
          // SALTO -> KEYUP
         document.addEventListener('keyup', (e)=>{
-            if(e.keyCode == 38){ /* arrow up */ 
-
-                // VERIFICAR COLISIONES DESPUÉS DE QUE CAE (CUANDO BAJA DEL SALTO)
-                this.verificaColisiones(this.obstaculo);
+            if(e.keyCode == 38 && !this.verificaColisiones(this.obstaculo)){ /* arrow up */ 
                 setTimeout(()=>{
-                    this.personaje.walk(); 
-                    
-                }, 720);
-                
+                    this.personaje.walk();     
+                }, 700); 
+            }else if(this.verificaColisiones(this.obstaculo)){
+               this.verificarContinuidad();
             }
         })
 
         
-        // Prueba para morirse
-        // Asigno una tecla rándom
-        document.addEventListener('keydown', (e)=>{
-            if(e.keyCode == 17){ /* arrow up */ 
-                console.log(e.keyCode);
-                // setTimeout(()=>{
-                     this.personaje.die(); 
-                // }, 720);
+        // // Prueba para morirse
+        // // Asigno una tecla rándom
+        // document.addEventListener('keydown', (e)=>{
+        //     if(e.keyCode == 17){ /* arrow up */ 
+        //         console.log(e.keyCode);
+        //         // setTimeout(()=>{
+        //              this.personaje.die(); 
+        //         // }, 720);
                 
-            }
-        })
-        document.addEventListener('keyup', (e)=>{
-            if(e.keyCode == 17){ /* arrow up */ 
-                console.log('levanta ctrl');
-                setTimeout(()=>{
-                    console.log('vuelve a caminar');
-                    this.personaje.walk(); 
-                    this.verificaColisiones(this.obstaculo);
-                }, 720);
+        //     }
+        // })
+        // document.addEventListener('keyup', (e)=>{
+        //     if(e.keyCode == 17){ /* arrow up */ 
+        //         console.log('levanta ctrl');
+        //         setTimeout(()=>{
+        //             console.log('vuelve a caminar');
+        //             this.personaje.walk(); 
+        //             this.verificaColisiones(this.obstaculo);
+        //         }, 720);
                 
-            }
-        })        
+        //     }
+        // })        
     }
 
     // Agregar obstáculos

@@ -9,7 +9,7 @@ class Obstaculo {
         //this.posicionX = this.div.getBoundingClientRect().left;
         //this.posicionX = this.div.style.left = 1500 + "´x";
         //this.posicionY = this.div.getBoundingClientRect().top;
-        this.divImage = this.div.style.background = "url('img/piedra.png') left center";
+        this.divImage = this.div.style.background = "url('img/piedrap.png') left center";
         this.danio = 50;
         //this.trasnformation = this.
         // Definirle una transformación por defecto para que además se mueva
@@ -29,7 +29,7 @@ class Obstaculo {
 
        // let personaje; // personaje
         //let elemento; // gema/bostáculo
-        console.log("personaje:", personaje);
+       // console.log("personaje:", personaje);
         //console.log("elemento", elemento);
         //console.log("mi div style: ", this.div.offsetLeft);
         //console.log("mi div style: ", this.div.offsetLeft);
@@ -41,22 +41,22 @@ class Obstaculo {
         // EL LEFT NO VARÍA............... POR QUÉ?
        
         // falta intentar esta parte
-        console.log("primer if");
-        console.log("personaje left", personaje.getPosicionX());
-        console.log("----");
-        console.log("elemento left", elemento.getPosicionX());
-        console.log("elemento ancho", elemento.getAncho());
-        console.log("elemento left + ancho", elemento.getPosicionX() + elemento.getAncho());
-        console.log("segundo if");
-        console.log("personaje left", personaje.getPosicionX());
-        console.log("personaje ancho", personaje.getAncho());
-        console.log("----");
-        console.log("personaje left + ancho", personaje.getPosicionX() + personaje.getAncho());
-        console.log("elemento left", elemento.getPosicionX());
-        console.log("tercer if");
+        // console.log("primer if");
+        // console.log("personaje left", personaje.getPosicionX());
+        // console.log("----");
+        // console.log("elemento left", elemento.getPosicionX());
+        // console.log("elemento ancho", elemento.getAncho());
+        // console.log("elemento left + ancho", elemento.getPosicionX() + elemento.getAncho());
+        // console.log("segundo if");
+        // console.log("personaje left", personaje.getPosicionX());
+        // console.log("personaje ancho", personaje.getAncho());
+        // console.log("----");
+        // console.log("personaje left + ancho", personaje.getPosicionX() + personaje.getAncho());
+        // console.log("elemento left", elemento.getPosicionX());
+        // console.log("tercer if");
        
-        console.log("personaje top + alto", personaje.getPosicionY() + personaje.getAlto());
-        console.log("elemento top", elemento.getPosicionY());
+        // console.log("personaje top + alto", personaje.getPosicionY() + personaje.getAlto());
+        // console.log("elemento top", elemento.getPosicionY());
 
         if (personaje.getPosicionX() < elemento.getPosicionX() + elemento.getAncho() && 
 
@@ -67,17 +67,17 @@ class Obstaculo {
             //personaje.getPosicionY() < elemento.getPosicionY() + elemento.getAlto() // top P < top + alto R
             // acá sería si está agachado, no sé si tiene sentido -> el personaje siempre va a ser más alto
             && personaje.getPosicionY() + personaje.getAlto() > elemento.getPosicionY()){ // top + alto personaje > top roca
-                console.log("primer if ", personaje.getPosicionX() < elemento.getPosicionX() + elemento.getAncho());
-                console.log("segundo if", personaje.getPosicionX() + personaje.getAncho() > elemento.getPosicionX());
-                console.log("tercer if", personaje.getPosicionY() + personaje.getAlto() > elemento.getPosicionY());
-                console.log("true");
-                //return true;
+                // console.log("primer if ", personaje.getPosicionX() < elemento.getPosicionX() + elemento.getAncho());
+                // console.log("segundo if", personaje.getPosicionX() + personaje.getAncho() > elemento.getPosicionX());
+                // console.log("tercer if", personaje.getPosicionY() + personaje.getAlto() > elemento.getPosicionY());
+                //console.log("true");
+                return true;
             }else{
-                console.log("primer if ", personaje.getPosicionX() < elemento.getPosicionX() + elemento.getAncho());
-                console.log("segundo if", personaje.getPosicionX() + personaje.getAncho() > elemento.getPosicionX());
-                console.log("tercer if", personaje.getPosicionY() + personaje.getAlto() > elemento.getPosicionY());
-                console.log('false');
-                //return false;
+                // console.log("primer if ", personaje.getPosicionX() < elemento.getPosicionX() + elemento.getAncho());
+                // console.log("segundo if", personaje.getPosicionX() + personaje.getAncho() > elemento.getPosicionX());
+                // console.log("tercer if", personaje.getPosicionY() + personaje.getAlto() > elemento.getPosicionY());
+                //console.log('false');
+                return false;
         }
         
      }
