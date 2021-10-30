@@ -17,18 +17,17 @@ class Juego{
     }
 
     verificaColisiones(elemento){
-        console.log("colision con:" + elemento.getNombre() + " ? "+  elemento.getColision(this.personaje, elemento))
+
         return elemento.getColision(this.personaje, elemento);
     }
 
      continuaJuego(){
-        console.log("entra continua juego");
         if (this.personaje.getVida() >= 1){ 
-            console.log("vidass");// si todavía tiene vidas, le descontamos
+
              this.personaje.vidas--;
              let vidas = document.getElementById("vida-personaje");
              vidas.innerHTML = this.personaje.vidas;
-            console.log("vidas: ", this.personaje.vidas);
+
             return true;
          }else{
             this.personaje.die();
@@ -52,9 +51,9 @@ class Juego{
                 if (this.verificaColisiones(this.obstaculo)){
                     this.personaje.caer();                    
                 }else{
-                    console.log("verifica gema 0");
+
                     if (this.verificaColisiones(this.gema)){
-                        console.log("verifica gema");
+
                         this.personaje.actualizarPuntaje(this.gema.valor);
                         this.verificarResultadoJuego();
                     }

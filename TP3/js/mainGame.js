@@ -10,11 +10,11 @@ juego.initGame();
 let chequear = setInterval(function(){
     if (juego.verificaColisiones(juego.obstaculo)){
         if (juego.continuaJuego()){
-            console.log("main entra cer");
+
             juego.personaje.caer();
-            console.log("se chocó caminando, se cae y vuelve a caminar porque tiene vidas");
+
             setTimeout(function()
-                { juego.personaje.walk(); console.log("jaja")}
+                { juego.personaje.walk(); }
                 
                 , 1000);
         }

@@ -24,7 +24,6 @@ class Gema{
 
     ){
 
-        console.log("come la gema");
         return true;
     }else{
 

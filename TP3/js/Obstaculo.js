@@ -24,7 +24,6 @@ class Obstaculo {
             // acá sería si está agachado, no sé si tiene sentido -> el personaje siempre va a ser más alto
             && personaje.getPosicionY() + (personaje.getAlto()-30) > elemento.getPosicionY()){ // top + alto personaje > top roca
 
-                console.log("murio");
                 return true;
             }else{
  

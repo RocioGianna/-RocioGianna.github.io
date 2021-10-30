@@ -41,7 +41,6 @@ class Personaje{
     }
     caer(){ //esto va a pasar cuando colisione con un enemigo y caiga
         
-        console.log('entra caer');
         // @ts-ignore
         character.classList.remove("character");
         // @ts-ignore
@@ -55,8 +54,6 @@ class Personaje{
         this.puntaje += puntaje;
         let puntajeDisplay = document.getElementById("puntaje-jugador");
         puntajeDisplay.innerHTML = this.getPuntaje();
-        console.log("puntajeeee objeto: "+ this.getPuntaje());
-        console.log("puntajeeee html: "+ puntajeDisplay);
         //puntajeDisplay.innerHTML = this.getPuntaje();
     }
 
