@@ -22,15 +22,15 @@ Entregable 3
         - Caso en el que gana.
 2. **Lógica del juego:**
     - ~~Mantener actualizadas las vidas del personaje.~~
-    - Mantener actualizada la puntuación.
+    - ~~Mantener actualizada la puntuación.~~
     - **Puntuación:**
         - ~~Darle valor (puntaje) distinto a cada gema.~~
             - ~~Intentar escribirlo como arreglo asociativo.~~
     - **Colisiones:**
-        - Con las gemas.
+        - ~~Con las gemas.~~
         - ~~Con los obstáculos.~~
     - Muerte.
-    - Salto:
+    - ~~Salto:~~
         - ~~Acomodar dentro del gameloop para que sólo salte presionando la tecla y no con la tecla apretada.~~
 3. **Parte visual:**
     - ~~Mostrar vidas del personaje.~~

@@ -53,9 +53,11 @@ class Personaje{
     //}
     actualizarPuntaje(puntaje){
         this.puntaje += puntaje;
-        let puntajeDisplay = document.getElementById("puntuacion");
-        puntajeDisplay.innerHTML += this.puntaje;
-        console.log("puntajeeee html: "+ puntajeDisplay.innerHTML );
+        let puntajeDisplay = document.getElementById("puntaje-jugador");
+        puntajeDisplay.innerHTML = this.getPuntaje();
+        console.log("puntajeeee objeto: "+ this.getPuntaje());
+        console.log("puntajeeee html: "+ puntajeDisplay);
+        //puntajeDisplay.innerHTML = this.getPuntaje();
     }
 
     // GETTERS
