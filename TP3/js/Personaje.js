@@ -55,6 +55,7 @@ class Personaje{
         this.puntaje += puntaje;
         let puntajeDisplay = document.getElementById("puntuacion");
         puntajeDisplay.innerHTML += this.puntaje;
+        console.log("puntajeeee html: "+ puntajeDisplay.innerHTML );
     }
 
     // GETTERS

@@ -47,7 +47,7 @@ class Gema{
         personaje.getPosicionX() + personaje.getAncho() > elemento.getPosicionX() &&
         //| <-- ----> |
         personaje.getPosicionY() < elemento.getPosicionY() + elemento.getAlto() &&
-        personaje.getPosicionY + personaje.getAlto() > elemento.getPosicionY()
+        personaje.getPosicionY() + personaje.getAlto() > elemento.getPosicionY()
 
     ){
         // console.log("primer if ", personaje.getPosicionX() < elemento.getPosicionX() + elemento.getAncho());
