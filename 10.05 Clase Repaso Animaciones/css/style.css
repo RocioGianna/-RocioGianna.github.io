@@ -1,0 +1,116 @@
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #212140;
+}
+
+.star-container{
+    /*quiero controlar el tamaño de la estrella*/
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* algunos hijos (no todos) pueden ser abosulte*/
+}
+
+/* Jugamos con las animaciones*/
+
+.star-container .star{
+    animation: starMovement 1s ease .1s forwards; /* no se hace infinitamente*/
+    /*animation: starMovement 1s ease .1s forwards; 
+    /* animation: startMovement 1s ease .8s infinite; /* se hace infinitamente*/    
+    opacity: 0; /* para que no arranque el círculo de entrada*/
+    
+}
+
+/* Estilos a los bloques de Spark que agregamos*/
+
+.star-container .circle{
+    /* Si el tamaño de la estrella va cambiando por la animación, se produce ese efecto de que
+    queda menos espacio disponible*/
+    width: 80%;
+    height: 80%;
+    border: 10px solid rgb(14, 165, 211);
+    position: absolute;
+    border-radius: 100%;
+    animation: borderMovement .8s ease 1s forwards;
+    /*animation: borderMovement .8s ease .2s forwards;*/
+    opacity: 0; /* para que no arranque el círculo de entrada*/
+    /* top: 0;
+    left: 0; */
+}
+
+.star-container .spark{
+    width: 10%;
+    height: 10%;
+    background-color: rgb(14, 165, 211);
+    position: absolute;
+    border-radius: 100%;
+    transform: rotate(calc(45deg * var(--i))) translate(50px, 0); /* 360/8 estrellas = 45 grados por pelotita*/
+    /* quiero trasladar en un solo eje*/
+    animation: sparkMovement 1.2s ease 1s forwards;
+    /*animation: sparkMovement 1.2s ease .3ss forwards;*/
+    opacity: 0; /* para que no arranque el círculo de entrada*/
+}
+
+/* Animaciones */
+@keyframes starMovement{
+    0%{
+        /*opacity: 1; /* transparente */
+        /* si pongo visibility -> no hay forma de transicionar entre visibile y hidden*/
+        /* No puedo transicionar estados -> por eso se ponen números*/
+        opacity: 0;
+        transform: rotate(0deg);
+        width: 45px;
+        height: 45px;
+    }    
+    60%{
+        width: 160px;
+        height: 160px;
+    }
+    100%{
+        opacity: 1;
+        transform: rotate(360deg);
+        width: 85px;
+        height: 85px;
+    }
+}
+
+@keyframes borderMovement{
+    0%{
+        opacity: 0;
+        width: 10%;
+        height: 10%;
+    }    
+    60%{
+        opacity: .7;
+    }
+    100%{
+        opacity: 0;
+        width: 120%;
+        height: 120%;
+    }
+}
+
+@keyframes sparkMovement{
+    0%{
+        opacity: 0;
+        width: 10%;
+        height: 10%;
+        /* Trabajar la transformación para que quede más linda*/
+        transform: rotate(calc(45deg * var(--i))) translate(50px, 0); /* 360/8 estrellas = 45 grados por pelotita*/
+        /*rotate(calc(45deg * var(--i)))*/
+    }
+    80%{
+        opacity: .8;
+    }
+    100%{
+        opacity: 0;
+        width: 4%;
+        height: 4%;
+        transform:  rotate(calc(45deg * var(--i))) translate(100px, 0);
+    }
+}

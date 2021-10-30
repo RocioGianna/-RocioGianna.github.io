@@ -1,0 +1,270 @@
+/* PANTALLA INICIO -> INDEX HTML*/
+a:link, a:active, a:visited{
+  text-decoration: none;
+  color:white;
+}
+
+.container-inicio{
+padding-left: 200px;
+padding-top: 10px;
+font-family:'Luckiest Guy', cursive;
+font-size: 40px;
+}
+
+header, .botones{
+align-items: center;
+text-align: center;
+font-family:'Luckiest Guy', cursive;
+font-size: 40px;
+}
+
+li{
+  list-style: none;
+}
+
+/* GAME INDICATIONS */
+.indications{
+  margin-top: 200px;
+  font-family: 'Luckiest Guy', cursive;
+  align-items: center;
+  text-align: center;
+}
+
+/*PERSONAJE_____________*/
+.character { 
+  width: 117px; 
+  height: 212px; 
+  background: url('../img/walk.png') left center;
+  animation: walk 0.9s steps(7) infinite;
+  position:absolute;
+  left: 220px;
+  top: 520px;
+}
+
+@keyframes walk { 
+	0% { background-position: 0px; }
+  100% { background-position: -810px; }
+} 
+
+/********/
+.character-jump { 
+  width: 100px; 
+  height: 280px; 
+  background: url('../img/saltop.png') left center;
+  animation: saltar 1s steps(7);  
+  position:absolute;
+  left: 220px;
+  top: 367px;
+}
+
+@keyframes saltar { 
+  0% { background-position: 0px; }
+  50%{ transform: translateY(-200px);}
+  /*100% { background-position: -800px;}*/
+  100% { transform: translateY(0px); }
+} 
+
+
+
+/********/
+.character-die{
+  width: 130px; 
+  height: 130px; 
+  background: url('../img/muerte.png') left center;
+  animation: die 1s steps(3) ;
+  position: absolute;
+  top: 560px;
+  left: 220px;
+}
+
+@keyframes die{
+  0%{ background-position: 0;} 
+  25%{ background-position: 150px;} 
+  50%{ background-position: 300px;} 
+  100%{background-position: 450px;}
+}
+/********/
+.character-caida { 
+  width: 140px; 
+  height: 200px; 
+  background: url('../img/caida.png') left center;
+  animation: caer 1s steps(5);  
+  position:absolute;
+  left: 220px;
+  top: 540px;
+}
+
+@keyframes caer { 
+  0% { background-position: 0px; }
+  100% { background-position: -720px;}
+} 
+
+/* 
+#main-page{
+  width: 2000px;
+  background-color: blueviolet;
+  border: 10px solid blue;
+  height: 1000px;
+} */
+
+/*GEMA_____________*/
+
+
+#gema{
+  width: 45px; 
+  height: 70px; 
+  animation: girar 15s steps(6) infinite;
+  position: absolute;
+}
+
+@keyframes girar{
+  0%{ 
+    background-position: 0;
+    left: 1300px;}
+    10%{
+      left: 1300px;
+    }  
+    20%{
+      left: 1100px;
+    } 
+    30%{
+      left: 900px;
+    } 
+    40%{
+      left: 700px;
+    } 
+    50%{
+      left: 500px;
+    } 
+    60%{
+      left: 200px;
+    } 
+    70%{
+      left: -100px;
+    } 
+  
+  100%{
+    background-position: -330px;
+    left: -100px}
+}
+
+#loss-game, #win-game{
+  display:none;  
+    margin-left: 450px;
+    margin-right: 450px;
+    width: 60%;
+    padding: 10px;
+    text-align: center;
+    font-family:'Luckiest Guy', cursive;    
+}
+
+
+/*OBSTACULO_____________*/
+
+#obstaculo{
+  width: 58px; 
+  height: 50px; 
+  animation: rodar 7s linear infinite ;
+  position: absolute;
+  left: 1500px;
+  top: 650px;
+}
+
+@keyframes rodar{
+  0%{
+    left: 1500px;
+  }
+    10%{
+      left: 1300px;
+    }  
+    20%{
+      left: 1100px;
+    } 
+    30%{
+      left: 900px;
+    } 
+    40%{
+      left: 700px;
+    } 
+    50%{
+      left: 500px;
+    } 
+    60%{
+      left: 300px;
+    } 
+    70%{
+      left: 100px;
+    }   
+    80%{
+      left: -100px;
+    }   
+  100%{
+    left: -800px;
+  }
+}
+
+
+/*FONDO_____________*/
+                                           
+.layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 95%;
+  background-repeat: repeat-x;
+  background-size: cover;
+}
+.layer-3{
+  background-image: url("../img/layer3.png");
+  animation: scroll 35s linear infinite;
+}
+.layer-2{
+  background-image: url("../img/layer2.png");
+  animation: scroll 30s linear infinite;
+}
+.layer-1{
+  background-image: url("../img/layer1.png");
+  animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+  0% { background-position: 0px; } 
+  100% { background-position: -2300px; }
+}  
+
+/* media queries */
+@media screen and (min-width: 1800px) {
+  .layer {
+    width: 98%;
+    height: 73%;
+  }
+  .character{
+    top: 510px;
+    left: 220px;
+  }
+  .character-jump { 
+    top: 380px;
+    left: 220px;
+  }
+  .character-die{
+    top: 560px;
+    left: 220px;
+  }
+}
+
+.game-info{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#puntuacion, #vidas{
+  display: flex;
+  align-items:center;
+  justify-content: space-around;
+  font-family:'Luckiest Guy', cursive;
+  color: white;
+  font-size: 40px;
+  position: relative;
+}
