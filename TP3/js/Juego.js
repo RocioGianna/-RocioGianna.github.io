@@ -3,9 +3,9 @@ class Juego{
     // Constructor
     constructor(personaje){
         this.personaje = personaje;
-        this.obstaculo = new Obstaculo(); // 600 es el top
-        this.gemas = [];
-        this.jugando = true;
+        this.obstaculo = new Obstaculo("Piedra"); // 600 es el top
+        this.gema = this.addGems();
+        //this.jugando = true;
         //this.limite;
     }
 
@@ -24,7 +24,7 @@ class Juego{
     // (top del personaje + alto) 
 
     verificaColisiones(elemento){
-        console.log(elemento.getColision(this.personaje, elemento))
+        console.log("colision con:" + elemento.getNombre() + " ? "+  elemento.getColision(this.personaje, elemento))
         return elemento.getColision(this.personaje, elemento);
     }
 
@@ -66,8 +66,13 @@ class Juego{
             if(e.keyCode == 38)// && (!this.verificaColisiones(this.obstaculo))){ 
                 this.personaje.jump(); 
                 if (this.verificaColisiones(this.obstaculo)){
-                    this.personaje.caer();
-                    
+                    this.personaje.caer();                    
+                }else{
+                    console.log("verifica gema 0");
+                    if (this.verificaColisiones(this.gema)){
+                        console.log("verifica gema");
+                        this.personaje.actualizarPuntaje(this.gema.valor);
+                    }
                 }   
             //}else if(this.verificaColisiones(this.obstaculo)){
               //  this.verificarContinuidad();
@@ -145,12 +150,12 @@ class Juego{
         let names = ["spaceGem", "mindGem", "realityGem", "powerGem", "timeGem", "soulGem"]; // Gemas del infinito para agregar agregar 
         let puntajes = [100, 150, 200, 250, 300, 350];
 
-        for(let i = 0; i < 10; i++){ // Creamos 10 gemas
-            let random = Math.floor(Math.random() * names.length); // Selecciona una aleatoriamente (entre 0 y 5)
-            let gema = names[random]; // El nombre de la gema va a corresponderse con la gema a mostrar
-            let valor = puntajes[random];
-            this.gemas.push(new Gema(gema, left, top, valor)); // Agregamos la gema al arreglo de gemas y la instanciamos
-        }
+        
+        let random = Math.floor(Math.random() * names.length); // Selecciona una aleatoriamente (entre 0 y 5)
+        let gema = names[random]; // El nombre de la gema va a corresponderse con la gema a mostrar
+        let valor = puntajes[random];
+        return (new Gema(gema, left, top, valor)); // Agregamos la gema al arreglo de gemas y la instanciamos
+        
     }  
     
     // Fin del juego

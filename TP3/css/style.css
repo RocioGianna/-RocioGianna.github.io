@@ -63,12 +63,14 @@ li{
   100% { transform: translateY(0px); }
 } 
 
+
+
 /********/
 .character-die{
   width: 130px; 
   height: 130px; 
   background: url('../img/muerte.png') left center;
-  animation: die 0.9s steps(3) ;
+  animation: die 1s steps(3) ;
   position: absolute;
   top: 560px;
   left: 220px;
@@ -76,7 +78,9 @@ li{
 
 @keyframes die{
   0%{ background-position: 0;} 
-  100%{background-position: -450px;}
+  25%{ background-position: 150px;} 
+  50%{ background-position: 300px;} 
+  100%{background-position: 450px;}
 }
 /********/
 .character-caida { 

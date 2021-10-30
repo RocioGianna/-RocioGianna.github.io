@@ -1,8 +1,9 @@
 // Clase para manejar el comportamiento del obstáculo a esquivar
 class Obstaculo {
     // Constructor
-    constructor(){ 
+    constructor(nombre){ 
         this.div = document.getElementById("obstaculo");
+        this.nombre = nombre;
         this.ancho = this.div.offsetWidth;
         this.alto = this.div.offsetHeight;
         //this.posicionX = window.getComputedStyle(this.div,null).getPropertyValue("left");
@@ -93,6 +94,10 @@ class Obstaculo {
     }
     getPosicionY(){
         return this.div.getBoundingClientRect().y;
+    }
+
+    getNombre(){
+        return this.nombre;
     }
 
 }

@@ -51,8 +51,10 @@ class Personaje{
     //quitarVida(vida){
       //  this.vidas -= vida;
     //}
-    sumarPuntaje(puntaje){
+    actualizarPuntaje(puntaje){
         this.puntaje += puntaje;
+        let puntajeDisplay = document.getElementById("puntuacion");
+        puntajeDisplay.innerHTML += this.puntaje;
     }
 
     // GETTERS
