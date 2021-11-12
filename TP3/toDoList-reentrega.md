@@ -17,37 +17,38 @@ Entregable 3
             - ~~Objetivo mínimo: Juntar 6 gemas de cualquier tipo.~~
         - ~~Muerte: te chocás 3 veces un obstáculo.~~   
 1. **Fin**
-    - Mostrar pantalla de fin del juego:
-        - Caso de quedarse sin vidas (perdió).
-        - Caso en el que gana.
+    - Mostrar pantalla de fin del juego: ***-> Juan***
+        - Caso de quedarse sin vidas (perdió). ***-> Juan***
+        - Caso en el que gana. ***-> Juan***
 2. **Lógica del juego:**
     - ~~Mantener actualizadas las vidas del personaje.~~
-    - Mantener actualizada la puntuación (acomodar innerHTML -> ver último commit de la entrega original).
+    - Mantener actualizada la puntuación (acomodar innerHTML -> ver último commit de la entrega original). ***-> Juan***
     - **Colisiones:**
-        - Con las gemas (acomodar).
-        - Con los obstáculos (acomodar: una vez que la esquiva saltando se hace INMUNE)
+        - Con las gemas (acomodar). ***-> Juan***
+        - Con los obstáculos (acomodar: una vez que la esquiva saltando se hace INMUNE) ***-> Juan***
     - Muerte.
     - Salto:
         - ~~Acomodar dentro del gameloop para que sólo salte presionando la tecla y no con la tecla apretada.~~
 3. **Parte visual:**
     - ~~Mostrar vidas del personaje.~~
     - ~~Mostrar puntuación.~~
-    - Acomodar parte Responsive. Definir endpoints entre ambos monitores.
+    - Acomodar parte Responsive. Definir endpoints entre ambos monitores. ***-> Rocío***
     - ~~**Muerte/caida:**~~
-        - Acomodar keyframe de muerte.
-        - Acomodar keyframe de caída.
+        - Acomodar keyframe de muerte. ***-> Rocío***
+        - Acomodar keyframe de caída. ***-> Rocío***
     - **Obstáculo:**
         - ~~Se mueva junto con el fondo.~~
         - ~~Animación/transformación.~~
     - **Gema:**
-        - Animación/transformación cuando se logra juntar la gema.
+        - Animación/transformación cuando se logra juntar la gema. ***-> Juan y Rocío***
     - **Parallax:**
-        - ~~Acomodar imágenes: hay un par de imágenes de un tamaño, y otro par de otro.~~
-        - En el menú tenemos que dar la opción de cambiar el fondo.
+        - ~~Acomodar imágenes: hay un par de imágenes de un tamaño, y otro par de otro.~~ ***-> Rocío***
+        - En el menú tenemos que dar la opción de cambiar el fondo. ***-> Juan y Rocío***
     - **Inicio:**
-        - Aplicarle un fondo a cada recuadro: ver último commit (ya está implementado).
-        - Colores a las letras. 
-        - Background indicatios page.
+        - Aplicarle un fondo a cada recuadro: ver último commit (ya está implementado).***-> Juan***
+        - Colores a las letras. ***-> Juan***
+        - Background indicatios page.***-> Juan***
+        - Acomodar indicaciones.***-> Juan***
 4. **Documentación.**
     - Verificar las siguientes clases:
         - Juego.js.
