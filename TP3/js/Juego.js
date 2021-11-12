@@ -5,33 +5,41 @@ class Juego{
         this.personaje = personaje;
         this.obstaculo = new Obstaculo("Piedra"); // 600 es el top
         this.gema = this.addGems();
-
+        //this.jugando = true;
+        //this.limite;
     }
 
     // Inicio del juego
     initGame(){
-
+        //console.log("estaJugando? ", estaJugando);
         this.addGems(); // se agregan las gemas 
         this.acciones(); // se chequean las acciones del personaje
-
+        //this.verificarContinuidad(); // se verifica la continuidad del juego
+       // this.addObstaculos(); // se agregan los obstáculos
     }
 
-    verificaColisiones(elemento){
+    // Cuando el left de la piedra está entre el left del personaje + ancho del div (o del personaje)
+    // como va a estar en el mismo eje x, hay que ver si se chocan -> con el eje y
+    // sería algo así como:
+    // (top del personaje + alto) 
 
+    verificaColisiones(elemento){
+        console.log("colision con:" + elemento.getNombre() + " ? "+  elemento.getColision(this.personaje, elemento))
         return elemento.getColision(this.personaje, elemento);
     }
 
      continuaJuego(){
+        console.log("entra continua juego");
         if (this.personaje.getVida() >= 1){ 
-
+            console.log("vidass");// si todavía tiene vidas, le descontamos
              this.personaje.vidas--;
              let vidas = document.getElementById("vida-personaje");
              vidas.innerHTML = this.personaje.vidas;
-
+            console.log("vidas: ", this.personaje.vidas);
             return true;
          }else{
             this.personaje.die();
-            this.verificarResultadoJuego();
+            this.endGame(); // finaliza el juego
          } 
      }
 
@@ -40,7 +48,16 @@ class Juego{
     // Acciones del teclado -> movimientos del personaje
     acciones(){
 
-
+        //if ( (this.personaje.div.getBoundingClientRect().left >= this.obstaculo.left) && (this.personaje.div.getBoundingClientRect().left <= this.obstaculo.left))
+        
+        // Siempre verificamos la colisión con la roca porque se la puede chocar sin saltar (simplemente caminando) 
+        //for (let i=0; i < this.obstaculo.length; i++){
+          //  console.log('piedra número: ', i);
+            //this.verificaColisiones(this.obstaculo[i]);                
+        //}       
+        //this.verificaColisiones();
+        //this.verificaColisiones(this.obstaculo);
+        // SALTO -> KEYDOWN
 
 
      
@@ -51,32 +68,82 @@ class Juego{
                 if (this.verificaColisiones(this.obstaculo)){
                     this.personaje.caer();                    
                 }else{
-
+                    console.log("verifica gema 0");
                     if (this.verificaColisiones(this.gema)){
-
+                        console.log("verifica gema");
                         this.personaje.actualizarPuntaje(this.gema.valor);
-                        this.verificarResultadoJuego();
                     }
                 }   
+            //}else if(this.verificaColisiones(this.obstaculo)){
+              //  this.verificarContinuidad();
+            // }
+            
+            // COLISIÓN CON LA GEMA (RECOLECTA LA GEMA)
+            // acá sería con LA GEMA QUE SE ESTÁ MOSTRANDO -> PREGUTNARLE A ROCÍO CÓMO VER ESTO  
 
+            
+
+            // COLISIÓN CON LA ROCA -> PIERDE UNA VIDA (O.. PIERDE EL JUEGO)
+            // acá sería con EL OBSTÁCULO QUE SE ESTÁ MOSTRANDO -> PREGUTNARLE A ROCÍO CÓMO VER ESTO            
+            // if (this.obstaculo.getColision(this.personaje.getPosicionX(), this.personaje.getPosicionY())){ 
+            //     this.personaje.die();
+            //     if (this.personaje.vidas > 1){ // si todavía tiene vidas, le descontamos
+            //         this.personaje.quitarVida();
+            //     }else{
+            //         this.endGame(); // finaliza el juego
+            //     }                
+            // }
         });
         
          // SALTO -> KEYUP
         document.addEventListener('keyup', (e)=>{
-            if(e.keyCode == 38)
+            if(e.keyCode == 38)// && !this.verificaColisiones(this.obstaculo)){ /* arrow up */ 
                 setTimeout(()=>{
                     this.personaje.walk(); 
                     if (this.verificaColisiones(this.obstaculo)){
                         this.personaje.caer();
                     }    
                 }, 700); 
-
+            //}else if(this.verificaColisiones(this.obstaculo)){
+              // this.verificarContinuidad();
+           // }
         })
 
         
-        
+        // // Prueba para morirse
+        // // Asigno una tecla rándom
+        // document.addEventListener('keydown', (e)=>{
+        //     if(e.keyCode == 17){ /* arrow up */ 
+        //         console.log(e.keyCode);
+        //         // setTimeout(()=>{
+        //              this.personaje.die(); 
+        //         // }, 720);
+                
+        //     }
+        // })
+        // document.addEventListener('keyup', (e)=>{
+        //     if(e.keyCode == 17){ /* arrow up */ 
+        //         console.log('levanta ctrl');
+        //         setTimeout(()=>{
+        //             console.log('vuelve a caminar');
+        //             this.personaje.walk(); 
+        //             this.verificaColisiones(this.obstaculo);
+        //         }, 720);
+                
+        //     }
+        // })        
     }
 
+    // Agregar obstáculos
+    // addObstaculos(){
+    //     for(let i = 0; i < 10; i++){
+    //         let top =  600;
+    //         //let left = 1200;
+    //         this.obstaculo.push(new Obstaculo(top));
+    //     }
+    // }
+
+    // Agregar gemas
     addGems(){
         let top = 440;
         let left = 1200;
@@ -92,19 +159,8 @@ class Juego{
     }  
     
     // Fin del juego
-    verificarResultadoJuego(){
+    endGame(){
         // Iría a mostrar endgame.html de alguna forma
-        let paginaPrincipal = document.getElementById("main-page");
-        let lossGame = document.getElementById("loss-game");
-        let winGame = document.getElementById("win-game");
-        paginaPrincipal.style.display = "none";
-        if (this.personaje.getVida() == 0){
-            lossGame.style.display = "block";
-        }else{
-            if (this.personaje.getPuntaje() >= 3000){
-                winGame.style.display = "block";
-            }
-        }       
-        
+        console.log('Fin del juego');
     }
 }

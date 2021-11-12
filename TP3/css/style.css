@@ -24,7 +24,6 @@ li{
 
 /* GAME INDICATIONS */
 .indications{
-  margin-top: 200px;
   font-family: 'Luckiest Guy', cursive;
   align-items: center;
   text-align: center;
@@ -147,17 +146,6 @@ li{
     background-position: -330px;
     left: -100px}
 }
-
-#loss-game, #win-game{
-  display:none;  
-    margin-left: 450px;
-    margin-right: 450px;
-    width: 60%;
-    padding: 10px;
-    text-align: center;
-    font-family:'Luckiest Guy', cursive;    
-}
-
 
 /*OBSTACULO_____________*/
 

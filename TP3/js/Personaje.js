@@ -41,6 +41,7 @@ class Personaje{
     }
     caer(){ //esto va a pasar cuando colisione con un enemigo y caiga
         
+        console.log('entra caer');
         // @ts-ignore
         character.classList.remove("character");
         // @ts-ignore
@@ -52,9 +53,9 @@ class Personaje{
     //}
     actualizarPuntaje(puntaje){
         this.puntaje += puntaje;
-        let puntajeDisplay = document.getElementById("puntaje-jugador");
-        puntajeDisplay.innerHTML = this.getPuntaje();
-        //puntajeDisplay.innerHTML = this.getPuntaje();
+        let puntajeDisplay = document.getElementById("puntuacion");
+        puntajeDisplay.innerHTML += this.puntaje;
+        console.log("puntajeeee html: "+ puntajeDisplay.innerHTML );
     }
 
     // GETTERS
