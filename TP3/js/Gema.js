@@ -10,6 +10,7 @@ class Gema{
         this.valor = valor;
     }  
 
+    //metodo que chequea la colision entre el personaje y la gema
     getColision(personaje){
         if (personaje.getPosicionX() < this.getPosicionX() + this.getAncho() && 
 
@@ -26,7 +27,7 @@ class Gema{
         }
     }
 
-
+    //animacion de cuando obtenes una gema
     transformar(){
         this.div.style.transform = "scale(0)";
     }

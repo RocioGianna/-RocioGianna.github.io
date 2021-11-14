@@ -1,12 +1,10 @@
-class Personaje{
-    
-    constructor(nombre){
-        this.nombre = nombre;
+class Personaje{ 
+    constructor(){
         this.div = document.getElementById("character");
         this.class = this.div.classList.add("character");
         this.ancho = this.div.offsetWidth ; 
         this.alto = this.div.offsetHeight; 
-        this.vidas = 0; //cantidad de vidas
+        this.vidas = 3; 
         this.puntaje = 0; 
     }  
     
@@ -14,9 +12,9 @@ class Personaje{
     jump(){
         setTimeout(() => {
             this.div.classList.remove("character-jump");
+            saltando = false;
         }, 1000);
-
-        character.classList.add("character-jump");
+            character.classList.add("character-jump");
     }
     // Acción de caminar
     walk(){
@@ -61,13 +59,13 @@ class Personaje{
         return this.vidas;
     }
    
-    getAncho(){ //le restamos 25 al div para encontrar la posicion exacta de la imagen que representa al personaje
+    getAncho(){ //le restamos 25 al div para encontrar la posicion exacta de la imagen que representa al personaje para calcular bien la colision
         return this.ancho - 25;
     }
     getAlto(){
         return this.alto;
     }
-    getPosicionX(){ //le sumamos 20 al div para encontrar la posicion exacta de la imagen que representa al personaje
+    getPosicionX(){ //le sumamos 20 al div para encontrar la posicion exacta de la imagen que representa al personaje  para calcular bien la colision
         return this.div.offsetLeft + 20;
     }
     getPosicionY(){

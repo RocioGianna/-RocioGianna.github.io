@@ -1,16 +1,14 @@
 class Obstaculo {
-    constructor(nombre){ 
+    constructor(){ 
         this.div = document.getElementById("obstaculo");
-        this.nombre = nombre;
         this.ancho = this.div.offsetWidth;
         this.alto = this.div.offsetHeight;
-        this.divImage = this.div.style.background = "url('img/piedrap.png') left center";
-        this.danio = 50;
+        this.divImage = this.div.style.background = "url('img/piedrarodar.png') left center";
     }
 
     
     
-    // Detecta las colisiones entre el personaje y el obstáculo o el objeto a coleccionar
+    //metodo que detecta la colision entre el personaje y el obstaculo
     getColision(personaje){
         if (personaje.getPosicionX() < this.getPosicionX() + this.getAncho() && 
 
@@ -31,7 +29,7 @@ class Obstaculo {
 
 
 
-
+    //getters
     getAncho(){
         return this.ancho;
     }
@@ -44,9 +42,4 @@ class Obstaculo {
     getPosicionY(){
         return this.div.getBoundingClientRect().top;
     }
-
-    getNombre(){
-        return this.nombre;
-    }
-
 }

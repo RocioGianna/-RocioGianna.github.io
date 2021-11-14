@@ -1,18 +1,15 @@
 // Clase principal del juego
-
+let saltando = false;
 class Juego{ 
-
-    constructor(personaje){
-        this.personaje = personaje;
-        this.obstaculo = new Obstaculo("Piedra"); // 600 es el top
+    constructor(){
+        this.personaje = new Personaje();
+        this.obstaculo = new Obstaculo(); // 600 es el top
         this.gema = this.addGems();
     }
 
     // Inicio del juego
     initGame(){
-        this.addGems(); // se agregan las gemas 
         this.acciones(); // se chequean las acciones del personaje
-       
     }
 
     verificarColisionObstaculo(){ 
@@ -24,8 +21,9 @@ class Juego{
 
     acciones(){
         document.addEventListener('keypress', (e)=>{
-            if(e.key === 'w'){
+            if(e.key === 'w' && !saltando){
                 this.personaje.jump();
+                saltando = true;
             }
         });    
 
