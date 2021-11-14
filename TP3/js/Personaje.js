@@ -6,77 +6,72 @@ class Personaje{
         this.class = this.div.classList.add("character");
         this.ancho = this.div.offsetWidth ; 
         this.alto = this.div.offsetHeight; 
-        this.posicionX = this.div.getBoundingClientRect().left;
-        this.posicionY = this.div.getBoundingClientRect().top;
-        this.vidas = 3; //cantidad de vidas
+        this.vidas = 0; //cantidad de vidas
         this.puntaje = 0; 
     }  
-    // Manejadores de clases de CSS (acciones del personaje)
+    
     // Acción de salto
     jump(){
-        // @ts-ignore
-        character.classList.remove("character");
-        // @ts-ignore
+        setTimeout(() => {
+            this.div.classList.remove("character-jump");
+        }, 1000);
+
         character.classList.add("character-jump");
     }
     // Acción de caminar
     walk(){
-         // @ts-ignore
-         if (character.className == "character-jump"){
-             // @ts-ignore
-             character.classList.remove("character-jump");
-         }else{
-            // @ts-ignore
+        if (character.className == "character-jump"){
+            character.classList.remove("character-jump");
+        }else{
             character.classList.remove("character-caida");
         } 
-        // @ts-ignore
+
         character.classList.add("character");
     }
     // Acción de muerte
-    die(){ //esto va  a pasar cuando colisione con un enemigo y muera
-        // @ts-ignore
+    die(){ 
         character.classList.remove("character");
-        // @ts-ignore
         character.classList.add("character-die");
+        setTimeout(() => {
+            character.classList.remove("character-die");
+            character.classList.add("character-endgame");
+        }, 1000);
+        setTimeout(() => {
+            character.classList.remove("character-endgame");
+        }, 2000);
     }
     caer(){ //esto va a pasar cuando colisione con un enemigo y caiga
         
-        console.log('entra caer');
-        // @ts-ignore
         character.classList.remove("character");
-        // @ts-ignore
         character.classList.add("character-caida");
-        // HACER DESAPECER LA PIEDRA
     }
-    //quitarVida(vida){
-      //  this.vidas -= vida;
-    //}
+
     actualizarPuntaje(puntaje){
         this.puntaje += puntaje;
         let puntajeDisplay = document.getElementById("puntuacion");
         puntajeDisplay.innerHTML += this.puntaje;
-        console.log("puntajeeee html: "+ puntajeDisplay.innerHTML );
+       
     }
+
+
 
     // GETTERS
     
     getVida(){
         return this.vidas;
     }
-    setVida(vida){
-        this.vidas = vida;
-    }
-    getAncho(){
-        return this.ancho;
+   
+    getAncho(){ //le restamos 25 al div para encontrar la posicion exacta de la imagen que representa al personaje
+        return this.ancho - 25;
     }
     getAlto(){
         return this.alto;
     }
-    getPosicionX(){
-        return this.posicionX;
+    getPosicionX(){ //le sumamos 20 al div para encontrar la posicion exacta de la imagen que representa al personaje
+        return this.div.offsetLeft + 20;
     }
     getPosicionY(){
-        return this.posicionY;
+        return this.div.getBoundingClientRect().y;
     }
     getPuntaje(){
         return this.puntaje;
@@ -87,6 +82,9 @@ class Personaje{
     }
     setPosicionY(posicionY){
         this.posicionY = posicionY;
+    }
+    setVida(vida){
+        this.vidas = vida;
     }
    
 

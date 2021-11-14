@@ -1,26 +1,66 @@
-// Crear elementos del juego
-// Creación del personaje
+
+//Clase que maneja el gameloop
+
 let Captain = new Personaje("Capitán America");
 
-// Creación del juego
 let juego = new Juego(Captain);
 juego.initGame();
-//juego.verificaColisiones(juego.obstaculo);
+let caer = false;
+let tomarGema = false;
+
+let gemas = setInterval(function(){
+    juego.gema.restaurar();
+    juego.addGems();
+}, 9800);
 
 let chequear = setInterval(function(){
-    if (juego.verificaColisiones(juego.obstaculo)){
-        if (juego.continuaJuego()){
-            console.log("main entra cer");
+    
+    if (juego.verificarColisionObstaculo() && !caer){
+        if (juego.personaje.getVida() > 0){
+            console.log("entro al if " + juego.personaje.getVida());
             juego.personaje.caer();
-            console.log("se chocó caminando, se cae y vuelve a caminar porque tiene vidas");
-            setTimeout(function()
-                { juego.personaje.walk(); console.log("jaja")}
-                
-                , 1000);
+            caer = true;
+            juego.personaje.setVida(juego.personaje.getVida() - 1);
+            let vidas = document.getElementById("vida-personaje");
+            vidas.innerHTML = juego.personaje.getVida();
+            setTimeout(function() {
+                juego.personaje.walk(); 
+                caer = false;}
+            , 1000);
+        } else {
+            clearInterval(chequear);
+            clearInterval(gemas);
+            juego.personaje.die();
+            juego.endGame();
         }
-        
     }
-}, 1000);
+
+    if(juego.verificarColisionGema() && !tomarGema){
+        console.log(juego.gema.getPuntaje());
+        juego.personaje.actualizarPuntaje(juego.gema.getPuntaje());
+        juego.gema.transformar();
+        tomarGema = true;
+        setTimeout(function(){
+            tomarGema = false;}
+        , 1000);
+    }
+
+}, 300);
+
+
+
+//CUANDO TERMINA EL JUEGO TERMINAR EL INTERVALO
+
+
+
+
+
+
+
+
+
+
+
 
 // GAME LOOP
 // let jugar = setInterval(function(){

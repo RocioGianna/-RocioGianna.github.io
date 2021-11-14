@@ -32,12 +32,12 @@ li{
 /*PERSONAJE_____________*/
 .character { 
   width: 117px; 
-  height: 212px; 
+  height: 160px; 
   background: url('../img/walk.png') left center;
   animation: walk 0.9s steps(7) infinite;
   position:absolute;
-  left: 220px;
-  top: 520px;
+  left: 10%;
+  top: 72%;
 }
 
 @keyframes walk { 
@@ -47,50 +47,67 @@ li{
 
 /********/
 .character-jump { 
-  width: 100px; 
-  height: 280px; 
-  background: url('../img/saltop.png') left center;
+  width: 117px; 
+  height: 210px; 
+  background: url('../img/salto.png') left center;
   animation: saltar 1s steps(7);  
   position:absolute;
-  left: 220px;
-  top: 367px;
+  left: 10%;
+  top: 60%;
 }
 
 @keyframes saltar { 
   0% { background-position: 0px; }
+  25%{ transform: translateY(-150px);}
   50%{ transform: translateY(-200px);}
-  /*100% { background-position: -800px;}*/
-  100% { transform: translateY(0px); }
-} 
+  75%{ transform: translateY(-150px);}
+  100% { transform: translateY(0px);
+    background-position: -900px; }
+}
 
 
 
 /********/
 .character-die{
-  width: 130px; 
+  width: 141px; 
   height: 130px; 
   background: url('../img/muerte.png') left center;
-  animation: die 1s steps(3) ;
+  animation: die 1s steps(5);
   position: absolute;
-  top: 560px;
-  left: 220px;
+  left: 10%;
+  top: 77%;
 }
 
 @keyframes die{
-  0%{ background-position: 0;} 
-  25%{ background-position: 150px;} 
-  50%{ background-position: 300px;} 
-  100%{background-position: 450px;}
+  0%{ background-position: 0px;} 
+  100%{background-position: -708px;}
 }
+
+.character-endgame{
+  width: 146px; 
+  height: 130px; 
+  background: url('../img/endgame.png') left center;
+  animation: endgame 1s steps(5);
+  position: absolute;
+  left: 10%;
+  top: 77%;
+}
+
+@keyframes endgame{
+  0%{ opacity: 1;} 
+  100%{opacity: 0;}
+}
+
+
 /********/
 .character-caida { 
-  width: 140px; 
-  height: 200px; 
+  width: 144px; 
+  height: 160px;
   background: url('../img/caida.png') left center;
   animation: caer 1s steps(5);  
   position:absolute;
-  left: 220px;
-  top: 540px;
+  left: 10%;
+  top: 74%;
 }
 
 @keyframes caer { 
@@ -98,13 +115,7 @@ li{
   100% { background-position: -720px;}
 } 
 
-/* 
-#main-page{
-  width: 2000px;
-  background-color: blueviolet;
-  border: 10px solid blue;
-  height: 1000px;
-} */
+
 
 /*GEMA_____________*/
 
@@ -112,39 +123,45 @@ li{
 #gema{
   width: 45px; 
   height: 70px; 
-  animation: girar 15s steps(6) infinite;
+  animation: girar 2s steps(6) infinite, trasladar 10s linear infinite;
   position: absolute;
 }
 
 @keyframes girar{
+  0%{background-position: 0;}
+  100%{background-position: -330px;}
+}
+
+@keyframes trasladar{
   0%{ 
-    background-position: 0;
-    left: 1300px;}
-    10%{
-      left: 1300px;
-    }  
-    20%{
-      left: 1100px;
-    } 
-    30%{
-      left: 900px;
-    } 
-    40%{
-      left: 700px;
-    } 
-    50%{
-      left: 500px;
-    } 
-    60%{
-      left: 200px;
-    } 
-    70%{
-      left: -100px;
-    } 
-  
+      left: 90%;
+    }
+  10%{
+    left: 80%;
+  }  
+  20%{
+    left: 70%;
+  } 
+  30%{
+    left: 60%;
+  } 
+  40%{
+    left: 50%;
+  } 
+  50%{
+    left: 40%;
+  } 
+  60%{
+    left: 30%;
+  } 
+  70%{
+    left: 20%;
+  }   
+  80%{
+    left: 10%;
+  }     
   100%{
-    background-position: -330px;
-    left: -100px}
+    left: -10%}
 }
 
 /*OBSTACULO_____________*/
@@ -154,40 +171,39 @@ li{
   height: 50px; 
   animation: rodar 7s linear infinite ;
   position: absolute;
-  left: 1500px;
-  top: 650px;
+  top: 87%;
 }
 
 @keyframes rodar{
   0%{
-    left: 1500px;
+    left: 90%;
   }
-    10%{
-      left: 1300px;
-    }  
-    20%{
-      left: 1100px;
-    } 
-    30%{
-      left: 900px;
-    } 
-    40%{
-      left: 700px;
-    } 
-    50%{
-      left: 500px;
-    } 
-    60%{
-      left: 300px;
-    } 
-    70%{
-      left: 100px;
-    }   
-    80%{
-      left: -100px;
-    }   
+  10%{
+    left: 80%;
+  }  
+  20%{
+    left: 70%;
+  } 
+  30%{
+    left: 60%;
+  } 
+  40%{
+    left: 50%;
+  } 
+  50%{
+    left: 40%;
+  } 
+  60%{
+    left: 30%;
+  } 
+  70%{
+    left: 20%;
+  }   
+  80%{
+    left: 10%;
+  }   
   100%{
-    left: -800px;
+    left: -10%;
   }
 }
 
@@ -198,7 +214,7 @@ li{
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 95%;
   height: 95%;
   background-repeat: repeat-x;
   background-size: cover;
@@ -221,38 +237,3 @@ li{
   100% { background-position: -2300px; }
 }  
 
-/* media queries */
-@media screen and (min-width: 1800px) {
-  .layer {
-    width: 98%;
-    height: 73%;
-  }
-  .character{
-    top: 510px;
-    left: 220px;
-  }
-  .character-jump { 
-    top: 380px;
-    left: 220px;
-  }
-  .character-die{
-    top: 560px;
-    left: 220px;
-  }
-}
-
-.game-info{
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-#puntuacion, #vidas{
-  display: flex;
-  align-items:center;
-  justify-content: space-around;
-  font-family:'Luckiest Guy', cursive;
-  color: white;
-  font-size: 40px;
-  position: relative;
-}
