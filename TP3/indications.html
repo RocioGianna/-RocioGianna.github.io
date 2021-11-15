@@ -11,35 +11,80 @@
     <title>Welcome to Captain game!</title>
 </head>
 <body>
-    <div class="indications">
-        <div class="informacion">
-            <h1>Bienvenidos al juego del Capitán América</h1>
-            <h3>El Capitán América avanzará horizontalmente hacia la derecha.</h3>
-            <ul class="info-list">
-                <li>Mientras más gemas consigas más puntos conseguirás!</li>
-                <li>Si logras recolectar 50 gemas obtendrás una nueva vida!/li>
-                <li>Pero no será tan fácil..</li>
-                <li>Deberás esquivar las rocas que Thanos te arroja. Por cada roca que te choques, perderás una vida.</li>
-                <li>Si te chocas tres rocas.. MORIRÁS!</li>                       
-            </ul>
-           
+    <header>
+        <img src="img/captain_header.png" alt="">
+    </header>
+    <div class="container-indications">
+        <div class="captainBackground">
+            <img src="img/background_indications_cap2.jpg" class="image-cap-indications" alt="cap-indications" srcset="">
+        </div>
+
+        
+
+
+        <div class="indications" id="indications">
+            <h1>Bienvenidos al juego del Capitán América!</h1>
+            <div class="informacion">
+    
+                <div class="especificaciones">
+                    
+                    <h3>El Capitán América avanzará horizontalmente hacia la derecha.</h3>
+                </div>
+                
+                <ul class="info-list">
+                    <li>Mientras más gemas consigas más puntos conseguirás!</li>
+                    <li>Si llegas a 3000 puntos ganarás! No será tan fácil..</li>
+                    <li>Deberás esquivar las rocas que Thanos te arroja. </li>
+                    <li>Por cada roca que te choques, perderás una vida.</li>
+                    <li>Si te chocas tres rocas.. MORIRÁS!</li>   
+                    <li class="info-alert">Jugar en resoluciones 1495 x 746 o 1879 x 962</li>                    
+                </ul>            
+            </div>
+            <div class="controles">
+                <h4>Controles del juego:</h4>
+                <ul>
+                    <li id="salto">Para saltar, presiona la tecla W. </li>
+                </ul>
+            </div>
+            
+                    <!-- BOTÓN PLAY -->
+        <div class="botones">       
+            <button class="btn btn-success btn-lg btn-block" id="go-to-settings">Avanzar</button>
+        </div>
+
         
             
         </div>
-        <div class="controles">
-            <h4>Controles del juego:</h4>
-            <ul>
-                <li id="salto">Para saltar, presiona la flecha para arriba. </li>
-                <li id="agacharse">Para agacharse, presiona la tecla CTRL.</li>
-            </ul>
+
+        <div id="settings">
+            <h3>Elige un fondo para el juego</h3>
+            <select name="select-wallpaper" id="select-wallpaper">
+                <option value="city">City</option>
+                <option value="moon">Night</option>
+            </select>
+            <button class="btn btn-dark" id="chooseBackGround">Elegir</button>
+            <div id="vista-previa">
+                <img id="parallax" src="" alt="parallax-a-mostrar">
+            </div>
+            <div id="go-to-play">
+                <button class="btn btn-success"><a href="game.html" target="_self"> Jugar!</a></button>
+            </div>
         </div>
+
         
-        
-        
+
+        <!-- <a href="game.html" target="_self">Avanzar</a> -->
+            
+
+        <div class="thanoBackground">
+            <img src="img/background_indications_thanos.png" class="image-thanos-indications" alt="thanos-indications" srcset="">
+        </div>
+
+
     </div>
-        <!-- BOTÓN PLAY -->
-    <div class="botones">       
-        <button class="btn btn-success btn-lg btn-block"><a href="game.html" target="_self">Jugar!</a></button>
-    </div>
+
+    <script type="module" src="js/Background.js"></script>
+    <script  type="module" src="js/indications.js"></script>
+    
 </body>
 </html>

@@ -12,45 +12,60 @@ class Personaje{
     jump(){
         setTimeout(() => {
             this.div.classList.remove("character-jump");
+            // @ts-ignore
             saltando = false;
         }, 1000);
+            // @ts-ignore
             character.classList.add("character-jump");
     }
     // Acción de caminar
     walk(){
+        // @ts-ignore
         if (character.className == "character-jump"){
+            // @ts-ignore
             character.classList.remove("character-jump");
         }else{
+            // @ts-ignore
             character.classList.remove("character-caida");
         } 
 
+        // @ts-ignore
         character.classList.add("character");
     }
     // Acción de muerte
     die(){ 
+        // @ts-ignore
         character.classList.remove("character");
+        // @ts-ignore
         character.classList.add("character-die");
         setTimeout(() => {
+            // @ts-ignore
             character.classList.remove("character-die");
+            // @ts-ignore
             character.classList.add("character-endgame");
         }, 1000);
         setTimeout(() => {
+            // @ts-ignore
             character.classList.remove("character-endgame");
         }, 2000);
     }
     caer(){ //esto va a pasar cuando colisione con un enemigo y caiga
         
+        // @ts-ignore
         character.classList.remove("character");
+        // @ts-ignore
         character.classList.add("character-caida");
     }
 
     actualizarPuntaje(puntaje){
         this.puntaje += puntaje;
-        let puntajeDisplay = document.getElementById("puntuacion");
-        puntajeDisplay.innerHTML += this.puntaje;
+        let puntajeDisplay = document.getElementById("puntaje-jugador");
+        // @ts-ignore
+        puntajeDisplay.innerHTML = this.getPuntaje();
+        console.log("puntajeeee objeto: "+ this.getPuntaje());
+        console.log("puntajeeee html: "+ puntajeDisplay.innerHTML);
        
     }
-
 
 
     // GETTERS

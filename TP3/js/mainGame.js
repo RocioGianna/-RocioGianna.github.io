@@ -1,7 +1,25 @@
+import { getValue } from './Background.js';
+let fondo = getValue();
+
+console.log("fonddsddo: ", fondo);
 let caer = false; //variable que impide que tome mas de una vez la colision con el obstaculo
 let tomarGema = false; //variable que impide que tome mas de una vez la colision con la gema
+
+let backgroundCity = document.getElementById("parallax-city");
+let backgroundMoon = document.getElementById("parallax-moon");
+
+if (fondo === "city"){
+    backgroundCity.style.display = "block";
+    console.log("anda city");
+}else{
+    backgroundMoon.style.display = "block";
+    console.log("anda moon");
+}
+
+
+// @ts-ignore
 let juego = new Juego();
-juego.initGame();
+juego.initGame(); 
 
 //loop para crear las gemas
 let gemas = setInterval(function(){
@@ -12,7 +30,7 @@ let gemas = setInterval(function(){
 
 //GameLoop del juego
 let chequear = setInterval(function(){
-    
+
     //en primer lugar verificamos si el personaje colisiono con un obstaculo
     //si es asi, se chequea que el personaje tenga vidas. Si tiene vidas, se le resta una, y luego vulve a caminar
     if (juego.verificarColisionObstaculo() && !caer){  
@@ -21,6 +39,7 @@ let chequear = setInterval(function(){
             caer = true;
             juego.personaje.setVida(juego.personaje.getVida() - 1);
             let vidas = document.getElementById("vida-personaje");
+            // @ts-ignore
             vidas.innerHTML = juego.personaje.getVida();
             setTimeout(function() {
                 juego.personaje.walk(); 
@@ -32,8 +51,11 @@ let chequear = setInterval(function(){
             clearInterval(chequear);
             clearInterval(gemas);
             juego.personaje.die();
-            juego.endGame();
+            juego.lossGame();
         }
+    }else{
+        juego.winGame();
+
     }
 
     //en segundo lugar verificamos si el personaje tomo una gema
@@ -48,6 +70,13 @@ let chequear = setInterval(function(){
     }
 
 }, 300);
+    
+
+
+
+
+
+
 
 
 

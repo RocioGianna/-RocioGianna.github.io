@@ -5,28 +5,118 @@ a:link, a:active, a:visited{
 }
 
 .container-inicio{
-padding-left: 200px;
-padding-top: 10px;
-font-family:'Luckiest Guy', cursive;
-font-size: 40px;
+  padding-left: 200px;
+  padding-top: 5px;
+  font-family:'Luckiest Guy', cursive;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.boton-index{
+  padding: 0;
+  align-items: center;
+  text-align: center;
+  font-family:'Luckiest Guy', cursive;
+  font-size: 40px;
 }
 
 header, .botones{
-align-items: center;
-text-align: center;
-font-family:'Luckiest Guy', cursive;
-font-size: 40px;
+  align-items: center;
+  text-align: center;
+  font-family:'Luckiest Guy', cursive;
+  font-size: 40px;
+  padding-top: 30px;
+}
+
+
+header{
+  margin-left: 95px;
 }
 
 li{
   list-style: none;
 }
 
+#settings{
+  display: none;
+}
+
+#game-capitan{
+  display: none;
+}
+
 /* GAME INDICATIONS */
-.indications{
+.indications, #settings{
+  /*margin: 100px 400px 0px 600px;*/
+  padding: 70px;
   font-family: 'Luckiest Guy', cursive;
   align-items: center;
   text-align: center;
+  border-radius: 5px 10px;
+  border: 1px solid black;  
+  box-shadow: 7px 7px 15px #592A08;
+  /*box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;*/
+  /*box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;*/  
+  /*box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;*/
+  width: 700px;
+  height: 675px;
+  background-color: #56A7C6;
+  margin-left: 0px;
+}
+
+.info-list{
+  font-size: 19px;
+}
+
+
+.image-cap-indications{
+  margin-left: 10px;
+  width: 570px; 
+  height: 655px;
+}
+
+.image-thanos-indications{
+  margin-right: 25px;
+  width: 490px; 
+  height: 605px;
+}
+
+.info-alert{
+  color:white;
+}
+.container-indications{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+/* PRUEBA PARA SELECCIÓN DE VISTA PREVIA -> MODIFICAR CON LAS IMÁGENES*/
+#vista-previa, #go-to-play{
+  display: none;
+}
+
+#parallax{
+  width: 570px;
+  height: 450px;
+  padding: 50px;
+}
+
+#parallax-city, #parallax-moon{
+  display: none;
+}
+
+#juego{
+  display: none;
+}
+
+#go-to-play{
+  background-color: #56A7C6;
+}
+
+li{
+  list-style: none;
 }
 
 /*PERSONAJE_____________*/
@@ -249,4 +339,48 @@ li{
   100% { background-position: -1920px; }
 } 
  
+/* CSS ADORNOS -> ACOMODAR */
 
+.controles, .especificaciones, .info-list{
+  padding-top: 20px;
+}
+
+.game-info{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#puntuacion, #vidas{
+  display: flex;
+  align-items:center;
+  justify-content: space-around;
+  font-family:'Luckiest Guy', cursive;
+  color: white;
+  font-size: 40px;
+  position: relative;
+}
+
+#loss-game, #win-game{
+  display:none;  
+  margin-left: 450px;
+  margin-right: 450px;
+  margin-top: 100px;
+  width: 60%;
+  padding: 10px;
+  text-align: center;
+  font-family:'Luckiest Guy', cursive;   
+}
+
+
+.resultados{
+  margin-top: 25px;
+}
+
+.gemas-decoracion{
+  margin-top: 13px;
+  background-repeat: repeat;
+  display: flex;
+  justify-content: space-between;
+ 
+}
