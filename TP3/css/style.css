@@ -29,6 +29,14 @@ header, .botones{
   padding-top: 30px;
 }
 
+#nuevas-indicaciones{
+  display:block;
+}
+
+
+#game{
+  display:none;
+}
 
 header{
   margin-left: 95px;
@@ -349,16 +357,28 @@ li{
   display: flex;
   align-items: center;
   justify-content: space-around;
+  justify-items: center;
+  font-size: 450px;
 }
 
 #puntuacion, #vidas{
   display: flex;
   align-items:center;
-  justify-content: space-around;
+  justify-items: center;
   font-family:'Luckiest Guy', cursive;
   color: white;
-  font-size: 40px;
   position: relative;
+  margin-top: 7px;
+  
+}
+
+#logo-vidas{
+  margin-right: 15px;
+}
+
+#vida-personaje, #puntaje-jugador{
+  font-size: 45px;
+  padding-top: 5px;
 }
 
 #loss-game, #win-game{
@@ -382,5 +402,6 @@ li{
   background-repeat: repeat;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 23px;
  
 }

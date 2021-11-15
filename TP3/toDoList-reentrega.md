@@ -19,7 +19,7 @@ Entregable 3
 1. **Fin**
     - ~~Mostrar pantalla de fin del juego: ***-> Juan***~~
         - ~~Caso de quedarse sin vidas (perdió). ***-> Juan***~~
-        - Caso en el que gana. ***-> Juan***
+        - ~~Caso en el que gana. ***-> Juan***~~
 2. **Lógica del juego:**
     - ~~Mantener actualizadas las vidas del personaje.~~
     - ~~Mantener actualizada la puntuación (acomodar innerHTML -> ver último commit de la entrega original). ***-> Juan***~~
@@ -32,11 +32,11 @@ Entregable 3
 3. **Parte visual:**
     - ~~Mostrar vidas del personaje.~~
     - ~~Mostrar puntuación.~~
-    - Agrandar tamaño de letra de puntuación y de vidas.
+    - ~~Agrandar tamaño de letra de puntuación y de vidas.~~
     - ~~Acomodar parte Responsive. Definir endpoints entre ambos monitores. ***-> Rocío***~~
     - **Muerte/caida:**
         - ~~Acomodar keyframe de muerte. ***-> Rocío***~~
-            - Darle un tiempo más: mostrar una caída y luego el gif de que perdió.
+            - ~~Darle un tiempo más: mostrar una caída y luego el gif de que perdió.~~
         - ~~Acomodar keyframe de caída. ***-> Rocío***~~
     - **Obstáculo:**
         - ~~Se mueva junto con el fondo.~~
@@ -46,7 +46,7 @@ Entregable 3
     - **Parallax:**
         - ~~Acomodar imágenes: hay un par de imágenes de un tamaño, y otro par de otro.~~ ***-> Rocío***
         - ~~Agregar otro juego de parallax.~~
-        - En el menú tenemos que dar la opción de cambiar el fondo. ***-> Juan y Rocío***
+        - ~~En el menú tenemos que dar la opción de cambiar el fondo. ***-> Juan y Rocío***~~
     - **Inicio:**
         - ~~Aplicarle un fondo a cada recuadro: ver último commit (ya está implementado).***-> Juan***~~
         - ~~Colores a las letras. ***-> Juan***~~

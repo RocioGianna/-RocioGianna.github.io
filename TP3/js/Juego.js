@@ -50,30 +50,37 @@ class Juego{
         
     }  
     
+    
     lossGame(){
         let paginaPrincipal = document.getElementById("main-page");
         let lossGame = document.getElementById("loss-game");       
         console.log('Fin del juego');
-        paginaPrincipal.style.display = "none";
-        lossGame.style.display = "block";        
+        setTimeout(()=> {
+            paginaPrincipal.style.display = "none";
+            lossGame.style.display = "block";  
+        }, 2000);             
     }
 
-    winGame(){       
+    
+
+    winGame(){  
+        let ganoElJuego;     
         console.log('Ganó el juego');
         let paginaPrincipal = document.getElementById("main-page");
         let winGame = document.getElementById("win-game");
         let finalScore = document.getElementById("final-score");
         console.log("vidas: ", this.personaje.getVida());        
-        if (this.personaje.getPuntaje() >= 100){
+        if (this.personaje.getPuntaje() >= 3000){
             console.log('ya ganó');
             paginaPrincipal.style.display = "none";
             winGame.style.display = "block";
             finalScore.innerHTML = "Conseguiste " + this.personaje.getPuntaje() + "puntos!";
             console.log("puntaje final: ", this.personaje.getPuntaje());
-            clearInterval(chequear);
-            clearInterval(gemas);
+            ganoElJuego = true;
         }else{
             console.log('sigue con vidas y todavía no ganó');
+            ganoElJuego = false;
         }
+        return ganoElJuego;
     }   
 }    
