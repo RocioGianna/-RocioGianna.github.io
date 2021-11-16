@@ -67,7 +67,7 @@ class Juego{
         let winGame = document.getElementById("win-game");
         let finalScore = document.getElementById("final-score"); 
         // Si ganó, mostramos una "pantalla" con los puntos obtenidos y la opción de volver a jugar      
-        if (this.personaje.getPuntaje() >= 200){
+        if (this.personaje.getPuntaje() >= 3000){
             paginaPrincipal.style.display = "none";
             winGame.style.display = "block";
             finalScore.innerHTML = "Conseguiste " + this.personaje.getPuntaje() + " puntos!";
