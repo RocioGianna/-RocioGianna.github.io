@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <title>Welcome to Captain game!</title>
+</head>
+<body>
+    <!-- NDICACIONES -->
+    <div id="nuevas-indicaciones">
+        <header>
+            <img src="img/captain_header.png" alt="">
+        </header>
+        <div class="container-indications">
+            <!-- BACKGROUBD 1 -->
+            <div class="captainBackground">
+                <img src="img/background_indications_cap2.jpg" class="image-cap-indications" alt="cap-indications"
+                    srcset="">
+            </div>
+            <div class="indications" id="indications">
+                <h1>Bienvenidos al juego del Capitán América!</h1>
+                <div class="informacion">
+                    <div class="especificaciones">
+                        <h3>El Capitán América avanzará horizontalmente hacia la derecha.</h3>
+                    </div>
+                    <ul class="info-list">
+                        <li>Mientras más gemas consigas más puntos conseguirás!</li>
+                        <li>Si llegas a 3000 puntos ganarás! No será tan fácil..</li>
+                        <li>Deberás esquivar las rocas que Thanos te arroja. </li>
+                        <li>Por cada roca que te choques, perderás una vida.</li>
+                        <li>Si te chocas tres rocas.. MORIRÁS!</li>
+                        <li class="info-alert">Jugar en resoluciones 1495 x 746 o 1879 x 962</li>
+                    </ul>
+                </div>
+                <div class="controles">
+                    <h4>Controles del juego:</h4>
+                    <ul>
+                        <li id="salto">Para saltar, presiona la tecla W. </li>
+                    </ul>
+                </div>
+                <!-- AVANZAR A ELECCIÓN DE FONDO -->
+                <div class="botones">
+                    <button class="btn btn-success btn-lg btn-block" id="go-to-settings">Avanzar</button>
+                </div>
+            </div>
+             <!-- CONFIGURACIÓN DE FONDO -->
+            <div id="settings">
+                <h3>Elige un fondo para el juego</h3>
+                <select name="select-wallpaper" id="select-wallpaper">
+                    <option value="city">City</option>
+                    <option value="moon">Night</option>
+                </select>
+                <button class="btn btn-dark" id="chooseBackGround">Elegir</button>
+                <div id="vista-previa">
+                    <img id="parallax" src="" alt="parallax-a-mostrar">
+                </div>
+                 <!-- PLAY GAME -->
+                <div id="go-to-play">
+                    <button class="btn btn-success" id="play-game"> Jugar!</a></button>
+                </div>
+            </div>
+             <!-- BACKGROUBD 2 -->
+            <div class="thanoBackground">
+                <img src="img/background_indications_thanos.png" class="image-thanos-indications"
+                    alt="thanos-indications" srcset="">
+            </div>
+
+
+        </div>
+    </div>
+    <div id="game">
+        <!-- CONTAINER MAIN -->
+        <div id="main-page">
+            <!-- LAYERS 1-->
+            <div id="background">
+                <div id="parallax-city">
+                    <div class="layer layer-3"></div>
+                    <div class="layer layer-2"></div>
+                    <div class="layer layer-1"></div>
+                </div>
+                <!-- LAYERS 2-->
+                <div id="parallax-moon">
+                    <div class="layer_noche layer_6"></div>
+                    <div class="layer_noche layer_5"></div>
+                    <div class="layer_noche layer_4"></div>
+                    <div class="layer_noche layer_3"></div>
+                    <div class="layer_noche layer_2"></div>
+                    <div class="layer_noche layer_1"></div>
+                </div>
+                <!-- PUNTUACIÓN Y VIDAS -->
+                <div class="game-info">
+                    <div id="puntuacion">
+                        <img id="logo-vidas" class="adornos" src="img/gem-score.png" width="55px" height="55px" alt="">
+                        <h5 id="puntaje-jugador"></h5>
+                    </div>
+                    <div id="vidas">
+                        <h5 id="vida-personaje">3</h5>
+                        <img class="adornos" src="img/capitan.png" width="75px" height="70px" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <!-- PERSONAJE -->
+            <div class="character" id="character"></div>
+            <!-- GEMA (OBJETO A COLECCIONAR) -->
+            <div id="gema"></div>
+            <!-- ROCA (OBSTÁCULO A ESQUIVAR) -->
+            <div id="obstaculo"></div>
+        </div>
+        <!-- DERROTA -->
+        <div id="loss-game">
+            <header>
+                <img src="img/captain_header.png" alt="">
+            </header>
+            <img src="img/capitanLoses.gif" width="750" height="550px" alt="">
+            <div class="resultados">
+                <h1>Perdiste!</h1>
+                <h2>Te has quedado sin vidas..</h2>
+            </div>
+            <div class="continuar-o-no">
+                <button class="btn btn-success btn-lg btn-block"><a href="new-game.html" target="_self">Reiniciar juego</a></button>
+            </div>
+        </div>
+        <!-- VICTORIA -->
+        <div id="win-game">
+            <header>
+                <img src="img/captain_header.png" alt="">
+            </header>
+            <img src="img/capitanWins.gif" width="750" height="450" alt="">
+            <div class="resultados">
+                <h1>Has ganado!</h1>
+                <h2 id="final-score">Obtuviste 3100 puntos</h2>
+                <div class="gemas-decoracion">
+                    <img class="adornos" src="img/gem-score.png" width="55px" height="55px" alt="">
+                    <img class="adornos" src="img/gem-score.png" width="55px" height="55px" alt="">
+                    <img class="adornos" src="img/gem-score.png" width="55px" height="55px" alt="">
+                    <img class="adornos" src="img/gem-score.png" width="55px" height="55px" alt="">
+                </div>
+                <div class="continuar-o-no">
+                    <button class="btn btn-success btn-lg btn-block"><a href="new-game.html" target="_self">Volver a jugar</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- SCRIPTS -->
+    <script src="js/Obstaculo.js"></script>
+    <script src="js/Gema.js"></script>
+    <script src="js/Personaje.js"></script>
+    <script src="js/Juego.js"></script> 
+    <script src="js/mainGame.js"></script>    
+</body>
+</html>

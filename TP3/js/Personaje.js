@@ -1,85 +1,92 @@
-class Personaje{
-    
-    constructor(nombre){
-        this.nombre = nombre;
+class Personaje{ 
+    constructor(){
         this.div = document.getElementById("character");
         this.class = this.div.classList.add("character");
         this.ancho = this.div.offsetWidth ; 
         this.alto = this.div.offsetHeight; 
-        this.posicionX = this.div.getBoundingClientRect().left;
-        this.posicionY = this.div.getBoundingClientRect().top;
-        this.vidas = 3; //cantidad de vidas
+        this.vidas = 3; 
         this.puntaje = 0; 
     }  
-    // Manejadores de clases de CSS (acciones del personaje)
+    
     // Acción de salto
     jump(){
-        // @ts-ignore
-        character.classList.remove("character");
-        // @ts-ignore
-        character.classList.add("character-jump");
+        setTimeout(() => {
+            this.div.classList.remove("character-jump");
+            // @ts-ignore
+            saltando = false;
+        }, 1000);
+            // @ts-ignore
+            character.classList.add("character-jump");
     }
     // Acción de caminar
     walk(){
-         // @ts-ignore
-         if (character.className == "character-jump"){
-             // @ts-ignore
-             character.classList.remove("character-jump");
-         }else{
+        // @ts-ignore
+        if (character.className == "character-jump"){
+            // @ts-ignore
+            character.classList.remove("character-jump");
+        }else{
             // @ts-ignore
             character.classList.remove("character-caida");
         } 
+
         // @ts-ignore
         character.classList.add("character");
     }
     // Acción de muerte
-    die(){ //esto va  a pasar cuando colisione con un enemigo y muera
+    die(){ 
         // @ts-ignore
         character.classList.remove("character");
         // @ts-ignore
         character.classList.add("character-die");
+        setTimeout(() => {
+            // @ts-ignore
+            character.classList.remove("character-die");
+            // @ts-ignore
+            character.classList.add("character-endgame");
+        }, 1000);
+        setTimeout(() => {
+            // @ts-ignore
+            character.classList.remove("character-endgame");
+        }, 2000);
     }
-    caer(){ //esto va a pasar cuando colisione con un enemigo y caiga
-        
+
+    caer(){ //esto va a pasar cuando colisione con una piedra y se va a caer el personaje -> keyframe de caída.        
         // @ts-ignore
         character.classList.remove("character");
         // @ts-ignore
         character.classList.add("character-caida");
-        // HACER DESAPECER LA PIEDRA
     }
-    //quitarVida(vida){
-      //  this.vidas -= vida;
-    //}
+
+    // Actualizar puntaje del juego
     actualizarPuntaje(puntaje){
         this.puntaje += puntaje;
         let puntajeDisplay = document.getElementById("puntaje-jugador");
-        puntajeDisplay.innerHTML = this.getPuntaje();
-        //puntajeDisplay.innerHTML = this.getPuntaje();
+        // @ts-ignore
+        puntajeDisplay.innerHTML = this.getPuntaje();       
     }
 
-    // GETTERS
-    
+
+    // GETTERS    
     getVida(){
         return this.vidas;
     }
-    setVida(vida){
-        this.vidas = vida;
-    }
-    getAncho(){
-        return this.ancho;
+   
+    getAncho(){ //le restamos 25 al div para encontrar la posicion exacta de la imagen que representa al personaje para calcular bien la colision
+        return this.ancho - 25;
     }
     getAlto(){
         return this.alto;
     }
-    getPosicionX(){
-        return this.posicionX;
+    getPosicionX(){ //le sumamos 20 al div para encontrar la posicion exacta de la imagen que representa al personaje  para calcular bien la colision
+        return this.div.offsetLeft + 20;
     }
     getPosicionY(){
-        return this.posicionY;
+        return this.div.getBoundingClientRect().y;
     }
     getPuntaje(){
         return this.puntaje;
     }
+
     // SETTERS
     setPosicionX(posicionX){
         this.posicionX = posicionX;
@@ -87,6 +94,8 @@ class Personaje{
     setPosicionY(posicionY){
         this.posicionY = posicionY;
     }
-   
+    setVida(vida){
+        this.vidas = vida;
+    }  
 
 }

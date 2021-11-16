@@ -1,36 +1,37 @@
-// Clase que maneja el comportamiento del objeto a coleccionar
-// En ese caso es una gema del infinito
 class Gema{
-    constructor(nombre, posicionX, posicionY, valor){ //constructor default de la clase gema
+    // Constructor
+    constructor(nombre, posicionX, posicionY, valor){ 
         this.nombre = nombre;
         this.div = document.getElementById("gema");
         this.ancho = this.div.offsetWidth;
         this.alto = this.div.offsetHeight;
-        this.posicionX = this.div.style.left = posicionX + "px";
-        this.posicionY = this.div.style.top = posicionY + "px";
+        this.posicionX = this.div.style.left = posicionX + "%";
+        this.posicionY = this.div.style.top = posicionY + "%";
         this.divImage = this.div.style.background = "url('img/" + this.nombre + ".png')  center";
         this.valor = valor;
     }  
 
- //funcion para detectar colision despues lo vemos
- getColision(personaje, elemento){
+    // Méodo que chequea la colisión entre el personaje y la gema
+    getColision(personaje){
+        if (personaje.getPosicionX() < this.getPosicionX() + this.getAncho() && 
+            personaje.getPosicionX() + personaje.getAncho() > this.getPosicionX() &&
+            personaje.getPosicionY() < this.getPosicionY() + this.getAlto() &&             
+            personaje.getPosicionY() + personaje.getAlto() > this.getPosicionY()){ 
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    // Animación luego de obtener una gema
+    transformar(){
+        this.div.style.transform = "scale(0)";
+    }
+    restaurar(){
+        this.div.style.transform = "scale(1)";
+    }
     
-
-    if(personaje.getPosicionX() < elemento.getPosicionX() + elemento.getAncho() &&
-        personaje.getPosicionX() + personaje.getAncho() > elemento.getPosicionX() &&
-        //| <-- ----> |
-        personaje.getPosicionY() < elemento.getPosicionY() + elemento.getAlto() &&
-        personaje.getPosicionY() + personaje.getAlto() > elemento.getPosicionY()
-
-    ){
-
-        return true;
-    }else{
-
-        return false;
-    }   
- }
-
+    // GETTERS Y SETTERS
     getNombre(){
         return this.nombre;
     }
@@ -45,6 +46,9 @@ class Gema{
     }
     getPosicionY(){
         return this.div.getBoundingClientRect().y;
+    }
+    getPuntaje(){
+        return this.valor;
     }
 
 }
