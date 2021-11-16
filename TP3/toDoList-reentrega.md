@@ -55,19 +55,19 @@ Entregable 3
     - **Pérdida y victoria**
         - ~~Pérdida: mostrar algún mensaje más.~~
         - ~~Victoria: mostrar la puntuación final que obtuvo.~~
-        - Agregar imágenes decorativas de Avengers en ambas.
+        - ~~Agregar imágenes decorativas de Avengers en ambas.~~
 4. **Documentación.**
     - Verificar las siguientes clases:
-        - Juego.js.
-        - Gema.js.
-        - Obstaculo.js
-        - Personaje.js
-        - Ordenar código CSS.
-        - Documentar los keyframes que tenemos:
-            - Caminar.
-            - Caer.
-            - Saltar.
-            - Gema.
+        - ~~Juego.js.~~
+        - ~~Gema.js.~~
+        - ~~Obstaculo.js.~~
+        - ~~Personaje.js.~~
+        - ~~Ordenar código CSS.~~
+        - ~~Documentar los keyframes que tenemos:~~
+            - ~~Caminar.~~
+            - ~~Caer.~~
+            - ~~Saltar.~~
+            - ~~Gema.~~
 
 #### Avanzamos desde el commit Colision gemas 2.0
 

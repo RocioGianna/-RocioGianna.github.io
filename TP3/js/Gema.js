@@ -1,4 +1,5 @@
 class Gema{
+    // Constructor
     constructor(nombre, posicionX, posicionY, valor){ 
         this.nombre = nombre;
         this.div = document.getElementById("gema");
@@ -10,33 +11,27 @@ class Gema{
         this.valor = valor;
     }  
 
-    //metodo que chequea la colision entre el personaje y la gema
+    // Méodo que chequea la colisión entre el personaje y la gema
     getColision(personaje){
         if (personaje.getPosicionX() < this.getPosicionX() + this.getAncho() && 
-
             personaje.getPosicionX() + personaje.getAncho() > this.getPosicionX() &&
-
-            personaje.getPosicionY() < this.getPosicionY() + this.getAlto() && 
-            
+            personaje.getPosicionY() < this.getPosicionY() + this.getAlto() &&             
             personaje.getPosicionY() + personaje.getAlto() > this.getPosicionY()){ 
-
             return true;
-
         }else{
             return false;
         }
     }
 
-    //animacion de cuando obtenes una gema
+    // Animación luego de obtener una gema
     transformar(){
         this.div.style.transform = "scale(0)";
     }
     restaurar(){
         this.div.style.transform = "scale(1)";
     }
-
-
-
+    
+    // GETTERS Y SETTERS
     getNombre(){
         return this.nombre;
     }

@@ -49,27 +49,24 @@ class Personaje{
             character.classList.remove("character-endgame");
         }, 2000);
     }
-    caer(){ //esto va a pasar cuando colisione con un enemigo y caiga
-        
+
+    caer(){ //esto va a pasar cuando colisione con una piedra y se va a caer el personaje -> keyframe de caída.        
         // @ts-ignore
         character.classList.remove("character");
         // @ts-ignore
         character.classList.add("character-caida");
     }
 
+    // Actualizar puntaje del juego
     actualizarPuntaje(puntaje){
         this.puntaje += puntaje;
         let puntajeDisplay = document.getElementById("puntaje-jugador");
         // @ts-ignore
-        puntajeDisplay.innerHTML = this.getPuntaje();
-        console.log("puntajeeee objeto: "+ this.getPuntaje());
-        console.log("puntajeeee html: "+ puntajeDisplay.innerHTML);
-       
+        puntajeDisplay.innerHTML = this.getPuntaje();       
     }
 
 
-    // GETTERS
-    
+    // GETTERS    
     getVida(){
         return this.vidas;
     }
@@ -89,6 +86,7 @@ class Personaje{
     getPuntaje(){
         return this.puntaje;
     }
+
     // SETTERS
     setPosicionX(posicionX){
         this.posicionX = posicionX;
@@ -98,7 +96,6 @@ class Personaje{
     }
     setVida(vida){
         this.vidas = vida;
-    }
-   
+    }  
 
 }

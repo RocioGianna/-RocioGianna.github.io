@@ -1,35 +1,25 @@
 class Obstaculo {
+    // Constructor
     constructor(){ 
         this.div = document.getElementById("obstaculo");
         this.ancho = this.div.offsetWidth;
         this.alto = this.div.offsetHeight;
         this.divImage = this.div.style.background = "url('img/piedrarodar.png') left center";
     }
-
-    
-    
-    //metodo que detecta la colision entre el personaje y el obstaculo
+       
+    // Método que detecta la colision entre el personaje y el obstaculo
     getColision(personaje){
         if (personaje.getPosicionX() < this.getPosicionX() + this.getAncho() && 
-
             personaje.getPosicionX() + personaje.getAncho() > this.getPosicionX() &&
-
-            personaje.getPosicionY() < this.getPosicionY() + this.getAlto() && 
-            
+            personaje.getPosicionY() < this.getPosicionY() + this.getAlto() &&             
             personaje.getPosicionY() + personaje.getAlto() > this.getPosicionY()){ 
-
             return true;
-
         }else{
             return false;
         }
     }
 
-
-
-
-
-    //getters
+    // GETTERS
     getAncho(){
         return this.ancho;
     }
