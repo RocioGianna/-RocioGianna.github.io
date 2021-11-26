@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/feed-styles.css">
+    <title>Home</title>
+</head>
+<body>
+    <div class="main-page">
+        <!-- NAVBAR -->
+    <div class="navbar">
+        <!-- LOGO -->
+        <div class="logo-container">
+            <div id="logo-image">
+                <img class="logo-app-feed" src="img/logos/logo-app-feed.png" alt="page-logo">
+            </div>
+        </div>
+        <!-- BÚSQUEDA -->
+        <div class="search-container">
+            <div class="search-bar">
+                <input type="search" name="" id="search-bar-input">
+            </div>
+            <div class="search-glass">
+                <img class="img-lupa" src="img/logos/Lupa.png" alt="">
+            </div>
+        </div>
+        <!-- BOTONES NAVBAR -->
+        <div class="navbar-buttons">
+            <div class="notifications">
+                <img id="notifications-logo"src="img/logos/navbar-notifications.png" alt="">
+            </div>
+            <div class="profile-image">
+                <img id="profile-image" src="img/perfiles-usuario/profile-feed.png" alt="">
+            </div>
+            <div class="profile-button">
+                <button id="profile-button">Mi Perfil</button>
+            </div>
+        </div>
+    </div>
+    <!-- CONTAINER PRINCIPAL -->
+    <div class="main-container">
+         <!-- MENÚ LATERAL -->
+        <div class="menu-container">
+            <div class="inicio">
+                <img class="logos-menu-lateral"src="img/logos/Home.png" alt="inicio-logo">
+                <h3>Inicio</h3>
+            </div>
+            <div class="new-post">
+                <img class="logos-menu-lateral" src="img/logos/Nuevo post.png" alt="newpost-logo">
+                <h3>Nuevo post</h3>
+            </div>
+            <div class="contactos">
+                <img class="logos-menu-lateral" src="img/logos/Contactos.png" alt="contactos-logo">
+                <h3>Contactos</h3>
+            </div>
+            <div class="favoritos">
+                <img class="logos-menu-lateral" src="img/logos/fav.png" alt="favs-logo">
+                <h3>Favoritos</h3>
+            </div>
+            <div class="post-guardados">
+                <img class="logos-menu-lateral" src="img/logos/guardados.png" alt="postguardados-logo">
+                <h3>Posts guardados</h3>
+            </div>
+            <div class="suggestions">
+                <img class="logos-menu-lateral" src="img/logos/Sugerencias.png" alt="suggestions-logo">
+                <h3>Sugerencias</h3>
+            </div>
+            <div class="settings">
+                <img class="logos-menu-lateral" src="img/logos/Ajustes.png" alt="settings-logo">
+                <h3>Ajustes</h3>
+            </div>
+            <div class="logout">
+                <a href="home.html"> <img class="logos-menu-lateral" src="img/logos/logout.png" alt="logout-logo"></a>               
+                <a href="home.html"><h3>Cerrar sesión</h3></a>
+                
+            </div>           
+        </div>
+         <!-- FEED -->
+        <div class="feed-container">
+            <div class="new-publication-feed">
+                <div>
+                    <img class="img-usuario-new-publication" src="img/perfiles-usuario/profile-feed.png" alt="">   
+                </div>                                         
+                <div class="new-publication-area">
+                    <textarea class="new-comment-text" name="" id="" cols="110" rows="5">Escribe aquí tu publicación..</textarea>
+                </div>  
+                <img src="img/logos/send.png" alt="send">       
+            </div>
+            <div class="publicacion-feed">
+                <div class="datos-usuario">
+                    <img class="img-usuario-publicacion" src="img/perfiles-usuario/juan-perez.png" alt="">
+                    <h3>Juan Pérez</h3>
+                </div>
+                <div class="img-publicacion-container">
+                    <img class="img-prueba-feed" src="img/publicaciones/mirada-perros.png" alt="">
+                </div>
+                <p class="cuerpo-publicacion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus eligendi cupiditate animi in corporis nobis necessitatibus qui dicta ex, consectetur ad exercitationem rem eaque sapiente officia porro deleniti, error aliquam.</p>
+                <div class="reacciones-publicacion-feed">
+                    <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/good.png" alt="good">
+                    <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/bad.png" alt="bad">
+                    <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/like.png" alt="like">
+                    <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/fav.png" alt="fav">
+                    <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/save.png" alt="save">
+                    <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/share.png" alt="share">
+                </div>
+                <div class="mostrar-comentarios">
+                    <h4>Ver todos los comentarios</h4>
+                    <img class="button-drop-down" src="img/logos/dropdown.png" alt="dropdown">
+                </div>
+                <div class="new-comment">                    
+                        <div class="img-new-publicacion">
+                            <img class="img-usuario-new-comment" src="img/perfiles-usuario/profile-feed.png" alt="">
+                        </div>
+                        <div class="new-comment-area">
+                            <textarea class="new-comment-text" name="" id="" cols="110" rows="5">Deja tu comentario..</textarea>
+                        </div>  
+                        <img src="img/logos/send.png" alt="send">                       
+                </div>
+            </div>
+
+            <div class="publicacion-feed">
+                <div class="datos-usuario">
+                    <img class="img-usuario-publicacion" src="img/perfiles-usuario/analia-juarez.png" alt="">
+                    <h3>Juan Pérez</h3>
+                </div>
+                <div class="img-publicacion-container">
+                    <img class="img-prueba-feed" src="img/publicaciones/purina-por-que-los-perros-mueven-la-cola.png" alt="">
+                </div>
+                <p class="cuerpo-publicacion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus eligendi cupiditate animi in corporis nobis necessitatibus qui dicta ex, consectetur ad exercitationem rem eaque sapiente officia porro deleniti, error aliquam.</p>
+                <div class="reacciones-publicacion-feed">
+                    <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/good.png" alt="good">
+                    <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/bad.png" alt="bad">
+                    <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/like.png" alt="like">
+                    <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/fav.png" alt="fav">
+                    <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/save.png" alt="save">
+                    <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/share.png" alt="share">
+                </div>
+                <div class="mostrar-comentarios">
+                    <h4>Ver todos los comentarios</h4>
+                    <img class="button-drop-down" src="img/logos/dropdown.png" alt="dropdown">
+                </div>
+                <div class="new-comment">                    
+                        <div class="img-new-publicacion">
+                            <img class="img-usuario-new-comment" src="img/perfiles-usuario/profile-feed.png" alt="">
+                        </div>
+                        <div class="new-comment-area">
+                            <textarea class="new-comment-text" name="" id="" cols="110" rows="5">Deja tu comentario..</textarea>
+                        </div>  
+                        <img src="img/logos/send.png" alt="send">                       
+                </div>
+            </div>
+
+            <div class="publicacion-feed">
+                <div class="datos-usuario">
+                    <img class="img-usuario-publicacion" src="img/perfiles-usuario/malena-lopez.png" alt="">
+                    <h3>Juan Pérez</h3>
+                </div>
+                <div class="img-publicacion-container">
+                    <img class="img-prueba-feed" src="img/publicaciones/razas-perro-pequenos-grandes-a.jpg" alt="">
+                </div>
+                <p class="cuerpo-publicacion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus eligendi cupiditate animi in corporis nobis necessitatibus qui dicta ex, consectetur ad exercitationem rem eaque sapiente officia porro deleniti, error aliquam.</p>
+                <div class="reacciones-publicacion-feed">
+                    <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/good.png" alt="good">
+                    <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/bad.png" alt="bad">
+                    <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/like.png" alt="like">
+                    <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/fav.png" alt="fav">
+                    <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/save.png" alt="save">
+                    <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/share.png" alt="share">
+                </div>
+                <div class="mostrar-comentarios">
+                    <h4>Ver todos los comentarios</h4>
+                    <img class="button-drop-down" src="img/logos/dropdown.png" alt="dropdown">
+                </div>
+                <div class="new-comment">                    
+                        <div class="img-new-publicacion">
+                            <img class="img-usuario-new-comment" src="img/perfiles-usuario/profile-feed.png" alt="">
+                        </div>
+                        <div class="new-comment-area">
+                            <textarea class="new-comment-text" name="" id="" cols="110" rows="5">Deja tu comentario..</textarea>
+                        </div>  
+                        <img src="img/logos/send.png" alt="send">                       
+                </div>
+            </div>
+
+            <div class="publicacion-feed">
+                <div class="datos-usuario">
+                    <img class="img-usuario-publicacion" src="img/perfiles-usuario/enrique-areco.png" alt="">
+                    <h3>Juan Pérez</h3>
+                </div>
+                <div class="img-publicacion-container">
+                    <img class="img-prueba-feed" src="img/publicaciones/8ec08c85c866ccb70c4f1c36492d890f.jpg" alt="">
+                </div>
+                <p class="cuerpo-publicacion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus eligendi cupiditate animi in corporis nobis necessitatibus qui dicta ex, consectetur ad exercitationem rem eaque sapiente officia porro deleniti, error aliquam.</p>
+                <div class="reacciones-publicacion-feed">
+                    <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/good.png" alt="good">
+                    <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/bad.png" alt="bad">
+                    <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/like.png" alt="like">
+                    <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/fav.png" alt="fav">
+                    <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/save.png" alt="save">
+                    <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/share.png" alt="share">
+                </div>
+                <div class="mostrar-comentarios">
+                    <h4>Ver todos los comentarios</h4>
+                    <img class="button-drop-down" src="img/logos/dropdown.png" alt="dropdown">
+                </div>
+                <div class="new-comment">                    
+                        <div class="img-new-publicacion">
+                            <img class="img-usuario-new-comment" src="img/perfiles-usuario/profile-feed.png" alt="">
+                        </div>
+                        <div class="new-comment-area">
+                            <textarea class="new-comment-text" name="" id="" cols="110" rows="5">Deja tu comentario..</textarea>
+                        </div>  
+                        <img src="img/logos/send.png" alt="send">                       
+                </div>
+            </div>           
+        </div>
+         <!-- PUBLICIDADES & CHAT -->
+        <div class="interactions-container">
+             <!-- PUBLICIDAD -->
+            <div class="advertisenments-container">
+                <img id="publicidad-feed" src="img/publicidad-feed.png" alt="publicidad-feed">
+            </div>
+             <!-- CHAT -->
+            <div class="chat-list-container">
+                <div id="chat-feed-bar">
+                    <p>Chats</p>
+                    <img id="chat-feed-img"src="img/logos/chat-feed.png" alt="">
+                </div>
+                <div class="usuarios-chat">
+                    <div class="usuario-chat">
+                        <img class="img-usuario-chat" src="img/perfiles-usuario/agustina-lopez.png" alt="">
+                        <h4>Agustina López</h4>
+                    </div>
+                    <div class="usuario-chat">
+                        <img class="img-usuario-chat" src="img/perfiles-usuario/analia-juarez.png" alt="">
+                        <h4>Analía Juárez</h4>
+                    </div>
+                    <div class="usuario-chat">
+                        <img class="img-usuario-chat" src="img/perfiles-usuario/enrique-areco.png" alt="">
+                        <h4>Enrique Areco</h4>
+                    </div>
+                    <div class="usuario-chat">
+                        <img class="img-usuario-chat" src="img/perfiles-usuario/juan-perez.png" alt="">
+                        <h4>Juan Pérez</h4>
+                    </div>
+                    <div class="usuario-chat">
+                        <img class="img-usuario-chat" src="img/perfiles-usuario/emanuel-garcia.png" alt="">
+                        <h4>Emanuel García</h4>
+                    </div>
+                    <div class="usuario-chat">
+                        <img class="img-usuario-chat" src="img/perfiles-usuario/malena-lopez.png" alt="">
+                        <h4>Malena López</h4>
+                    </div>
+                    <div class="usuario-chat">
+                        <img class="img-usuario-chat" src="img/perfiles-usuario/maria-perez.png" alt="">
+                        <h4>María Pérez</h4>
+                    </div>   
+                    <!-- Acá ya se repiten --> 
+                    <div class="usuario-chat">
+                        <img class="img-usuario-chat" src="img/perfiles-usuario/juan-perez.png" alt="">
+                        <h4>Juan Pérez</h4>
+                    </div>
+                    <div class="usuario-chat">
+                        <img class="img-usuario-chat" src="img/perfiles-usuario/emanuel-garcia.png" alt="">
+                        <h4>Emanuel García</h4>
+                    </div>
+                    <div class="usuario-chat">
+                        <img class="img-usuario-chat" src="img/perfiles-usuario/malena-lopez.png" alt="">
+                        <h4>Malena López</h4>
+                    </div>
+                    <div class="usuario-chat">
+                        <img class="img-usuario-chat" src="img/perfiles-usuario/maria-perez.png" alt="">
+                        <h4>María Pérez</h4>
+                    </div>                 
+                    <div class="usuario-chat">
+                        <img class="img-usuario-chat" src="img/perfiles-usuario/juan-perez.png" alt="">
+                        <h4>Juan Pérez</h4>
+                    </div>
+                    <div class="usuario-chat">
+                        <img class="img-usuario-chat" src="img/perfiles-usuario/emanuel-garcia.png" alt="">
+                        <h4>Emanuel García</h4>
+                    </div>
+                    <div class="usuario-chat">
+                        <img class="img-usuario-chat" src="img/perfiles-usuario/malena-lopez.png" alt="">
+                        <h4>Malena López</h4>
+                    </div>
+                    <div class="usuario-chat">
+                        <img class="img-usuario-chat" src="img/perfiles-usuario/maria-perez.png" alt="">
+                        <h4>María Pérez</h4>
+                    </div>                                 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    
+
+</body>
+</html>

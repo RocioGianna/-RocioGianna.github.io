@@ -21,10 +21,10 @@ body{
     height: 650px;
 }
 .layer-1{
-    background-image: url("../images/layer1.png");
+    background-image: url("../img/layer1.png");
 }
 .layer-2{
-    background-image: url("../images/layer2.png");
+    background-image: url("../img/layer2.png");
 }
 .logo{
     position: absolute;
@@ -32,7 +32,7 @@ body{
     left: 15%;
     width: 314px;
     height: 317px;
-    background-image: url("../images/Logos.png");
+    background-image: url("../img/Logos.png");
     background-repeat: no-repeat;
 }
 
