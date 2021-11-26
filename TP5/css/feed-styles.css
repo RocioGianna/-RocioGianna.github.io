@@ -128,9 +128,15 @@ body{
     justify-content: space-between;
     margin-right: 10px;
     /*border: 1px black solid; /* ELIMINAR */
-    height: 800px;
+    height: 900px;
 }
 
+.advertisenments-container{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
 
 .advertisenments-container, .chat-list-container{
     margin-right: 10px;
@@ -164,7 +170,7 @@ body{
 
 .interactions-container{
     width: 25%;
-    height: 670px; /* Si toco acá se rompe el height*/
+    height: 750px; /* Si toco acá se rompe el height*/
     background-color: #F9F9F9;
 }
 
@@ -289,10 +295,11 @@ body{
     width: 75%;
     height: 300px;
     margin-left: 40px;
+    margin-right: 40px;
 }
 
 .chat-list-container{
-    height: 70%;
+    height: 65%;
     width: 100%;
     /*border: none;*/
 }
@@ -318,6 +325,7 @@ body{
 .usuarios-chat{
     overflow-y: scroll; 
     height: 90%; 
+    background-color: white;
 }
 
 .usuario-chat{
