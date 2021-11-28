@@ -6,76 +6,87 @@ body{
 /*FONDO ANIMADO*/
 .contenedor{
     display: flex;
+    justify-content: center;
     width: 100%;
     height: 680px;
-}
-.contenedor-fondo{
-    width: 50%;
-    height: 800px;
 }
 .layer {
     position: absolute;
     top: 0;
     left: 0;
-    width: 50%;
+    width: 98%;
     height: 650px;
 }
 .layer-1{
+    filter: blur(4px);
     background-image: url("../img/layer1.png");
 }
 .layer-2{
+    filter: blur(1.5px);
     background-image: url("../img/layer2.png");
 }
 .logo{
-    position: absolute;
-    top: 30%;
-    left: 15%;
-    width: 314px;
-    height: 317px;
-    background-image: url("../img/Logos.png");
-    background-repeat: no-repeat;
+    position: relative;
+    height: 140px;
 }
 
 /*FORMULARIO LOGIN */
 .login{
-    position: relative;
-    width: 50%;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
 }
+.login h3{
+    position: relative;
+    font-weight: inherit;
+ }
+ .descripcion{
+    background-color: #B9A0CA;
+    position: relative;
+    font-weight: inherit;
+ }
+ .login span{
+     font-weight: bold;
+ }
 .form-login{
-    background-color: #936BAB;
-    border-radius: 12px;;
-    width: 40%;
-    padding: 20px;
-    margin-top: 50px;
+    position: relative;
+    background-color: #B9A0CA;
+    border-radius: 12px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 400px;
 }
 .form-login input{
-    border-radius: 12px;
+    color: black;
+    border-radius: 2px;
     background-color: #F9F9F9;
-    border: 2px solid #444444;
-    height: 28px;
+    margin-left: 10%;
+    margin-bottom: 2%;
+    border: none;
+    width: 75%;
+    height: 30px;
 }
 .form-login label{
-    font-weight: bold;
-    margin: 10px;
+    margin-left: 10%;
+    font-size: 15px;
 }
-.form-login h2{
-    margin-top: 0;
+
+.form-login h3{
+    margin: 10px;
     text-align: center;
 }
 .btn{
     border: none;
     background-color: #427C9D;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
+    border-radius: 2px;
     width: 100px;
     height: 30px;
     margin: 10px;
+    margin-left: 35%;
 }
 .btn a{
     color: #F9F9F9;
@@ -110,11 +121,15 @@ footer a{
    
     /*FONDO ANIMADO*/
     .layer {
-        height: 953px;
+        width: 98%;
+        height: 940px;
     }
-
+    .logo{
+        height: 240px;
+    }
     /*FORMULARIO LOGIN*/
-    .login{    
-        justify-content: space-around;   
+    .form-login{
+        width: 60%;
+        height: 400px;
     }
 }
