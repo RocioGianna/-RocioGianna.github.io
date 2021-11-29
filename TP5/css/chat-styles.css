@@ -1,0 +1,264 @@
+/* NAVBAR Y PARTE SUPERIOR*/
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a:visited, a:link{
+    color: black;
+    text-decoration: none;
+}
+
+/* BODY -> sacar espacio en blanco de la parte superior*/
+body{
+    margin:0;
+}
+
+.main-page{
+    width: 99.7%;
+}
+
+/* NAVBAR */
+.navbar{
+    justify-content: space-around;
+    background-color: #6C3088;
+    height: 65px;
+}
+
+.navbar, .logo-container, .logo-image, .search-container, .search-bar, .navbar-buttons{
+    width: 100%;
+    display: flex;
+    /* align-items: center; */
+    margin-right: 10px;
+    padding-left: 5px;
+}
+
+.logo-container{
+    justify-content: flex-start;
+    width: 75%;
+}
+
+.logo-app-feed{
+    padding-top: 2px;
+    width: 55px;
+    height: 55px;
+}
+
+.search-container{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    justify-content: flex-start;
+    width: 50%;
+}
+
+.search-bar{
+    margin-right: 5px;
+    width: 65%;
+}
+
+.img-lupa{
+    margin-left: 2px;
+    width: 18px;
+    height: 18px;
+}
+
+#search-bar-input{
+    width: 890px;
+    border-radius: 8px;
+}
+
+.notifications, #profile-image{
+    margin-right: 20px;
+    width: 45px;
+    height: 45px;
+}
+
+.notifications{
+    margin-right: 10px;
+}
+
+.notifications{
+    align-items: center;
+}
+
+#notifications-logo{
+    margin-top: 8px;
+    width: 23px;
+    height: 23px;
+}
+
+.navbar-buttons{ 
+    align-items: center;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#profile-button{
+    background-color: #427C9D;
+    border-radius: 8px;
+    color: white;
+    width: 151px;
+    height: 40px;
+    margin-left: 5px;
+}
+
+/* MAIN CONTAINER*/
+
+.main-container{
+    display: flex;    
+    justify-content: space-between;
+    margin-right: 10px;
+    /*border: 1px black solid; /* ELIMINAR */
+    height: 860px;
+}
+
+.advertisenments-container{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.interactions-container{
+    width: 35%;
+    height: 860px; /* Si toco acá se rompe el height*/
+    background-color: #F9F9F9;
+}
+
+/* PUBLICIDADES DE LA PÁGINA DE CHAT */
+#publicidad-feed{
+    width: 75%;
+    height: 300px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+}
+
+.chat-container{
+    display: flex;
+    align-items: flex-start;
+    width: 70%;
+}
+
+.otro-usuario{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #936BAB;
+}
+
+.datos-otro-usuario{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.img-perfil-otro-usuario{
+    width: 70px;
+    height: 70px;
+    margin-right: 10px;
+}
+
+.videollamada{
+    margin-right: 35px;
+}
+
+.icono-videollamada{
+    width: 33px;
+    height: 30px;
+}
+
+.nombre-otro-usuario{
+    color: white;
+    /*color: #F9F9F9*/
+}
+
+.menu-chat-list{
+    width: 25%;
+    height: 860px;
+}
+
+.usuarios-sala-chat{
+    height: 780px;
+    overflow-y: scroll;
+}
+
+
+/* CHAT FEED */
+#chat-feed-bar{
+    width: 98%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6C3088;
+    color: white;
+    padding-left: 7px;
+}
+
+#chat-feed-img{
+    margin-right: 10px;
+    width: 22px;
+    height: 22px;
+}
+
+.usuarios-chat{
+    overflow-y: scroll; 
+    height: 90%; 
+    background-color: white;
+}
+
+.usuario-chat{
+    display: flex;
+    align-items: center;    
+}
+
+.img-usuario-chat{
+    margin-left: 10px;
+    margin-right: 8px;
+    width: 45px;
+    height: 45px;
+}
+
+.menu-container, .feed-container{
+    height: 100%;
+}
+
+/* BORDES -> ELIMINARLOS **/
+
+.conversacion-container{
+    border: 1px solid red;
+}
+
+.main-conversacion-container{
+    width: 100%;
+
+}
+
+.nuevo-mensaje{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-send-nuevo-mensaje{
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+
+.cuerpo-conversacion{
+    height: 680px;
+    border-bottom: 1px solid black;
+    margin-bottom: 15px;
+}
+
+.nuevo-mensaje-cuerpo{
+    background-color: #F9F9F9;
+    resize: none;
+}

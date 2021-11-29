@@ -13,7 +13,8 @@ Entregable 5
         - Agregar un video.
 1. ~~Agregar imágenes correspondientes.~~
     - Ajustar tamaño de imágenes
-    - Agregar logo de la página.
+    - Alinear textarea con imagen y botón enviar
+    - ~~Agregar logo de la página.~~
 2. ~~Agregar íconos correspondientes.~~
 3. .~~Eliminar bordes innecesarios..~~
 4. ~~Feed scrolleable.~~
@@ -25,12 +26,21 @@ Entregable 5
     - Notificaciones.
 6. Acomodar estilos a las fuentes.
 7. Dar estilos a publicaciones.
+    - Editar estilos al texot y a los íconos
 8. Acomodar nombres de usuarios repetidos:
     - En el feed.
     - En el chat.
 9. Agregar comentarios a algunas publicaciones.
+10. Box-shadow caja del login.
+11. Chequear contrastes.
+
+## Chat
+
+0. Preguntarle a Rocío los siguientes colores:
+    - Violeta de la lista de conversaciones
+    - Violeta de la barra superior del chat activo
+1. Agregar un ícono de llamada y ponerlo en la barra superior del archivo.
+2. Acomodar nombres de usuarios repetidos:
 
 ## Perfil
 
-
-## Chat
