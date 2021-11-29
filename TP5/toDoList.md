@@ -1,7 +1,11 @@
 Entregable 5
 ===============
 
-## Inicio
+## Home
+- Acomodar padding, margin etc. de Botones, inputs, labels, h3, h4. (Es decir, todo lo que se encuentra dentro del formulario .form-login)
+
+##Registros
+- Hacer registros con dos opciones (que salga todo bien o cuando comete un error el usuario)?
 
 ## Feed
 

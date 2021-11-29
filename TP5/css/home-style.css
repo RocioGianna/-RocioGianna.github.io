@@ -41,11 +41,6 @@ body{
     position: relative;
     font-weight: inherit;
  }
- .descripcion{
-    background-color: #B9A0CA;
-    position: relative;
-    font-weight: inherit;
- }
  .login span{
      font-weight: bold;
  }
@@ -57,7 +52,7 @@ body{
     flex-direction: column;
     justify-content: center;
     width: 50%;
-    height: 400px;
+    height: 500px;
 }
 .form-login input{
     color: black;
@@ -130,6 +125,6 @@ footer a{
     /*FORMULARIO LOGIN*/
     .form-login{
         width: 60%;
-        height: 400px;
+        height: 500px;
     }
 }
