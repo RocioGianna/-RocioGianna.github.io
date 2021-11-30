@@ -4,8 +4,11 @@ Entregable 5
 ## Home
 - Acomodar padding, margin etc. de Botones, inputs, labels, h3, h4. (Es decir, todo lo que se encuentra dentro del formulario .form-login)
 
-##Registros
+## Registros
 - Hacer registros con dos opciones (que salga todo bien o cuando comete un error el usuario)?
+
+## Navabar
+0. Agregar ícono home.
 
 ## Feed
 
@@ -49,6 +52,7 @@ Entregable 5
 4. ~~Achicar imágenes de cada mensaje.~~
 5. ~~Botón/icóno eliminar -> funcionalidad.~~
 6. ~~Agregar hora del mensaje.~~
+7. Acomodar linea blanca.
 
 ## Perfil
 
