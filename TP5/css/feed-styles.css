@@ -239,7 +239,7 @@ body{
 
 .new-comment-area{
     margin-left: 5px;
-    margin-right: 5px;
+    margin-right: 10px;
     margin-bottom: 15px;
 }
 
@@ -344,6 +344,10 @@ body{
     align-items: center;    
 }
 
+.usuario-chat:hover{
+    background-color: #BFA0D7;
+}
+
 .img-usuario-chat{
     margin-left: 10px;
     margin-right: 8px;
@@ -354,3 +358,4 @@ body{
 .menu-container, .feed-container{
     height: 100%;
 }
+

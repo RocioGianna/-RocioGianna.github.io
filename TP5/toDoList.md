@@ -17,7 +17,7 @@ Entregable 5
         - Agregar un video.
 1. ~~Agregar imágenes correspondientes.~~
     - Ajustar tamaño de imágenes
-    - Alinear textarea con imagen y botón enviar
+    - ~~Alinear textarea con imagen y botón enviar~~
     - ~~Agregar logo de la página.~~
 2. ~~Agregar íconos correspondientes.~~
 3. .~~Eliminar bordes innecesarios..~~
@@ -30,7 +30,7 @@ Entregable 5
     - Notificaciones.
 6. Acomodar estilos a las fuentes.
 7. Dar estilos a publicaciones.
-    - Editar estilos al texot y a los íconos
+    - Editar estilos al texto y a los íconos
 8. Acomodar nombres de usuarios repetidos:
     - En el feed.
     - En el chat.
@@ -45,6 +45,10 @@ Entregable 5
     - Violeta de la barra superior del chat activo
 1. Agregar un ícono de llamada y ponerlo en la barra superior del archivo.
 2. Acomodar nombres de usuarios repetidos:
+3. ~~Ajustar ancho del cuerpo de los mensajes tanto del usuario como del otro usuario.~~
+4. ~~Achicar imágenes de cada mensaje.~~
+5. ~~Botón/icóno eliminar -> funcionalidad.~~
+6. ~~Agregar hora del mensaje.~~
 
 ## Perfil
 

@@ -128,12 +128,13 @@
                             <img class="icono-videollamada" src="img/logos/Videollamada.png" alt="videollamada-icono">
                         </div>
                     </div>
-                    <div class="cuerpo-conversacion">
-                        Acá va la conversación entera
+                    <div class="cuerpo-conversacion" id="cuerpo-conversacion">
+                        <!--CUERPO DEL CHAT "DINÁMICO"-->
+                        <p id="hora-inicio-chat"></p>
                     </div>
                     <div class="nuevo-mensaje">
-                        <textarea class="nuevo-mensaje-cuerpo" name="" id="" cols="130" rows="5"></textarea>
-                        <img class="img-send-nuevo-mensaje" src="img/logos/send.png" alt="send">
+                        <textarea id="nuevo-mensaje-cuerpo" class="nuevo-mensaje-cuerpo" name="nuevo-mensaje-cuerpo"  cols="130" rows="4" type="text"></textarea>
+                        <button><img id="btn-send-mensaje" class="img-send-nuevo-mensaje" src="img/logos/send.png" alt="send"></button>
                     </div>
                 </div>
                 
@@ -154,14 +155,14 @@
             <div class="interactions-container">
                 <!-- PUBLICIDAD -->
                 <div class="advertisenments-container">
-                    <img id="publicidad-feed" src="img/publicidad-feed.png" alt="publicidad-feed-1">
-                    <img id="publicidad-feed" src="img/publicidad-chats.png" alt="publicidad-feed-2">
+                    <img class="publicidad-feed" src="img/publicidad-feed.png" alt="publicidad-feed-1">
+                    <img class="publicidad-feed" src="img/publicidad-chats.png" alt="publicidad-feed-2">
                 </div>
 
             </div>
         </div>
 
-
+        <script type="text/javascript"src="js/chat.js"></script>
 </body>
 
 </html>
