@@ -74,10 +74,98 @@ body{
 
 .notifications{
     margin-right: 10px;
+    align-items: center;
 }
 
-.notifications{
+.notifications:hover{
+    width: 300px;
+    background-color: #BFA0D7;
+    padding-left: 5px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    font-weight: bold;
+    
+}
+
+.notifications:hover .cant-notificaciones{
+    position: relative;
+    background:transparent;
+    font-size: 22px;
+    width: 170px;
+    height: 17px;
+    font-weight: bold;
+    top:5px;
+    right: 100px;
+}
+
+.img-notificaciones{
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    margin-left: 7px;
+}
+
+.cuerpo-notificacion{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    list-style: none;
+    background-color:#F2F2F2;
+    display: none;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.notifications:hover .cuerpo-notificacion{
+    display:block ;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+ul{
+    position:absolute;
+    left:1360px;
+    top:70px;
+    margin: 0;
+    padding: 0;
+    width: 300px;
+}
+
+.texto-notificacion{
+    font-size: 18px;
+}
+
+ul li:hover .texto-notificacion{
+    font-weight: bold;
+    color:#6C3088;
+}
+
+
+
+.notifications:hover .cant-notificaciones:after{
+    content: ' Notificaciones';
+    width: 100px;
+    padding-bottom: 102px;
+}
+
+.notifications .cant-notificaciones{
+    position: absolute;
+    top: 10px;
+    right: 244px;
+    padding-left: 1px;
+    padding-top: 2px;
+    padding-right: 1px;
+    padding-bottom: 2px;
+    
+    width: 16px;
+    height: 17px;
+    border-radius: 10%;
+    background-color: red;
+    color:#F9F9F9;
+    text-align: center;
+   
 }
 
 #notifications-logo{
@@ -107,9 +195,30 @@ body{
 .new-publication-feed{
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     padding-top: 15px;
     padding-left: 37px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.descripcion-personal{
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 30px;
+    padding-left: 30px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    width: 800px;
+    margin-left: 50px;
+}
+
+.datos-descripcion{
+    font-weight: bold;
+    align-content: center;
 }
 
 .publicar-feed{
@@ -119,8 +228,9 @@ body{
 }
 
 .img-usuario-new-publication{
-    width: 90px;
-    height: 90px;
+    width: 75px;
+    height: 75px;
+    margin-right: 10px;
 }
 
 .new-publication-area{
@@ -151,16 +261,17 @@ body{
 }
 
 
-.feed-container{
+
+.profile-container{
     /*border: 1px red solid; /* ELIMINAR */
-    width: 50%;
+    width: 100%;
     margin-right: 15px;
     align-items: center;
-    height: 670px; /* Si toco acá se rompe el height*/
+    height: 860px; /* Si toco acá se rompe el height*/
     overflow-y: scroll;   
 }
 
-.feed-container::-webkit-scrollbar, .usuarios-chat::-webkit-scrollbar { 
+.profile-container::-webkit-scrollbar, .usuarios-chat::-webkit-scrollbar { 
     width: 0 !important ;
 }
 
@@ -211,10 +322,10 @@ body{
 
 /* FEED */
 
-.img-prueba-feed{
-    width: 450px;
-    height: 350px;    
-}
+/* .img-prueba-feed{
+    width: auto;
+    height: auto;    
+} */
 
 .img-publicacion-container{
     display: flex;
@@ -262,7 +373,8 @@ body{
     border-radius: 8px;
     margin-bottom: 15px;
     width: 900px;
-    margin-left: 35px;
+    margin-left: 30px;
+    margin-right: 15px;
 }
 
 .cuerpo-publicacion{

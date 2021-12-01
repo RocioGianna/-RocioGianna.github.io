@@ -1,6 +1,15 @@
 // @ts-nocheck
 
+// SEND presionando ENTER
 
+let clickEnter = document.getElementById("nuevo-mensaje-cuerpo").addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   enviarMensaje();
+  }
+});
+
+// Click en botón SEND
 let btnSend = document.getElementById("btn-send-mensaje").addEventListener("click", enviarMensaje);
 
 let cuerpoChat = document.getElementById("cuerpo-conversacion");
@@ -22,6 +31,7 @@ console.log(horaInicio);
 
 let horaInicioChat = document.getElementById("hora-inicio-chat");
 horaInicioChat.innerHTML = horaInicio;
+
 
 
 
