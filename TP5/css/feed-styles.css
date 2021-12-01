@@ -109,6 +109,13 @@ body{
     align-items: center;
     justify-content: flex-start;
     padding-top: 15px;
+    padding-left: 37px;
+}
+
+.publicar-feed{
+    width: 27px;
+    height: 27px;
+    margin-left: 0;
 }
 
 .img-usuario-new-publication{
@@ -254,6 +261,8 @@ body{
     background-color: #F2F2F2;
     border-radius: 8px;
     margin-bottom: 15px;
+    width: 900px;
+    margin-left: 35px;
 }
 
 .cuerpo-publicacion{
