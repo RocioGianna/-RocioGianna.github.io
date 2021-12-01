@@ -1,5 +1,8 @@
 Entregable 5
 ===============
+## OPINIONES
+- Yo le quitaria la sombra a los mensajes del chat
+- faltaria agragar icono de home en el header del chat
 
 ## Home
 - Acomodar padding, margin etc. de Botones, inputs, labels, h3, h4. (Es decir, todo lo que se encuentra dentro del formulario .form-login)

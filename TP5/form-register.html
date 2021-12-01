@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/form-register.css" />
+    <title>Registro Patitas</title>
+  </head>
+  <body>
+    <img class="logo" src="img/Logo2.png" alt="Logo">
+    <div class="contenedor-fondo">
+        <div class="layer layer-1" data-speed="-1"></div>
+        <div class="layer layer-2"  data-speed="1"></div>
+    </div>
+    <form action="#" class="form">
+      <h1 class="text-center">Formulario de Resgitro</h1>
+      <!-- Progress bar -->
+      <div class="progressbar">
+        <div class="progress" id="progress"></div>
+        
+        <div
+          class="progress-step progress-step-active" data-title="Contacto"></div>
+        <div class="progress-step" data-title="Usuario"></div>
+        <div class="progress-step" data-title="Mascota"></div>
+        <div class="progress-step" data-title="Finalizado"></div>
+      </div>
+
+      <!-- Steps -->
+      <div class="form-step form-step-active">
+        <div class="input-group">
+          <label for="username">Nombre y Apellido</label>
+          <input type="text" name="username" id="username" required/>
+        </div>
+        <div class="input-group">
+          <label for="position">Fecha de nacimiento</label>
+          <input type="date" name="position" id="position" required />
+        </div>
+        <div class="">
+          <a href="#" class="btn btn-next width-50 ml-auto">Siguiente</a>
+        </div>
+      </div>
+      <div class="form-step">
+        <div class="input-group">
+          <label for="phone">Usuario</label>
+          <input placeholder="Almenos una mayúscula y un número" type="text" name="phone" id="phone" required />
+        </div>
+        <div class="input-group">
+          <label for="email">E-mail</label>
+          <input type="text" name="email" id="email" required/>
+        </div>
+        <div class="input-group">
+            <label for="password">Contraseña</label>
+            <input placeholder="Mínimo 8 caracteres" type="password" name="password" id="password" />
+        </div>
+        <div class="input-group">
+            <label for="password">Repita la contraseña</label>
+            <input placeholder="Ingrese nuevamente la contraseña" type="password" name="password" id="password" />
+        </div>
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">Anterior</a>
+          <a href="#" class="btn btn-next">Siguiente</a>
+        </div>
+      </div>
+      <div class="form-step">
+        <div class="input-group">
+          <label for="dob">Nombre</label>
+          <input type="text" name="dob" id="dob" />
+        </div>
+        <div class="input-group">
+          <label for="ID">Edad</label>
+          <input type="number" name="ID" id="ID" />
+        </div>
+        <div class="input-group">
+            <label for="ID">Raza</label>
+            <input placeholder="De no tener raza ingrese 'general'" type="number" name="ID" id="ID" />
+        </div>
+        <div class="input-group">
+            <label for="ID">Sexo</label>
+            <input placeholder="Macho / Hembra" type="number" name="ID" id="ID" />
+          </div>
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">Anterior</a>
+          <a href="#" class="btn btn-next">Siguiente</a>
+        </div>
+      </div>
+      <div class="form-step">
+        <h4>Finalizaste el registro con éxito, inicia sesión!</h4>
+        <div class="input-group">
+          <label for="password">Usuario</label>
+          <input type="password" name="password" id="password" />
+        </div>
+        <div class="input-group">
+          <label for="confirmPassword">Contraseña</label>
+          <input
+            type="password"
+            name="confirmPassword"
+            id="confirmPassword"
+          />
+        </div>
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">Anterior</a>
+          <a href="feed.html" class="btn btn-prev">Ingresar</a>
+        </div>
+      </div>
+    </form>
+    <footer>
+        <ul>
+            <li><a href="#">Acerca de</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Terminos y condiciones</a></li>
+            <li><a href="#">Privacidad</a></li>
+        </ul>
+    </footer>
+    <script src="js/form-register.js"></script>
+    <script src="js/home.js"></script>
+  </body>
+</html>
