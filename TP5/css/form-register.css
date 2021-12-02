@@ -20,15 +20,16 @@
   }
 /*FONDO ANIMADO*/
 .logo{
-    position: absolute;
-    height: 100px;
+  margin: 0;
+  padding: 0;
+  height: 50px;
 }
 .layer {
-position: absolute;
-top: 0;
-left: 0;
-width: 98%;
-height: 940px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 98%;
+  height: 940px;
 }
 .layer-1{
     filter: blur(4px);
@@ -37,6 +38,12 @@ height: 940px;
 .layer-2{
     filter: blur(1.5px);
     background-image: url("../img/layer2.png");
+}
+p{
+  font-size: 13px;
+  color: #1F1F1F;
+  font-style: oblique;
+  margin: 0;
 }
   /* Global Stylings */
   label {
@@ -121,11 +128,13 @@ height: 940px;
   
   /* Form */
   .form {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     width: clamp(320px, 30%, 430px);
     background-color: #B9A0CA;
     border-radius: 0.35rem;
     padding: 1.5rem;
     position: absolute;
+    margin-bottom: 70px;
   }
   
   .form-step {
@@ -203,7 +212,7 @@ footer a{
 
     .logo{
         position: relative;
-        margin-bottom: 550px;
+        left: 30%;
         height: 150px;
     }
 }

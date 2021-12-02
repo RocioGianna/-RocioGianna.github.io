@@ -213,7 +213,8 @@ body{
 
 .img-prueba-feed{
     width: 450px;
-    height: 350px;    
+    height: 350px;  
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
 }
 
 .img-publicacion-container{
