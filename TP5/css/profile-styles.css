@@ -146,6 +146,7 @@ ul{
 
 .texto-notificacion{
     font-size: 18px;
+    padding-right: 5px;
 }
 
 ul li:hover .texto-notificacion{
@@ -397,7 +398,7 @@ ul li:hover .texto-notificacion{
 
 .datos-usuario{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     padding-top: 15px;
 }
@@ -579,3 +580,14 @@ ul li:hover .texto-notificacion{
     height: 100%;
 }
 
+.new-publication-feed{
+    background-image: url("img/perfiles-usuario/fotolia_76347655-768x432.png");
+}
+
+.horario-notificacion{
+    color: grey;
+    font-style: italic;
+    font-size: 12px;
+    margin-right: 5px;
+    margin-left: 5px;
+}

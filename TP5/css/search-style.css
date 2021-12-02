@@ -558,7 +558,7 @@ ul li:hover .texto-notificacion{
     justify-content: center;
 }
 
-#resultado-busqueda-avanzada{
+.resultado-busqueda-avanzada{
     display: none;
 }
 
