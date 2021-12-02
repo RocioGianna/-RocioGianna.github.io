@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/promocionar.css">
+    <title>Search results</title>
+</head>
+
+<body>
+    <div class="main-page">
+        <!-- NAVBAR -->
+        <div class="navbar">
+            <!-- LOGO -->
+            <div class="logo-container">
+                <div id="logo-image">
+                    <img class="logo-app-feed" src="img/logos/logo-app-feed.png" alt="page-logo">
+                </div>
+
+            </div>
+            <!-- BÚSQUEDA -->
+            <div class="search-container">
+                <div class="search-bar">
+                    <input type="search" name="" id="search-bar-input">
+                </div>
+                <div class="search-glass">
+                    <a href="search.html"><img class="img-lupa" src="img/logos/Lupa.png" alt=""></a>
+                </div>
+            </div>
+            <!-- BOTONES NAVBAR -->
+            <div class="navbar-buttons">
+                <div class="notifications">
+                    <button id="notifications-button"><img id="notifications-logo"
+                            src="img/logos/navbar-notifications.png" alt=""></button>
+                    <span class="cant-notificaciones">4</span>
+                    <div id="show-notifications">
+                        <p id="titulo-notificaciones">Notificaciones</p>
+                        <ul>
+                            <li class="cuerpo-notificacion">
+                                <span><img class="img-notificaciones" src="img/perfiles-usuario/analia-juarez.png"
+                                        alt=""></span>
+                                <p class="texto-notificacion">Holaaa</p>
+                            </li>
+                            <li class="cuerpo-notificacion">
+                                <span><img class="img-notificaciones" src="img/perfiles-usuario/analia-juarez.png"
+                                        alt=""></span>
+                                <p class="texto-notificacion">Holaaa</p>
+                            </li>
+                            <li class="cuerpo-notificacion">
+                                <span><img class="img-notificaciones" src="img/perfiles-usuario/analia-juarez.png"
+                                        alt=""></span>
+                                <p class="texto-notificacion">Holaaa</p>
+                            </li>
+                            <li class="cuerpo-notificacion">
+                                <span><img class="img-notificaciones" src="img/perfiles-usuario/analia-juarez.png"
+                                        alt=""></span>
+                                <p class="texto-notificacion">Holaaa</p>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+                <div class="profile-image">
+                    <img id="profile-image" src="img/perfiles-usuario/profile-feed.png" alt="">
+                </div>
+                <div class="profile-button">
+                    <button id="profile-button">Mi Perfil</button>
+                </div>
+            </div>
+        </div>
+        <!-- CONTAINER PRINCIPAL -->
+        <div class="main-container">
+            <!-- MENÚ LATERAL -->
+            <div class="menu-container">
+                <div class="inicio">
+                    <a href="feed.html"><img class="logos-menu-lateral" src="img/logos/Home.png" alt="inicio-logo"></a>
+                    <a href="feed.html">
+                        <h3>Inicio</h3>
+                    </a>
+                </div>
+                <div class="new-post">
+                    <img class="logos-menu-lateral" src="img/logos/Nuevo post.png" alt="newpost-logo">
+                    <h3>Nuevo post</h3>
+                </div>
+                <div class="contactos">
+                    <img class="logos-menu-lateral" src="img/logos/Contactos.png" alt="contactos-logo">
+                    <h3>Contactos</h3>
+                </div>
+                <div class="favoritos">
+                    <img class="logos-menu-lateral" src="img/logos/fav.png" alt="favs-logo">
+                    <h3>Favoritos</h3>
+                </div>
+                <div class="post-guardados">
+                    <img class="logos-menu-lateral" src="img/logos/guardados.png" alt="postguardados-logo">
+                    <h3>Posts guardados</h3>
+                </div>
+                <div class="suggestions">
+                    <img class="logos-menu-lateral" src="img/logos/Sugerencias.png" alt="suggestions-logo">
+                    <h3>Sugerencias</h3>
+                </div>
+                <div class="advanced-search">
+                    <img class="logos-menu-lateral" src="img/logos/advanced-search.png" alt="suggestions-logo">
+                    <h3>Encontrá veterinarios</h3>
+                </div>
+                <div class="settings">
+                    <img class="logos-menu-lateral" src="img/logos/Ajustes.png" alt="settings-logo">
+                    <h3>Ajustes</h3>
+                </div>
+                <div class="logout">
+                    <a href="home.html"> <img class="logos-menu-lateral" src="img/logos/logout.png"
+                            alt="logout-logo"></a>
+                    <a href="home.html">
+                        <h3>Cerrar sesión</h3>
+                    </a>
+
+                </div>
+            </div>
+            <!-- FEED -->
+
+            <div class="feed-container">
+                <h1 class="titulo-busqueda-avanzada">Hazte Premium!</h1>
+                <div class="search-form">
+
+                    <form action="">
+                        <h2>Todos los campos son necesarios</h2>
+                        <div class="label-type">
+                            <label for="Profesion">Opción de pago</label>
+                        </div>
+                        <div class="input-search">
+                            <select name="my-select" id="fruit" class="input-select">
+                                <option value="opt1">Anual</option>
+                                <option value="opt2">Mensual</option>
+                                <option value="opt3">Semestral</option>
+                            </select>
+                        </div>
+                        <div class="label-type">
+                            <label for="Profesion">País</label>
+                        </div>
+                        <div class="input-search">
+                            <input class="input-search-text" type="text" name="" id="" placeholder="Argentina">
+                        </div>
+                        <div class="label-type">
+                            <label for="Profesion">Nombre del titular de la tarjeta</label>
+                        </div>
+                        <div class="input-search">
+                            <input class="input-search-text" type="text" name="" id="" placeholder="MARIA AGUSTINA SÁNCHEZ">
+                        </div>
+                        <div class="label-tarjeta">
+                            <label for="Profesion">Selecciona la tarjeta</label>
+                        </div>
+                        <div class="tarjetas">
+                            <div class="seleccion-tarjeta">
+                                <input type="radio" name="my-input" id="yes">
+                                <label for="yes"><img class="tarjetas-logos" src="img/logos/visa-credito-logo.png"
+                                        alt=""></label>
+                            </div>
+
+
+                            <div class="seleccion-tarjeta">
+                                <input type="radio" name="my-input" id="no">
+                                <label for="no"><img class="tarjetas-logos" src="img/logos/visa-debito-logo.png"
+                                        alt=""></label>
+                            </div>
+
+                            <div class="seleccion-tarjeta">
+                                <input type="radio" name="my-input" id="yes">
+                                <label for="yes"><img class="tarjetas-logos" src="img/logos/mastercard-credito-logo.png"
+                                        alt=""></label>
+                            </div>
+
+                            <div class="seleccion-tarjeta">
+                                <input type="radio" name="my-input" id="yes">
+                                <label for="yes"><img class="tarjetas-logos" src="img/logos/mastercard-debito-logo.jpg"
+                                        alt=""></label>
+                            </div>
+
+
+                        </div>
+                        <div class="label-tarjeta">
+                            <label for="Profesion">Numero de la tarjeta</label>
+                        </div>
+                        <div id="numero-tarjeta">
+                            <div class="input-numero-tarjeta">
+                                <input class="input-num-tarjeta" type="text" name="" id="" placeholder="0123">
+                            </div>
+                            <p> - </p>
+                            <div class="input-numero-tarjeta">
+                                <input class="input-num-tarjeta" type="text" name="" id="" placeholder="4567">
+                            </div>
+                            <p> - </p>
+                            <div class="input-numero-tarjeta">
+                                <input class="input-num-tarjeta" type="text" name="" id="" placeholder="8910">
+                            </div>
+                            <p> - </p>
+                            <div class="input-numero-tarjeta">
+                                <input class="input-num-tarjeta" type="text" name="" id="" placeholder="1112">
+                            </div>
+                        </div>
+
+                        <div class="label-vencimiento">
+                            <div class="label-type">
+                                <label for="Profesion">Vencimiento</label>
+                            </div>
+
+                            <div class="label-type">
+                                <label for="Profesion">Código de seguridad</label>
+                            </div>
+                        </div>
+
+                        <div id="vencimientos">
+                            <div id="vencimiento">
+                                <div id="fecha-venc">
+                                    <div class="anio-vencimiento">
+                                        <label class="texto-vencimiento" for="Profesion">Mes:</label>
+                                        <input class="input-vencimiento" type="text" name="" id="" placeholder="08">
+                                    </div>
+
+                                    <div class="mes-vencimiento">
+                                        <label class="texto-vencimiento" for="Profesion">Año:</label>
+                                        <input class="input-vencimiento" type="text" name="" id="" placeholder="2025">
+                                    </div>
+
+                                </div>
+                                <div class="codigo">
+                                    <input class="input-vencimiento" type="text" name="" id="">
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+
+                    </form>
+                    <div class="button-container">
+                        <button id="btn-go-to-premium">REALIZAR PAGO</button>
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- PUBLICIDADES & CHAT -->
+            <div class="interactions-container">
+                <!-- PUBLICIDAD -->
+                <div class="advertisenments-container">
+                    <img id="publicidad-feed" src="img/publicidad-feed.png" alt="publicidad-feed">
+                </div>
+                <!-- CHAT -->
+                <div class="chat-list-container">
+                    <div id="chat-feed-bar">
+                        <p>Chats</p>
+                        <img id="chat-feed-img" src="img/logos/chat-feed.png" alt="">
+                    </div>
+                    <div class="usuarios-chat">
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/agustina-lopez.png" alt="">
+                            <h4>Agustina López</h4>
+                        </div>
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/analia-juarez.png" alt="">
+                            <h4>Analía Juárez</h4>
+                        </div>
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/enrique-areco.png" alt="">
+                            <h4>Enrique Areco</h4>
+                        </div>
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/juan-perez.png" alt="">
+                            <h4>Juan Pérez</h4>
+                        </div>
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/emanuel-garcia.png" alt="">
+                            <h4>Emanuel García</h4>
+                        </div>
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/malena-lopez.png" alt="">
+                            <h4>Malena López</h4>
+                        </div>
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/maria-perez.png" alt="">
+                            <h4>María Pérez</h4>
+                        </div>
+                        <!-- Acá ya se repiten -->
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/juan-perez.png" alt="">
+                            <h4>Juan Pérez</h4>
+                        </div>
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/emanuel-garcia.png" alt="">
+                            <h4>Emanuel García</h4>
+                        </div>
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/malena-lopez.png" alt="">
+                            <h4>Malena López</h4>
+                        </div>
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/maria-perez.png" alt="">
+                            <h4>María Pérez</h4>
+                        </div>
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/juan-perez.png" alt="">
+                            <h4>Juan Pérez</h4>
+                        </div>
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/emanuel-garcia.png" alt="">
+                            <h4>Emanuel García</h4>
+                        </div>
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/malena-lopez.png" alt="">
+                            <h4>Malena López</h4>
+                        </div>
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/maria-perez.png" alt="">
+                            <h4>María Pérez</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/notifications.js"></script>
+    <script src="js/promocionar.js"></script>
+</body>
+
+</html>

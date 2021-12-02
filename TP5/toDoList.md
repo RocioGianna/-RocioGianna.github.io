@@ -2,7 +2,7 @@ Entregable 5
 ===============
 ## OPINIONES
 - Yo le quitaria la sombra a los mensajes del chat
-- faltaria agragar icono de home en el header del chat
+- ~~faltaria agragar icono de home en el header del chat~~
 
 ## Home
 - Acomodar padding, margin etc. de Botones, inputs, labels, h3, h4. (Es decir, todo lo que se encuentra dentro del formulario .form-login).
@@ -12,12 +12,12 @@ Entregable 5
 - Hacer registros con dos opciones (que salga todo bien o cuando comete un error el usuario)?
 
 ## Navabar
-0. Agregar ícono home.
+0. ~~Agregar ícono home.~~
 
 ## Feed
 
 0. ~~Acomodar height del Feed y de las publicidades.~~
-    - Acomodar para la resolución puesta en Figma
+    ~~- Acomodar para la resolución puesta en Figmat~~
         - Debería ser main-container y los que están adentro de él.
         - Rellenar con diferentes imágenes y publicaciones reales.
         - Agregar al menos una galería.
@@ -32,9 +32,9 @@ Entregable 5
     - ~~Tratar de ocultarlos~~
 5. Implementar interacciones:
     - Chat (elegimos esta)
-    - Búsqueda avanzada.
+    - ~~Búsqueda avanzada.~~
     - Perfil.
-    - Notificaciones.
+    - ~~Notificaciones.~~
 6. Acomodar estilos a las fuentes.
 7. Dar estilos a publicaciones.
     - Editar estilos al texto y a los íconos
@@ -61,9 +61,9 @@ Entregable 5
 ## Perfil
 
 0. Rellenar publicaciones con datos reales.
-1. Acomodar imagen:
-    - Reempezar la imagen de la publicidad por otra cosa.
-        - Puede ser una galería con fotos de su/s mascota/s.
+1. ~~Acomodar imagen:~~
+    - ~~Reempezar la imagen de la publicidad por otra cosa.~~
+        - ~~Puede ser una galería con fotos de su/s mascota/s.~~
 
 ## General
 
@@ -74,3 +74,14 @@ Entregable 5
     - Logout
     - Logo Home (ir al Feed)
     - Notificaciones
+- Darle bordes a los textarea.
+- Alinear elementos del nav -> los de notifiaciones, imagen de perfil y botón Mi Perfil.
+
+## Notificaciones
+- Rellenar notificaciones con contenido.
+- Cambiar imágenes.
+
+# Animaciones Hover
+- Terminarlas.
+
+# ~~Simular loading al transicionar páginas~~

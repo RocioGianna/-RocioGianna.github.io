@@ -32,7 +32,8 @@ body{
 }
 
 .logo-container{
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: space-between;
     width: 75%;
 }
 
@@ -40,6 +41,12 @@ body{
     padding-top: 2px;
     width: 55px;
     height: 55px;
+}
+
+.logo-home-img{
+    width: 35px;
+    height: 35px;
+    margin-right: 30px;
 }
 
 .search-container{
@@ -66,6 +73,8 @@ body{
     border-radius: 8px;
     margin-left: 55px;
 }
+
+
 .notifications, #profile-image{
     margin-right: 20px;
     width: 45px;
@@ -77,28 +86,13 @@ body{
     align-items: center;
 }
 
-.notifications:hover{
-    width: 300px;
-    background-color: #BFA0D7;
-    padding-left: 5px;
-    padding-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold;
-    
+#notifications-button{
+    background-color: #6C3088;
+    border: none;
+    cursor:grabbing;
 }
 
-.notifications:hover .cant-notificaciones{
-    position: relative;
-    background:transparent;
-    font-size: 22px;
-    width: 170px;
-    height: 17px;
-    font-weight: bold;
-    top:5px;
-    right: 100px;
-}
+
 
 .img-notificaciones{
     width: 40px;
@@ -106,31 +100,48 @@ body{
     margin-right: 10px;
     margin-left: 7px;
 }
-
 .cuerpo-notificacion{
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: flex-start;
     list-style: none;
     background-color:#F2F2F2;
-    display: none;
+    border-top: 1px solid rgba(0, 0, 0, .1);
     border-bottom: 1px solid rgba(0, 0, 0, .1);
 }
 
-.notifications:hover .cuerpo-notificacion{
-    display:block ;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
+
 
 ul{
     position:absolute;
     left:1360px;
-    top:70px;
+    top:92px;
     margin: 0;
     padding: 0;
     width: 300px;
+    
+    border-right: 1px solid rgba(0, 0, 0, .1);
+    border-left: 1px solid rgba(0, 0, 0, .1);
+    border-bottom: none;
+}
+
+#titulo-notificaciones{
+    position:absolute;
+    left:1360px;
+    top:65px;
+    margin: 0;
+    padding: 4px;
+    padding-bottom: 5px;
+    width: 291px;
+    align-items: center;
+    color: grey;
+    display: none;
+    justify-content: center;
+    background-color:#F2F2F2;
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid rgba(0, 0, 0, .1);
+    
 }
 
 .texto-notificacion{
@@ -142,14 +153,6 @@ ul li:hover .texto-notificacion{
     color:#6C3088;
 }
 
-
-
-.notifications:hover .cant-notificaciones:after{
-    content: ' Notificaciones';
-    width: 100px;
-    padding-bottom: 102px;
-}
-
 .notifications .cant-notificaciones{
     position: absolute;
     top: 10px;
@@ -159,7 +162,7 @@ ul li:hover .texto-notificacion{
     padding-right: 1px;
     padding-bottom: 2px;
     
-    width: 16px;
+    width: 14px;
     height: 17px;
     border-radius: 10%;
     background-color: red;
@@ -172,6 +175,7 @@ ul li:hover .texto-notificacion{
     margin-top: 8px;
     width: 23px;
     height: 23px;
+    background-color: #6C3088;
 }
 
 .navbar-buttons{ 
@@ -301,7 +305,7 @@ ul li:hover .texto-notificacion{
     margin-right: 7px;
 }
 
-.new-post, .contactos, .favoritos, .post-guardados, .suggestions, .settings, .logout{
+.new-post, .contactos, .favoritos, .post-guardados, .suggestions, .advanced-search, .settings, .logout{
     display: flex;
     align-items: center;
     border-right: 1px solid black;
@@ -398,6 +402,36 @@ ul li:hover .texto-notificacion{
     padding-top: 15px;
 }
 
+#publicacion-a-promocionar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+#texto-promocion{   
+    margin-top: 20px;
+    padding-top: 5px;
+    margin-right: 15px;
+    color:#427C9D;
+    height: 35px;
+    font-weight: bolder;
+    display: none;
+}
+
+#btn-promocionar-publicacion{
+    background-color: #427C9D;
+    border-radius: 8px;
+    color: white;
+    width: 151px;
+    height: 40px;
+    margin-left: 455px;
+    margin-right: 25px;
+}
+
+
+
+
 .reacciones-publicacion-feed{
     padding-left: 25px;
     display: flex;
@@ -423,15 +457,53 @@ ul li:hover .texto-notificacion{
 }
 
 /* PUBLICIDADES */
-#publicidad-feed{
-    width: 75%;
-    height: 300px;
-    margin-left: 40px;
-    margin-right: 40px;
+#sugerencias{
+    width: 100%;
+    height:37%;   
+    overflow-y: scroll;
+    
+    border-left: 2px solid rgba(0, 0, 0, .1); 
 }
 
+#sugerencias-titulo{
+    font-size: 20px;
+    margin: 15px;
+    
+}
+
+.sugerencias-titulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid rgba(0, 0, 0, .1);
+    border-right: 2px solid rgba(0, 0, 0, .1);
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    background-color: #BFA0D7;
+}
+
+.main-sugerencia{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 60px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    
+}
+
+.main-sugerencia p {
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+.img-usuario-sug{
+    margin-right: 8px;
+}
+
+
 .chat-list-container{
-    height: 63%;
+    height: 71%;
     width: 100%;
     /*border: none;*/
 }

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/search-style.css">
+    <title>Search results</title>
+</head>
+
+<body>
+    <div class="main-page">
+        <!-- NAVBAR -->
+        <div class="navbar">
+            <!-- LOGO -->
+            <div class="logo-container">
+                <div id="logo-image">
+                    <img class="logo-app-feed" src="img/logos/logo-app-feed.png" alt="page-logo">
+                </div>
+                
+            </div>
+            <!-- BÚSQUEDA -->
+            <div class="search-container">
+                <div class="search-bar">
+                    <input type="search" name="" id="search-bar-input">
+                </div>
+                <div class="search-glass">
+                    <a href="search.html"><img class="img-lupa" src="img/logos/Lupa.png" alt=""></a>
+                </div>
+            </div>
+            <!-- BOTONES NAVBAR -->
+            <div class="navbar-buttons">
+                <div class="notifications">
+                    <button id="notifications-button"><img id="notifications-logo"
+                            src="img/logos/navbar-notifications.png" alt=""></button>
+                    <span class="cant-notificaciones">4</span>
+                    <div id="show-notifications">
+                        <p id="titulo-notificaciones">Notificaciones</p>
+                        <ul>
+                            <li class="cuerpo-notificacion">
+                                <span><img class="img-notificaciones" src="img/perfiles-usuario/analia-juarez.png"
+                                        alt=""></span>
+                                <p class="texto-notificacion">Holaaa</p>
+                            </li>
+                            <li class="cuerpo-notificacion">
+                                <span><img class="img-notificaciones" src="img/perfiles-usuario/analia-juarez.png"
+                                        alt=""></span>
+                                <p class="texto-notificacion">Holaaa</p>
+                            </li>
+                            <li class="cuerpo-notificacion">
+                                <span><img class="img-notificaciones" src="img/perfiles-usuario/analia-juarez.png"
+                                        alt=""></span>
+                                <p class="texto-notificacion">Holaaa</p>
+                            </li>
+                            <li class="cuerpo-notificacion">
+                                <span><img class="img-notificaciones" src="img/perfiles-usuario/analia-juarez.png"
+                                        alt=""></span>
+                                <p class="texto-notificacion">Holaaa</p>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+                <div class="profile-image">
+                    <img id="profile-image" src="img/perfiles-usuario/profile-feed.png" alt="">
+                </div>
+                <div class="profile-button">
+                    <button id="profile-button">Mi Perfil</button>
+                </div>
+            </div>
+        </div>
+        <!-- CONTAINER PRINCIPAL -->
+        <div class="main-container">
+            <!-- MENÚ LATERAL -->
+            <div class="menu-container">
+                <div class="inicio">
+                    <a href="feed.html"><img class="logos-menu-lateral" src="img/logos/Home.png" alt="inicio-logo"></a>
+                    <a href="feed.html">
+                        <h3>Inicio</h3>
+                    </a>
+                </div>
+                <div class="new-post">
+                    <img class="logos-menu-lateral" src="img/logos/Nuevo post.png" alt="newpost-logo">
+                    <h3>Nuevo post</h3>
+                </div>
+                <div class="contactos">
+                    <img class="logos-menu-lateral" src="img/logos/Contactos.png" alt="contactos-logo">
+                    <h3>Contactos</h3>
+                </div>
+                <div class="favoritos">
+                    <img class="logos-menu-lateral" src="img/logos/fav.png" alt="favs-logo">
+                    <h3>Favoritos</h3>
+                </div>
+                <div class="post-guardados">
+                    <img class="logos-menu-lateral" src="img/logos/guardados.png" alt="postguardados-logo">
+                    <h3>Posts guardados</h3>
+                </div>
+                <div class="suggestions">
+                    <img class="logos-menu-lateral" src="img/logos/Sugerencias.png" alt="suggestions-logo">
+                    <h3>Sugerencias</h3>
+                </div>
+                <div class="advanced-search">
+                    <img class="logos-menu-lateral" src="img/logos/advanced-search.png" alt="suggestions-logo">
+                    <h3>Encontrá veterinarios</h3>
+                </div>
+                <div class="settings">
+                    <img class="logos-menu-lateral" src="img/logos/Ajustes.png" alt="settings-logo">
+                    <h3>Ajustes</h3>
+                </div>
+                <div class="logout">
+                    <a href="home.html"> <img class="logos-menu-lateral" src="img/logos/logout.png"
+                            alt="logout-logo"></a>
+                    <a href="home.html">
+                        <h3>Cerrar sesión</h3>
+                    </a>
+
+                </div>
+            </div>
+            <!-- FEED -->
+
+            <div class="feed-container">
+                <h1 class="titulo-busqueda-avanzada">Búsqueda Avanzada</h1>
+                <div class="search-form">
+
+                    <form action="">
+
+                        <div class="label-type">
+                            <label for="Profesion">Profesión</label>
+                        </div>
+                        <div class="input-search">
+                            <input class="input-search-text" type="text" name="" id="">
+                        </div>
+                        <div class="label-type">
+                            <label for="Profesion">Apellido</label>
+                        </div>
+                        <div class="input-search">
+                            <input class="input-search-text" type="text" name="" id="">
+                        </div>
+                        <div class="label-type">
+                            <label for="Profesion">Ubicación</label>
+                        </div>
+                        <div class="input-search">
+                            <input class="input-search-text" type="text" name="" id="">
+                        </div>
+
+                    </form>
+                    <div class="button-container">
+                        <button id="btn-go-to-search">REALIZAR BÚSQUEDA</button>
+                    </div>
+
+
+
+                </div>
+
+                <div id="ring-loader">
+                    
+                </div>
+
+                <!-- RESULTADO BÚSQUEDA AVANZADA -->
+                <div id="resultado-busqueda-avanzada">
+                    <div class="publicacion-feed">
+                        <div class="datos-usuario">
+                            <img class="img-usuario-resultado" src="img/perfiles-usuario/malena-lopez.png" alt="">
+                            <h3>Mascotas en Adopción</h3>
+                            <img class="btn-addFriend" src="img/logos/addFriend.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+
+
+            <!-- PUBLICIDADES & CHAT -->
+            <div class="interactions-container">
+                <!-- PUBLICIDAD -->
+                <div class="advertisenments-container">
+                    <img id="publicidad-feed" src="img/publicidad-feed.png" alt="publicidad-feed">
+                </div>
+                <!-- CHAT -->
+                <div class="chat-list-container">
+                    <div id="chat-feed-bar">
+                        <p>Chats</p>
+                        <img id="chat-feed-img" src="img/logos/chat-feed.png" alt="">
+                    </div>
+                    <div class="usuarios-chat">
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/agustina-lopez.png" alt="">
+                            <h4>Agustina López</h4>
+                        </div>
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/analia-juarez.png" alt="">
+                            <h4>Analía Juárez</h4>
+                        </div>
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/enrique-areco.png" alt="">
+                            <h4>Enrique Areco</h4>
+                        </div>
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/juan-perez.png" alt="">
+                            <h4>Juan Pérez</h4>
+                        </div>
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/emanuel-garcia.png" alt="">
+                            <h4>Emanuel García</h4>
+                        </div>
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/malena-lopez.png" alt="">
+                            <h4>Malena López</h4>
+                        </div>
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/maria-perez.png" alt="">
+                            <h4>María Pérez</h4>
+                        </div>
+                        <!-- Acá ya se repiten -->
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/juan-perez.png" alt="">
+                            <h4>Juan Pérez</h4>
+                        </div>
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/emanuel-garcia.png" alt="">
+                            <h4>Emanuel García</h4>
+                        </div>
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/malena-lopez.png" alt="">
+                            <h4>Malena López</h4>
+                        </div>
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/maria-perez.png" alt="">
+                            <h4>María Pérez</h4>
+                        </div>
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/juan-perez.png" alt="">
+                            <h4>Juan Pérez</h4>
+                        </div>
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/emanuel-garcia.png" alt="">
+                            <h4>Emanuel García</h4>
+                        </div>
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/malena-lopez.png" alt="">
+                            <h4>Malena López</h4>
+                        </div>
+                        <div class="usuario-chat">
+                            <img class="img-usuario-chat" src="img/perfiles-usuario/maria-perez.png" alt="">
+                            <h4>María Pérez</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/notifications.js"></script>
+    <script src="js/advanced-search.js"></script>
+</body>
+
+</html>
