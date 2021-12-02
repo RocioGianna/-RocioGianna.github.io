@@ -397,7 +397,7 @@ ul li:hover .texto-notificacion{
 
 .datos-usuario{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     padding-top: 15px;
 }
