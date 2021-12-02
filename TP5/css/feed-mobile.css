@@ -29,11 +29,22 @@ header{
     border: none;
 }
 
+a:visited, a:link{
+    color: black;
+    text-decoration: none;
+}
+
 /*MAIN CONTENEDOR FEED*/
 main{
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+    margin-top: 5px;
+   
+    overflow-y: scroll;
+    height: 50%;
+    width: 100%;
 }
 
 /*POST PERSONAL*/
@@ -143,11 +154,13 @@ footer button{
 
 #menu{
     background-color: #F9F9F9;
-    width: 100%;
+    width: 90%;
 }
 .perfil{
     display: flex;
     align-items: center;
+    width: 100.5%;
+    
 }
 .img-perfil{
     width: 60px;
@@ -158,10 +171,23 @@ footer button{
 .logos-menu-lateral{
     margin: 10px;
 }
+
+.menu-container{
+    border-right: 1px solid black;
+}
 .nav{
     width: 100%;
-    border: solid 1px;
+    border-top: solid 1px;
     display: flex;
     align-items: center;
     height: 53px;
+}
+
+
+.cerrar{
+    border-bottom: 1px solid black;
+}
+
+.chat-logo{
+    width: 20px;
 }
