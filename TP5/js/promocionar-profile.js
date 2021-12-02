@@ -3,7 +3,7 @@ boton.addEventListener("click", promocionar);
 
 function promocionar(){
     boton.style.display = "none";
-    let resultado = document.getElementById("texto-promocion");
-    resultado.style.display = "block";
+    let resultado = document.getElementById("oculto");
+    resultado.style.display = "flex";
 }
 

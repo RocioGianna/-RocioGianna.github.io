@@ -105,7 +105,7 @@ body{
     color: white;
     width: 151px;
     height: 40px;
-    margin-left: 5px;
+    margin-left: 0px;
 }
 
 /* CONTAINER PRINCIPAL */
@@ -196,7 +196,7 @@ body{
     margin-right: 7px;
 }
 
-.new-post, .contactos, .favoritos, .post-guardados, .suggestions, .advanced-search, .settings, .logout{
+.new-post, .contactos, .favoritos, .post-guardados, .suggestions, .advanced-search, .settings, .logout, .promocionar{
     display: flex;
     align-items: center;
     border-right: 1px solid black;
@@ -204,7 +204,7 @@ body{
     padding-left: 10px;
 }
 
-.advanced-search{
+.promocionar{
     background-color: #BFA0D7;
 }
 
@@ -382,7 +382,7 @@ body{
 /* NOTIFICACIONES */
 
 .notifications, #profile-image{
-    margin-right: 20px;
+    margin-right: 10px;
     width: 45px;
     height: 45px;
 }

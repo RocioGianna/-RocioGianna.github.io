@@ -268,13 +268,14 @@ body{
     resize: none;
 }
 
-.publicacion-feed{
+.publicacion-feed, .publicacion-feed-resultado{
     background-color: #F2F2F2;
     border-radius: 8px;
     margin-bottom: 15px;
     width: 900px;
     margin-left: 35px;
 }
+
 
 .cuerpo-publicacion{
     color:#427C9D; /* ACOMODAR */
@@ -567,8 +568,8 @@ ul li:hover .texto-notificacion{
     border: 16px solid #f3f3f3;
     border-radius: 50%;
     border-top: 16px solid #6C3088;
-    width: 300px;
-    height: 300px;
+    width: 75px;
+    height: 75px;
     background-color: #E0E0E0;
     -webkit-animation: spin 2s linear infinite; /* Safari */
     animation: spin 2s linear infinite;
@@ -576,7 +577,7 @@ ul li:hover .texto-notificacion{
     align-items: center;
     justify-content: center;
     margin-right: 250px;
-    margin-left: 300px;
+    margin-left: 400px;
     margin-top: 50px
   }
   

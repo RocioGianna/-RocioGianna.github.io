@@ -39,11 +39,12 @@
     filter: blur(1.5px);
     background-image: url("../img/layer2.png");
 }
-p{
+.ayudas-usuario{
   font-size: 13px;
   color: #1F1F1F;
   font-style: oblique;
-  margin: 0;
+  margin-bottom: 5px;
+  margin-top: 0px;
 }
   /* Global Stylings */
   label {
@@ -148,8 +149,31 @@ p{
   }
   
   .input-group {
-    margin: 2rem 0;
+    margin-bottom: 15px;
+    margin-top: 0px;
+    align-items: center;
   }
+
+ 
+
+  .titulos-form-login{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0px;
+    font-size: 22px;  
+    
+  }
+
+  
+
+  .texto-titulos-login{
+    font-size: 17px;
+    font-weight: bold;   
+    padding-left: 5px; 
+    margin-bottom: 3px; 
+  }
+  
   h3{
     font-weight: inherit;
   }
@@ -176,7 +200,8 @@ p{
   
   .btn {
     padding: 0.75rem;
-    display: block;
+    display: flex;
+    justify-content: center;
     text-decoration: none;
     background-color: var(--btn-color);
     color: #f3f3f3;
@@ -208,6 +233,17 @@ footer a{
     text-decoration: none;
 }
 
+.btn-ingreso{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.input-form{
+  margin: 0;
+}
+
 @media (min-width: 1500px){
 
     .logo{
@@ -215,4 +251,13 @@ footer a{
         left: 30%;
         height: 150px;
     }
+}
+
+.texto-inferior{
+  text-align: center;
+}
+
+.siguiente-primer-paso{
+  display: flex;
+  justify-content: flex-start;
 }
