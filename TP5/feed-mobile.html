@@ -9,18 +9,254 @@
 </head>
 <body>
     <header>
-        <button class="menu">Menú</button>
-        <img style="height: 70px;" src="img/Logo2 - copia.png" alt="">
+        <button id="btn-menu" class="menu">Menú</button>
+        <img style="height: 60px;" src="img/Logo2 - copia.png" alt="">
         <button class="chat"><img src="img/logos/chat-feed.png" alt=""></button>
     </header>
-    <main></main>
-    <footer>
-        <div>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
+    <main>
+        <div id="menu" style="display: none;">
+            <div class="perfil">
+                <img class="img-perfil" src="img/perfiles-usuario/profile-feed.png" alt="">
+                <p>agustina_sanchez@gmail.com</p>
+                <img src="img/logos/dropdown.png" alt="">
+            </div>
+            <div class="menu-container">
+                <div class="nav">
+                    <img class="logos-menu-lateral" src="img/logos/Home.png" alt="inicio-logo">
+                    <h3>Inicio</h3>
+                </div>
+                <div class="nav">
+                    <img class="logos-menu-lateral" src="img/logos/Nuevo post.png" alt="newpost-logo">
+                    <h3>Nuevo post</h3>
+                </div>
+                <div class="nav">
+                    <img class="logos-menu-lateral" src="img/logos/Contactos.png" alt="contactos-logo">
+                    <h3>Contactos</h3>
+                </div>
+                <div class="nav">
+                    <img class="logos-menu-lateral" src="img/logos/fav.png" alt="favs-logo">
+                    <h3>Favoritos</h3>
+                </div>
+                <div class="nav">
+                    <img class="logos-menu-lateral" src="img/logos/guardados.png" alt="postguardados-logo">
+                    <h3>Posts guardados</h3>
+                </div>
+                <div class="nav">
+                    <img class="logos-menu-lateral" src="img/logos/Sugerencias.png" alt="suggestions-logo">
+                    <h3>Sugerencias</h3>
+                </div>
+                <div class="nav">
+                    <img class="logos-menu-lateral" src="img/logos/advanced-search.png" alt="suggestions-logo">
+                    <h3>Encontrá veterinarios</h3>
+                </div>
+                <div class="nav">
+                    <img class="logos-menu-lateral" src="img/logos/Ajustes.png" alt="settings-logo">
+                    <h3>Ajustes</h3>
+                </div>
+                <div class="nav">
+                    <a href="home-login.html"> <img class="logos-menu-lateral" src="img/logos/logout.png"
+                            alt="logout-logo"></a>
+                    <a href="home-login.html">
+                        <h3>Cerrar sesión</h3>
+                    </a>
+
+                </div>
+            </div>
         </div>
+        <div class="new-publication-feed">
+                <img class="img-usuario-new-publication" src="img/perfiles-usuario/profile-feed.png" alt="">
+            <div class="new-publication-area">
+                <textarea class="new-post-text" name="" id="" cols="104"
+                    rows="5">Escribe aquí tu publicación..</textarea>
+                    <img class="publicar-feed" src="img/logos/send.png" alt="send">
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <img class="img-usuario" src="img/perfiles-usuario/emanuel-garcia.png" alt=""> 
+                <h5>Emanuel Garcia</h5>
+            </div>
+            <div class="contenido">
+               <p> Buen día comunidad, el día de hoy no voy a estar dando turnos ya que tengo una urgencia con uno de mis pacientes. Por urgencias me pueden mandar msj a mi nùmero personal.</p>
+            </div>
+            <div class="reacciones-publicacion-feed">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/good.png"
+                    alt="good">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/bad.png" alt="bad">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/like.png"
+                    alt="like">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/fav.png" alt="fav">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/save.png"
+                    alt="save">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/share.png"
+                    alt="share">
+            </div>
+            <div class="mostrar-comentarios">
+                <h6>Ver todos los comentarios</h6>
+                <img class="button-drop-down" src="img/logos/dropdown.png" alt="dropdown">
+            </div>
+            <div class="new-comment">
+                <div class="img-new-publicacion">
+                    <img class="img-usuario-new-comment" src="img/perfiles-usuario/profile-feed.png" alt="">
+                </div>
+                <div class="new-comment-area">
+                    <textarea class="new-comment-text" name="" id="" cols="104"
+                        rows="5">Deja tu comentario..</textarea>
+                </div>
+                <img class="send-comentario-publicacion" src="img/logos/send.png" alt="send">
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <img class="img-usuario" src="img/perfiles-usuario/analia-juarez.png" alt=""> 
+                <h5>Analia Juarez</h5>
+            </div>
+            <div class="contenido">
+                <img class="img-publicacion" src="img/publicaciones/perro.jpg" alt="">
+               <p> Buen día a todos!</p>
+            </div>
+            <div class="reacciones-publicacion-feed">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/good.png"
+                    alt="good">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/bad.png" alt="bad">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/like.png"
+                    alt="like">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/fav.png" alt="fav">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/save.png"
+                    alt="save">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/share.png"
+                    alt="share">
+            </div>
+            <div class="mostrar-comentarios">
+                <h6>Ver todos los comentarios</h6>
+                <img class="button-drop-down" src="img/logos/dropdown.png" alt="dropdown">
+            </div>
+            <div class="new-comment">
+                <div class="img-new-publicacion">
+                    <img class="img-usuario-new-comment" src="img/perfiles-usuario/profile-feed.png" alt="">
+                </div>
+                <div class="new-comment-area">
+                    <textarea class="new-comment-text" name="" id="" cols="104"
+                        rows="5">Deja tu comentario..</textarea>
+                </div>
+                <img class="send-comentario-publicacion" src="img/logos/send.png" alt="send">
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <img class="img-usuario" src="img/perfiles-usuario/agustina-lopez.png" alt=""> 
+                <h5>Agustina Lopez</h5>
+            </div>
+            <div class="contenido">
+                <img class="img-publicacion" src="img/publicaciones/mirada-perros.png" alt="">
+               <p> Les presento a Tobi :D </p>
+            </div>
+            <div class="reacciones-publicacion-feed">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/good.png"
+                    alt="good">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/bad.png" alt="bad">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/like.png"
+                    alt="like">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/fav.png" alt="fav">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/save.png"
+                    alt="save">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/share.png"
+                    alt="share">
+            </div>
+            <div class="mostrar-comentarios">
+                <h6>Ver todos los comentarios</h6>
+                <img class="button-drop-down" src="img/logos/dropdown.png" alt="dropdown">
+            </div>
+            <div class="new-comment">
+                <div class="img-new-publicacion">
+                    <img class="img-usuario-new-comment" src="img/perfiles-usuario/profile-feed.png" alt="">
+                </div>
+                <div class="new-comment-area">
+                    <textarea class="new-comment-text" name="" id="" cols="104"
+                        rows="5">Deja tu comentario..</textarea>
+                </div>
+                <img class="send-comentario-publicacion" src="img/logos/send.png" alt="send">
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <img class="img-usuario" src="img/perfiles-usuario/malena-lopez.png" alt=""> 
+                <h5>Malena Lopez</h5>
+            </div>
+            <div class="contenido">
+                <p>Miren esta noticia <a href="#">www.noticiasAnimales.com</a></p>
+            </div>
+            <div class="reacciones-publicacion-feed">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/good.png"
+                    alt="good">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/bad.png" alt="bad">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/like.png"
+                    alt="like">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/fav.png" alt="fav">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/save.png"
+                    alt="save">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/share.png"
+                    alt="share">
+            </div>
+            <div class="mostrar-comentarios">
+                <h6>Ver todos los comentarios</h6>
+                <img class="button-drop-down" src="img/logos/dropdown.png" alt="dropdown">
+            </div>
+            <div class="new-comment">
+                <div class="img-new-publicacion">
+                    <img class="img-usuario-new-comment" src="img/perfiles-usuario/profile-feed.png" alt="">
+                </div>
+                <div class="new-comment-area">
+                    <textarea class="new-comment-text" name="" id="" cols="104"
+                        rows="5">Deja tu comentario..</textarea>
+                </div>
+                <img class="send-comentario-publicacion" src="img/logos/send.png" alt="send">
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <img class="img-usuario" src="img/perfiles-usuario/analia-juarez.png" alt=""> 
+                <h5>Analia Juarez</h5>
+            </div>
+            <div class="contenido">
+               <p>Hoy en la veterinaria del centro vamos a estar juntando donaciones para operar un gatito de la calle. Los espero!</p>
+            </div>
+            <div class="reacciones-publicacion-feed">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/good.png"
+                    alt="good">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/bad.png" alt="bad">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/like.png"
+                    alt="like">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/fav.png" alt="fav">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/save.png"
+                    alt="save">
+                <img class="iconos-reacciones-publicacion" src="img/reacciones-publicaciones/share.png"
+                    alt="share">
+            </div>
+            <div class="mostrar-comentarios">
+                <h6>Ver todos los comentarios</h6>
+                <img class="button-drop-down" src="img/logos/dropdown.png" alt="dropdown">
+            </div>
+            <div class="new-comment">
+                <div class="img-new-publicacion">
+                    <img class="img-usuario-new-comment" src="img/perfiles-usuario/profile-feed.png" alt="">
+                </div>
+                <div class="new-comment-area">
+                    <textarea class="new-comment-text" name="" id="" cols="104"
+                        rows="5">Deja tu comentario..</textarea>
+                </div>
+                <img class="send-comentario-publicacion" src="img/logos/send.png" alt="send">
+            </div>
+        </div>
+    </main>
+    <footer id="footer">
+        <button><img class="img-footer" src="img/iconos-mobile/Home.png" alt=""></button>
+        <button><img class="img-footer" src="img/iconos-mobile/Lupa.png" alt=""></button>
+        <button><img class="img-footer" src="img/iconos-mobile/Notificaiones.png" alt=""></button>
+        <button><img class="img-footer" src="img/iconos-mobile/Nuevo post.png" alt=""></button>
     </footer>
+
+
+    <script src="js/menu-mobile.js"></script>
 </body>
 </html>
