@@ -163,4 +163,5 @@ footer button{
     border: solid 1px;
     display: flex;
     align-items: center;
+    height: 53px;
 }
