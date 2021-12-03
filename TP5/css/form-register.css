@@ -158,6 +158,10 @@
     display: flex;
     justify-content: center;
   }
+  #hola a{
+    text-decoration: none;
+    color: white;
+  }
  
 
   .titulos-form-login{
