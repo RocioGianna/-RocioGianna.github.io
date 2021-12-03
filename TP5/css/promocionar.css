@@ -532,6 +532,10 @@ ul li:hover .texto-notificacion{
     height: 35px;
 }
 
+#btn-go-to-premium:hover{
+    background-color:#275671;
+}
+
 .input-search{
     margin-bottom: 10px;
 }
