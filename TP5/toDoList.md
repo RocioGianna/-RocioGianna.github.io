@@ -9,7 +9,7 @@ Entregable 5
 - ~~Acomodar logo en el form del login.t~~
 
 ## Registros
-- ~~Hacer registros con dos opciones (que salga todo bien o cuando comete un error el usuario)?~~
+- ~~Hacer registros con dos opciones (que salga todo bien o cuando comete un error el usuario)?~~~
 
 ## Navabar
 0. ~~Agregar ícono home.~~
