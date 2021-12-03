@@ -194,6 +194,10 @@ ul li:hover .texto-notificacion{
     margin-left: 5px;
 }
 
+#profile-button:hover{
+    background-color:#275671;
+}
+
 /* CONTAINER PRINCIPAL */
 
 /* NEW PUBLICATION */
@@ -590,4 +594,9 @@ ul li:hover .texto-notificacion{
     font-size: 12px;
     margin-right: 5px;
     margin-left: 5px;
+}
+
+.main-sugerencia{
+    justify-content: flex-start;
+    padding-left: 50px;
 }

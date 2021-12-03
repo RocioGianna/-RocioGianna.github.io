@@ -150,17 +150,21 @@
   
   .input-group {
     margin-bottom: 15px;
-    margin-top: 0px;
+    margin-top: 20px;
     align-items: center;
   }
 
+  #hola{
+    display: flex;
+    justify-content: center;
+  }
  
 
   .titulos-form-login{
     display:flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 0px;
+    margin-bottom: 8px;
     font-size: 22px;  
     
   }

@@ -108,7 +108,11 @@ body{
     color: white;
     width: 151px;
     height: 40px;
-    margin-left: 5px;
+    margin-left: 0px;
+}
+
+#profile-button:hover{
+    background-color:#275671;
 }
 
 /* MAIN CONTAINER*/
@@ -357,7 +361,7 @@ body{
 /* NOTIFICACIONES */
 
 .notifications, #profile-image{
-    margin-right: 20px;
+    margin-right: 18px;
     width: 45px;
     height: 45px;
 }

@@ -105,9 +105,8 @@ body{
     color: white;
     width: 151px;
     height: 40px;
-    margin-left: 5px;
+    margin-left: 0px;
 }
-
 /* CONTAINER PRINCIPAL */
 
 /* NEW PUBLICATION */
@@ -383,7 +382,7 @@ body{
 /* NOTIFICACIONES */
 
 .notifications, #profile-image{
-    margin-right: 20px;
+    margin-right: 18px;
     width: 45px;
     height: 45px;
 }
@@ -560,6 +559,10 @@ ul li:hover .texto-notificacion{
 
 .resultado-busqueda-avanzada{
     display: none;
+}
+
+#profile-button:hover{
+    background-color:#275671;
 }
 
 /* RING LOADER */

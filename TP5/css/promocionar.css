@@ -108,6 +108,10 @@ body{
     margin-left: 0px;
 }
 
+#profile-button:hover{
+    background-color:#275671;
+}
+
 /* CONTAINER PRINCIPAL */
 
 /* NEW PUBLICATION */
@@ -382,7 +386,7 @@ body{
 /* NOTIFICACIONES */
 
 .notifications, #profile-image{
-    margin-right: 10px;
+    margin-right: 18px;
     width: 45px;
     height: 45px;
 }
